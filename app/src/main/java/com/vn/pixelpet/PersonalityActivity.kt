@@ -45,6 +45,19 @@ class PersonalityActivity : Activity() {
             getString(R.string.personality_says) + " \"" +
                 speaker.nextLine(personality.archetype(), PetRenderer.Mood.CONTENT) + "\""
 
+        // v3 Phase 3: "Pip learned" lines from the Native Brain — shown only
+        // once the pet has ~3 days of data; otherwise the honest
+        // "still getting to know you" copy stays.
+        val variantId = VariantRoster.variantForSpeciesId(repo.snapshot().speciesId).id
+        val prefsB = getSharedPreferences(NativeBrain.PREFS_NAME, MODE_PRIVATE)
+        val savedBrain = prefsB.getString(NativeBrain.KEY_JSON, null)
+        val brain = savedBrain?.let { NativeBrain.fromJson(it, variantId) }
+        val learned = brain?.learnedLines(System.currentTimeMillis()) ?: emptyList()
+        if (learned.isNotEmpty()) {
+            findViewById<TextView>(R.id.personality_learned).text =
+                learned.joinToString("\n\u2022 ", prefix = "\u2022 ")
+        }
+
         val rows = findViewById<LinearLayout>(R.id.trait_rows)
         val labels = listOf(
             R.string.personality_trait_playful,
