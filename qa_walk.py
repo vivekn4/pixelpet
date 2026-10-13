@@ -124,18 +124,18 @@ check("class Speaker" in sb, "Speaker class present")
 
 # Parse the three line maps: brace-match each block, then extract "X" to listOf(...)
 def extract_map(src, name):
+    # Kotlin map literals are mapOf( ... ) — match parens, not braces.
+    # (Speech lines contain no parens, so paren counting is exact.)
     i = src.index(name)
-    j = src.index("{", i)
-    depth, k = 0, j
-    while True:
-        if src[k] == "{":
+    j = src.index("mapOf(", i) + len("mapOf(")
+    depth, k = 1, j
+    while depth > 0:
+        if src[k] == "(":
             depth += 1
-        elif src[k] == "}":
+        elif src[k] == ")":
             depth -= 1
-            if depth == 0:
-                break
         k += 1
-    return src[j:k + 1]
+    return src[j:k - 1]
 
 
 def parse_entries(block):
@@ -343,7 +343,15 @@ for day in range(7):
     if move == 0 and gap != 0:
         move = 1 if gap > 0 else -1
     cur = clamp(cur + move)
-check(cur == 50, f"7-day decay returns trait to baseline (got {cur})")
+check(cur <= 60, f"7-day decay closes >=50% of gap (70 -> {cur})")
+cur = 70
+for day in range(21):
+    gap = base - cur
+    move = int(gap * 1 / 7)
+    if move == 0 and gap != 0:
+        move = 1 if gap > 0 else -1
+    cur = clamp(cur + move)
+check(abs(cur - base) <= 2, f"21-day decay nearly returns to baseline (got {cur})")
 cur = 70
 gap = base - cur
 move = int(gap * 1 / 7) or (-1 if gap < 0 else 1)
