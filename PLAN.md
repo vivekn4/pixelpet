@@ -1,1 +1,215 @@
-IyBQaXhlbFBldCDigJQgRGV2ZWxvcGVyIFBsYW4gKHYyKQoKPiBTdGF0dXM6IHYyIHNwZWMuIEF1dGhvcjogU3F1aXJ0IChhZ2VudCkgZm9yIFZpdmVrIE5haXIgKHZpdmVrbjQpLgo+IFN0YW5kaW5nIHJ1bGVzIGhvbm9yZWQ6IHplcm8tYnVkZ2V0IChubyBwYWlkIHNlcnZpY2VzLCBubyBBUEkga2V5cyksIFZOIHNpZ25hdHVyZSwKPiBtYXhpbWFsaXN0LWJ1dC10YXN0ZWZ1bCBTRlgvVkZYLCBwcm9mZXNzaW9uYWwgUkVBRE1FICsgc2NyZWVuc2hvdCwgR2l0SHViIEFjdGlvbnMKPiBkZWJ1Zy1BUEsgYnVpbGQsIHRlc3QtYmVmb3JlLWNsYWltaW5nLgo+IENvbXBhbmlvbiBkb2NzOiBbRkxPVy5tZF0oRkxPVy5tZCkgKE1lcm1haWQgZmxvdyBjaGFydHMpLCBbQVJULm1kXShBUlQubWQpIChhbmltYXRpb24gYmlibGUpLgoKIyMgMS4gV2hhdCBpdCBpcyAodjIpCgoqKlBpeGVsUGV0Kiog4oCUIGEgcGl4ZWwtYXJ0IHZpcnR1YWwgcGV0IHRoYXQgbGl2ZXMgb24geW91ciAqKmxvY2sgc2NyZWVuKiogKHZpYSBsaXZlCndhbGxwYXBlciksIHlvdXIgKipob21lIHNjcmVlbioqICh3aWRnZXQpLCBhbmQgaW4gYSBmdWxsIGFwcC4gWW91IHJhaXNlICoqUGlwKiogdGhyb3VnaAp0aHJlZSBwZXQgY2F0ZWdvcmllcyDigJQgKipOb3JtYWwg4oaSIFdpbGQg4oaSIE15c3RpY2FsKiog4oCUIHVubG9ja2VkIGJ5IGNvbnNpc3RlbnQgY2FyZSwKbG9uZy10ZXJtIGFjaGlldmVtZW50cywgb3IgYSBwcmVtaXVtIGxpY2Vuc2Uga2V5LgoKVGhlIGNvcmUgbG9vcCBpcyB1bmNoYW5nZWQgaW4gc3Bpcml0IGFuZCBleHBhbmRlZCBpbiBkZXB0aDoKCi0gKipGZWVkaW5nKiogPSBjb21wbGV0aW5nIHJlYWwtbGlmZSBnb2FscyAoZ3ltLCBzdHVkeSwgc2hpcCBhIHZpZGVvKS4gUGx1cyBzbmFjayBmZWVkaW5nLgotICoqUGxheWluZyoqID0gdGFwLXRvLXBsYXkgaW50ZXJhY3Rpb24gKGVuZXJneSBjb3N0LCBoYXBwaW5lc3MgZ2FpbiwgZ2lnZ2xlIFNGWCkuCi0gKipBdHRlbnRpb24qKiA9IHBldHRpbmcgKGluLWFwcCBvciAqcmlnaHQgb24gdGhlIGxvY2stc2NyZWVuIHdhbGxwYXBlciogdmlhIHRvdWNoKS4KICBBIG5ldyAqKmF0dGVudGlvbiBtZXRlcioqIGRyYWlucyB3aGVuIFBpcCBpcyBpZ25vcmVkIOKAlCBQaXAgc2hvd3MgIm5lZWRzIGF0dGVudGlvbiIKICBzdGF0ZXMgYW5kIG51ZGdlcyB5b3UgKmJlZm9yZSogc3RhdHMgc3VmZmVyLgotICoqRG9vbXNjcm9sbGluZyoqID0gUGlwIHN1bGtzIChtYW51YWwgbG9nICsgb3B0aW9uYWwgb24tZGV2aWNlIFVzYWdlU3RhdHMgYXV0by1kZXRlY3QpLgogIERvY3VtZW50ZWQgYXBwcm94aW1hdGlvbjogWW91VHViZSBpcyBjb3VudGVkIHdob2xlc2FsZSDigJQgVXNhZ2VTdGF0cyBjYW5ub3QgZGlzdGluZ3Vpc2gKICBTaG9ydHMgZnJvbSBsb25nLWZvcm0sIHNvIGxvbmctZm9ybSBZb3VUdWJlIHRpbWUgYWxzbyBjb3VudHMgdG93YXJkIHRoZSB0aHJlc2hvbGQuCi0gKipTbGVlcCoqID0gc2NyZWVuIG9mZiAvIEFPRCBhY3RpdmUg4oaSIFBpcCBzbGVlcHMsIGRlY2F5IGRyb3BzIHRvIH4xMCUuCiAgU2NyZWVuIG9uIOKGkiB3YWtlIGFuaW1hdGlvbiArICJ3aGlsZSB5b3Ugd2VyZSBhd2F54oCmIiByZWNhcC4KCiMjIyAxLjEgSG9uZXN0IHBsYXRmb3JtIG5vdGVzIChkb2N1bWVudGVkLCBub3QgaGlkZGVuKQoKLSAqKkxvY2stc2NyZWVuIHdpZGdldHMgd2VyZSByZW1vdmVkIGluIEFuZHJvaWQgNS4wLioqIFRoZXJlIGlzIG5vIHN1cHBvcnRlZCBBUEkgdG8gcHV0CiAgYW4gaW50ZXJhY3RpdmUgd2lkZ2V0IG9uIHRoZSBsb2NrIHNjcmVlbi4gVGhlIHJlYWwgbWVjaGFuaXNtIGlzIGEgKipsaXZlIHdhbGxwYXBlcioqCiAgKGBXYWxscGFwZXJTZXJ2aWNlYCk6IG9uIFNhbXN1bmcgZGV2aWNlcyAoaW5jbC4gdGhlIHVzZXIncyBTMjYgVWx0cmEpIHRoZSBzeXN0ZW0gbGV0cwogIHlvdSBzZXQgYSAqc2VwYXJhdGUqIGxvY2stc2NyZWVuIHdhbGxwYXBlciwgc28gUGlwIGlzIHZpc2libGUgZXZlcnkgdGltZSB0aGUgcGhvbmUgd2FrZXMuCiAgT24gUGl4ZWxzIHRoZSBzYW1lIHdhbGxwYXBlciBjb3ZlcnMgaG9tZSArIGxvY2sgdW5sZXNzIHRoZSB1c2VyIHBpY2tzIG90aGVyd2lzZS4KLSAqKlRoaXJkLXBhcnR5IGFwcHMgY2Fubm90IGRyYXcgb24gQWx3YXlzLU9uIERpc3BsYXkuKiogVGhpcyBpcyBhIGhhcmQgc3lzdGVtIGxpbWl0YXRpb24uCiAgRGVzaWduIGFuc3dlcjogYEFDVElPTl9TQ1JFRU5fT0ZGYCAod2hpY2ggaXMgYWxzbyB3aGVuIEFPRCB0YWtlcyBvdmVyKSDihpIgUGlwIGVudGVycwogIFNMRUVQOiBzdGF0IGRlY2F5IGRyb3BzIHRvIH4xMCUsIGFuZCBvbiBuZXh0IHdha2UgdGhlIHBldCBzaG93cyB0aGUgc2xlZXBpbmcgYW5pbWF0aW9uCiAgYnJpZWZseSwgdGhlbiB0aGUgd2FrZSBhbmltYXRpb24gKyByZWNhcC4gVGhlIHBldCBuZXZlciBwcmV0ZW5kcyB0byBiZSBvbiB0aGUgQU9ELgotICoqYEFDVElPTl9TQ1JFRU5fT0ZGYCAvIGBBQ1RJT05fU0NSRUVOX09OYCBjYW5ub3QgYmUgcmVjZWl2ZWQgdmlhIG1hbmlmZXN0IHJlY2VpdmVycy4qKgogIFRoZXkgbXVzdCBiZSByZWdpc3RlcmVkIGR5bmFtaWNhbGx5IGF0IHJ1bnRpbWUuIFNsZWVwL3dha2UgdHJhY2tpbmcgdGhlcmVmb3JlIHdvcmtzCiAgd2hpbGUgdGhlIGxpdmUtd2FsbHBhcGVyIGVuZ2luZSBvciB0aGUgYXBwIHByb2Nlc3MgaXMgYWxpdmUg4oCUIGRvY3VtZW50ZWQgaW4tYXBwIGFuZCBoZXJlLgoKIyMgMi4gUGV0IHJvc3RlciAmIHVubG9jayBwcm9ncmVzc2lvbgoKIyMjIDIuMSBDYXRlZ29yaWVzCgp8IENhdGVnb3J5IHwgU3BlY2llcyAodjIpIHwgUGFsZXR0ZSB8IFNpZ25hdHVyZSBmZWF0dXJlcyB8CnwtLS18LS0tfC0tLXwtLS18CnwgKipOb3JtYWwqKiAoc3RhcnRlcikgfCBDYXQsIERvZywgQnVubnksIEhhbXN0ZXIgfCBzb2Z0IHBhc3RlbHMgfCBlYXJzIC8gd2hpc2tlcnMgLyBsb25nIGVhcnMgLyBjaGVlayBwb3VjaGVzIHwKfCAqKldpbGQqKiAoc3RyZWFrcykgfCBXb2xmLCBGb3gsIFRpZ2VyLCBPd2wgfCBzYXR1cmF0ZWQgbmF0dXJhbHMgfCBwb2ludHkgZWFycywgc3RyaXBlcywgYmlnIG93bCBleWVzICsgYmVhayB8CnwgKipNeXN0aWNhbCoqIChhY2hpZXZlbWVudHMgLyBwcmVtaXVtKSB8IERyYWdvbiwgUGhvZW5peCwgVW5pY29ybiwgS3Jha2VuIHwgdml2aWQgKyBnbG93IGFjY2VudHMgfCBob3Jucywgd2luZ3MsIGNyZXN0LCBob3JuKyBtYW5lLCB0ZW50YWNsZXMgfAoKVGhlIHJlbmRlcmVyIHN0YXlzIHBhcmFtZXRyaWM6IG9uZSBibG9iIGJvZHkgKyBwZXItc3BlY2llcyBmZWF0dXJlIHNldCArIHBlci1zcGVjaWVzCnBhbGV0dGUgKyBwZXItbW9vZCBmYWNlIChzaGFyZWQgbW9vZCBzeXN0ZW0pLiBBZGRpbmcgYSBzcGVjaWVzID0gb25lIGVudW0gZW50cnkgd2l0aApjb2xvcnMgKyBmZWF0dXJlIGZsYWdzIOKAlCBubyBuZXcgYXJ0IHBpcGVsaW5lLgoKIyMjIDIuMiBVbmxvY2sgcHJvZ3Jlc3Npb24KCi0gKipOb3JtYWw6KiogYWxsIDQgYXZhaWxhYmxlIGZyb20gdGhlIHN0YXJ0LiBGaXJzdC1ydW4gcGlja2VyICgiY2hvb3NlIHlvdXIgUGlwIikuCi0gKipXaWxkKiog4oCUIHVubG9ja2VkIGJ5ICoqY2FyZSBzdHJlYWtzKiogKGEgImNhcmUgZGF5IiA9IOKJpTEgZ29hbCBjb21wbGV0ZWQgdGhhdCBkYXkpOgogIC0gV29sZjogNy1kYXkgY2FyZSBzdHJlYWsgwrcgRm94OiAxNC1kYXkgwrcgVGlnZXI6IDIxLWRheSDCtyBPd2w6IDMwLWRheQotICoqTXlzdGljYWwqKiDigJQgKiphY2hpZXZlbWVudHMgQU5EL09SIHByZW1pdW0qKiAoZWl0aGVyIHBhdGggd29ya3MpOgogIC0gRHJhZ29uOiA2MC1kYXkgY2FyZSBzdHJlYWsgKipvcioqIHByZW1pdW0KICAtIFBob2VuaXg6IDEwMCBsaWZldGltZSBnb2FscyBjb21wbGV0ZWQgKipvcioqIHByZW1pdW0KICAtIFVuaWNvcm46IDkwLWRheSBjYXJlIHN0cmVhayAqKm9yKiogcHJlbWl1bQogIC0gS3Jha2VuOiBwcmVtaXVtIG9ubHkgKHRoZSAid2hpdGUgd2hhbGUiIOKAlCBhc3BpcmF0aW9uYWwpCi0gVW5sb2NraW5nIGEgc3BlY2llcyB0cmlnZ2VycyB0aGUgKipldm9sdmUgY2VsZWJyYXRpb24qKjogZmFuZmFyZSBTRlggKyBwYXJ0aWNsZSBzdG9ybSArCiAgc3BlY2llcy1zZWxlY3QgY29uZmV0dGkuIFN3aXRjaGluZyBhY3RpdmUgcGV0IGlzIGZyZWUgYW5kIGluc3RhbnQ7IGVhY2ggcGV0IGtlZXBzIGl0cwogIG93biBzdGF0cyAocGVyLXBldCBzdGF0ZSBtYXAg4oCUIG5lZ2xlY3QgaGFzIGNvbnNlcXVlbmNlcywgYnV0IG5vIHBlcm1hZGVhdGggaW4gdjIpLgoKIyMjIDIuMyBQcmVtaXVtIHRpZXIKCi0gKipGcmVlOioqIGFsbCBOb3JtYWwgcGV0cyArIHRoZSBmdWxsIGNvcmUgY2FyZSBsb29wIChmZWVkL3BsYXkvYXR0ZW50aW9uL3NsZWVwKS4KLSAqKlByZW1pdW06KiogV2lsZCArIE15c3RpY2FsIGNhdGVnb3JpZXMgdW5sb2NrZWQgaW1tZWRpYXRlbHksIGV4Y2x1c2l2ZSBza2lucwogIChwZXItc3BlY2llcyBhbHQgcGFsZXR0ZXMpIGFuZCBleGNsdXNpdmUgYW5pbWF0aW9ucyAoYXVyYSBwYXJ0aWNsZXMsIGV2b2x1dGlvbiB0cmFpbHMpLAogIGV4dHJhIHBldCBzbG90cyAocmFpc2UgdXAgdG8gMyBzaW11bHRhbmVvdXNseSDigJQgdjIgc2hpcHMgMSBhY3RpdmUgKyBzbG90cyB1bmxvY2spLgotICoqQWN0aXZhdGlvbjogbGljZW5zZS1rZXkgZW50cnkgKEd1bXJvYWQgcGF0dGVybikuKiogTWFudWFsIGtleSBkZWxpdmVyeSBieSB0aGUgc2VsbGVyOwogIHRoZSBhcHAgdmFsaWRhdGVzICoqbG9jYWxseSoqIHdpdGggYW4gSE1BQy1TSEEyNTYgc2NoZW1lOgogIC0gS2V5IGZvcm1hdDogYFZOUFAtWFhYWFhYLVhYWFhYWC1YWFhYWFhgIChDcm9ja2ZvcmQgYmFzZTMyLCBubyBhbWJpZ3VvdXMgY2hhcnMpLgogIC0gUGF5bG9hZDogODAtYml0IGtleSBpZCArIDQ4LWJpdCBITUFDLVNIQTI1NihrZXkgaWQsIGVtYmVkZGVkIHNlY3JldCksIHZlcmlmaWVkIG9uIGRldmljZS4KICAtIFRoZSBzZWNyZXQgaXMgZW1iZWRkZWQgb2JmdXNjYXRlZCAoc3BsaXQgKyBYT1IpLiAqKkhvbmVzdCBub3RlOioqIGxvY2FsIHZhbGlkYXRpb24gaXMKICAgIG9iZnVzY2F0aW9uLCBub3QgRFJNIOKAlCBhcHByb3ByaWF0ZSBmb3IgaW5kaWUgR3Vtcm9hZC1zdHlsZSBzYWxlcywgbm90IGZvciBzdG9wcGluZwogICAgZGV0ZXJtaW5lZCBwaXJhY3kuIFBsYXkgQmlsbGluZyBpcyB0aGUgZG9jdW1lbnRlZCBmdXR1cmUgcGF0aC4KICAtIEVudGl0bGVtZW50cyByZS1jaGVja2VkIG9uIGV2ZXJ5IHByZW1pdW0tZ2F0ZWQgYWNjZXNzOyBrZXkgaWQgc3RvcmVkLCBrZXkgaXRzZWxmIG5vdC4KLSAqKlByaWNlOiBUT0RPIOKAlCB1c2VyJ3MgY2FsbC4qKiAoU3VnZ2VzdGVkIHRoaW5raW5nIGluIFJFQURNRTogb25lLXRpbWUsIG5vdCBzdWJzY3JpcHRpb24uKQoKIyMgMy4gQXJjaGl0ZWN0dXJlICh2MikKCioqU3RhY2s6KiogS290bGluLCBzaW5nbGUgYDphcHBgIG1vZHVsZSwgbWluU2RrIDI2IC8gdGFyZ2V0U2RrIDM0IC8gY29tcGlsZVNkayAzNC4KKipTdGlsbCB6ZXJvIGV4dGVybmFsIGRlcGVuZGVuY2llcyoqIOKAlCBmcmFtZXdvcmsgQVBJcyBvbmx5LgoKYGBgCmFwcC9zcmMvbWFpbi8K4pSc4pSA4pSAIEFuZHJvaWRNYW5pZmVzdC54bWwgICAgICAgICAgICAjICsgd2FsbHBhcGVyIHNlcnZpY2UsIHNjcmVlbiByZWNlaXZlciBub3RlcwrilJzilIDilIAgamF2YS9jb20vdm4vcGl4ZWxwZXQvCuKUgiAgIOKUnOKUgOKUgCBNYWluQWN0aXZpdHkua3QgICAgICAgICAgICAjIHBldCBzdGFnZSArIDQgc3RhdHMgKyBmZWVkL3BsYXkvcGV0L2Rvb21zY3JvbGwK4pSCICAg4pSc4pSA4pSAIFNwZWNpZXNBY3Rpdml0eS5rdCAgICAgICAgICMgcm9zdGVyIGdyaWQ6IGxvY2tlZC91bmxvY2tlZCwgc2VsZWN0LCBldm9sdmUgRlgK4pSCICAg4pSc4pSA4pSAIFByZW1pdW1BY3Rpdml0eS5rdCAgICAgICAgICMga2V5IGVudHJ5LCBlbnRpdGxlbWVudCBkaXNwbGF5CuKUgiAgIOKUnOKUgOKUgCBHb2Fsc0FjdGl2aXR5Lmt0ICAgICAgICAgICAjICh2MSwgZmVlZHMgcGV0IG9uIGNvbXBsZXRpb24pCuKUgiAgIOKUnOKUgOKUgCBBYm91dEFjdGl2aXR5Lmt0ICAgICAgICAgICAjIFZOIHNpZ25hdHVyZSwgaG9uZXN0IHBsYXRmb3JtIG5vdGVzCuKUgiAgIOKUnOKUgOKUgCBQZXRWaWV3Lmt0ICAgICAgICAgICAgICAgICAjIGNhbnZhcyBwZXQgKyBmdWxsIFZGWCBwYXJ0aWNsZSBlbmdpbmUK4pSCICAg4pSc4pSA4pSAIFBldFJlbmRlcmVyLmt0ICAgICAgICAgICAgICMgcGFyYW1ldHJpYyBzcGVjaWVzIHJlbmRlcmVyICgxMiBzcGVjaWVzIMOXIDggbW9vZHMpCuKUgiAgIOKUnOKUgOKUgCBTcGVjaWVzLmt0ICAgICAgICAgICAgICAgICAjIGVudW06IHBhbGV0dGUsIGZlYXR1cmVzLCB1bmxvY2sgcnVsZXMK4pSCICAg4pSc4pSA4pSAIFBldFN0YXRlLmt0ICAgICAgICAgICAgICAgICMgKyBzcGVjaWVzSWQsIGF0dGVudGlvbiwgc3RyZWFrcywgYWNoaWV2ZW1lbnRzCuKUgiAgIOKUnOKUgOKUgCBQZXRSZXBvc2l0b3J5Lmt0ICAgICAgICAgICAjIHNpbmdsZSBzb3VyY2Ugb2YgdHJ1dGggKHNlZSDCpzMuMSkK4pSCICAg4pSc4pSA4pSAIFVubG9ja01hbmFnZXIua3QgICAgICAgICAgICMgc3RyZWFrL2FjaGlldmVtZW50IGV2YWx1YXRpb24sIHVubG9jayBldmVudHMK4pSCICAg4pSc4pSA4pSAIFByZW1pdW1NYW5hZ2VyLmt0ICAgICAgICAgICMgSE1BQyBrZXkgdmFsaWRhdGlvbiwgZW50aXRsZW1lbnQgY2hlY2tzCuKUgiAgIOKUnOKUgOKUgCBTZnhFbmdpbmUua3QgICAgICAgICAgICAgICAjICsgZWF0L3BsYXkvcGV0L2V2b2x2ZS91bmxvY2sva2V5IFNGWArilIIgICDilJzilIDilIAgSGFwdGljcy5rdCAgICAgICAgICAgICAgICAgIyB2aWJyYXRpb24gcGF0dGVybnMgcGVyIGV2ZW50IChWaWJyYXRpb25FZmZlY3QpCuKUgiAgIOKUnOKUgOKUgCBHb2FsLmt0ICAgICAgICAgICAgICAgICAgICAjICh2MSkK4pSCICAg4pSc4pSA4pSAIHdhbGxwYXBlci8K4pSCICAg4pSCICAg4pSU4pSA4pSAIFBpeGVsV2FsbHBhcGVyU2VydmljZS5rdCAgIyBsb2NrLXNjcmVlbiBwZXQsIHRvdWNoID0gcGV0dGluZwrilIIgICDilJzilIDilIAgd2lkZ2V0LwrilIIgICDilIIgICDilJzilIDilIAgUGl4ZWxQZXRXaWRnZXRQcm92aWRlci5rdCAjIGZhY2UgYml0bWFwICsgUVVJQ0sgRkVFRCBidXR0b24K4pSCICAg4pSCICAg4pSU4pSA4pSAIFdpZGdldFVwZGF0ZUpvYi5rdArilIIgICDilJzilIDilIAgZG9vbXNjcm9sbC8gICAgICAgICAgICAgICAgIyAodjEpCuKUgiAgIOKUlOKUgOKUgCB1dGlsLwrilIIgICAgICAg4pSc4pSA4pSAIEJvb3RSZWNlaXZlci5rdArilIIgICAgICAg4pSU4pSA4pSAIFNjcmVlblJlY2VpdmVyLmt0ICAgICAgIyBkeW5hbWljIFNDUkVFTl9PRkYvT04g4oaSIHNsZWVwL3dha2UK4pSU4pSA4pSAIHJlcy8gICAgICAgICAgICAgICAgICAgICAgICAgICAjIGxheW91dHMgKyBkcmF3YWJsZXMgKyB2YWx1ZXMgKGFzIHYxLCBleHRlbmRlZCkKYGBgCgojIyMgMy4xIFNpbmdsZSBzb3VyY2Ugb2YgdHJ1dGgKCmBQZXRSZXBvc2l0b3J5YCByZW1haW5zIHRoZSAqKm9ubHkqKiB3cml0ZXIgb2YgcGV0IHN0YXRlLiBUaGUgbGl2ZSB3YWxscGFwZXIgZW5naW5lLCB0aGUKd2lkZ2V0IHByb3ZpZGVyL2pvYiwgYW5kIHRoZSBhY3Rpdml0aWVzIGFsbCByZWFkIHNuYXBzaG90cyBhbmQgcG9zdCBpbnRlbnRzL2FjdGlvbnMgYmFjawp0aHJvdWdoIHRoZSByZXBvc2l0b3J5IOKAlCBuZXZlciBob2xkaW5nIHRoZWlyIG93biBzdGF0IGNvcGllcy4gU2VlIEZMT1cubWQgwqcoZikuCgojIyMgMy4yIFN0YXRzICh2MikKCnwgU3RhdCB8IERlY2F5IHwgUmVzdG9yZXMgfCBBdCB6ZXJv4oCmIHwKfC0tLXwtLS18LS0tfC0tLXwKfCBIdW5nZXIgMOKAkzEwMCB8IOKIkjQvaHIgfCBnb2FsICsyMCDCtyBzbmFjayArMTAgKDE1LW1pbiBjb29sZG93bikgfCBTSUNLIHN0YXRlIGFmdGVyIDZoIGF0IDAgfAp8IEhhcHBpbmVzcyAw4oCTMTAwIHwg4oiSMy9ociAow5cyIHdoaWxlIGF0dGVudGlvbiA9IDApIHwgZ29hbCArMTUgwrcgcGxheSArMjAgwrcgcGV0ICs4IHwgU0FEIC8gU1VMS0lORyB8CnwgRW5lcmd5IDDigJMxMDAgfCDiiJIyL2hyIMK3ICs2L2hyIGF0IG5pZ2h0ICgyMuKAkzcpIHwgc2xlZXAsIGdvYWwgKzUgfCBTTEVFUElORyAoPDE1KSB8CnwgKipBdHRlbnRpb24gMOKAkzEwMCoqIHwgKiriiJI2L2hyIHdoaWxlIGlnbm9yZWQqKiB8ICoqcGV0ICsyNSDCtyBwbGF5ICsxMCoqIHwgIm5lZWRzIGF0dGVudGlvbiIgPDI1IOKGkiBudWRnZTsgMCDihpIgaGFwcGluZXNzIMOXMiBkZWNheSB8CgoiTmVlZHMgYXR0ZW50aW9uIjogZXhjbGFtYXRpb24gYnViYmxlIG92ZXIgdGhlIHBldCAod2FsbHBhcGVyL3dpZGdldC9hcHApICsgb25lCm5vdGlmaWNhdGlvbiBudWRnZSBwZXIgNGggKGNoYW5uZWwgYGF0dGVudGlvbmAsIEFQSSAyNisgY2hhbm5lbHM7IHJ1bnRpbWUgcGVybWlzc2lvbgpyZXF1ZXN0ZWQgb24gQVBJIDMzKykuCgojIyMgMy4zIENhcmUgYWN0aW9ucwoKLSAqKkZlZWQgKGdvYWwpOioqIGV4aXN0aW5nIOKAlCBnb2FsIGNvbXBsZXRlIOKGkiArMjAgaHVuZ2VyLysxNSBoYXBwaW5lc3MvKzUgZW5lcmd5LCBjb25mZXR0aS4KLSAqKkZlZWQgKHNuYWNrKToqKiB3aWRnZXQgcXVpY2stZmVlZCBidXR0b24gKyBhcHAgYnV0dG9uIOKAlCArMTAgaHVuZ2VyLCAxNS1taW4gY29vbGRvd24sCiAgbXVuY2ggU0ZYLCBoZWFydHMuCi0gKipQbGF5OioqIGFwcCBidXR0b24gKGFuZCB3YWxscGFwZXIgZG91YmxlLXRhcCkg4oCUIHBldCBqdW1wL3NwaW4sIOKIkjEwIGVuZXJneSwgKzIwCiAgaGFwcGluZXNzLCArMTAgYXR0ZW50aW9uLCBnaWdnbGUgU0ZYLCA1LW1pbiBjb29sZG93bi4KLSAqKlBldCAoYXR0ZW50aW9uKToqKiB0YXAvZHJhZyBvbiBwZXQgaW4gYXBwLCBvciAqKnRvdWNoIHRoZSBsaXZlIHdhbGxwYXBlcioqIOKAlAogICsyNSBhdHRlbnRpb24sICs4IGhhcHBpbmVzcywgcHVyciBTRlgsIGhlYXJ0IHBhcnRpY2xlcywgbGlnaHQgaGFwdGljIHRpY2suCi0gKipEb29tc2Nyb2xsIGxvZzoqKiDiiJIxNSBoYXBwaW5lc3MsIOKIkjUgZW5lcmd5LCAzMC1taW4gc3VsayAoYXMgdjEpLgoKIyMjIDMuNCBTbGVlcC93YWtlCgotIGBTY3JlZW5SZWNlaXZlcmAgKGR5bmFtaWNhbGx5IHJlZ2lzdGVyZWQgYnkgdGhlIHdhbGxwYXBlciBlbmdpbmUgYW5kIGJ5IE1haW5BY3Rpdml0eSk6CiAgLSBgQUNUSU9OX1NDUkVFTl9PRkZgIOKGkiBgUGV0UmVwb3NpdG9yeS5lbnRlclNsZWVwKClgOiBkZWNheSBtdWx0aXBsaWVyIDAuMcOXLCByZWNvcmQKICAgIGBzbGVlcFN0YXJ0YDsgcGV0IHNob3dzIFNMRUVQSU5HIG9uIG5leHQgcmVuZGVyLgogIC0gYEFDVElPTl9TQ1JFRU5fT05gIOKGkiBgd2FrZSgpYDogd2FrZSBhbmltYXRpb24sIFNGWCBzaGltbWVyLCBhbmQgYSByZWNhcCBsaW5lIOKAlAogICAgIldoaWxlIHlvdSB3ZXJlIGF3YXnigKYgaHVuZ2VyIOKIkjIsIFBpcCBtaXNzZWQgeW91ICgrYXR0ZW50aW9uIG51ZGdlIGlmIGxvdykuIgotIFdoaWxlIGFzbGVlcCB0aGUgd2FsbHBhcGVyIGVuZ2luZSBzdG9wcyBpdHMgZHJhdyBsb29wIChiYXR0ZXJ5KTsgd2lkZ2V0IHNob3dzIHRoZQogIHNsZWVwaW5nIGZhY2UuCgojIyMgMy41IExpdmUgd2FsbHBhcGVyCgpgUGl4ZWxXYWxscGFwZXJTZXJ2aWNlIDogV2FsbHBhcGVyU2VydmljZWAsIGVuZ2luZToKLSBEcmF3cyB0aGUgcGV0IChzYW1lIGBQZXRSZW5kZXJlcmApIGNlbnRlcmVkLCBzdWJ0bGUgc3RhcmZpZWxkL2dyYWRpZW50IGJnLCBhdCB+MzBmcHMKICBvbmx5IHdoaWxlIHZpc2libGUgKGBvblZpc2liaWxpdHlDaGFuZ2VkYCBnYXRlcyB0aGUgbG9vcCkuCi0gYG9uVG91Y2hFdmVudGA6IHRhcC9kcmFnIG9uIHBldCDihpIgYFBldFJlcG9zaXRvcnkucGV0KClgIChhdHRlbnRpb24gKyBoZWFydHMgKyBwdXJyKS4KICBEb3VibGUtdGFwIOKGkiBwbGF5IGFjdGlvbi4KLSBgb25PZmZzZXRzQ2hhbmdlZGA6IGdlbnRsZSBwYXJhbGxheCBvZiBiYWNrZ3JvdW5kIGxheWVycyAobWF4aW1hbGlzdCwgY2hlYXApLgotIEJhdHRlcnk6IG5vIGRyYXcgbG9vcCB3aGVuIG5vdCB2aXNpYmxlIG9yIHdoZW4gc2NyZWVuIG9mZi4KLSBTZXR0aW5ncyBob29rOiBgV2FsbHBhcGVyU2VydmljZWAgc2V0dGluZ3MgYWN0aXZpdHkg4oaSIG9wZW5zIHRoZSBhcHAncyBzcGVjaWVzIHBpY2tlci4KCiMjIDQuIExpa2VseSBidWdzIC8gcHJvYmxlbXMgYW5kIG1pdGlnYXRpb25zICh2MiBhZGRpdGlvbnMpCgp8ICMgfCBQcm9ibGVtIHwgTWl0aWdhdGlvbiB8CnwtLS18LS0tfC0tLXwKfCAxMyB8IFdhbGxwYXBlciBlbmdpbmUga2VlcHMgZHJhd2luZyB3aXRoIHNjcmVlbiBvZmYgKGJhdHRlcnkpIHwgR2F0ZSBsb29wIG9uIGBpc1Zpc2libGUgJiYgc2NyZWVuT25gOyBhbHNvIHN0b3Agb24gYG9uU3VyZmFjZURlc3Ryb3llZGAuIHwKfCAxNCB8IFRvdWNoIGNvb3JkaW5hdGVzIG9uIHdhbGxwYXBlciBtaXNhbGlnbmVkIChzY3JvbGwgb2Zmc2V0cykgfCBDb252ZXJ0IHdpdGggYHggLSBvZmZzZXQqd2lkdGhgIHVzaW5nIGBvbk9mZnNldHNDaGFuZ2VkYCB2YWx1ZXM7IGdlbmVyb3VzIGhpdCByYWRpdXMgKHBldCBib3VuZHMgw5cgMS40KS4gfAp8IDE1IHwgMTIgc3BlY2llcyDDlyA4IG1vb2RzID0gOTYgc3ByaXRlIHZhcmlhbnRzIOKAlCByZW5kZXJlciBidWdzIHwgUGFyYW1ldHJpYyBmZWF0dXJlcywgb25lIGNvZGUgcGF0aDsgcGVyLXNwZWNpZXMgZ29sZGVuIGJpdG1hcCB0ZXN0IHZpYSBgUGV0UmVuZGVyZXIucmVuZGVyYCBpbiBRQSBzY3JpcHQgKHBpeGVsLWRpZmYgYWdhaW5zdCBjaGVja2VkLWluIHJlZmVyZW5jZXMpLiB8CnwgMTYgfCBQcmVtaXVtIGtleSBzaGFyaW5nIC8gdHJpdmlhbCBieXBhc3MgfCBBY2NlcHQgYXMgb2JmdXNjYXRpb24tdGllcjsgcmF0ZS1saW1pdCBrZXkgZW50cnkgKDUgdHJpZXMg4oaSIDFoIGxvY2tvdXQpOyBQbGF5IEJpbGxpbmcgb24gcm9hZG1hcC4gfAp8IDE3IHwgQXR0ZW50aW9uLW5vdGlmaWNhdGlvbiBzcGFtIHwgT25lIG51ZGdlIHBlciA0aCBtYXg7IGF1dG8tY2FuY2VsbGVkIHdoZW4gYXR0ZW50aW9uIHJlY292ZXJzOyBjaGFubmVsIGxldHMgdXNlciBzaWxlbmNlLiB8CnwgMTggfCBTdHJlYWsgY2hlYXRpbmcgdmlhIGNsb2NrIGNoYW5nZSB8IFN0cmVha3MgdXNlIHdhbGwtY2xvY2sgKmRhdGVzKiAodXNlci12aXNpYmxlIGNvbmNlcHQpOyBkZWNheSB1c2VzIGVsYXBzZWRSZWFsdGltZSDigJQgZG9jdW1lbnRlZCBzcGxpdC4gfAp8IDE5IHwgTXVsdGlwbGUgcGV0cycgc3RhdGUgYmxvYXQgfCBQZXItcGV0IHN0YXRlIHN0b3JlZCBhcyBjb21wYWN0IEpTT04gbWFwOyBvbmx5IGFjdGl2ZSBwZXQgdGlja3MgKG90aGVycyBmcm96ZW4g4oCUIGRvY3VtZW50ZWQgYXMgInBldCBkYXljYXJlIikuIHwKfCAyMCB8IFdpZGdldCBxdWljay1mZWVkIHNwYW0gfCAxNS1taW4gY29vbGRvd24gcGVyc2lzdGVkOyBidXR0b24gZGlzYWJsZWQgc3RhdGUgcmVuZGVyZWQgaW50byBmYWNlIGJpdG1hcC4gfAoKKHYxIGl0ZW1zIDHigJMxMiBzdGlsbCBhcHBseS4pCgojIyA1LiBVSS9VWCB0aGlua2luZyAodjIpCgotICoqU3BlY2llcyBwaWNrZXI6KiogaG9yaXpvbnRhbCBjYXJkIGNhcm91c2VsOyBsb2NrZWQgc3BlY2llcyBzaG93IHNpbGhvdWV0dGUgKyB1bmxvY2sKICByZXF1aXJlbWVudCAoIvCflKUgMjEtZGF5IHN0cmVhayIgLyAi8J+RkSBQcmVtaXVtIik7IHRhcHBpbmcgYW4gdW5sb2NrZWQgc3BlY2llcyBwbGF5cyB0aGUKICBldm9sdmUgY2VsZWJyYXRpb24gaW5saW5lLgotICoqV2lkZ2V0IHYyOioqIGZhY2UgYml0bWFwIChwZXQgKyA0IG1pbmkgYmFycyArIGF0dGVudGlvbiBidWJibGUgaWYgbmVlZGVkKSArIGEgZ29sZAogICoqIkZlZWQg8J+NqiIqKiBxdWljayBidXR0b24gYmVuZWF0aDsgdGFwIHBldCDihpIgYXBwLCB0YXAgZmVlZCDihpIgc25hY2sgKGNvb2xkb3duLWF3YXJlKS4KLSAqKkFwcCBob21lOioqIHBldCBzdGFnZSAodGFwID0gcGV0LCBkb3VibGUtdGFwID0gcGxheSksIDQgc3RhdCBiYXJzLCBhY3Rpb24gcm93OgogIEZlZWQgLyBQbGF5IC8gUGV0IC8gRG9vbXNjcm9sbC4gQXR0ZW50aW9uIGJhciBwdWxzZXMgZ29sZCB3aGVuIDwgMjUuCi0gKipMb2NrIHNjcmVlbjoqKiB0aGUgcGV0LCBpZGxlLWJvYmJpbmcgb3ZlciBhIHNsb3cgc3RhcmZpZWxkOyB0b3VjaCByaXBwbGVzIG9uIHBldHRpbmcuCi0gKipPbmJvYXJkaW5nIHYyOioqIGNob29zZSBzcGVjaWVzIOKGkiBtZWV0IFBpcCDihpIgYWRkIGdvYWwg4oaSICJzZXQgYXMgbG9jay1zY3JlZW4KICB3YWxscGFwZXIiIGRlZXAtbGluayAoYEFDVElPTl9MSVZFX1dBTExQQVBFUl9DSE9PU0VSYCkg4oaSIHdpZGdldCBwaW4gcHJvbXB0LgotICoqSGFwdGljczoqKiB0aWNrIG9uIHBldCwgdGh1ZCBvbiBmZWVkLCBidXp6IHBhdHRlcm4gb24gc3VsaywgZmFuZmFyZSB0cmlwbGUtYnV6eiBvbgogIHVubG9jayDigJQgc2VlIEFSVC5tZC4gQWxsIGhhcHRpY3MgcmVzcGVjdCBzeXN0ZW0gc2V0dGluZ3MgYW5kIHRoZSBtdXRlIHRvZ2dsZS4KCiMjIDYuIEJ1aWxkIC8gQ0kgLyBRQSBwbGFuICh1bmNoYW5nZWQgKykKCi0gU2FtZSBHcmFkbGUgd3JhcHBlciArIEdpdEh1YiBBY3Rpb25zIGRlYnVnLUFQSyBwaXBlbGluZS4KLSBRQSBhZGRpdGlvbnM6IGBxYV9zcGVjaWVzLnB5YCByZW5kZXJzIGFsbCAxMiBzcGVjaWVzIMOXIDggbW9vZHMgYW5kIHBpeGVsLWRpZmZzCiAgYWdhaW5zdCBgYXNzZXRzL3NwZWNpZXNfcmVmZXJlbmNlL2AgZ29sZGVuIGJpdG1hcHMgKHJlZ2VuZXJhdGUgd2l0aCBgLS1yZWdlbmApLgotIE1hbnVhbC1idWlsZCBmYWxsYmFjayBkb2N1bWVudGVkIGluIHYxIHN0aWxsIGFwcGxpZXMgaWYgR3JhZGxlIGRhZW1vbiB3b24ndCBzdGFydC4KCiMjIDcuIFJvYWRtYXAgKHYyKykKClBsYXkgQmlsbGluZyDCtyBwZXQgZXZvbHV0aW9uIHN0YWdlcyDCtyAzIHNpbXVsdGFuZW91cyBwZXRzIFVJIMK3IFdlYXIgT1MgdGlsZSDCtwpwZXItYXBwIGF1dG8tZGV0ZWN0IHBpY2tlcnMgwrcgY2xvdWQgYmFja3VwIMK3IHNlYXNvbmFsIHNwZWNpZXMuCg==
+# PixelPet — Developer Plan (v2)
+
+> Status: v2 spec. Author: Squirt (agent) for Vivek Nair (vivekn4).
+> Standing rules honored: zero-budget (no paid services, no API keys), VN signature,
+> maximalist-but-tasteful SFX/VFX, professional README + screenshot, GitHub Actions
+> debug-APK build, test-before-claiming.
+> Companion docs: [FLOW.md](FLOW.md) (Mermaid flow charts), [ART.md](ART.md) (animation bible).
+
+## 1. What it is (v2)
+
+**PixelPet** — a pixel-art virtual pet that lives on your **lock screen** (via live
+wallpaper), your **home screen** (widget), and in a full app. You raise **Pip** through
+three pet categories — **Normal → Wild → Mystical** — unlocked by consistent care,
+long-term achievements, or a premium license key.
+
+The core loop is unchanged in spirit and expanded in depth:
+
+- **Feeding** = completing real-life goals (gym, study, ship a video). Plus snack feeding.
+- **Playing** = tap-to-play interaction (energy cost, happiness gain, giggle SFX).
+- **Attention** = petting (in-app or *right on the lock-screen wallpaper* via touch).
+  A new **attention meter** drains when Pip is ignored — Pip shows "needs attention"
+  states and nudges you *before* stats suffer.
+- **Doomscrolling** = Pip sulks (manual log + optional on-device UsageStats auto-detect).
+  Documented approximation: YouTube is counted wholesale — UsageStats cannot distinguish
+  Shorts from long-form, so long-form YouTube time also counts toward the threshold.
+- **Sleep** = screen off / AOD active → Pip sleeps, decay drops to ~10%.
+  Screen on → wake animation + "while you were away…" recap.
+
+### 1.1 Honest platform notes (documented, not hidden)
+
+- **Lock-screen widgets were removed in Android 5.0.** There is no supported API to put
+  an interactive widget on the lock screen. The real mechanism is a **live wallpaper**
+  (`WallpaperService`): on Samsung devices (incl. the user's S26 Ultra) the system lets
+  you set a *separate* lock-screen wallpaper, so Pip is visible every time the phone wakes.
+  On Pixels the same wallpaper covers home + lock unless the user picks otherwise.
+- **Third-party apps cannot draw on Always-On Display.** This is a hard system limitation.
+  Design answer: `ACTION_SCREEN_OFF` (which is also when AOD takes over) → Pip enters
+  SLEEP: stat decay drops to ~10%, and on next wake the pet shows the sleeping animation
+  briefly, then the wake animation + recap. The pet never pretends to be on the AOD.
+- **`ACTION_SCREEN_OFF` / `ACTION_SCREEN_ON` cannot be received via manifest receivers.**
+  They must be registered dynamically at runtime. Sleep/wake tracking therefore works
+  while the live-wallpaper engine or the app process is alive — documented in-app and here.
+
+## 2. Pet roster & unlock progression
+
+### 2.1 Categories
+
+| Category | Species (v2) | Palette | Signature features |
+|---|---|---|---|
+| **Normal** (starter) | Cat, Dog, Bunny, Hamster | soft pastels | ears / whiskers / long ears / cheek pouches |
+| **Wild** (streaks) | Wolf, Fox, Tiger, Owl | saturated naturals | pointy ears, stripes, big owl eyes + beak |
+| **Mystical** (achievements / premium) | Dragon, Phoenix, Unicorn, Kraken | vivid + glow accents | horns, wings, crest, horn+ mane, tentacles |
+
+The renderer stays parametric: one blob body + per-species feature set + per-species
+palette + per-mood face (shared mood system). Adding a species = one enum entry with
+colors + feature flags — no new art pipeline.
+
+### 2.2 Unlock progression
+
+- **Normal:** all 4 available from the start. First-run picker ("choose your Pip").
+- **Wild** — unlocked by **care streaks** (a "care day" = ≥1 goal completed that day):
+  - Wolf: 7-day care streak · Fox: 14-day · Tiger: 21-day · Owl: 30-day
+- **Mystical** — **achievements AND/OR premium** (either path works):
+  - Dragon: 60-day care streak **or** premium
+  - Phoenix: 100 lifetime goals completed **or** premium
+  - Unicorn: 90-day care streak **or** premium
+  - Kraken: premium only (the "white whale" — aspirational)
+- Unlocking a species triggers the **evolve celebration**: fanfare SFX + particle storm +
+  species-select confetti. Switching active pet is free and instant; each pet keeps its
+  own stats (per-pet state map — neglect has consequences, but no permadeath in v2).
+
+### 2.3 Premium tier
+
+- **Free:** all Normal pets + the full core care loop (feed/play/attention/sleep).
+- **Premium:** Wild + Mystical categories unlocked immediately, exclusive skins
+  (per-species alt palettes) and exclusive animations (aura particles, evolution trails),
+  extra pet slots (raise up to 3 simultaneously — v2 ships 1 active + slots unlock).
+- **Activation: license-key entry (Gumroad pattern).** Manual key delivery by the seller;
+  the app validates **locally** with an HMAC-SHA256 scheme:
+  - Key format: `VNPP-XXXXXX-XXXXXX-XXXXXX` (Crockford base32, no ambiguous chars).
+  - Payload: 80-bit key id + 48-bit HMAC-SHA256(key id, embedded secret), verified on device.
+  - The secret is embedded obfuscated (split + XOR). **Honest note:** local validation is
+    obfuscation, not DRM — appropriate for indie Gumroad-style sales, not for stopping
+    determined piracy. Play Billing is the documented future path.
+  - Entitlements re-checked on every premium-gated access; key id stored, key itself not.
+- **Price: TODO — user's call.** (Suggested thinking in README: one-time, not subscription.)
+
+## 3. Architecture (v2)
+
+**Stack:** Kotlin, single `:app` module, minSdk 26 / targetSdk 34 / compileSdk 34.
+**Still zero external dependencies** — framework APIs only.
+
+```
+app/src/main/
+├── AndroidManifest.xml            # + wallpaper service, screen receiver notes
+├── java/com/vn/pixelpet/
+│   ├── MainActivity.kt            # pet stage + 4 stats + feed/play/pet/doomscroll
+│   ├── SpeciesActivity.kt         # roster grid: locked/unlocked, select, evolve FX
+│   ├── PremiumActivity.kt         # key entry, entitlement display
+│   ├── GoalsActivity.kt           # (v1, feeds pet on completion)
+│   ├── AboutActivity.kt           # VN signature, honest platform notes
+│   ├── PetView.kt                 # canvas pet + full VFX particle engine
+│   ├── PetRenderer.kt             # parametric species renderer (12 species × 8 moods)
+│   ├── Species.kt                 # enum: palette, features, unlock rules
+│   ├── PetState.kt                # + speciesId, attention, streaks, achievements
+│   ├── PetRepository.kt           # single source of truth (see §3.1)
+│   ├── UnlockManager.kt           # streak/achievement evaluation, unlock events
+│   ├── PremiumManager.kt          # HMAC key validation, entitlement checks
+│   ├── SfxEngine.kt               # + eat/play/pet/evolve/unlock/key SFX
+│   ├── Haptics.kt                 # vibration patterns per event (VibrationEffect)
+│   ├── Goal.kt                    # (v1)
+│   ├── wallpaper/
+│   │   └── PixelWallpaperService.kt  # lock-screen pet, touch = petting
+│   ├── widget/
+│   │   ├── PixelPetWidgetProvider.kt # face bitmap + QUICK FEED button
+│   │   └── WidgetUpdateJob.kt
+│   ├── doomscroll/                # (v1)
+│   └── util/
+│       ├── BootReceiver.kt
+│       └── ScreenReceiver.kt      # dynamic SCREEN_OFF/ON → sleep/wake
+└── res/                           # layouts + drawables + values (as v1, extended)
+```
+
+### 3.1 Single source of truth
+
+`PetRepository` remains the **only** writer of pet state. The live wallpaper engine, the
+widget provider/job, and the activities all read snapshots and post intents/actions back
+through the repository — never holding their own stat copies. See FLOW.md §(f).
+
+### 3.2 Stats (v2)
+
+| Stat | Decay | Restores | At zero… |
+|---|---|---|---|
+| Hunger 0–100 | −4/hr | goal +20 · snack +10 (15-min cooldown) | SICK state after 6h at 0 |
+| Happiness 0–100 | −3/hr (×2 while attention = 0) | goal +15 · play +20 · pet +8 | SAD / SULKING |
+| Energy 0–100 | −2/hr · +6/hr at night (22–7) | sleep, goal +5 | SLEEPING (<15) |
+| **Attention 0–100** | **−6/hr while ignored** | **pet +25 · play +10** | "needs attention" <25 → nudge; 0 → happiness ×2 decay |
+
+"Needs attention": exclamation bubble over the pet (wallpaper/widget/app) + one
+notification nudge per 4h (channel `attention`, API 26+ channels; runtime permission
+requested on API 33+).
+
+### 3.3 Care actions
+
+- **Feed (goal):** existing — goal complete → +20 hunger/+15 happiness/+5 energy, confetti.
+- **Feed (snack):** widget quick-feed button + app button — +10 hunger, 15-min cooldown,
+  munch SFX, hearts.
+- **Play:** app button (and wallpaper double-tap) — pet jump/spin, −10 energy, +20
+  happiness, +10 attention, giggle SFX, 5-min cooldown.
+- **Pet (attention):** tap/drag on pet in app, or **touch the live wallpaper** —
+  +25 attention, +8 happiness, purr SFX, heart particles, light haptic tick.
+- **Doomscroll log:** −15 happiness, −5 energy, 30-min sulk (as v1).
+
+### 3.4 Sleep/wake
+
+- `ScreenReceiver` (dynamically registered by the wallpaper engine and by MainActivity):
+  - `ACTION_SCREEN_OFF` → `PetRepository.enterSleep()`: decay multiplier 0.1×, record
+    `sleepStart`; pet shows SLEEPING on next render.
+  - `ACTION_SCREEN_ON` → `wake()`: wake animation, SFX shimmer, and a recap line —
+    "While you were away… hunger −2, Pip missed you (+attention nudge if low)."
+- While asleep the wallpaper engine stops its draw loop (battery); widget shows the
+  sleeping face.
+
+### 3.5 Live wallpaper
+
+`PixelWallpaperService : WallpaperService`, engine:
+- Draws the pet (same `PetRenderer`) centered, subtle starfield/gradient bg, at ~30fps
+  only while visible (`onVisibilityChanged` gates the loop).
+- `onTouchEvent`: tap/drag on pet → `PetRepository.pet()` (attention + hearts + purr).
+  Double-tap → play action.
+- `onOffsetsChanged`: gentle parallax of background layers (maximalist, cheap).
+- Battery: no draw loop when not visible or when screen off.
+- Settings hook: `WallpaperService` settings activity → opens the app's species picker.
+
+## 4. Likely bugs / problems and mitigations (v2 additions)
+
+| # | Problem | Mitigation |
+|---|---|---|
+| 13 | Wallpaper engine keeps drawing with screen off (battery) | Gate loop on `isVisible && screenOn`; also stop on `onSurfaceDestroyed`. |
+| 14 | Touch coordinates on wallpaper misaligned (scroll offsets) | Convert with `x - offset*width` using `onOffsetsChanged` values; generous hit radius (pet bounds × 1.4). |
+| 15 | 12 species × 8 moods = 96 sprite variants — renderer bugs | Parametric features, one code path; per-species golden bitmap test via `PetRenderer.render` in QA script (pixel-diff against checked-in references). |
+| 16 | Premium key sharing / trivial bypass | Accept as obfuscation-tier; rate-limit key entry (5 tries → 1h lockout); Play Billing on roadmap. |
+| 17 | Attention-notification spam | One nudge per 4h max; auto-cancelled when attention recovers; channel lets user silence. |
+| 18 | Streak cheating via clock change | Streaks use wall-clock *dates* (user-visible concept); decay uses elapsedRealtime — documented split. |
+| 19 | Multiple pets' state bloat | Per-pet state stored as compact JSON map; only active pet ticks (others frozen — documented as "pet daycare"). |
+| 20 | Widget quick-feed spam | 15-min cooldown persisted; button disabled state rendered into face bitmap. |
+
+(v1 items 1–12 still apply.)
+
+## 5. UI/UX thinking (v2)
+
+- **Species picker:** horizontal card carousel; locked species show silhouette + unlock
+  requirement ("🔥 21-day streak" / "👑 Premium"); tapping an unlocked species plays the
+  evolve celebration inline.
+- **Widget v2:** face bitmap (pet + 4 mini bars + attention bubble if needed) + a gold
+  **"Feed 🍪"** quick button beneath; tap pet → app, tap feed → snack (cooldown-aware).
+- **App home:** pet stage (tap = pet, double-tap = play), 4 stat bars, action row:
+  Feed / Play / Pet / Doomscroll. Attention bar pulses gold when < 25.
+- **Lock screen:** the pet, idle-bobbing over a slow starfield; touch ripples on petting.
+- **Onboarding v2:** choose species → meet Pip → add goal → "set as lock-screen
+  wallpaper" deep-link (`ACTION_LIVE_WALLPAPER_CHOOSER`) → widget pin prompt.
+- **Haptics:** tick on pet, thud on feed, buzz pattern on sulk, fanfare triple-buzz on
+  unlock — see ART.md. All haptics respect system settings and the mute toggle.
+
+## 6. Build / CI / QA plan (unchanged +)
+
+- Same Gradle wrapper + GitHub Actions debug-APK pipeline.
+- QA additions: `qa_species.py` renders all 12 species × 8 moods and pixel-diffs
+  against `assets/species_reference/` golden bitmaps (regenerate with `--regen`).
+- Manual-build fallback documented in v1 still applies if Gradle daemon won't start.
+
+## 7. Roadmap (v2+)
+
+Play Billing · pet evolution stages · 3 simultaneous pets UI · Wear OS tile ·
+per-app auto-detect pickers · cloud backup · seasonal species.
