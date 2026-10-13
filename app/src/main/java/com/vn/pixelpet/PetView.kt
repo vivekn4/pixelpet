@@ -13,7 +13,7 @@ import kotlin.random.Random
 
 /**
  * The star of the show: canvas-drawn Pip with idle bounce + blink, and
- * one-shot VFX routines (confetti, hearts, sulk shake, sleep Z's).
+ * one-shot VFX routines (confetti, hearts, sulk shake, sleep Zs).
  *
  * The animation loop runs only while attached AND visible; all animators are
  * view-scoped so nothing leaks the Activity.
@@ -53,8 +53,10 @@ class PetView @JvmOverloads constructor(
     var showAttentionBubble: Boolean = false
     /** Current species for rendering; set by the activity. */
     var species: Species = Species.CAT
-    /** Premium aura for mystical species. */
+    /** Premium aura (v3: all variants, not just Mystical). */
     var aura: Boolean = false
+    /** Premium aura skin (v3 Phase 4); only drawn when [aura] is true. */
+    var auraStyle: AuraSkin = AuraSkin.GOLD_ORBIT
     private var wavePhase: Float = 0f
 
     private data class Particle(
@@ -154,7 +156,7 @@ class PetView @JvmOverloads constructor(
     }
 
     /**
-     * v3 Phase 3: play one family power's visual effect. All branches are
+     * v3 Phase 3: play one family power visual effect. All branches are
      * additive — no existing animation behavior changes. Premium only adds a
      * gold sparkle burst on top (look only, never the power itself).
      */
@@ -387,7 +389,7 @@ class PetView @JvmOverloads constructor(
         val blinking = now < blinkUntil
         wavePhase = t * 2.2f
         val cellPx = 14
-        val pet = PetRenderer.render(species, mood, cellPx, blink = blinking, aura = aura, wavePhase = wavePhase)
+        val pet = PetRenderer.render(species, mood, cellPx, blink = blinking, aura = aura, auraStyle = auraStyle, wavePhase = wavePhase)
         val petW = pet.width.toFloat()
         val petH = pet.height.toFloat()
         val scale = ((width.coerceAtMost(height) * 0.62f) / petW).coerceAtMost(3.2f)
@@ -512,7 +514,7 @@ class PetView @JvmOverloads constructor(
             c.drawRect(0f, 0f, width.toFloat(), height.toFloat(), vignettePaint)
         }
 
-        // sleep Z's drift
+        // sleep Zs drift
         if (mood == PetRenderer.Mood.SLEEPING || now < napUntil) { // nap = snake coil nap
             val zk = (t * 0.7f) % 1f
             textPaint.alpha = ((1f - zk) * 255).toInt()
