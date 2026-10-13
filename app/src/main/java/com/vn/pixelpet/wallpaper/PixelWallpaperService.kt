@@ -1,1 +1,344 @@
-cGFja2FnZSBjb20udm4ucGl4ZWxwZXQud2FsbHBhcGVyCgppbXBvcnQgYW5kcm9pZC5jb250ZW50LkJyb2FkY2FzdFJlY2VpdmVyCmltcG9ydCBhbmRyb2lkLmNvbnRlbnQuQ29udGV4dAppbXBvcnQgYW5kcm9pZC5jb250ZW50LkludGVudAppbXBvcnQgYW5kcm9pZC5jb250ZW50LkludGVudEZpbHRlcgppbXBvcnQgYW5kcm9pZC5ncmFwaGljcy5DYW52YXMKaW1wb3J0IGFuZHJvaWQuZ3JhcGhpY3MuQ29sb3IKaW1wb3J0IGFuZHJvaWQuZ3JhcGhpY3MuUGFpbnQKaW1wb3J0IGFuZHJvaWQuZ3JhcGhpY3MuUmVjdEYKaW1wb3J0IGFuZHJvaWQub3MuSGFuZGxlcgppbXBvcnQgYW5kcm9pZC5vcy5Mb29wZXIKaW1wb3J0IGFuZHJvaWQub3MuU3lzdGVtQ2xvY2sKaW1wb3J0IGFuZHJvaWQuc2VydmljZS53YWxscGFwZXIuV2FsbHBhcGVyU2VydmljZQppbXBvcnQgYW5kcm9pZC52aWV3Lkdlc3R1cmVEZXRlY3RvcgppbXBvcnQgYW5kcm9pZC52aWV3Lk1vdGlvbkV2ZW50CmltcG9ydCBhbmRyb2lkLnZpZXcuU3VyZmFjZUhvbGRlcgppbXBvcnQgY29tLnZuLnBpeGVscGV0LkF1cmFTa2luCmltcG9ydCBjb20udm4ucGl4ZWxwZXQuUGV0UmVuZGVyZXIKaW1wb3J0IGNvbS52bi5waXhlbHBldC5QZXRSZXBvc2l0b3J5CmltcG9ydCBjb20udm4ucGl4ZWxwZXQuUGV0U3RhdGUKaW1wb3J0IGNvbS52bi5waXhlbHBldC5WYXJpYW50Um9zdGVyCmltcG9ydCBjb20udm4ucGl4ZWxwZXQuV2Fsa0VuZ2luZQppbXBvcnQgY29tLnZuLnBpeGVscGV0LnV0aWwuU2NyZWVuUmVjZWl2ZXIKaW1wb3J0IGtvdGxpbi5tYXRoLnNpbgppbXBvcnQga290bGluLnJhbmRvbS5SYW5kb20KCi8qKgogKiBMb2NrLXNjcmVlbiBsaXZlIHdhbGxwYXBlciAodjMgUGhhc2UgNCwgUExBTl9WMy5tZCDCpzEwKS4KICoKICogVGhlIHBldCBST0FNUyB0aGUgd2FsbHBhcGVyIGNhbnZhcyBvbiB0aGUgZXhpc3RpbmcgW1dhbGtFbmdpbmVdLCBib3VuZGVkCiAqIHRvIHRoZSBjYW52YXMgd2l0aCBhIG1hcmdpbi4gVGhlIGRyYXcgbG9vcCBpcyB+MzBmcHMgYW5kIGlzIGdhdGVkIGV4YWN0bHkKICogbGlrZSB2MjogaXQgcnVucyBvbmx5IHdoaWxlIHRoZSB3YWxscGFwZXIgaXMgdmlzaWJsZSBBTkQgdGhlIHNjcmVlbiBpcyBvbi4KICogUm9hbSBwYXVzZXMgYWZ0ZXIgMzBzIHdpdGggbm8gaW50ZXJhY3Rpb24gKHRoZSBwZXQga2VlcHMgaXRzIGxhc3QgcG9zZTsKICogdGhlIGxvb3Agc3RvcHMgdW50aWwgdGhlIG5leHQgdG91Y2ggb3IgdmlzaWJpbGl0eSBjaGFuZ2UpLgogKgogKiBUYXAgPSBwZXQsIGRvdWJsZS10YXAgPSBwbGF5ICh0aGUgdjIgd2FsbHBhcGVyIGJlaGF2aW9yLCBrZXB0KS4gU2xlZXAvd2FrZQogKiBib29ra2VlcGluZyBnb2VzIHRocm91Z2ggW1NjcmVlblJlY2VpdmVyXSwgdGhlIHNhbWUgZHluYW1pYyByZWNlaXZlciB0aGUKICogYXBwIHVzZXMg4oCUIEFDVElPTl9TQ1JFRU5fT0ZGIC8gU0NSRUVOX09OIGFyZSBub3QgZGVsaXZlcmVkIHRvCiAqIG1hbmlmZXN0LXJlZ2lzdGVyZWQgcmVjZWl2ZXJzLgogKgogKiBCYXR0ZXJ5IG5vdGVzOiB0aGUgcGV0IGJpdG1hcCBpcyByZS1yZW5kZXJlZCBvbmx5IHdoZW4gaXRzIHJlbmRlciBrZXkKICogKHZhcmlhbnQsIG1vb2QsIHdhbGsgcGhhc2UsIGJsaW5rLCBhdXJhIHNraW4sIHNxdWFzaCBidWNrZXQpIGNoYW5nZXMg4oCUCiAqIG90aGVyd2lzZSB0aGUgY2FjaGVkIGJpdG1hcCBpcyByZXVzZWQuIFBldCBzdGF0ZSBpcyByZWZyZXNoZWQgYXQgbW9zdAogKiB0d2ljZSBhIHNlY29uZCBhbmQgY2FjaGVkIGluIFtjYWNoZWRTdGF0ZV07IGRyYXdPbmNlKCkgbmV2ZXIgY2FsbHMKICogc25hcHNob3QoKSwgc28gdGhlIHN0ZWFkeSBkcmF3IHBhdGggZG9lcyBubyBwZXItZnJhbWUgc3RvcmFnZSB3cml0ZXMKICogYW5kIG5vIGFsbG9jYXRpb24gYmV5b25kIHRoZSBvbmUgY2FjaGVkIGJpdG1hcC4gQU9EIHN0aWxsIGNhbm5vdCBiZSBkcmF3biBvbiBieQogKiB0aGlyZC1wYXJ0eSBhcHBzICh2MiBsaW1pdGF0aW9uLCB1bmNoYW5nZWQpOiB3aGVuIHRoZSBzY3JlZW4gaXMgb2ZmIHRoZQogKiBsb29wIGlzIHN0b3BwZWQgYW5kIFBpcCBzbGVlcHMuCiAqLwpjbGFzcyBQaXhlbFdhbGxwYXBlclNlcnZpY2UgOiBXYWxscGFwZXJTZXJ2aWNlKCkgewoKICAgIG92ZXJyaWRlIGZ1biBvbkNyZWF0ZUVuZ2luZSgpOiBFbmdpbmUgPSBQZXRFbmdpbmUoKQoKICAgIGlubmVyIGNsYXNzIFBldEVuZ2luZSA6IEVuZ2luZSgpIHsKCiAgICAgICAgcHJpdmF0ZSB2YWwgcmVwbzogUGV0UmVwb3NpdG9yeSBieSBsYXp5IHsgUGV0UmVwb3NpdG9yeS5nZXQoYXBwbGljYXRpb25Db250ZXh0KSB9CiAgICAgICAgcHJpdmF0ZSB2YWwgd2FsayA9IFdhbGtFbmdpbmUoKQogICAgICAgIHByaXZhdGUgdmFsIGhhbmRsZXIgPSBIYW5kbGVyKExvb3Blci5nZXRNYWluTG9vcGVyKCkpCiAgICAgICAgcHJpdmF0ZSB2YWwgc2NyZWVuUmVjZWl2ZXIgPSBTY3JlZW5SZWNlaXZlcigpCiAgICAgICAgcHJpdmF0ZSB2YWwgYmdQYWludCA9IFBhaW50KCkuYXBwbHkgeyBpc0FudGlBbGlhcyA9IGZhbHNlIH0KICAgICAgICBwcml2YXRlIHZhbCBzdGFyUGFpbnQgPSBQYWludCgpLmFwcGx5IHsgaXNBbnRpQWxpYXMgPSBmYWxzZTsgY29sb3IgPSBDb2xvci5wYXJzZUNvbG9yKCIjRkZGRkZGIikgfQogICAgICAgIHByaXZhdGUgdmFsIHNoYWRvd1BhaW50ID0gUGFpbnQoKS5hcHBseSB7IGlzQW50aUFsaWFzID0gZmFsc2U7IGNvbG9yID0gQ29sb3IuYXJnYig3MCwgMCwgMCwgMCkgfQoKICAgICAgICBwcml2YXRlIHZhciB2aXNpYmxlID0gZmFsc2UKICAgICAgICBwcml2YXRlIHZhciBydW5uaW5nID0gZmFsc2UKICAgICAgICBwcml2YXRlIHZhciBsYXN0RnJhbWVNczogTG9uZyA9IDBMCiAgICAgICAgcHJpdmF0ZSB2YXIgbGFzdFN0YXRlTXM6IExvbmcgPSAwTAogICAgICAgIHByaXZhdGUgdmFyIGxhc3RJbnRlcmFjdGlvbk1zOiBMb25nID0gMEwKICAgICAgICBwcml2YXRlIHZhciBsYXN0QmxpbmtUb2dnbGVNczogTG9uZyA9IDBMCiAgICAgICAgcHJpdmF0ZSB2YXIgYmxpbmtpbmc6IEJvb2xlYW4gPSBmYWxzZQogICAgICAgIHByaXZhdGUgdmFyIGNhbnZhc1c6IEludCA9IDAKICAgICAgICBwcml2YXRlIHZhciBjYW52YXNIOiBJbnQgPSAwCiAgICAgICAgcHJpdmF0ZSB2YXIgcGV0UHg6IEZsb2F0ID0gMGYKICAgICAgICBwcml2YXRlIHZhciBzdGFyczogTGlzdDxQYWlyPEZsb2F0LCBGbG9hdD4+ID0gZW1wdHlMaXN0KCkKCiAgICAgICAgLy8gQ2FjaGVkIHBldCBiaXRtYXAgKyB0aGUga2V5IGl0IHdhcyByZW5kZXJlZCBmb3IuCiAgICAgICAgcHJpdmF0ZSB2YXIgcGV0Qml0bWFwOiBhbmRyb2lkLmdyYXBoaWNzLkJpdG1hcD8gPSBudWxsCiAgICAgICAgcHJpdmF0ZSB2YXIgcGV0S2V5OiBTdHJpbmcgPSAiIgogICAgICAgIHByaXZhdGUgdmFyIG1vb2Q6IFBldFJlbmRlcmVyLk1vb2QgPSBQZXRSZW5kZXJlci5Nb29kLkNPTlRFTlQKICAgICAgICBwcml2YXRlIHZhciBhdXJhU2tpbjogQXVyYVNraW4/ID0gbnVsbAogICAgICAgIC8vIFBldCBzdGF0ZSByZWZyZXNoZWQgYXQgbW9zdCB0d2ljZSBhIHNlY29uZCBieSBkcmF3RnJhbWUoKTsgZHJhd09uY2UoKQogICAgICAgIC8vIHJlYWRzIHRoaXMgaW5zdGVhZCBvZiBjYWxsaW5nIHJlcG8uc25hcHNob3QoKSBwZXIgZnJhbWUgKHNuYXBzaG90KCkKICAgICAgICAvLyBwZXJzaXN0cywgd2hpY2ggd291bGQgYmUgfjMwIHN0b3JhZ2Ugd3JpdGVzL3NlYyBvbiB0aGUgZHJhdyBsb29wKS4KICAgICAgICBwcml2YXRlIHZhciBjYWNoZWRTdGF0ZTogUGV0U3RhdGU/ID0gbnVsbAogICAgICAgIC8vIFJldXNlZCBkcmF3IHJlY3RzIC8gY29sb3JzOiBubyBwZXItZnJhbWUgUmVjdEYgb3IgcGFyc2VDb2xvciB3b3JrLgogICAgICAgIHByaXZhdGUgdmFsIGRzdFJlY3QgPSBSZWN0RigpCiAgICAgICAgcHJpdmF0ZSB2YWwgc2hhZG93UmVjdCA9IFJlY3RGKCkKICAgICAgICBwcml2YXRlIHZhbCBiZ0NvbG9yID0gQ29sb3IucGFyc2VDb2xvcigiIzBCMEIxOCIpCiAgICAgICAgcHJpdmF0ZSB2YWwgYmFuZENvbG9yID0gQ29sb3IucGFyc2VDb2xvcigiIzE0MTQyOCIpCiAgICAgICAgcHJpdmF0ZSB2YXIgdmFyaWFudDogVmFyaWFudFJvc3Rlci5WYXJpYW50ID0KICAgICAgICAgICAgVmFyaWFudFJvc3Rlci52YXJpYW50Rm9yU3BlY2llc0lkKCJjYXQiKQoKICAgICAgICBwcml2YXRlIHZhbCBnZXN0dXJlcyA9IEdlc3R1cmVEZXRlY3RvcigKICAgICAgICAgICAgYXBwbGljYXRpb25Db250ZXh0LAogICAgICAgICAgICBvYmplY3QgOiBHZXN0dXJlRGV0ZWN0b3IuU2ltcGxlT25HZXN0dXJlTGlzdGVuZXIoKSB7CiAgICAgICAgICAgICAgICBvdmVycmlkZSBmdW4gb25TaW5nbGVUYXBDb25maXJtZWQoZTogTW90aW9uRXZlbnQpOiBCb29sZWFuIHsKICAgICAgICAgICAgICAgICAgICByZXBvLnBldCgpCiAgICAgICAgICAgICAgICAgICAgd2Fsay5ob3AoKQogICAgICAgICAgICAgICAgICAgIHBva2UoKQogICAgICAgICAgICAgICAgICAgIHJldHVybiB0cnVlCiAgICAgICAgICAgICAgICB9CgogICAgICAgICAgICAgICAgb3ZlcnJpZGUgZnVuIG9uRG91YmxlVGFwKGU6IE1vdGlvbkV2ZW50KTogQm9vbGVhbiB7CiAgICAgICAgICAgICAgICAgICAgcmVwby5wbGF5KCkgLy8gbnVsbCB3aGVuIHRpcmVkIOKAlCB3YWxscGFwZXIgc3RheXMgcXVpZXQKICAgICAgICAgICAgICAgICAgICB3YWxrLmhvcCgpCiAgICAgICAgICAgICAgICAgICAgcG9rZSgpCiAgICAgICAgICAgICAgICAgICAgcmV0dXJuIHRydWUKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfQogICAgICAgICkKCiAgICAgICAgLyoqIFNjcmVlbiBvbi9vZmY6IHJlc3RhcnQvc3RvcCB0aGUgbG9vcC4gUmVwbyBzbGVlcC93YWtlIGlzIFNjcmVlblJlY2VpdmVyLiAqLwogICAgICAgIHByaXZhdGUgdmFsIHNjcmVlblRvZ2dsZSA9IG9iamVjdCA6IEJyb2FkY2FzdFJlY2VpdmVyKCkgewogICAgICAgICAgICBvdmVycmlkZSBmdW4gb25SZWNlaXZlKGNvbnRleHQ6IENvbnRleHQsIGludGVudDogSW50ZW50KSB7CiAgICAgICAgICAgICAgICB3aGVuIChpbnRlbnQuYWN0aW9uKSB7CiAgICAgICAgICAgICAgICAgICAgSW50ZW50LkFDVElPTl9TQ1JFRU5fT04gLT4gewogICAgICAgICAgICAgICAgICAgICAgICBsYXN0SW50ZXJhY3Rpb25NcyA9IFN5c3RlbUNsb2NrLnVwdGltZU1pbGxpcygpCiAgICAgICAgICAgICAgICAgICAgICAgIHN0YXJ0TG9vcCgpCiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICAgIEludGVudC5BQ1RJT05fU0NSRUVOX09GRiAtPiBzdG9wTG9vcCgpCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0KICAgICAgICB9CgogICAgICAgIHByaXZhdGUgdmFsIGZyYW1lUnVubmFibGUgPSBvYmplY3QgOiBSdW5uYWJsZSB7CiAgICAgICAgICAgIG92ZXJyaWRlIGZ1biBydW4oKSB7CiAgICAgICAgICAgICAgICBpZiAoIXJ1bm5pbmcpIHJldHVybgogICAgICAgICAgICAgICAgZHJhd0ZyYW1lKCkKICAgICAgICAgICAgICAgIGlmIChydW5uaW5nKSBoYW5kbGVyLnBvc3REZWxheWVkKHRoaXMsIEZSQU1FX01TKQogICAgICAgICAgICB9CiAgICAgICAgfQoKICAgICAgICBvdmVycmlkZSBmdW4gb25DcmVhdGUoc3VyZmFjZUhvbGRlcjogU3VyZmFjZUhvbGRlcikgewogICAgICAgICAgICBzdXBlci5vbkNyZWF0ZShzdXJmYWNlSG9sZGVyKQogICAgICAgICAgICBzZXRUb3VjaEV2ZW50c0VuYWJsZWQodHJ1ZSkKICAgICAgICAgICAgbGFzdEludGVyYWN0aW9uTXMgPSBTeXN0ZW1DbG9jay51cHRpbWVNaWxsaXMoKQogICAgICAgICAgICBhcHBsaWNhdGlvbkNvbnRleHQucmVnaXN0ZXJSZWNlaXZlcigKICAgICAgICAgICAgICAgIHNjcmVlblJlY2VpdmVyLAogICAgICAgICAgICAgICAgSW50ZW50RmlsdGVyKCkuYXBwbHkgewogICAgICAgICAgICAgICAgICAgIGFkZEFjdGlvbihJbnRlbnQuQUNUSU9OX1NDUkVFTl9PRkYpCiAgICAgICAgICAgICAgICAgICAgYWRkQWN0aW9uKEludGVudC5BQ1RJT05fU0NSRUVOX09OKQogICAgICAgICAgICAgICAgfQogICAgICAgICAgICApCiAgICAgICAgICAgIGFwcGxpY2F0aW9uQ29udGV4dC5yZWdpc3RlclJlY2VpdmVyKAogICAgICAgICAgICAgICAgc2NyZWVuVG9nZ2xlLAogICAgICAgICAgICAgICAgSW50ZW50RmlsdGVyKCkuYXBwbHkgewogICAgICAgICAgICAgICAgICAgIGFkZEFjdGlvbihJbnRlbnQuQUNUSU9OX1NDUkVFTl9PRkYpCiAgICAgICAgICAgICAgICAgICAgYWRkQWN0aW9uKEludGVudC5BQ1RJT05fU0NSRUVOX09OKQogICAgICAgICAgICAgICAgfQogICAgICAgICAgICApCiAgICAgICAgfQoKICAgICAgICBvdmVycmlkZSBmdW4gb25EZXN0cm95KCkgewogICAgICAgICAgICBzdG9wTG9vcCgpCiAgICAgICAgICAgIHRyeSB7IGFwcGxpY2F0aW9uQ29udGV4dC51bnJlZ2lzdGVyUmVjZWl2ZXIoc2NyZWVuUmVjZWl2ZXIpIH0gY2F0Y2ggKHQ6IFRocm93YWJsZSkge30KICAgICAgICAgICAgdHJ5IHsgYXBwbGljYXRpb25Db250ZXh0LnVucmVnaXN0ZXJSZWNlaXZlcihzY3JlZW5Ub2dnbGUpIH0gY2F0Y2ggKHQ6IFRocm93YWJsZSkge30KICAgICAgICAgICAgcGV0Qml0bWFwPy5yZWN5Y2xlKCkKICAgICAgICAgICAgcGV0Qml0bWFwID0gbnVsbAogICAgICAgICAgICBzdXBlci5vbkRlc3Ryb3koKQogICAgICAgIH0KCiAgICAgICAgb3ZlcnJpZGUgZnVuIG9uVmlzaWJpbGl0eUNoYW5nZWQodmlzaWJsZTogQm9vbGVhbikgewogICAgICAgICAgICB0aGlzLnZpc2libGUgPSB2aXNpYmxlCiAgICAgICAgICAgIGlmICh2aXNpYmxlKSB7CiAgICAgICAgICAgICAgICBsYXN0SW50ZXJhY3Rpb25NcyA9IFN5c3RlbUNsb2NrLnVwdGltZU1pbGxpcygpCiAgICAgICAgICAgICAgICBzdGFydExvb3AoKQogICAgICAgICAgICB9IGVsc2UgewogICAgICAgICAgICAgICAgc3RvcExvb3AoKQogICAgICAgICAgICB9CiAgICAgICAgfQoKICAgICAgICBvdmVycmlkZSBmdW4gb25TdXJmYWNlQ2hhbmdlZChob2xkZXI6IFN1cmZhY2VIb2xkZXIsIGZvcm1hdDogSW50LCB3aWR0aDogSW50LCBoZWlnaHQ6IEludCkgewogICAgICAgICAgICBzdXBlci5vblN1cmZhY2VDaGFuZ2VkKGhvbGRlciwgZm9ybWF0LCB3aWR0aCwgaGVpZ2h0KQogICAgICAgICAgICBjYW52YXNXID0gd2lkdGgKICAgICAgICAgICAgY2FudmFzSCA9IGhlaWdodAogICAgICAgICAgICAvLyBQZXQgb2NjdXBpZXMgfjQyJSBvZiB0aGUgbmFycm93IGRpbWVuc2lvbjsgcm9hbSBib3VuZHMgZm9sbG93LgogICAgICAgICAgICBwZXRQeCA9IChtaW5PZih3aWR0aCwgaGVpZ2h0KSAqIDAuNDJmKS5jb2VyY2VBdExlYXN0KDEyMGYpCiAgICAgICAgICAgIHdhbGsuc2V0Qm91bmRzKHdpZHRoLnRvRmxvYXQoKSwgaGVpZ2h0LnRvRmxvYXQoKSwgcGV0UHgsIHBldFB4LCAxNmYpCiAgICAgICAgICAgIGlmICh3YWxrLnggPT0gMGYgJiYgd2Fsay55ID09IDBmKSB7CiAgICAgICAgICAgICAgICB3YWxrLnJlc2V0KHdpZHRoIC8gMmYgLSBwZXRQeCAvIDJmLCBoZWlnaHQgKiAwLjU1ZikKICAgICAgICAgICAgfQogICAgICAgICAgICAvLyBTdGF0aWMgc3RhcmZpZWxkLCBzZWVkZWQgcGVyIHNpemUgc28gaXQgaXMgc3RhYmxlIGFjcm9zcyBmcmFtZXMuCiAgICAgICAgICAgIHZhbCBybmcgPSBSYW5kb20od2lkdGggKiAzMUwgKyBoZWlnaHQpCiAgICAgICAgICAgIHN0YXJzID0gTGlzdCg3MCkgeyBybmcubmV4dEZsb2F0KCkgdG8gcm5nLm5leHRGbG9hdCgpIH0KICAgICAgICAgICAgcGV0Qml0bWFwPy5yZWN5Y2xlKCkKICAgICAgICAgICAgcGV0Qml0bWFwID0gbnVsbAogICAgICAgICAgICBwZXRLZXkgPSAiIgogICAgICAgIH0KCiAgICAgICAgb3ZlcnJpZGUgZnVuIG9uU3VyZmFjZURlc3Ryb3llZChob2xkZXI6IFN1cmZhY2VIb2xkZXIpIHsKICAgICAgICAgICAgc3RvcExvb3AoKQogICAgICAgICAgICBzdXBlci5vblN1cmZhY2VEZXN0cm95ZWQoaG9sZGVyKQogICAgICAgIH0KCiAgICAgICAgb3ZlcnJpZGUgZnVuIG9uVG91Y2hFdmVudChldmVudDogTW90aW9uRXZlbnQpIHsKICAgICAgICAgICAgaWYgKGV2ZW50LmFjdGlvbiA9PSBNb3Rpb25FdmVudC5BQ1RJT05fRE9XTikgcG9rZSgpCiAgICAgICAgICAgIGdlc3R1cmVzLm9uVG91Y2hFdmVudChldmVudCkKICAgICAgICB9CgogICAgICAgIC8qKiBBbnkgaW50ZXJhY3Rpb24gcmVzZXRzIHRoZSAzMHMgaWRsZSB0aW1lciBhbmQgd2FrZXMgdGhlIGxvb3AuICovCiAgICAgICAgcHJpdmF0ZSBmdW4gcG9rZSgpIHsKICAgICAgICAgICAgbGFzdEludGVyYWN0aW9uTXMgPSBTeXN0ZW1DbG9jay51cHRpbWVNaWxsaXMoKQogICAgICAgICAgICBzdGFydExvb3AoKQogICAgICAgIH0KCiAgICAgICAgcHJpdmF0ZSBmdW4gc3RhcnRMb29wKCkgewogICAgICAgICAgICBpZiAocnVubmluZykgcmV0dXJuCiAgICAgICAgICAgIGlmICghdmlzaWJsZSB8fCAhU2NyZWVuUmVjZWl2ZXIuc2NyZWVuT24pIHJldHVybgogICAgICAgICAgICBydW5uaW5nID0gdHJ1ZQogICAgICAgICAgICBsYXN0RnJhbWVNcyA9IFN5c3RlbUNsb2NrLnVwdGltZU1pbGxpcygpCiAgICAgICAgICAgIGhhbmRsZXIucG9zdChmcmFtZVJ1bm5hYmxlKQogICAgICAgIH0KCiAgICAgICAgcHJpdmF0ZSBmdW4gc3RvcExvb3AoKSB7CiAgICAgICAgICAgIHJ1bm5pbmcgPSBmYWxzZQogICAgICAgICAgICBoYW5kbGVyLnJlbW92ZUNhbGxiYWNrcyhmcmFtZVJ1bm5hYmxlKQogICAgICAgIH0KCiAgICAgICAgcHJpdmF0ZSBmdW4gZHJhd0ZyYW1lKCkgewogICAgICAgICAgICB2YWwgbm93ID0gU3lzdGVtQ2xvY2sudXB0aW1lTWlsbGlzKCkKICAgICAgICAgICAgLy8gMzBzIGlkbGUgaW4gd2FsbHBhcGVyOiBwYXVzZSB0aGUgcm9hbSBhbmQgc3RvcCB0aGUgbG9vcC4KICAgICAgICAgICAgaWYgKG5vdyAtIGxhc3RJbnRlcmFjdGlvbk1zID4gSURMRV9QQVVTRV9NUykgewogICAgICAgICAgICAgICAgZHJhd09uY2Uobm93LCBhZHZhbmNlID0gZmFsc2UpCiAgICAgICAgICAgICAgICBzdG9wTG9vcCgpCiAgICAgICAgICAgICAgICByZXR1cm4KICAgICAgICAgICAgfQogICAgICAgICAgICAvLyBBZHZhbmNlIHRoZSByb2FtIGF0IHJlYWwgZnJhbWUgZGVsdGEgKFdhbGtFbmdpbmUgY2xhbXBzIHRvIDAuMXMpLgogICAgICAgICAgICB2YWwgZHQgPSAoKG5vdyAtIGxhc3RGcmFtZU1zKSAvIDEwMDBmKS5jb2VyY2VJbigwZiwgMC4xZikKICAgICAgICAgICAgbGFzdEZyYW1lTXMgPSBub3cKICAgICAgICAgICAgLy8gQmxpbmsgb24gYSBzbG93IHRpbWVyIChubyBwZXItZnJhbWUgUmFuZG9tKS4KICAgICAgICAgICAgaWYgKG5vdyAtIGxhc3RCbGlua1RvZ2dsZU1zID4gMjQwMCkgewogICAgICAgICAgICAgICAgbGFzdEJsaW5rVG9nZ2xlTXMgPSBub3cKICAgICAgICAgICAgICAgIGJsaW5raW5nID0gIWJsaW5raW5nCiAgICAgICAgICAgICAgICBpZiAoYmxpbmtpbmcpIGxhc3RCbGlua1RvZ2dsZU1zID0gbm93IC0gMjI3MCAvLyBibGluayBsYXN0cyB+MTMwbXMKICAgICAgICAgICAgfQogICAgICAgICAgICB3YWxrLnVwZGF0ZShkdCkKICAgICAgICAgICAgLy8gUmVmcmVzaCBzdGF0cy9tb29kIGF0IG1vc3QgdHdpY2UgYSBzZWNvbmQg4oCUIHNuYXBzaG90KCkgdGlja3MgZGVjYXkuCiAgICAgICAgICAgIGlmIChub3cgLSBsYXN0U3RhdGVNcyA+IDUwMCkgewogICAgICAgICAgICAgICAgbGFzdFN0YXRlTXMgPSBub3cKICAgICAgICAgICAgICAgIHZhbCBzdGF0ZSA9IHJlcG8uc25hcHNob3QoKQogICAgICAgICAgICAgICAgY2FjaGVkU3RhdGUgPSBzdGF0ZQogICAgICAgICAgICAgICAgdmFyaWFudCA9IFZhcmlhbnRSb3N0ZXIudmFyaWFudEZvclNwZWNpZXNJZChzdGF0ZS5zcGVjaWVzSWQpCiAgICAgICAgICAgICAgICBtb29kID0gUGV0UmVuZGVyZXIubW9vZEZvcihzdGF0ZSwgU3lzdGVtQ2xvY2suZWxhcHNlZFJlYWx0aW1lKCksIFN5c3RlbS5jdXJyZW50VGltZU1pbGxpcygpKQogICAgICAgICAgICAgICAgYXVyYVNraW4gPSBBdXJhU2tpbi5lZmZlY3RpdmUocmVwby5wcmVmc0ZvclByZW1pdW0oKSkKICAgICAgICAgICAgICAgIC8vIFNsZWVwaW5nIHBldHMgZG8gbm90IHJvYW0uCiAgICAgICAgICAgICAgICB3YWxrLnNldE92ZXJsYXkoCiAgICAgICAgICAgICAgICAgICAgaWYgKG1vb2QgPT0gUGV0UmVuZGVyZXIuTW9vZC5TTEVFUElORykgV2Fsa0VuZ2luZS5PdmVybGF5LlNMRUVQCiAgICAgICAgICAgICAgICAgICAgZWxzZSBXYWxrRW5naW5lLk92ZXJsYXkuTk9ORQogICAgICAgICAgICAgICAgKQogICAgICAgICAgICB9CiAgICAgICAgICAgIGRyYXdPbmNlKG5vdywgYWR2YW5jZSA9IHRydWUpCiAgICAgICAgfQoKICAgICAgICAvKiogUmVuZGVyIChvbmx5IHdoZW4gdGhlIHJlbmRlciBrZXkgY2hhbmdlZCkgYW5kIGJsaXQgb25lIGZyYW1lLiAqLwogICAgICAgIHByaXZhdGUgZnVuIGRyYXdPbmNlKG5vdzogTG9uZywgYWR2YW5jZTogQm9vbGVhbikgewogICAgICAgICAgICBpZiAoIWFkdmFuY2UgJiYgcGV0Qml0bWFwID09IG51bGwpIHJldHVybiAvLyBub3RoaW5nIHRvIHNob3cgeWV0CiAgICAgICAgICAgIHZhbCBob2xkZXIgPSBzdXJmYWNlSG9sZGVyCiAgICAgICAgICAgIHZhciBjYW52YXM6IENhbnZhcz8gPSBudWxsCiAgICAgICAgICAgIHRyeSB7CiAgICAgICAgICAgICAgICBjYW52YXMgPSBob2xkZXIubG9ja0NhbnZhcygpCiAgICAgICAgICAgICAgICBpZiAoY2FudmFzID09IG51bGwpIHJldHVybgogICAgICAgICAgICAgICAgZHJhd0JhY2tncm91bmQoY2FudmFzKQogICAgICAgICAgICAgICAgLy8gU3F1YXNoIC8gY3JvdWNoIC8gaG9wIHNoYXBlIHRoZSBkZXN0aW5hdGlvbiByZWN0LgogICAgICAgICAgICAgICAgdmFsIHNxdWFzaCA9IDFmICsgd2Fsay5zcXVhc2hTdHJldGNoICogMC4xMmYKICAgICAgICAgICAgICAgIHZhbCBjcm91Y2hLID0gMWYgLSB3YWxrLmNyb3VjaCAqIDAuMTJmCiAgICAgICAgICAgICAgICB2YWwgc3kgPSBzcXVhc2ggKiBjcm91Y2hLCiAgICAgICAgICAgICAgICB2YWwgbGlmdFB4ID0gd2Fsay5qdW1wTGlmdCAqIHBldFB4ICogMC4yMmYKICAgICAgICAgICAgICAgIHZhbCBkeCA9IHdhbGsueAogICAgICAgICAgICAgICAgdmFsIGR5ID0gd2Fsay55IC0gbGlmdFB4ICsgcGV0UHggKiAoMWYgLSBzeSkgLyAyZgogICAgICAgICAgICAgICAgZHN0UmVjdC5zZXQoZHgsIGR5LCBkeCArIHBldFB4LCBkeSArIHBldFB4ICogc3kpCiAgICAgICAgICAgICAgICB2YWwgZHN0ID0gZHN0UmVjdAogICAgICAgICAgICAgICAgdmFsIGtleSA9ICIke3ZhcmlhbnQuaWR9fCRtb29kfCR7d2Fsay53YWxrUGhhc2V9fCRibGlua2luZ3wke2F1cmFTa2luPy5uYW1lfXwkeyh3YWxrLnNxdWFzaFN0cmV0Y2ggKiA0KS50b0ludCgpfSIKICAgICAgICAgICAgICAgIGlmIChrZXkgIT0gcGV0S2V5IHx8IHBldEJpdG1hcCA9PSBudWxsKSB7CiAgICAgICAgICAgICAgICAgICAgcGV0Qml0bWFwPy5yZWN5Y2xlKCkKICAgICAgICAgICAgICAgICAgICB2YWwgY2VsbFB4ID0gKHBldFB4IC8gMjRmKS50b0ludCgpLmNvZXJjZUluKDYsIDI0KQogICAgICAgICAgICAgICAgICAgIHBldEJpdG1hcCA9IFBldFJlbmRlcmVyLnJlbmRlclZhcmlhbnQoCiAgICAgICAgICAgICAgICAgICAgICAgIHZhcmlhbnQsIG1vb2QsIGNlbGxQeCwKICAgICAgICAgICAgICAgICAgICAgICAgYmxpbmsgPSBibGlua2luZywKICAgICAgICAgICAgICAgICAgICAgICAgYXVyYSA9IGF1cmFTa2luICE9IG51bGwsCiAgICAgICAgICAgICAgICAgICAgICAgIGF1cmFTdHlsZSA9IGF1cmFTa2luID86IEF1cmFTa2luLkdPTERfT1JCSVQsCiAgICAgICAgICAgICAgICAgICAgICAgIHdhdmVQaGFzZSA9IDBmLCAvLyBmaXhlZDogdGhlIHdhbGsgYm9iIGNvbWVzIGZyb20gV2Fsa0VuZ2luZQogICAgICAgICAgICAgICAgICAgICAgICB3YWxrUGhhc2UgPSB3YWxrLndhbGtQaGFzZSwKICAgICAgICAgICAgICAgICAgICAgICAgbGVncyA9IHRydWUKICAgICAgICAgICAgICAgICAgICApCiAgICAgICAgICAgICAgICAgICAgcGV0S2V5ID0ga2V5CiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICB2YWwgYm1wID0gcGV0Qml0bWFwID86IHJldHVybgogICAgICAgICAgICAgICAgLy8gU29mdCBncm91bmQgc2hhZG93IHVuZGVyIHRoZSBwZXQuCiAgICAgICAgICAgICAgICB2YWwgY3ggPSBkeCArIHBldFB4IC8gMmYKICAgICAgICAgICAgICAgIHZhbCBzaGFkb3dXID0gcGV0UHggKiAwLjM2ZiAqICgxZiAtIHdhbGsuanVtcExpZnQgKiAwLjM1ZikKICAgICAgICAgICAgICAgIHNoYWRvd1JlY3Quc2V0KGN4IC0gc2hhZG93VywgZHkgKyBwZXRQeCAqIDAuOTZmLCBjeCArIHNoYWRvd1csIGR5ICsgcGV0UHggKiAxLjA0ZikKICAgICAgICAgICAgICAgIGNhbnZhcy5kcmF3T3ZhbChzaGFkb3dSZWN0LCBzaGFkb3dQYWludCkKICAgICAgICAgICAgICAgIGlmICh3YWxrLmZhY2luZ1JpZ2h0KSB7CiAgICAgICAgICAgICAgICAgICAgUGV0UmVuZGVyZXIuZHJhd1NjYWxlZChjYW52YXMsIGJtcCwgZHN0KQogICAgICAgICAgICAgICAgfSBlbHNlIHsKICAgICAgICAgICAgICAgICAgICBjYW52YXMuc2F2ZSgpCiAgICAgICAgICAgICAgICAgICAgY2FudmFzLnNjYWxlKC0xZiwgMWYsIGN4LCBkeSArIHBldFB4IC8gMmYpCiAgICAgICAgICAgICAgICAgICAgUGV0UmVuZGVyZXIuZHJhd1NjYWxlZChjYW52YXMsIGJtcCwgZHN0KQogICAgICAgICAgICAgICAgICAgIGNhbnZhcy5yZXN0b3JlKCkKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIC8vIEF0dGVudGlvbiBidWJibGUgd2hlbiBhdHRlbnRpb24gaXMgbG93IGFuZCB0aGUgcGV0IGlzIGF3YWtlLgogICAgICAgICAgICAgICAgLy8gVXNlcyB0aGUgY2FjaGVkIDUwMG1zIHN0YXRlIOKAlCBuZXZlciBzbmFwc2hvdCgpIHBlciBmcmFtZS4KICAgICAgICAgICAgICAgIHZhbCBzdCA9IGNhY2hlZFN0YXRlCiAgICAgICAgICAgICAgICBpZiAoc3QgIT0gbnVsbCAmJiBzdC5hdHRlbnRpb24gPCAyNSAmJiAhc3Quc2xlZXBpbmcpIHsKICAgICAgICAgICAgICAgICAgICBQZXRSZW5kZXJlci5kcmF3QXR0ZW50aW9uQnViYmxlKAogICAgICAgICAgICAgICAgICAgICAgICBjYW52YXMsIGN4LCBkeSAtIHBldFB4ICogMC4yOGYsCiAgICAgICAgICAgICAgICAgICAgICAgIChwZXRQeCAvIDI0ZikgKiAyLjJmLCBub3cgLyAyNTBmCiAgICAgICAgICAgICAgICAgICAgKQogICAgICAgICAgICAgICAgfQogICAgICAgICAgICB9IGNhdGNoICh0OiBUaHJvd2FibGUpIHsKICAgICAgICAgICAgICAgIC8vIEEgd2FsbHBhcGVyIG11c3QgbmV2ZXIgY3Jhc2ggdGhlIGxvY2sgc2NyZWVuLgogICAgICAgICAgICB9IGZpbmFsbHkgewogICAgICAgICAgICAgICAgdHJ5IHsKICAgICAgICAgICAgICAgICAgICBpZiAoY2FudmFzICE9IG51bGwpIGhvbGRlci51bmxvY2tDYW52YXNBbmRQb3N0KGNhbnZhcykKICAgICAgICAgICAgICAgIH0gY2F0Y2ggKHQ6IFRocm93YWJsZSkge30KICAgICAgICAgICAgfQogICAgICAgIH0KCiAgICAgICAgcHJpdmF0ZSBmdW4gZHJhd0JhY2tncm91bmQoY2FudmFzOiBDYW52YXMpIHsKICAgICAgICAgICAgY2FudmFzLmRyYXdDb2xvcihiZ0NvbG9yKQogICAgICAgICAgICAvLyBOaWdodC1za3kgZ3JhZGllbnQgYmFuZCAodHdvIGZsYXQgZmlsbHMg4oCUIG5vIHNoYWRlciBhbGxvY2F0aW9uKS4KICAgICAgICAgICAgYmdQYWludC5jb2xvciA9IGJhbmRDb2xvcgogICAgICAgICAgICBjYW52YXMuZHJhd1JlY3QoMGYsIDBmLCBjYW52YXNXLnRvRmxvYXQoKSwgY2FudmFzSCAqIDAuNDVmLCBiZ1BhaW50KQogICAgICAgICAgICBzdGFyUGFpbnQuYWxwaGEgPSAxNDAKICAgICAgICAgICAgZm9yICgoc3gsIHN5KSBpbiBzdGFycykgewogICAgICAgICAgICAgICAgdmFsIHR3ID0gMC42ZiArIDAuNGYgKiBzaW4oKFN5c3RlbUNsb2NrLnVwdGltZU1pbGxpcygpIC8gNzAwZikgKyBzeCAqIDIwZikKICAgICAgICAgICAgICAgIGNhbnZhcy5kcmF3UmVjdCgKICAgICAgICAgICAgICAgICAgICBzeCAqIGNhbnZhc1csIHN5ICogY2FudmFzSCAqIDAuN2YsCiAgICAgICAgICAgICAgICAgICAgc3ggKiBjYW52YXNXICsgMmYgKiB0dywgc3kgKiBjYW52YXNIICogMC43ZiArIDJmICogdHcsCiAgICAgICAgICAgICAgICAgICAgc3RhclBhaW50CiAgICAgICAgICAgICAgICApCiAgICAgICAgICAgIH0KICAgICAgICAgICAgc3RhclBhaW50LmFscGhhID0gMjU1CiAgICAgICAgfQoKICAgICAgICBjb21wYW5pb24gb2JqZWN0IHsKICAgICAgICAgICAgLyoqIH4zMGZwcyBmcmFtZSBpbnRlcnZhbC4gKi8KICAgICAgICAgICAgcHJpdmF0ZSBjb25zdCB2YWwgRlJBTUVfTVMgPSAzM0wKICAgICAgICAgICAgLyoqIFJvYW0gcGF1c2VzIGFmdGVyIHRoaXMgbG9uZyB3aXRoIG5vIGludGVyYWN0aW9uLiAqLwogICAgICAgICAgICBwcml2YXRlIGNvbnN0IHZhbCBJRExFX1BBVVNFX01TID0gMzBfMDAwTAogICAgICAgIH0KICAgIH0KfQo=
+package com.vn.pixelpet.wallpaper
+
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
+import android.graphics.RectF
+import android.os.Handler
+import android.os.Looper
+import android.os.SystemClock
+import android.service.wallpaper.WallpaperService
+import android.view.GestureDetector
+import android.view.MotionEvent
+import android.view.SurfaceHolder
+import com.vn.pixelpet.AuraSkin
+import com.vn.pixelpet.PetRenderer
+import com.vn.pixelpet.PetRepository
+import com.vn.pixelpet.PetState
+import com.vn.pixelpet.VariantRoster
+import com.vn.pixelpet.WalkEngine
+import com.vn.pixelpet.util.ScreenReceiver
+import kotlin.math.sin
+import kotlin.random.Random
+
+/**
+ * Lock-screen live wallpaper (v3 Phase 4, PLAN_V3.md §10).
+ *
+ * The pet ROAMS the wallpaper canvas on the existing [WalkEngine], bounded
+ * to the canvas with a margin. The draw loop is ~30fps and is gated exactly
+ * like v2: it runs only while the wallpaper is visible AND the screen is on.
+ * Roam pauses after 30s with no interaction (the pet keeps its last pose;
+ * the loop stops until the next touch or visibility change).
+ *
+ * Tap = pet, double-tap = play (the v2 wallpaper behavior, kept). Sleep/wake
+ * bookkeeping goes through [ScreenReceiver], the same dynamic receiver the
+ * app uses — ACTION_SCREEN_OFF / SCREEN_ON are not delivered to
+ * manifest-registered receivers.
+ *
+ * Battery notes: the pet bitmap is re-rendered only when its render key
+ * (variant, mood, walk phase, blink, aura skin, squash bucket) changes —
+ * otherwise the cached bitmap is reused. Pet state is refreshed at most
+ * twice a second and cached in [cachedState]; drawOnce() never calls
+ * snapshot(), so the steady draw path does no per-frame storage writes
+ * and no allocation beyond the one cached bitmap. AOD still cannot be drawn on by
+ * third-party apps (v2 limitation, unchanged): when the screen is off the
+ * loop is stopped and Pip sleeps.
+ */
+class PixelWallpaperService : WallpaperService() {
+
+    override fun onCreateEngine(): Engine = PetEngine()
+
+    inner class PetEngine : Engine() {
+
+        private val repo: PetRepository by lazy { PetRepository.get(applicationContext) }
+        private val walk = WalkEngine()
+        private val handler = Handler(Looper.getMainLooper())
+        private val screenReceiver = ScreenReceiver()
+        private val bgPaint = Paint().apply { isAntiAlias = false }
+        private val starPaint = Paint().apply { isAntiAlias = false; color = Color.parseColor("#FFFFFF") }
+        private val shadowPaint = Paint().apply { isAntiAlias = false; color = Color.argb(70, 0, 0, 0) }
+
+        private var visible = false
+        private var running = false
+        private var lastFrameMs: Long = 0L
+        private var lastStateMs: Long = 0L
+        private var lastInteractionMs: Long = 0L
+        private var lastBlinkToggleMs: Long = 0L
+        private var blinking: Boolean = false
+        private var canvasW: Int = 0
+        private var canvasH: Int = 0
+        private var petPx: Float = 0f
+        private var stars: List<Pair<Float, Float>> = emptyList()
+
+        // Cached pet bitmap + the key it was rendered for.
+        private var petBitmap: android.graphics.Bitmap? = null
+        private var petKey: String = ""
+        private var mood: PetRenderer.Mood = PetRenderer.Mood.CONTENT
+        private var auraSkin: AuraSkin? = null
+        // Pet state refreshed at most twice a second by drawFrame(); drawOnce()
+        // reads this instead of calling repo.snapshot() per frame (snapshot()
+        // persists, which would be ~30 storage writes/sec on the draw loop).
+        private var cachedState: PetState? = null
+        // Reused draw rects / colors: no per-frame RectF or parseColor work.
+        private val dstRect = RectF()
+        private val shadowRect = RectF()
+        private val bgColor = Color.parseColor("#0B0B18")
+        private val bandColor = Color.parseColor("#141428")
+        private var variant: VariantRoster.Variant =
+            VariantRoster.variantForSpeciesId("cat")
+
+        private val gestures = GestureDetector(
+            applicationContext,
+            object : GestureDetector.SimpleOnGestureListener() {
+                override fun onSingleTapConfirmed(e: MotionEvent): Boolean {
+                    repo.pet()
+                    walk.hop()
+                    poke()
+                    return true
+                }
+
+                override fun onDoubleTap(e: MotionEvent): Boolean {
+                    repo.play() // null when tired — wallpaper stays quiet
+                    walk.hop()
+                    poke()
+                    return true
+                }
+            }
+        )
+
+        /** Screen on/off: restart/stop the loop. Repo sleep/wake is ScreenReceiver. */
+        private val screenToggle = object : BroadcastReceiver() {
+            override fun onReceive(context: Context, intent: Intent) {
+                when (intent.action) {
+                    Intent.ACTION_SCREEN_ON -> {
+                        lastInteractionMs = SystemClock.uptimeMillis()
+                        startLoop()
+                    }
+                    Intent.ACTION_SCREEN_OFF -> stopLoop()
+                }
+            }
+        }
+
+        private val frameRunnable = object : Runnable {
+            override fun run() {
+                if (!running) return
+                drawFrame()
+                if (running) handler.postDelayed(this, FRAME_MS)
+            }
+        }
+
+        override fun onCreate(surfaceHolder: SurfaceHolder) {
+            super.onCreate(surfaceHolder)
+            setTouchEventsEnabled(true)
+            lastInteractionMs = SystemClock.uptimeMillis()
+            applicationContext.registerReceiver(
+                screenReceiver,
+                IntentFilter().apply {
+                    addAction(Intent.ACTION_SCREEN_OFF)
+                    addAction(Intent.ACTION_SCREEN_ON)
+                }
+            )
+            applicationContext.registerReceiver(
+                screenToggle,
+                IntentFilter().apply {
+                    addAction(Intent.ACTION_SCREEN_OFF)
+                    addAction(Intent.ACTION_SCREEN_ON)
+                }
+            )
+        }
+
+        override fun onDestroy() {
+            stopLoop()
+            try { applicationContext.unregisterReceiver(screenReceiver) } catch (t: Throwable) {}
+            try { applicationContext.unregisterReceiver(screenToggle) } catch (t: Throwable) {}
+            petBitmap?.recycle()
+            petBitmap = null
+            super.onDestroy()
+        }
+
+        override fun onVisibilityChanged(visible: Boolean) {
+            this.visible = visible
+            if (visible) {
+                lastInteractionMs = SystemClock.uptimeMillis()
+                startLoop()
+            } else {
+                stopLoop()
+            }
+        }
+
+        override fun onSurfaceChanged(holder: SurfaceHolder, format: Int, width: Int, height: Int) {
+            super.onSurfaceChanged(holder, format, width, height)
+            canvasW = width
+            canvasH = height
+            // Pet occupies ~42% of the narrow dimension; roam bounds follow.
+            petPx = (minOf(width, height) * 0.42f).coerceAtLeast(120f)
+            walk.setBounds(width.toFloat(), height.toFloat(), petPx, petPx, 16f)
+            if (walk.x == 0f && walk.y == 0f) {
+                walk.reset(width / 2f - petPx / 2f, height * 0.55f)
+            }
+            // Static starfield, seeded per size so it is stable across frames.
+            val rng = Random(width * 31L + height)
+            stars = List(70) { rng.nextFloat() to rng.nextFloat() }
+            petBitmap?.recycle()
+            petBitmap = null
+            petKey = ""
+        }
+
+        override fun onSurfaceDestroyed(holder: SurfaceHolder) {
+            stopLoop()
+            super.onSurfaceDestroyed(holder)
+        }
+
+        override fun onTouchEvent(event: MotionEvent) {
+            if (event.action == MotionEvent.ACTION_DOWN) poke()
+            gestures.onTouchEvent(event)
+        }
+
+        /** Any interaction resets the 30s idle timer and wakes the loop. */
+        private fun poke() {
+            lastInteractionMs = SystemClock.uptimeMillis()
+            startLoop()
+        }
+
+        private fun startLoop() {
+            if (running) return
+            if (!visible || !ScreenReceiver.screenOn) return
+            running = true
+            lastFrameMs = SystemClock.uptimeMillis()
+            handler.post(frameRunnable)
+        }
+
+        private fun stopLoop() {
+            running = false
+            handler.removeCallbacks(frameRunnable)
+        }
+
+        private fun drawFrame() {
+            val now = SystemClock.uptimeMillis()
+            // 30s idle in wallpaper: pause the roam and stop the loop.
+            if (now - lastInteractionMs > IDLE_PAUSE_MS) {
+                drawOnce(now, advance = false)
+                stopLoop()
+                return
+            }
+            // Advance the roam at real frame delta (WalkEngine clamps to 0.1s).
+            val dt = ((now - lastFrameMs) / 1000f).coerceIn(0f, 0.1f)
+            lastFrameMs = now
+            // Blink on a slow timer (no per-frame Random).
+            if (now - lastBlinkToggleMs > 2400) {
+                lastBlinkToggleMs = now
+                blinking = !blinking
+                if (blinking) lastBlinkToggleMs = now - 2270 // blink lasts ~130ms
+            }
+            walk.update(dt)
+            // Refresh stats/mood at most twice a second — snapshot() ticks decay.
+            if (now - lastStateMs > 500) {
+                lastStateMs = now
+                val state = repo.snapshot()
+                cachedState = state
+                variant = VariantRoster.variantForSpeciesId(state.speciesId)
+                mood = PetRenderer.moodFor(state, SystemClock.elapsedRealtime(), System.currentTimeMillis())
+                auraSkin = AuraSkin.effective(repo.prefsForPremium())
+                // Sleeping pets do not roam.
+                walk.setOverlay(
+                    if (mood == PetRenderer.Mood.SLEEPING) WalkEngine.Overlay.SLEEP
+                    else WalkEngine.Overlay.NONE
+                )
+            }
+            drawOnce(now, advance = true)
+        }
+
+        /** Render (only when the render key changed) and blit one frame. */
+        private fun drawOnce(now: Long, advance: Boolean) {
+            if (!advance && petBitmap == null) return // nothing to show yet
+            val holder = surfaceHolder
+            var canvas: Canvas? = null
+            try {
+                canvas = holder.lockCanvas()
+                if (canvas == null) return
+                drawBackground(canvas)
+                // Squash / crouch / hop shape the destination rect.
+                val squash = 1f + walk.squashStretch * 0.12f
+                val crouchK = 1f - walk.crouch * 0.12f
+                val sy = squash * crouchK
+                val liftPx = walk.jumpLift * petPx * 0.22f
+                val dx = walk.x
+                val dy = walk.y - liftPx + petPx * (1f - sy) / 2f
+                dstRect.set(dx, dy, dx + petPx, dy + petPx * sy)
+                val dst = dstRect
+                val key = "${variant.id}|$mood|${walk.walkPhase}|$blinking|${auraSkin?.name}|${(walk.squashStretch * 4).toInt()}"
+                if (key != petKey || petBitmap == null) {
+                    petBitmap?.recycle()
+                    val cellPx = (petPx / 24f).toInt().coerceIn(6, 24)
+                    petBitmap = PetRenderer.renderVariant(
+                        variant, mood, cellPx,
+                        blink = blinking,
+                        aura = auraSkin != null,
+                        auraStyle = auraSkin ?: AuraSkin.GOLD_ORBIT,
+                        wavePhase = 0f, // fixed: the walk bob comes from WalkEngine
+                        walkPhase = walk.walkPhase,
+                        legs = true
+                    )
+                    petKey = key
+                }
+                val bmp = petBitmap ?: return
+                // Soft ground shadow under the pet.
+                val cx = dx + petPx / 2f
+                val shadowW = petPx * 0.36f * (1f - walk.jumpLift * 0.35f)
+                shadowRect.set(cx - shadowW, dy + petPx * 0.96f, cx + shadowW, dy + petPx * 1.04f)
+                canvas.drawOval(shadowRect, shadowPaint)
+                if (walk.facingRight) {
+                    PetRenderer.drawScaled(canvas, bmp, dst)
+                } else {
+                    canvas.save()
+                    canvas.scale(-1f, 1f, cx, dy + petPx / 2f)
+                    PetRenderer.drawScaled(canvas, bmp, dst)
+                    canvas.restore()
+                }
+                // Attention bubble when attention is low and the pet is awake.
+                // Uses the cached 500ms state — never snapshot() per frame.
+                val st = cachedState
+                if (st != null && st.attention < 25 && !st.sleeping) {
+                    PetRenderer.drawAttentionBubble(
+                        canvas, cx, dy - petPx * 0.28f,
+                        (petPx / 24f) * 2.2f, now / 250f
+                    )
+                }
+            } catch (t: Throwable) {
+                // A wallpaper must never crash the lock screen.
+            } finally {
+                try {
+                    if (canvas != null) holder.unlockCanvasAndPost(canvas)
+                } catch (t: Throwable) {}
+            }
+        }
+
+        private fun drawBackground(canvas: Canvas) {
+            canvas.drawColor(bgColor)
+            // Night-sky gradient band (two flat fills — no shader allocation).
+            bgPaint.color = bandColor
+            canvas.drawRect(0f, 0f, canvasW.toFloat(), canvasH * 0.45f, bgPaint)
+            starPaint.alpha = 140
+            for ((sx, sy) in stars) {
+                val tw = 0.6f + 0.4f * sin((SystemClock.uptimeMillis() / 700f) + sx * 20f)
+                canvas.drawRect(
+                    sx * canvasW, sy * canvasH * 0.7f,
+                    sx * canvasW + 2f * tw, sy * canvasH * 0.7f + 2f * tw,
+                    starPaint
+                )
+            }
+            starPaint.alpha = 255
+        }
+
+        companion object {
+            /** ~30fps frame interval. */
+            private const val FRAME_MS = 33L
+            /** Roam pauses after this long with no interaction. */
+            private const val IDLE_PAUSE_MS = 30_000L
+        }
+    }
+}
