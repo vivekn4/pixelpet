@@ -283,6 +283,20 @@
             android:textColor="@color/pet_cheek"
             android:textStyle="bold"
             android:textSize="14sp" />
+
+        <!-- v3 Phase 3: family power (label set by refreshPowerButton) -->
+        <Button
+            android:id="@+id/btn_power"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/pad_small"
+            android:background="@drawable/card_bg"
+            android:text="@string/btn_power"
+            android:textColor="@color/gold"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:contentDescription="@string/btn_power" />
     </LinearLayout>
 
     <Button
