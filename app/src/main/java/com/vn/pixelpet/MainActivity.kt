@@ -47,7 +47,7 @@ class MainActivity : Activity() {
         SfxEngine.init(applicationContext, repo.snapshot().muted)
         NotificationHelper.ensureChannel(this)
 
-        // Sleep/wake tracking (dynamic registration — manifest doesn't work for these).
+        // Sleep/wake tracking (dynamic registration — manifest does not work for these).
         registerReceiver(screenReceiver, IntentFilter().apply {
             addAction(Intent.ACTION_SCREEN_OFF)
             addAction(Intent.ACTION_SCREEN_ON)
@@ -180,8 +180,10 @@ class MainActivity : Activity() {
         val now = SystemClock.elapsedRealtime()
         val mood = PetRenderer.moodFor(state, now, System.currentTimeMillis())
         petView.species = state.species
-        petView.aura = PremiumManager.isPremium(repo.prefsForPremium()) &&
-            state.species.category == Species.Category.MYSTICAL
+        // v3 Phase 4: aura for premium users on ALL variants, with the chosen skin.
+        val auraSkin = AuraSkin.effective(repo.prefsForPremium())
+        petView.aura = auraSkin != null
+        petView.auraStyle = auraSkin ?: AuraSkin.GOLD_ORBIT
         petView.setMood(mood)
         petView.showAttentionBubble = state.attention < 25 && !state.sleeping
         petNameLabel.text = state.species.displayName
@@ -346,7 +348,7 @@ class MainActivity : Activity() {
             .edit().putString(PowerManager.Cooldowns.KEY_JSON, cooldowns.toJson()).apply()
     }
 
-    /** Update the power button's label / disabled state from the cooldown. */
+    /** Update the power button label / disabled state from the cooldown. */
     private fun refreshPowerButton() {
         val btn = powerButton ?: return
         val variant = VariantRoster.variantForSpeciesId(repo.snapshot().speciesId)
@@ -382,7 +384,7 @@ class MainActivity : Activity() {
         refresh()
     }
 
-    /** Trigger the current pet's family power. */
+    /** Trigger the current pet family power. */
     private fun doPower() {
         val variant = VariantRoster.variantForSpeciesId(repo.snapshot().speciesId)
         val def = PowerManager.powerFor(variant.family)
@@ -425,8 +427,8 @@ class MainActivity : Activity() {
             }
             PowerManager.StatEffect.NONE -> Unit
         }
-        val aura = PremiumManager.isPremium(repo.prefsForPremium()) &&
-            repo.snapshot().species.category == Species.Category.MYSTICAL
+        // v3 Phase 4: premium sparkle on any variant (look only).
+        val aura = AuraSkin.effective(repo.prefsForPremium()) != null
         petView.powerFx(def.fx, premium = aura)
         SfxEngine.play("power_chime")
 
@@ -437,7 +439,7 @@ class MainActivity : Activity() {
             Toast.makeText(this, getString(R.string.power_fetch_gift, gift), Toast.LENGTH_SHORT).show()
         }
 
-        // Owl Night Watch: tomorrow's first goal as a reminder.
+        // Owl Night Watch: tomorrow first goal as a reminder.
         if (def.specialUi == PowerManager.SpecialUi.NIGHT_WATCH) {
             val goals = repo.getGoals()
             val first = goals.firstOrNull { !it.completed }
