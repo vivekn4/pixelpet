@@ -38,6 +38,11 @@
             android:parentActivityName=".MainActivity" />
 
         <activity
+            android:name=".PersonalityActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+
+        <activity
             android:name=".PremiumActivity"
             android:exported="false"
             android:parentActivityName=".MainActivity" />
