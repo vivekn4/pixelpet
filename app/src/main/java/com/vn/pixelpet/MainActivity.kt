@@ -1,1 +1,466 @@
-cGFja2FnZSBjb20udm4ucGl4ZWxwZXQKCmltcG9ydCBhbmRyb2lkLmFuaW1hdGlvbi5WYWx1ZUFuaW1hdG9yCmltcG9ydCBhbmRyb2lkLmFwcC5BY3Rpdml0eQppbXBvcnQgYW5kcm9pZC5hcHAuQWxlcnREaWFsb2cKaW1wb3J0IGFuZHJvaWQuY29udGVudC5JbnRlbnQKaW1wb3J0IGFuZHJvaWQuY29udGVudC5JbnRlbnRGaWx0ZXIKaW1wb3J0IGFuZHJvaWQuY29udGVudC5wbS5QYWNrYWdlTWFuYWdlcgppbXBvcnQgYW5kcm9pZC5vcy5CdWlsZAppbXBvcnQgYW5kcm9pZC5vcy5CdW5kbGUKaW1wb3J0IGFuZHJvaWQub3MuU3lzdGVtQ2xvY2sKaW1wb3J0IGFuZHJvaWQudmlldy5HZXN0dXJlRGV0ZWN0b3IKaW1wb3J0IGFuZHJvaWQudmlldy5Nb3Rpb25FdmVudAppbXBvcnQgYW5kcm9pZC53aWRnZXQuQnV0dG9uCmltcG9ydCBhbmRyb2lkLndpZGdldC5Qcm9ncmVzc0JhcgppbXBvcnQgYW5kcm9pZC53aWRnZXQuU3dpdGNoCmltcG9ydCBhbmRyb2lkLndpZGdldC5UZXh0VmlldwppbXBvcnQgYW5kcm9pZC53aWRnZXQuVG9hc3QKaW1wb3J0IGNvbS52bi5waXhlbHBldC5kb29tc2Nyb2xsLkRvb21zY3JvbGxNb25pdG9yCmltcG9ydCBjb20udm4ucGl4ZWxwZXQudXRpbC5Ob3RpZmljYXRpb25IZWxwZXIKaW1wb3J0IGNvbS52bi5waXhlbHBldC51dGlsLlNjcmVlblJlY2VpdmVyCmltcG9ydCBjb20udm4ucGl4ZWxwZXQud2lkZ2V0LlBpeGVsUGV0V2lkZ2V0UHJvdmlkZXIKaW1wb3J0IGNvbS52bi5waXhlbHBldC53aWRnZXQuV2lkZ2V0VXBkYXRlSm9iCgpjbGFzcyBNYWluQWN0aXZpdHkgOiBBY3Rpdml0eSgpIHsKCiAgICBwcml2YXRlIGxhdGVpbml0IHZhciByZXBvOiBQZXRSZXBvc2l0b3J5CiAgICBwcml2YXRlIGxhdGVpbml0IHZhciBwZXRWaWV3OiBQZXRWaWV3CiAgICBwcml2YXRlIGxhdGVpbml0IHZhciBtb29kTGFiZWw6IFRleHRWaWV3CiAgICBwcml2YXRlIGxhdGVpbml0IHZhciBwZXROYW1lTGFiZWw6IFRleHRWaWV3CiAgICBwcml2YXRlIGxhdGVpbml0IHZhciBiYXJIdW5nZXI6IFByb2dyZXNzQmFyCiAgICBwcml2YXRlIGxhdGVpbml0IHZhciBiYXJIYXBwaW5lc3M6IFByb2dyZXNzQmFyCiAgICBwcml2YXRlIGxhdGVpbml0IHZhciBiYXJFbmVyZ3k6IFByb2dyZXNzQmFyCiAgICBwcml2YXRlIGxhdGVpbml0IHZhciBiYXJBdHRlbnRpb246IFByb2dyZXNzQmFyCiAgICBwcml2YXRlIGxhdGVpbml0IHZhciBidG5NdXRlOiBCdXR0b24KICAgIHByaXZhdGUgdmFsIHNjcmVlblJlY2VpdmVyID0gU2NyZWVuUmVjZWl2ZXIoKQogICAgcHJpdmF0ZSBsYXRlaW5pdCB2YXIgZ2VzdHVyZXM6IEdlc3R1cmVEZXRlY3RvcgogICAgLy8gdjMgUGhhc2UgMzogb24tZGV2aWNlIGxlYXJuaW5nICsgZmFtaWx5IHBvd2VycwogICAgcHJpdmF0ZSB2YXIgYnJhaW46IE5hdGl2ZUJyYWluPyA9IG51bGwKICAgIHByaXZhdGUgdmFyIGNvb2xkb3duczogUG93ZXJNYW5hZ2VyLkNvb2xkb3ducyA9IFBvd2VyTWFuYWdlci5Db29sZG93bnMoKQogICAgcHJpdmF0ZSB2YXIgcG93ZXJCdXR0b246IEJ1dHRvbj8gPSBudWxsCgogICAgb3ZlcnJpZGUgZnVuIG9uQ3JlYXRlKHNhdmVkSW5zdGFuY2VTdGF0ZTogQnVuZGxlPykgewogICAgICAgIHN1cGVyLm9uQ3JlYXRlKHNhdmVkSW5zdGFuY2VTdGF0ZSkKICAgICAgICBzZXRDb250ZW50VmlldyhSLmxheW91dC5hY3Rpdml0eV9tYWluKQoKICAgICAgICByZXBvID0gUGV0UmVwb3NpdG9yeS5nZXQodGhpcykKICAgICAgICBTZnhFbmdpbmUuaW5pdChhcHBsaWNhdGlvbkNvbnRleHQsIHJlcG8uc25hcHNob3QoKS5tdXRlZCkKICAgICAgICBOb3RpZmljYXRpb25IZWxwZXIuZW5zdXJlQ2hhbm5lbCh0aGlzKQogICAgICAgIC8vIHYzIFBoYXNlIDQgZml4OiBzY2hlZHVsZSB0aGUgcGVyaW9kaWMgd2lkZ2V0IHJlZnJlc2ggaGVyZSB0b28sIG5vdAogICAgICAgIC8vIG9ubHkgZnJvbSBCb290UmVjZWl2ZXIg4oCUIGEgZnJlc2ggaW5zdGFsbC91cGRhdGUgZ2V0cyB0aGUgMzAtbWluCiAgICAgICAgLy8gcmVmcmVzaCB3aXRob3V0IHdhaXRpbmcgZm9yIHRoZSBmaXJzdCByZWJvb3QuIHNjaGVkdWxlKCkgaXMKICAgICAgICAvLyBpZGVtcG90ZW50IChzYW1lIEpPQl9JRCByZXBsYWNlcyksIHNvIGRvdWJsZS1zY2hlZHVsaW5nIGlzIHNhZmUuCiAgICAgICAgV2lkZ2V0VXBkYXRlSm9iLnNjaGVkdWxlKHRoaXMpCgogICAgICAgIC8vIFNsZWVwL3dha2UgdHJhY2tpbmcgKGR5bmFtaWMgcmVnaXN0cmF0aW9uIOKAlCBtYW5pZmVzdCBkb2VzIG5vdCB3b3JrIGZvciB0aGVzZSkuCiAgICAgICAgcmVnaXN0ZXJSZWNlaXZlcihzY3JlZW5SZWNlaXZlciwgSW50ZW50RmlsdGVyKCkuYXBwbHkgewogICAgICAgICAgICBhZGRBY3Rpb24oSW50ZW50LkFDVElPTl9TQ1JFRU5fT0ZGKQogICAgICAgICAgICBhZGRBY3Rpb24oSW50ZW50LkFDVElPTl9TQ1JFRU5fT04pCiAgICAgICAgfSkKCiAgICAgICAgcGV0VmlldyA9IGZpbmRWaWV3QnlJZChSLmlkLnBldF92aWV3KQogICAgICAgIG1vb2RMYWJlbCA9IGZpbmRWaWV3QnlJZChSLmlkLm1vb2RfbGFiZWwpCiAgICAgICAgcGV0TmFtZUxhYmVsID0gZmluZFZpZXdCeUlkKFIuaWQucGV0X25hbWUpCiAgICAgICAgYmFySHVuZ2VyID0gZmluZFZpZXdCeUlkKFIuaWQuYmFyX2h1bmdlcikKICAgICAgICBiYXJIYXBwaW5lc3MgPSBmaW5kVmlld0J5SWQoUi5pZC5iYXJfaGFwcGluZXNzKQogICAgICAgIGJhckVuZXJneSA9IGZpbmRWaWV3QnlJZChSLmlkLmJhcl9lbmVyZ3kpCiAgICAgICAgYmFyQXR0ZW50aW9uID0gZmluZFZpZXdCeUlkKFIuaWQuYmFyX2F0dGVudGlvbikKICAgICAgICBidG5NdXRlID0gZmluZFZpZXdCeUlkKFIuaWQuYnRuX211dGUpCgogICAgICAgIC8vIFRhcCA9IHBldCwgZG91YmxlLXRhcCA9IHBsYXkuCiAgICAgICAgZ2VzdHVyZXMgPSBHZXN0dXJlRGV0ZWN0b3IodGhpcywgb2JqZWN0IDogR2VzdHVyZURldGVjdG9yLlNpbXBsZU9uR2VzdHVyZUxpc3RlbmVyKCkgewogICAgICAgICAgICBvdmVycmlkZSBmdW4gb25TaW5nbGVUYXBDb25maXJtZWQoZTogTW90aW9uRXZlbnQpOiBCb29sZWFuIHsKICAgICAgICAgICAgICAgIGRvUGV0KCkKICAgICAgICAgICAgICAgIHJldHVybiB0cnVlCiAgICAgICAgICAgIH0KCiAgICAgICAgICAgIG92ZXJyaWRlIGZ1biBvbkRvdWJsZVRhcChlOiBNb3Rpb25FdmVudCk6IEJvb2xlYW4gewogICAgICAgICAgICAgICAgZG9QbGF5KCkKICAgICAgICAgICAgICAgIHJldHVybiB0cnVlCiAgICAgICAgICAgIH0KICAgICAgICB9KQogICAgICAgIHBldFZpZXcuc2V0T25Ub3VjaExpc3RlbmVyIHsgdiwgZSAtPgogICAgICAgICAgICBnZXN0dXJlcy5vblRvdWNoRXZlbnQoZSkKICAgICAgICAgICAgdi5wZXJmb3JtQ2xpY2soKQogICAgICAgICAgICB0cnVlCiAgICAgICAgfQoKICAgICAgICBmaW5kVmlld0J5SWQ8QnV0dG9uPihSLmlkLmJ0bl9nb2Fscykuc2V0T25DbGlja0xpc3RlbmVyIHsKICAgICAgICAgICAgU2Z4RW5naW5lLnBsYXkoInVpX2NsaWNrIik7IEhhcHRpY3MudGljayh0aGlzKQogICAgICAgICAgICBzdGFydEFjdGl2aXR5KEludGVudCh0aGlzLCBHb2Fsc0FjdGl2aXR5OjpjbGFzcy5qYXZhKSkKICAgICAgICB9CiAgICAgICAgZmluZFZpZXdCeUlkPEJ1dHRvbj4oUi5pZC5idG5fc25hY2spLnNldE9uQ2xpY2tMaXN0ZW5lciB7IGRvU25hY2soKSB9CiAgICAgICAgZmluZFZpZXdCeUlkPEJ1dHRvbj4oUi5pZC5idG5fcGxheSkuc2V0T25DbGlja0xpc3RlbmVyIHsgZG9QbGF5KCkgfQogICAgICAgIGZpbmRWaWV3QnlJZDxCdXR0b24+KFIuaWQuYnRuX3BldCkuc2V0T25DbGlja0xpc3RlbmVyIHsgZG9QZXQoKSB9CiAgICAgICAgZmluZFZpZXdCeUlkPEJ1dHRvbj4oUi5pZC5idG5fZG9vbXNjcm9sbCkuc2V0T25DbGlja0xpc3RlbmVyIHsKICAgICAgICAgICAgU2Z4RW5naW5lLnBsYXkoInVpX2NsaWNrIikKICAgICAgICAgICAgY29uZmlybURvb21zY3JvbGwoKQogICAgICAgIH0KICAgICAgICBmaW5kVmlld0J5SWQ8QnV0dG9uPihSLmlkLmJ0bl9zcGVjaWVzKS5zZXRPbkNsaWNrTGlzdGVuZXIgewogICAgICAgICAgICBTZnhFbmdpbmUucGxheSgidWlfY2xpY2siKQogICAgICAgICAgICBzdGFydEFjdGl2aXR5KEludGVudCh0aGlzLCBTcGVjaWVzQWN0aXZpdHk6OmNsYXNzLmphdmEpKQogICAgICAgIH0KICAgICAgICBmaW5kVmlld0J5SWQ8QnV0dG9uPihSLmlkLmJ0bl9wZXJzb25hbGl0eSkuc2V0T25DbGlja0xpc3RlbmVyIHsKICAgICAgICAgICAgU2Z4RW5naW5lLnBsYXkoInVpX2NsaWNrIikKICAgICAgICAgICAgc3RhcnRBY3Rpdml0eShJbnRlbnQodGhpcywgUGVyc29uYWxpdHlBY3Rpdml0eTo6Y2xhc3MuamF2YSkpCiAgICAgICAgfQogICAgICAgIC8vIHYzIFBoYXNlIDM6IGxvYWQgYnJhaW4gKyBjb29sZG93bnMsIHdpcmUgdGhlIHBvd2VyIGJ1dHRvbgogICAgICAgIGxvYWRCcmFpbigpCiAgICAgICAgbG9hZENvb2xkb3ducygpCiAgICAgICAgcG93ZXJCdXR0b24gPSBmaW5kVmlld0J5SWQoUi5pZC5idG5fcG93ZXIpCiAgICAgICAgcG93ZXJCdXR0b24/LnNldE9uQ2xpY2tMaXN0ZW5lciB7IGRvUG93ZXIoKSB9CiAgICAgICAgZmluZFZpZXdCeUlkPEJ1dHRvbj4oUi5pZC5idG5fcHJlbWl1bSkuc2V0T25DbGlja0xpc3RlbmVyIHsKICAgICAgICAgICAgU2Z4RW5naW5lLnBsYXkoInVpX2NsaWNrIikKICAgICAgICAgICAgc3RhcnRBY3Rpdml0eShJbnRlbnQodGhpcywgUHJlbWl1bUFjdGl2aXR5OjpjbGFzcy5qYXZhKSkKICAgICAgICB9CiAgICAgICAgZmluZFZpZXdCeUlkPEJ1dHRvbj4oUi5pZC5idG5fYWJvdXQpLnNldE9uQ2xpY2tMaXN0ZW5lciB7CiAgICAgICAgICAgIFNmeEVuZ2luZS5wbGF5KCJ1aV9jbGljayIpCiAgICAgICAgICAgIHN0YXJ0QWN0aXZpdHkoSW50ZW50KHRoaXMsIEFib3V0QWN0aXZpdHk6OmNsYXNzLmphdmEpKQogICAgICAgIH0KICAgICAgICBidG5NdXRlLnNldE9uQ2xpY2tMaXN0ZW5lciB7CiAgICAgICAgICAgIHZhbCBtID0gIXJlcG8uc25hcHNob3QoKS5tdXRlZAogICAgICAgICAgICByZXBvLnNldE11dGVkKG0pCiAgICAgICAgICAgIFNmeEVuZ2luZS5zZXRNdXRlZChtKQogICAgICAgICAgICB1cGRhdGVNdXRlSWNvbihtKQogICAgICAgICAgICBpZiAoIW0pIFNmeEVuZ2luZS5wbGF5KCJ1aV9jbGljayIpCiAgICAgICAgfQoKICAgICAgICB2YWwgYXV0b1N3aXRjaCA9IGZpbmRWaWV3QnlJZDxTd2l0Y2g+KFIuaWQuc3dpdGNoX2F1dG9kZXRlY3QpCiAgICAgICAgYXV0b1N3aXRjaC5pc0NoZWNrZWQgPSByZXBvLmF1dG9EZXRlY3RFbmFibGVkCiAgICAgICAgYXV0b1N3aXRjaC5zZXRPbkNoZWNrZWRDaGFuZ2VMaXN0ZW5lciB7IF8sIGNoZWNrZWQgLT4KICAgICAgICAgICAgaWYgKGNoZWNrZWQgJiYgIURvb21zY3JvbGxNb25pdG9yLmhhc1Blcm1pc3Npb24odGhpcykpIHsKICAgICAgICAgICAgICAgIGF1dG9Td2l0Y2guaXNDaGVja2VkID0gZmFsc2UKICAgICAgICAgICAgICAgIFRvYXN0Lm1ha2VUZXh0KHRoaXMsIGdldFN0cmluZyhSLnN0cmluZy5hdXRvX2RldGVjdF9ncmFudCksIFRvYXN0LkxFTkdUSF9MT05HKS5zaG93KCkKICAgICAgICAgICAgICAgIERvb21zY3JvbGxNb25pdG9yLnJlcXVlc3RQZXJtaXNzaW9uKHRoaXMpCiAgICAgICAgICAgICAgICByZXR1cm5Ac2V0T25DaGVja2VkQ2hhbmdlTGlzdGVuZXIKICAgICAgICAgICAgfQogICAgICAgICAgICByZXBvLmF1dG9EZXRlY3RFbmFibGVkID0gY2hlY2tlZAogICAgICAgICAgICBTZnhFbmdpbmUucGxheSgidWlfY2xpY2siKQogICAgICAgIH0KCiAgICAgICAgUGl4ZWxQZXRXaWRnZXRQcm92aWRlci5yZXF1ZXN0UGluSWZOZWVkZWQodGhpcykKICAgICAgICByZXF1ZXN0Tm90aWZQZXJtaXNzaW9uSWZOZWVkZWQoKQogICAgfQoKICAgIG92ZXJyaWRlIGZ1biBvbkRlc3Ryb3koKSB7CiAgICAgICAgdHJ5IHsgdW5yZWdpc3RlclJlY2VpdmVyKHNjcmVlblJlY2VpdmVyKSB9IGNhdGNoICh0OiBUaHJvd2FibGUpIHt9CiAgICAgICAgc3VwZXIub25EZXN0cm95KCkKICAgIH0KCiAgICBvdmVycmlkZSBmdW4gb25SZXN1bWUoKSB7CiAgICAgICAgc3VwZXIub25SZXN1bWUoKQogICAgICAgIC8vIFdha2UgcmVjYXAgKCJ3aGlsZSB5b3Ugd2VyZSBhd2F54oCmIikuCiAgICAgICAgdmFsIHJlY2FwID0gcmVwby5sYXN0UmVjYXAKICAgICAgICBpZiAocmVjYXAuaXNOb3RFbXB0eSgpKSB7CiAgICAgICAgICAgIHJlcG8ubGFzdFJlY2FwID0gIiIKICAgICAgICAgICAgcmVjb3JkQnJhaW4oTmF0aXZlQnJhaW4uQWN0aW9uLldBS0UpCiAgICAgICAgICAgIFNmeEVuZ2luZS5wbGF5KCJ3YWtlX2NoaW1lIikKICAgICAgICAgICAgQWxlcnREaWFsb2cuQnVpbGRlcih0aGlzKQogICAgICAgICAgICAgICAgLnNldFRpdGxlKGdldFN0cmluZyhSLnN0cmluZy53YWtlX3RpdGxlKSkKICAgICAgICAgICAgICAgIC5zZXRNZXNzYWdlKHJlY2FwKQogICAgICAgICAgICAgICAgLnNldFBvc2l0aXZlQnV0dG9uKGFuZHJvaWQuUi5zdHJpbmcub2ssIG51bGwpCiAgICAgICAgICAgICAgICAuc2hvdygpCiAgICAgICAgfQogICAgICAgIHJlZnJlc2goKQogICAgICAgIG1heWJlQXR0ZW50aW9uTnVkZ2UoKQoKICAgICAgICB2YWwgbWlucyA9IERvb21zY3JvbGxNb25pdG9yLm1heWJlQXV0b0xvZyh0aGlzLCByZXBvKQogICAgICAgIGlmIChtaW5zICE9IG51bGwpIHsKICAgICAgICAgICAgVG9hc3QubWFrZVRleHQoCiAgICAgICAgICAgICAgICB0aGlzLAogICAgICAgICAgICAgICAgZ2V0U3RyaW5nKFIuc3RyaW5nLm5vdGlmX2F1dG9fZG9vbSwgbWlucywgcGV0TmFtZSgpKSwKICAgICAgICAgICAgICAgIFRvYXN0LkxFTkdUSF9MT05HCiAgICAgICAgICAgICkuc2hvdygpCiAgICAgICAgICAgIHBldFZpZXcuc3Vsa0FuaW0oKQogICAgICAgICAgICBTZnhFbmdpbmUucGxheSgic3Vsa19zbGlkZSIpCiAgICAgICAgICAgIEhhcHRpY3Muc3Vsa0J1enoodGhpcykKICAgICAgICAgICAgcmVmcmVzaCgpCiAgICAgICAgfQogICAgfQoKICAgIHByaXZhdGUgZnVuIHBldE5hbWUoKTogU3RyaW5nID0gcmVwby5zbmFwc2hvdCgpLnNwZWNpZXMuZGlzcGxheU5hbWUKCiAgICBwcml2YXRlIGZ1biByZWZyZXNoKCkgewogICAgICAgIHZhbCBzdGF0ZSA9IHJlcG8uc25hcHNob3QoKQogICAgICAgIHZhbCBub3cgPSBTeXN0ZW1DbG9jay5lbGFwc2VkUmVhbHRpbWUoKQogICAgICAgIHZhbCBtb29kID0gUGV0UmVuZGVyZXIubW9vZEZvcihzdGF0ZSwgbm93LCBTeXN0ZW0uY3VycmVudFRpbWVNaWxsaXMoKSkKICAgICAgICBwZXRWaWV3LnNwZWNpZXMgPSBzdGF0ZS5zcGVjaWVzCiAgICAgICAgLy8gdjMgUGhhc2UgNDogYXVyYSBmb3IgcHJlbWl1bSB1c2VycyBvbiBBTEwgdmFyaWFudHMsIHdpdGggdGhlIGNob3NlbiBza2luLgogICAgICAgIHZhbCBhdXJhU2tpbiA9IEF1cmFTa2luLmVmZmVjdGl2ZShyZXBvLnByZWZzRm9yUHJlbWl1bSgpKQogICAgICAgIHBldFZpZXcuYXVyYSA9IGF1cmFTa2luICE9IG51bGwKICAgICAgICBwZXRWaWV3LmF1cmFTdHlsZSA9IGF1cmFTa2luID86IEF1cmFTa2luLkdPTERfT1JCSVQKICAgICAgICBwZXRWaWV3LnNldE1vb2QobW9vZCkKICAgICAgICBwZXRWaWV3LnNob3dBdHRlbnRpb25CdWJibGUgPSBzdGF0ZS5hdHRlbnRpb24gPCAyNSAmJiAhc3RhdGUuc2xlZXBpbmcKICAgICAgICBwZXROYW1lTGFiZWwudGV4dCA9IHN0YXRlLnNwZWNpZXMuZGlzcGxheU5hbWUKICAgICAgICBtb29kTGFiZWwudGV4dCA9IHdoZW4gKG1vb2QpIHsKICAgICAgICAgICAgUGV0UmVuZGVyZXIuTW9vZC5IQVBQWSAtPiBnZXRTdHJpbmcoUi5zdHJpbmcubW9vZF9oYXBweSkKICAgICAgICAgICAgUGV0UmVuZGVyZXIuTW9vZC5DT05URU5UIC0+IGdldFN0cmluZyhSLnN0cmluZy5tb29kX2NvbnRlbnQpCiAgICAgICAgICAgIFBldFJlbmRlcmVyLk1vb2QuSFVOR1JZIC0+IGdldFN0cmluZyhSLnN0cmluZy5tb29kX2h1bmdyeSkKICAgICAgICAgICAgUGV0UmVuZGVyZXIuTW9vZC5TQUQgLT4gZ2V0U3RyaW5nKFIuc3RyaW5nLm1vb2Rfc2FkKQogICAgICAgICAgICBQZXRSZW5kZXJlci5Nb29kLlNVTEtJTkcgLT4gZ2V0U3RyaW5nKFIuc3RyaW5nLm1vb2Rfc3Vsa2luZykKICAgICAgICAgICAgUGV0UmVuZGVyZXIuTW9vZC5TTEVFUElORyAtPiBnZXRTdHJpbmcoUi5zdHJpbmcubW9vZF9zbGVlcGluZykKICAgICAgICAgICAgUGV0UmVuZGVyZXIuTW9vZC5TSUNLIC0+IGdldFN0cmluZyhSLnN0cmluZy5tb29kX3NpY2spCiAgICAgICAgfQogICAgICAgIHR3ZWVuQmFyKGJhckh1bmdlciwgc3RhdGUuaHVuZ2VyKQogICAgICAgIHR3ZWVuQmFyKGJhckhhcHBpbmVzcywgc3RhdGUuaGFwcGluZXNzKQogICAgICAgIHR3ZWVuQmFyKGJhckVuZXJneSwgc3RhdGUuZW5lcmd5KQogICAgICAgIHR3ZWVuQmFyKGJhckF0dGVudGlvbiwgc3RhdGUuYXR0ZW50aW9uKQogICAgICAgIHVwZGF0ZU11dGVJY29uKHN0YXRlLm11dGVkKQogICAgICAgIGlmIChzdGF0ZS5hdHRlbnRpb24gPj0gMjUpIE5vdGlmaWNhdGlvbkhlbHBlci5jYW5jZWxBdHRlbnRpb24odGhpcykKICAgICAgICBQaXhlbFBldFdpZGdldFByb3ZpZGVyLnJlZnJlc2hBbGwodGhpcykKCiAgICAgICAgLy8gQ2VsZWJyYXRlIGFueSB1bmxvY2tzIGVhcm5lZCBieSByZWNlbnQgY2FyZS4KICAgICAgICB2YWwgdW5sb2NrcyA9IFVubG9ja01hbmFnZXIuY2hlY2tVbmxvY2tzKHJlcG8pCiAgICAgICAgaWYgKHVubG9ja3MuaXNOb3RFbXB0eSgpKSB7CiAgICAgICAgICAgIHZhbCB1ID0gdW5sb2Nrcy5maXJzdCgpCiAgICAgICAgICAgIHBldFZpZXcuZXZvbHZlQW5pbSgpCiAgICAgICAgICAgIFNmeEVuZ2luZS5wbGF5KCJldm9sdmVfZmFuZmFyZSIpCiAgICAgICAgICAgIEhhcHRpY3MuZmFuZmFyZSh0aGlzKQogICAgICAgICAgICBUb2FzdC5tYWtlVGV4dCgKICAgICAgICAgICAgICAgIHRoaXMsCiAgICAgICAgICAgICAgICBnZXRTdHJpbmcoUi5zdHJpbmcudW5sb2NrZWRfdG9hc3QsIHUuc3BlY2llcy5kaXNwbGF5TmFtZSwgdS5yZWFzb24pLAogICAgICAgICAgICAgICAgVG9hc3QuTEVOR1RIX0xPTkcKICAgICAgICAgICAgKS5zaG93KCkKICAgICAgICB9CgogICAgICAgIC8vIHYzIFBoYXNlIDM6IHBvd2VyIGJ1dHRvbiBzdGF0ZSArIGhhbXN0ZXIgc3Rhc2gKICAgICAgICByZWZyZXNoUG93ZXJCdXR0b24oKQogICAgICAgIGNoZWNrU3Rhc2goKQogICAgfQoKICAgIHByaXZhdGUgZnVuIGRvU25hY2soKSB7CiAgICAgICAgdmFsIHMgPSByZXBvLnNuYWNrKCkKICAgICAgICBpZiAocyA9PSBudWxsKSB7CiAgICAgICAgICAgIFRvYXN0Lm1ha2VUZXh0KHRoaXMsIGdldFN0cmluZyhSLnN0cmluZy5zbmFja19jb29sZG93biksIFRvYXN0LkxFTkdUSF9TSE9SVCkuc2hvdygpCiAgICAgICAgICAgIHJldHVybgogICAgICAgIH0KICAgICAgICByZWNvcmRCcmFpbihOYXRpdmVCcmFpbi5BY3Rpb24uRkVFRF9TTkFDSykKICAgICAgICBwZXRWaWV3LmVhdEFuaW0oKQogICAgICAgIHBldFZpZXcuZmVlZEFuaW0oKQogICAgICAgIFNmeEVuZ2luZS5wbGF5KCJmZWVkX211bmNoIikKICAgICAgICBIYXB0aWNzLnRodWQodGhpcykKICAgICAgICByZWZyZXNoKCkKICAgIH0KCiAgICBwcml2YXRlIGZ1biBkb1BsYXkoKSB7CiAgICAgICAgdmFsIHMgPSByZXBvLnBsYXkoKQogICAgICAgIGlmIChzID09IG51bGwpIHsKICAgICAgICAgICAgU2Z4RW5naW5lLnBsYXkoInNhZF9ibGlwIikKICAgICAgICAgICAgVG9hc3QubWFrZVRleHQodGhpcywgZ2V0U3RyaW5nKFIuc3RyaW5nLnBsYXlfdGlyZWQpLCBUb2FzdC5MRU5HVEhfU0hPUlQpLnNob3coKQogICAgICAgICAgICByZXR1cm4KICAgICAgICB9CiAgICAgICAgcmVjb3JkQnJhaW4oTmF0aXZlQnJhaW4uQWN0aW9uLlBMQVkpCiAgICAgICAgcGV0Vmlldy5wbGF5QW5pbSgpCiAgICAgICAgU2Z4RW5naW5lLnBsYXkoInBsYXlfZ2lnZ2xlIikKICAgICAgICBIYXB0aWNzLmJvdW5jZSh0aGlzKQogICAgICAgIHJlZnJlc2goKQogICAgfQoKICAgIHByaXZhdGUgZnVuIGRvUGV0KCkgewogICAgICAgIHJlcG8ucGV0KCkKICAgICAgICByZWNvcmRCcmFpbihOYXRpdmVCcmFpbi5BY3Rpb24uUEVUKQogICAgICAgIHBldFZpZXcuZmVlZEFuaW0oKSAvLyBoZWFydHMKICAgICAgICBTZnhFbmdpbmUucGxheSgicGV0X3B1cnIiKQogICAgICAgIEhhcHRpY3MudGljayh0aGlzKQogICAgICAgIHJlZnJlc2goKQogICAgfQoKICAgIHByaXZhdGUgZnVuIG1heWJlQXR0ZW50aW9uTnVkZ2UoKSB7CiAgICAgICAgdmFsIHN0YXRlID0gcmVwby5zbmFwc2hvdCgpCiAgICAgICAgaWYgKHN0YXRlLmF0dGVudGlvbiA+PSAyNSB8fCBzdGF0ZS5zbGVlcGluZykgcmV0dXJuCiAgICAgICAgdmFsIG5vdyA9IFN5c3RlbS5jdXJyZW50VGltZU1pbGxpcygpCiAgICAgICAgaWYgKG5vdyAtIHJlcG8ubGFzdEF0dGVudGlvbk51ZGdlIDwgNCAqIDM2MDAgKiAxMDAwTCkgcmV0dXJuCiAgICAgICAgcmVwby5sYXN0QXR0ZW50aW9uTnVkZ2UgPSBub3cKICAgICAgICBTZnhFbmdpbmUucGxheSgiYXR0ZW50aW9uX3BpbmciKQogICAgICAgIE5vdGlmaWNhdGlvbkhlbHBlci5ub3RpZnlBdHRlbnRpb25OZWVkZWQodGhpcywgcGV0TmFtZSgpKQogICAgfQoKICAgIHByaXZhdGUgZnVuIHJlcXVlc3ROb3RpZlBlcm1pc3Npb25JZk5lZWRlZCgpIHsKICAgICAgICBpZiAoQnVpbGQuVkVSU0lPTi5TREtfSU5UID49IDMzICYmCiAgICAgICAgICAgIGNoZWNrU2VsZlBlcm1pc3Npb24oYW5kcm9pZC5NYW5pZmVzdC5wZXJtaXNzaW9uLlBPU1RfTk9USUZJQ0FUSU9OUykKICAgICAgICAgICAgICAgICE9IFBhY2thZ2VNYW5hZ2VyLlBFUk1JU1NJT05fR1JBTlRFRAogICAgICAgICkgewogICAgICAgICAgICByZXF1ZXN0UGVybWlzc2lvbnMoYXJyYXlPZihhbmRyb2lkLk1hbmlmZXN0LnBlcm1pc3Npb24uUE9TVF9OT1RJRklDQVRJT05TKSwgOTAwMSkKICAgICAgICB9CiAgICB9CgogICAgcHJpdmF0ZSBmdW4gdHdlZW5CYXIoYmFyOiBQcm9ncmVzc0JhciwgdG86IEludCkgewogICAgICAgIHZhbCBmcm9tID0gYmFyLnByb2dyZXNzCiAgICAgICAgaWYgKGZyb20gPT0gdG8pIHJldHVybgogICAgICAgIFZhbHVlQW5pbWF0b3Iub2ZJbnQoZnJvbSwgdG8pLmFwcGx5IHsKICAgICAgICAgICAgZHVyYXRpb24gPSA0NTAKICAgICAgICAgICAgYWRkVXBkYXRlTGlzdGVuZXIgeyBiYXIucHJvZ3Jlc3MgPSBpdC5hbmltYXRlZFZhbHVlIGFzIEludCB9CiAgICAgICAgICAgIHN0YXJ0KCkKICAgICAgICB9CiAgICB9CgogICAgcHJpdmF0ZSBmdW4gdXBkYXRlTXV0ZUljb24obXV0ZWQ6IEJvb2xlYW4pIHsKICAgICAgICBidG5NdXRlLnRleHQgPSBpZiAobXV0ZWQpIGdldFN0cmluZyhSLnN0cmluZy5idG5fdW5tdXRlKSBlbHNlIGdldFN0cmluZyhSLnN0cmluZy5idG5fbXV0ZSkKICAgIH0KCiAgICBwcml2YXRlIGZ1biBjb25maXJtRG9vbXNjcm9sbCgpIHsKICAgICAgICBBbGVydERpYWxvZy5CdWlsZGVyKHRoaXMpCiAgICAgICAgICAgIC5zZXRUaXRsZShnZXRTdHJpbmcoUi5zdHJpbmcuZG9vbV90aXRsZSkpCiAgICAgICAgICAgIC5zZXRNZXNzYWdlKGdldFN0cmluZyhSLnN0cmluZy5kb29tX21zZywgcGV0TmFtZSgpKSkKICAgICAgICAgICAgLnNldFBvc2l0aXZlQnV0dG9uKGdldFN0cmluZyhSLnN0cmluZy5kb29tX2NvbmZpcm0pKSB7IF8sIF8gLT4KICAgICAgICAgICAgICAgIHJlY29yZEJyYWluKE5hdGl2ZUJyYWluLkFjdGlvbi5ET09NU0NST0xMKQogICAgICAgICAgICAgICAgcmVwby5sb2dEb29tc2Nyb2xsKCkKICAgICAgICAgICAgICAgIHBldFZpZXcuc3Vsa0FuaW0oKQogICAgICAgICAgICAgICAgU2Z4RW5naW5lLnBsYXkoInN1bGtfc2xpZGUiKQogICAgICAgICAgICAgICAgSGFwdGljcy5zdWxrQnV6eih0aGlzKQogICAgICAgICAgICAgICAgVG9hc3QubWFrZVRleHQodGhpcywgZ2V0U3RyaW5nKFIuc3RyaW5nLnRvYXN0X2Rvb20sIHBldE5hbWUoKSksIFRvYXN0LkxFTkdUSF9TSE9SVCkuc2hvdygpCiAgICAgICAgICAgICAgICByZWZyZXNoKCkKICAgICAgICAgICAgfQogICAgICAgICAgICAuc2V0TmVnYXRpdmVCdXR0b24oZ2V0U3RyaW5nKFIuc3RyaW5nLmNhbmNlbCksIG51bGwpCiAgICAgICAgICAgIC5zaG93KCkKICAgIH0KCiAgICAvLyA9PT09PT09PT09PT09PT09PSB2MyBQaGFzZSAzOiBicmFpbiArIHBvd2VycyA9PT09PT09PT09PT09PT09PQoKICAgIC8qKiBMb2FkIChvciBzdGFydCBmcmVzaCkgdGhlIE5hdGl2ZSBCcmFpbiBmb3IgdGhlIGN1cnJlbnQgdmFyaWFudC4gKi8KICAgIHByaXZhdGUgZnVuIGxvYWRCcmFpbigpIHsKICAgICAgICB2YWwgdmFyaWFudElkID0gVmFyaWFudFJvc3Rlci52YXJpYW50Rm9yU3BlY2llc0lkKHJlcG8uc25hcHNob3QoKS5zcGVjaWVzSWQpLmlkCiAgICAgICAgdmFsIHByZWZzQiA9IGdldFNoYXJlZFByZWZlcmVuY2VzKE5hdGl2ZUJyYWluLlBSRUZTX05BTUUsIE1PREVfUFJJVkFURSkKICAgICAgICB2YWwgc2F2ZWQgPSBwcmVmc0IuZ2V0U3RyaW5nKE5hdGl2ZUJyYWluLktFWV9KU09OLCBudWxsKQogICAgICAgIGJyYWluID0gc2F2ZWQ/LmxldCB7IE5hdGl2ZUJyYWluLmZyb21Kc29uKGl0LCB2YXJpYW50SWQpIH0KICAgICAgICAgICAgPzogTmF0aXZlQnJhaW4uZnJlc2godmFyaWFudElkLCBTeXN0ZW0uY3VycmVudFRpbWVNaWxsaXMoKSkKICAgIH0KCiAgICBwcml2YXRlIGZ1biBzYXZlQnJhaW4oKSB7CiAgICAgICAgdmFsIGIgPSBicmFpbiA/OiByZXR1cm4KICAgICAgICBnZXRTaGFyZWRQcmVmZXJlbmNlcyhOYXRpdmVCcmFpbi5QUkVGU19OQU1FLCBNT0RFX1BSSVZBVEUpCiAgICAgICAgICAgIC5lZGl0KCkucHV0U3RyaW5nKE5hdGl2ZUJyYWluLktFWV9KU09OLCBiLnRvSnNvbigpKS5hcHBseSgpCiAgICB9CgogICAgLyoqIFJlY29yZCBvbmUgaW50ZXJhY3Rpb24gaW50byB0aGUgQnJhaW4gYW5kIHBlcnNpc3QuICovCiAgICBwcml2YXRlIGZ1biByZWNvcmRCcmFpbihhY3Rpb246IE5hdGl2ZUJyYWluLkFjdGlvbikgewogICAgICAgIHZhbCBiID0gYnJhaW4gPzogcmV0dXJuCiAgICAgICAgYi5yZWNvcmQoYWN0aW9uLCBTeXN0ZW0uY3VycmVudFRpbWVNaWxsaXMoKSwgU3lzdGVtQ2xvY2suZWxhcHNlZFJlYWx0aW1lKCkpCiAgICAgICAgc2F2ZUJyYWluKCkKICAgIH0KCiAgICBwcml2YXRlIGZ1biBsb2FkQ29vbGRvd25zKCkgewogICAgICAgIHZhbCBwcmVmc1AgPSBnZXRTaGFyZWRQcmVmZXJlbmNlcygKICAgICAgICAgICAgUG93ZXJNYW5hZ2VyLkNvb2xkb3ducy5QUkVGU19OQU1FLCBNT0RFX1BSSVZBVEUKICAgICAgICApCiAgICAgICAgdmFsIHNhdmVkID0gcHJlZnNQLmdldFN0cmluZyhQb3dlck1hbmFnZXIuQ29vbGRvd25zLktFWV9KU09OLCBudWxsKQogICAgICAgIGNvb2xkb3ducyA9IHNhdmVkPy5sZXQgeyBQb3dlck1hbmFnZXIuQ29vbGRvd25zLmZyb21Kc29uKGl0KSB9CiAgICAgICAgICAgID86IFBvd2VyTWFuYWdlci5Db29sZG93bnMoKQogICAgfQoKICAgIHByaXZhdGUgZnVuIHNhdmVDb29sZG93bnMoKSB7CiAgICAgICAgZ2V0U2hhcmVkUHJlZmVyZW5jZXMoUG93ZXJNYW5hZ2VyLkNvb2xkb3ducy5QUkVGU19OQU1FLCBNT0RFX1BSSVZBVEUpCiAgICAgICAgICAgIC5lZGl0KCkucHV0U3RyaW5nKFBvd2VyTWFuYWdlci5Db29sZG93bnMuS0VZX0pTT04sIGNvb2xkb3ducy50b0pzb24oKSkuYXBwbHkoKQogICAgfQoKICAgIC8qKiBVcGRhdGUgdGhlIHBvd2VyIGJ1dHRvbiBsYWJlbCAvIGRpc2FibGVkIHN0YXRlIGZyb20gdGhlIGNvb2xkb3duLiAqLwogICAgcHJpdmF0ZSBmdW4gcmVmcmVzaFBvd2VyQnV0dG9uKCkgewogICAgICAgIHZhbCBidG4gPSBwb3dlckJ1dHRvbiA/OiByZXR1cm4KICAgICAgICB2YWwgdmFyaWFudCA9IFZhcmlhbnRSb3N0ZXIudmFyaWFudEZvclNwZWNpZXNJZChyZXBvLnNuYXBzaG90KCkuc3BlY2llc0lkKQogICAgICAgIHZhbCBkZWYgPSBQb3dlck1hbmFnZXIucG93ZXJGb3IodmFyaWFudC5mYW1pbHkpCiAgICAgICAgdmFsIG5vdyA9IFN5c3RlbUNsb2NrLmVsYXBzZWRSZWFsdGltZSgpCiAgICAgICAgdmFsIHJlbWFpbmluZyA9IGNvb2xkb3ducy5yZW1haW5pbmdNcyh2YXJpYW50LmZhbWlseSwgbm93KQogICAgICAgIGlmIChyZW1haW5pbmcgPiAwTCkgewogICAgICAgICAgICAvLyBTaG9ydCBsYWJlbCBvbiB0aGUgYnV0dG9uIChpdCBpcyAxLzMtd2lkdGgpOyB0aGUgZnVsbCBzZW50ZW5jZQogICAgICAgICAgICAvLyBpcyB1c2VkIGluIHRoZSB0b2FzdCB3aGVuIHRoZSB1c2VyIHRhcHMgaXQgd2hpbGUgY29vbGluZyBkb3duLgogICAgICAgICAgICBidG4udGV4dCA9ICJcdTIzRjMgJHtjb29sZG93bnMucmVtYWluaW5nTGFiZWwodmFyaWFudC5mYW1pbHksIG5vdyl9IgogICAgICAgICAgICBidG4uYWxwaGEgPSAwLjQ1ZgogICAgICAgICAgICBidG4uaXNFbmFibGVkID0gZmFsc2UKICAgICAgICB9IGVsc2UgewogICAgICAgICAgICBidG4udGV4dCA9ICJcdTI3MjggJHtkZWYubmFtZX0iCiAgICAgICAgICAgIGJ0bi5hbHBoYSA9IDFmCiAgICAgICAgICAgIGJ0bi5pc0VuYWJsZWQgPSB0cnVlCiAgICAgICAgfQogICAgfQoKICAgIC8qKgogICAgICogSGFtc3RlciBDaGVlayBTdGFzaDogb25jZSB0aGUgc3Rhc2ggaXMgZHVlIGFuZCB0aGUgcGV0IGlzIG5vdCBmdWxsLAogICAgICogYXV0by1mZWVkICs1IGh1bmdlciBhbmQgY2xlYXIgdGhlIHN0YXNoLgogICAgICovCiAgICBwcml2YXRlIGZ1biBjaGVja1N0YXNoKCkgewogICAgICAgIHZhbCBub3cgPSBTeXN0ZW1DbG9jay5lbGFwc2VkUmVhbHRpbWUoKQogICAgICAgIGlmICghY29vbGRvd25zLnN0YXNoRHVlKG5vdykpIHJldHVybgogICAgICAgIHZhbCBzID0gcmVwby5zbmFwc2hvdCgpCiAgICAgICAgaWYgKHMuaHVuZ2VyID49IDk1KSByZXR1cm4gLy8gd2FpdCB1bnRpbCB0aGVyZSBpcyByb29tCiAgICAgICAgcmVwby5mZWVkUG93ZXJCb251cyg1KQogICAgICAgIGNvb2xkb3ducy5jb25zdW1lU3Rhc2goKQogICAgICAgIHNhdmVDb29sZG93bnMoKQogICAgICAgIFRvYXN0Lm1ha2VUZXh0KHRoaXMsIFIuc3RyaW5nLnBvd2VyX3N0YXNoX211bmNoZWQsIFRvYXN0LkxFTkdUSF9TSE9SVCkuc2hvdygpCiAgICAgICAgcmVmcmVzaCgpCiAgICB9CgogICAgLyoqIFRyaWdnZXIgdGhlIGN1cnJlbnQgcGV0IGZhbWlseSBwb3dlci4gKi8KICAgIHByaXZhdGUgZnVuIGRvUG93ZXIoKSB7CiAgICAgICAgdmFsIHZhcmlhbnQgPSBWYXJpYW50Um9zdGVyLnZhcmlhbnRGb3JTcGVjaWVzSWQocmVwby5zbmFwc2hvdCgpLnNwZWNpZXNJZCkKICAgICAgICB2YWwgZGVmID0gUG93ZXJNYW5hZ2VyLnBvd2VyRm9yKHZhcmlhbnQuZmFtaWx5KQogICAgICAgIHZhbCBub3cgPSBTeXN0ZW1DbG9jay5lbGFwc2VkUmVhbHRpbWUoKQoKICAgICAgICAvLyBQaG9lbml4IFJlYmlydGg6IG9ubHkgY29uc3VtZSB0aGUgd2Vla2x5IGNvb2xkb3duIHdoZW4gdGhlcmUgSVMgYQogICAgICAgIC8vIG1pc3NlZCBkYXkgdG8gcmVzdG9yZSDigJQgb3RoZXJ3aXNlIGl0IHdvdWxkIGJ1cm4gYSB3ZWVrIGZvciBub3RoaW5nLgogICAgICAgIGlmIChkZWYuc3RhdEVmZmVjdCA9PSBQb3dlck1hbmFnZXIuU3RhdEVmZmVjdC5TVFJFQUtfUkVTVE9SRSAmJgogICAgICAgICAgICAhcmVwby5jYW5SZXN0b3JlU3RyZWFrRGF5KCkKICAgICAgICApIHsKICAgICAgICAgICAgVG9hc3QubWFrZVRleHQodGhpcywgUi5zdHJpbmcucG93ZXJfc3RyZWFrX25vdGhpbmcsIFRvYXN0LkxFTkdUSF9TSE9SVCkuc2hvdygpCiAgICAgICAgICAgIHJldHVybgogICAgICAgIH0KICAgICAgICBpZiAoY29vbGRvd25zLnRyaWdnZXIodmFyaWFudC5mYW1pbHksIG5vdykgPT0gbnVsbCkgewogICAgICAgICAgICBUb2FzdC5tYWtlVGV4dCgKICAgICAgICAgICAgICAgIHRoaXMsCiAgICAgICAgICAgICAgICBnZXRTdHJpbmcoUi5zdHJpbmcucG93ZXJfY29vbGRvd24sIGNvb2xkb3ducy5yZW1haW5pbmdMYWJlbCh2YXJpYW50LmZhbWlseSwgbm93KSksCiAgICAgICAgICAgICAgICBUb2FzdC5MRU5HVEhfU0hPUlQKICAgICAgICAgICAgKS5zaG93KCkKICAgICAgICAgICAgcmV0dXJuCiAgICAgICAgfQogICAgICAgIHNhdmVDb29sZG93bnMoKQogICAgICAgIHJlY29yZEJyYWluKE5hdGl2ZUJyYWluLkFjdGlvbi5QT1dFUikKCiAgICAgICAgLy8gU3RhdCBlZmZlY3QgZmlyc3QgKHJlcG8tc2lkZSksIHRoZW4gdGhlIHZpc3VhbCBob29rLgogICAgICAgIHdoZW4gKGRlZi5zdGF0RWZmZWN0KSB7CiAgICAgICAgICAgIFBvd2VyTWFuYWdlci5TdGF0RWZmZWN0LkNVUkVfU0lDS05FU1MgLT4gcmVwby5jdXJlU2lja25lc3MoKQogICAgICAgICAgICBQb3dlck1hbmFnZXIuU3RhdEVmZmVjdC5QT1dFUl9TTkFDS18xMCAtPiByZXBvLmZlZWRQb3dlckJvbnVzKDEwKQogICAgICAgICAgICBQb3dlck1hbmFnZXIuU3RhdEVmZmVjdC5TVEFTSF9TTkFDSyAtPiB7CiAgICAgICAgICAgICAgICBjb29sZG93bnMuc3Rhc2hTbmFjayhub3cpCiAgICAgICAgICAgICAgICBzYXZlQ29vbGRvd25zKCkKICAgICAgICAgICAgfQogICAgICAgICAgICBQb3dlck1hbmFnZXIuU3RhdEVmZmVjdC5TSElFTERfMUggLT4gcmVwby5hY3RpdmF0ZVNoaWVsZCgzNjAwMDAwTCkKICAgICAgICAgICAgUG93ZXJNYW5hZ2VyLlN0YXRFZmZlY3QuRU5FUkdZXzI1IC0+IHJlcG8uZmVlZEVuZXJneSgyNSkKICAgICAgICAgICAgUG93ZXJNYW5hZ2VyLlN0YXRFZmZlY3QuSEFQUElORVNTXzUgLT4gcmVwby5hZGRIYXBwaW5lc3MoNSkKICAgICAgICAgICAgUG93ZXJNYW5hZ2VyLlN0YXRFZmZlY3QuU1RSRUFLX1JFU1RPUkUgLT4gewogICAgICAgICAgICAgICAgaWYgKHJlcG8ucmVzdG9yZU1pc3NlZFN0cmVha0RheSgpKSB7CiAgICAgICAgICAgICAgICAgICAgVG9hc3QubWFrZVRleHQodGhpcywgUi5zdHJpbmcucG93ZXJfc3RyZWFrX3Jlc3RvcmVkLCBUb2FzdC5MRU5HVEhfU0hPUlQpLnNob3coKQogICAgICAgICAgICAgICAgfQogICAgICAgICAgICB9CiAgICAgICAgICAgIFBvd2VyTWFuYWdlci5TdGF0RWZmZWN0Lk5PTkUgLT4gVW5pdAogICAgICAgIH0KICAgICAgICAvLyB2MyBQaGFzZSA0OiBwcmVtaXVtIHNwYXJrbGUgb24gYW55IHZhcmlhbnQgKGxvb2sgb25seSkuIEtleWVkIG9mZgogICAgICAgIC8vIHByZW1pdW0gc3RhdHVzLCBOT1QgYXVyYSBjaG9pY2Ug4oCUIGEgcHJlbWl1bSB1c2VyIHdobyBwaWNrcyBhdXJhCiAgICAgICAgLy8gTk9ORSBzdGlsbCBnZXRzIHRoZSBnb2xkIHNwYXJrbGVzLgogICAgICAgIHBldFZpZXcucG93ZXJGeChkZWYuZngsIHByZW1pdW0gPSBQcmVtaXVtTWFuYWdlci5pc1ByZW1pdW0ocmVwby5wcmVmc0ZvclByZW1pdW0oKSkpCiAgICAgICAgU2Z4RW5naW5lLnBsYXkoInBvd2VyX2NoaW1lIikKCiAgICAgICAgLy8gRG9nIEZldGNoIEdpZnQ6IGEgY29zbWV0aWMgdG9hc3QgZ2lmdCAobm8gY29pbiBlY29ub215IGV4aXN0cykuCiAgICAgICAgaWYgKHZhcmlhbnQuZmFtaWx5ID09IFZhcmlhbnRSb3N0ZXIuRmFtaWx5LkRPRykgewogICAgICAgICAgICB2YWwgZ2lmdHMgPSBsaXN0T2YoImEgc2hpbnkgcGViYmxlIiwgImEgcGluZWNvbmUiLCAiYSBmZWF0aGVyIiwgImEgdGlueSBzdGljayIpCiAgICAgICAgICAgIHZhbCBnaWZ0ID0gZ2lmdHNbKG5vdyAvIDEwMDBMICUgZ2lmdHMuc2l6ZSkudG9JbnQoKV0KICAgICAgICAgICAgVG9hc3QubWFrZVRleHQodGhpcywgZ2V0U3RyaW5nKFIuc3RyaW5nLnBvd2VyX2ZldGNoX2dpZnQsIGdpZnQpLCBUb2FzdC5MRU5HVEhfU0hPUlQpLnNob3coKQogICAgICAgIH0KCiAgICAgICAgLy8gT3dsIE5pZ2h0IFdhdGNoOiB0b21vcnJvdyBmaXJzdCBnb2FsIGFzIGEgcmVtaW5kZXIuCiAgICAgICAgaWYgKGRlZi5zcGVjaWFsVWkgPT0gUG93ZXJNYW5hZ2VyLlNwZWNpYWxVaS5OSUdIVF9XQVRDSCkgewogICAgICAgICAgICB2YWwgZ29hbHMgPSByZXBvLmdldEdvYWxzKCkKICAgICAgICAgICAgdmFsIGZpcnN0ID0gZ29hbHMuZmlyc3RPck51bGwgeyAhaXQuY29tcGxldGVkIH0KICAgICAgICAgICAgdmFsIG1zZyA9IGlmIChmaXJzdCAhPSBudWxsKSB7CiAgICAgICAgICAgICAgICBnZXRTdHJpbmcoUi5zdHJpbmcucG93ZXJfbmlnaHRfd2F0Y2hfbXNnLCBmaXJzdC5uYW1lKQogICAgICAgICAgICB9IGVsc2UgewogICAgICAgICAgICAgICAgZ2V0U3RyaW5nKFIuc3RyaW5nLnBvd2VyX25pZ2h0X3dhdGNoX2VtcHR5KQogICAgICAgICAgICB9CiAgICAgICAgICAgIEFsZXJ0RGlhbG9nLkJ1aWxkZXIodGhpcykKICAgICAgICAgICAgICAgIC5zZXRUaXRsZShSLnN0cmluZy5wb3dlcl9uaWdodF93YXRjaF90aXRsZSkKICAgICAgICAgICAgICAgIC5zZXRNZXNzYWdlKG1zZykKICAgICAgICAgICAgICAgIC5zZXRQb3NpdGl2ZUJ1dHRvbihhbmRyb2lkLlIuc3RyaW5nLm9rLCBudWxsKQogICAgICAgICAgICAgICAgLnNob3coKQogICAgICAgIH0KICAgICAgICByZWZyZXNoKCkKICAgIH0KfQo=
+package com.vn.pixelpet
+
+import android.animation.ValueAnimator
+import android.app.Activity
+import android.app.AlertDialog
+import android.content.Intent
+import android.content.IntentFilter
+import android.content.pm.PackageManager
+import android.os.Build
+import android.os.Bundle
+import android.os.SystemClock
+import android.view.GestureDetector
+import android.view.MotionEvent
+import android.widget.Button
+import android.widget.ProgressBar
+import android.widget.Switch
+import android.widget.TextView
+import android.widget.Toast
+import com.vn.pixelpet.doomscroll.DoomscrollMonitor
+import com.vn.pixelpet.util.NotificationHelper
+import com.vn.pixelpet.util.ScreenReceiver
+import com.vn.pixelpet.widget.PixelPetWidgetProvider
+import com.vn.pixelpet.widget.WidgetUpdateJob
+
+class MainActivity : Activity() {
+
+    private lateinit var repo: PetRepository
+    private lateinit var petView: PetView
+    private lateinit var moodLabel: TextView
+    private lateinit var petNameLabel: TextView
+    private lateinit var barHunger: ProgressBar
+    private lateinit var barHappiness: ProgressBar
+    private lateinit var barEnergy: ProgressBar
+    private lateinit var barAttention: ProgressBar
+    private lateinit var btnMute: Button
+    private val screenReceiver = ScreenReceiver()
+    private lateinit var gestures: GestureDetector
+    // v3 Phase 3: on-device learning + family powers
+    private var brain: NativeBrain? = null
+    private var cooldowns: PowerManager.Cooldowns = PowerManager.Cooldowns()
+    private var powerButton: Button? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        repo = PetRepository.get(this)
+        SfxEngine.init(applicationContext, repo.snapshot().muted)
+        NotificationHelper.ensureChannel(this)
+        // v3 Phase 4 fix: schedule the periodic widget refresh here too, not
+        // only from BootReceiver — a fresh install/update gets the 30-min
+        // refresh without waiting for the first reboot. schedule() is
+        // idempotent (same JOB_ID replaces), so double-scheduling is safe.
+        WidgetUpdateJob.schedule(this)
+
+        // Sleep/wake tracking (dynamic registration — manifest does not work for these).
+        registerReceiver(screenReceiver, IntentFilter().apply {
+            addAction(Intent.ACTION_SCREEN_OFF)
+            addAction(Intent.ACTION_SCREEN_ON)
+        })
+
+        petView = findViewById(R.id.pet_view)
+        moodLabel = findViewById(R.id.mood_label)
+        petNameLabel = findViewById(R.id.pet_name)
+        barHunger = findViewById(R.id.bar_hunger)
+        barHappiness = findViewById(R.id.bar_happiness)
+        barEnergy = findViewById(R.id.bar_energy)
+        barAttention = findViewById(R.id.bar_attention)
+        btnMute = findViewById(R.id.btn_mute)
+
+        // Tap = pet, double-tap = play.
+        gestures = GestureDetector(this, object : GestureDetector.SimpleOnGestureListener() {
+            override fun onSingleTapConfirmed(e: MotionEvent): Boolean {
+                doPet()
+                return true
+            }
+
+            override fun onDoubleTap(e: MotionEvent): Boolean {
+                doPlay()
+                return true
+            }
+        })
+        petView.setOnTouchListener { v, e ->
+            gestures.onTouchEvent(e)
+            v.performClick()
+            true
+        }
+
+        findViewById<Button>(R.id.btn_goals).setOnClickListener {
+            SfxEngine.play("ui_click"); Haptics.tick(this)
+            startActivity(Intent(this, GoalsActivity::class.java))
+        }
+        findViewById<Button>(R.id.btn_snack).setOnClickListener { doSnack() }
+        findViewById<Button>(R.id.btn_play).setOnClickListener { doPlay() }
+        findViewById<Button>(R.id.btn_pet).setOnClickListener { doPet() }
+        findViewById<Button>(R.id.btn_doomscroll).setOnClickListener {
+            SfxEngine.play("ui_click")
+            confirmDoomscroll()
+        }
+        findViewById<Button>(R.id.btn_species).setOnClickListener {
+            SfxEngine.play("ui_click")
+            startActivity(Intent(this, SpeciesActivity::class.java))
+        }
+        findViewById<Button>(R.id.btn_personality).setOnClickListener {
+            SfxEngine.play("ui_click")
+            startActivity(Intent(this, PersonalityActivity::class.java))
+        }
+        // v3 Phase 3: load brain + cooldowns, wire the power button
+        loadBrain()
+        loadCooldowns()
+        powerButton = findViewById(R.id.btn_power)
+        powerButton?.setOnClickListener { doPower() }
+        findViewById<Button>(R.id.btn_premium).setOnClickListener {
+            SfxEngine.play("ui_click")
+            startActivity(Intent(this, PremiumActivity::class.java))
+        }
+        findViewById<Button>(R.id.btn_about).setOnClickListener {
+            SfxEngine.play("ui_click")
+            startActivity(Intent(this, AboutActivity::class.java))
+        }
+        btnMute.setOnClickListener {
+            val m = !repo.snapshot().muted
+            repo.setMuted(m)
+            SfxEngine.setMuted(m)
+            updateMuteIcon(m)
+            if (!m) SfxEngine.play("ui_click")
+        }
+
+        val autoSwitch = findViewById<Switch>(R.id.switch_autodetect)
+        autoSwitch.isChecked = repo.autoDetectEnabled
+        autoSwitch.setOnCheckedChangeListener { _, checked ->
+            if (checked && !DoomscrollMonitor.hasPermission(this)) {
+                autoSwitch.isChecked = false
+                Toast.makeText(this, getString(R.string.auto_detect_grant), Toast.LENGTH_LONG).show()
+                DoomscrollMonitor.requestPermission(this)
+                return@setOnCheckedChangeListener
+            }
+            repo.autoDetectEnabled = checked
+            SfxEngine.play("ui_click")
+        }
+
+        PixelPetWidgetProvider.requestPinIfNeeded(this)
+        requestNotifPermissionIfNeeded()
+    }
+
+    override fun onDestroy() {
+        try { unregisterReceiver(screenReceiver) } catch (t: Throwable) {}
+        super.onDestroy()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // Wake recap ("while you were away…").
+        val recap = repo.lastRecap
+        if (recap.isNotEmpty()) {
+            repo.lastRecap = ""
+            recordBrain(NativeBrain.Action.WAKE)
+            SfxEngine.play("wake_chime")
+            AlertDialog.Builder(this)
+                .setTitle(getString(R.string.wake_title))
+                .setMessage(recap)
+                .setPositiveButton(android.R.string.ok, null)
+                .show()
+        }
+        refresh()
+        maybeAttentionNudge()
+
+        val mins = DoomscrollMonitor.maybeAutoLog(this, repo)
+        if (mins != null) {
+            Toast.makeText(
+                this,
+                getString(R.string.notif_auto_doom, mins, petName()),
+                Toast.LENGTH_LONG
+            ).show()
+            petView.sulkAnim()
+            SfxEngine.play("sulk_slide")
+            Haptics.sulkBuzz(this)
+            refresh()
+        }
+    }
+
+    private fun petName(): String = repo.snapshot().species.displayName
+
+    private fun refresh() {
+        val state = repo.snapshot()
+        val now = SystemClock.elapsedRealtime()
+        val mood = PetRenderer.moodFor(state, now, System.currentTimeMillis())
+        petView.species = state.species
+        // v3 Phase 4: aura for premium users on ALL variants, with the chosen skin.
+        val auraSkin = AuraSkin.effective(repo.prefsForPremium())
+        petView.aura = auraSkin != null
+        petView.auraStyle = auraSkin ?: AuraSkin.GOLD_ORBIT
+        petView.setMood(mood)
+        petView.showAttentionBubble = state.attention < 25 && !state.sleeping
+        petNameLabel.text = state.species.displayName
+        moodLabel.text = when (mood) {
+            PetRenderer.Mood.HAPPY -> getString(R.string.mood_happy)
+            PetRenderer.Mood.CONTENT -> getString(R.string.mood_content)
+            PetRenderer.Mood.HUNGRY -> getString(R.string.mood_hungry)
+            PetRenderer.Mood.SAD -> getString(R.string.mood_sad)
+            PetRenderer.Mood.SULKING -> getString(R.string.mood_sulking)
+            PetRenderer.Mood.SLEEPING -> getString(R.string.mood_sleeping)
+            PetRenderer.Mood.SICK -> getString(R.string.mood_sick)
+        }
+        tweenBar(barHunger, state.hunger)
+        tweenBar(barHappiness, state.happiness)
+        tweenBar(barEnergy, state.energy)
+        tweenBar(barAttention, state.attention)
+        updateMuteIcon(state.muted)
+        if (state.attention >= 25) NotificationHelper.cancelAttention(this)
+        PixelPetWidgetProvider.refreshAll(this)
+
+        // Celebrate any unlocks earned by recent care.
+        val unlocks = UnlockManager.checkUnlocks(repo)
+        if (unlocks.isNotEmpty()) {
+            val u = unlocks.first()
+            petView.evolveAnim()
+            SfxEngine.play("evolve_fanfare")
+            Haptics.fanfare(this)
+            Toast.makeText(
+                this,
+                getString(R.string.unlocked_toast, u.species.displayName, u.reason),
+                Toast.LENGTH_LONG
+            ).show()
+        }
+
+        // v3 Phase 3: power button state + hamster stash
+        refreshPowerButton()
+        checkStash()
+    }
+
+    private fun doSnack() {
+        val s = repo.snack()
+        if (s == null) {
+            Toast.makeText(this, getString(R.string.snack_cooldown), Toast.LENGTH_SHORT).show()
+            return
+        }
+        recordBrain(NativeBrain.Action.FEED_SNACK)
+        petView.eatAnim()
+        petView.feedAnim()
+        SfxEngine.play("feed_munch")
+        Haptics.thud(this)
+        refresh()
+    }
+
+    private fun doPlay() {
+        val s = repo.play()
+        if (s == null) {
+            SfxEngine.play("sad_blip")
+            Toast.makeText(this, getString(R.string.play_tired), Toast.LENGTH_SHORT).show()
+            return
+        }
+        recordBrain(NativeBrain.Action.PLAY)
+        petView.playAnim()
+        SfxEngine.play("play_giggle")
+        Haptics.bounce(this)
+        refresh()
+    }
+
+    private fun doPet() {
+        repo.pet()
+        recordBrain(NativeBrain.Action.PET)
+        petView.feedAnim() // hearts
+        SfxEngine.play("pet_purr")
+        Haptics.tick(this)
+        refresh()
+    }
+
+    private fun maybeAttentionNudge() {
+        val state = repo.snapshot()
+        if (state.attention >= 25 || state.sleeping) return
+        val now = System.currentTimeMillis()
+        if (now - repo.lastAttentionNudge < 4 * 3600 * 1000L) return
+        repo.lastAttentionNudge = now
+        SfxEngine.play("attention_ping")
+        NotificationHelper.notifyAttentionNeeded(this, petName())
+    }
+
+    private fun requestNotifPermissionIfNeeded() {
+        if (Build.VERSION.SDK_INT >= 33 &&
+            checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS)
+                != PackageManager.PERMISSION_GRANTED
+        ) {
+            requestPermissions(arrayOf(android.Manifest.permission.POST_NOTIFICATIONS), 9001)
+        }
+    }
+
+    private fun tweenBar(bar: ProgressBar, to: Int) {
+        val from = bar.progress
+        if (from == to) return
+        ValueAnimator.ofInt(from, to).apply {
+            duration = 450
+            addUpdateListener { bar.progress = it.animatedValue as Int }
+            start()
+        }
+    }
+
+    private fun updateMuteIcon(muted: Boolean) {
+        btnMute.text = if (muted) getString(R.string.btn_unmute) else getString(R.string.btn_mute)
+    }
+
+    private fun confirmDoomscroll() {
+        AlertDialog.Builder(this)
+            .setTitle(getString(R.string.doom_title))
+            .setMessage(getString(R.string.doom_msg, petName()))
+            .setPositiveButton(getString(R.string.doom_confirm)) { _, _ ->
+                recordBrain(NativeBrain.Action.DOOMSCROLL)
+                repo.logDoomscroll()
+                petView.sulkAnim()
+                SfxEngine.play("sulk_slide")
+                Haptics.sulkBuzz(this)
+                Toast.makeText(this, getString(R.string.toast_doom, petName()), Toast.LENGTH_SHORT).show()
+                refresh()
+            }
+            .setNegativeButton(getString(R.string.cancel), null)
+            .show()
+    }
+
+    // ================= v3 Phase 3: brain + powers =================
+
+    /** Load (or start fresh) the Native Brain for the current variant. */
+    private fun loadBrain() {
+        val variantId = VariantRoster.variantForSpeciesId(repo.snapshot().speciesId).id
+        val prefsB = getSharedPreferences(NativeBrain.PREFS_NAME, MODE_PRIVATE)
+        val saved = prefsB.getString(NativeBrain.KEY_JSON, null)
+        brain = saved?.let { NativeBrain.fromJson(it, variantId) }
+            ?: NativeBrain.fresh(variantId, System.currentTimeMillis())
+    }
+
+    private fun saveBrain() {
+        val b = brain ?: return
+        getSharedPreferences(NativeBrain.PREFS_NAME, MODE_PRIVATE)
+            .edit().putString(NativeBrain.KEY_JSON, b.toJson()).apply()
+    }
+
+    /** Record one interaction into the Brain and persist. */
+    private fun recordBrain(action: NativeBrain.Action) {
+        val b = brain ?: return
+        b.record(action, System.currentTimeMillis(), SystemClock.elapsedRealtime())
+        saveBrain()
+    }
+
+    private fun loadCooldowns() {
+        val prefsP = getSharedPreferences(
+            PowerManager.Cooldowns.PREFS_NAME, MODE_PRIVATE
+        )
+        val saved = prefsP.getString(PowerManager.Cooldowns.KEY_JSON, null)
+        cooldowns = saved?.let { PowerManager.Cooldowns.fromJson(it) }
+            ?: PowerManager.Cooldowns()
+    }
+
+    private fun saveCooldowns() {
+        getSharedPreferences(PowerManager.Cooldowns.PREFS_NAME, MODE_PRIVATE)
+            .edit().putString(PowerManager.Cooldowns.KEY_JSON, cooldowns.toJson()).apply()
+    }
+
+    /** Update the power button label / disabled state from the cooldown. */
+    private fun refreshPowerButton() {
+        val btn = powerButton ?: return
+        val variant = VariantRoster.variantForSpeciesId(repo.snapshot().speciesId)
+        val def = PowerManager.powerFor(variant.family)
+        val now = SystemClock.elapsedRealtime()
+        val remaining = cooldowns.remainingMs(variant.family, now)
+        if (remaining > 0L) {
+            // Short label on the button (it is 1/3-width); the full sentence
+            // is used in the toast when the user taps it while cooling down.
+            btn.text = "\u23F3 ${cooldowns.remainingLabel(variant.family, now)}"
+            btn.alpha = 0.45f
+            btn.isEnabled = false
+        } else {
+            btn.text = "\u2728 ${def.name}"
+            btn.alpha = 1f
+            btn.isEnabled = true
+        }
+    }
+
+    /**
+     * Hamster Cheek Stash: once the stash is due and the pet is not full,
+     * auto-feed +5 hunger and clear the stash.
+     */
+    private fun checkStash() {
+        val now = SystemClock.elapsedRealtime()
+        if (!cooldowns.stashDue(now)) return
+        val s = repo.snapshot()
+        if (s.hunger >= 95) return // wait until there is room
+        repo.feedPowerBonus(5)
+        cooldowns.consumeStash()
+        saveCooldowns()
+        Toast.makeText(this, R.string.power_stash_munched, Toast.LENGTH_SHORT).show()
+        refresh()
+    }
+
+    /** Trigger the current pet family power. */
+    private fun doPower() {
+        val variant = VariantRoster.variantForSpeciesId(repo.snapshot().speciesId)
+        val def = PowerManager.powerFor(variant.family)
+        val now = SystemClock.elapsedRealtime()
+
+        // Phoenix Rebirth: only consume the weekly cooldown when there IS a
+        // missed day to restore — otherwise it would burn a week for nothing.
+        if (def.statEffect == PowerManager.StatEffect.STREAK_RESTORE &&
+            !repo.canRestoreStreakDay()
+        ) {
+            Toast.makeText(this, R.string.power_streak_nothing, Toast.LENGTH_SHORT).show()
+            return
+        }
+        if (cooldowns.trigger(variant.family, now) == null) {
+            Toast.makeText(
+                this,
+                getString(R.string.power_cooldown, cooldowns.remainingLabel(variant.family, now)),
+                Toast.LENGTH_SHORT
+            ).show()
+            return
+        }
+        saveCooldowns()
+        recordBrain(NativeBrain.Action.POWER)
+
+        // Stat effect first (repo-side), then the visual hook.
+        when (def.statEffect) {
+            PowerManager.StatEffect.CURE_SICKNESS -> repo.cureSickness()
+            PowerManager.StatEffect.POWER_SNACK_10 -> repo.feedPowerBonus(10)
+            PowerManager.StatEffect.STASH_SNACK -> {
+                cooldowns.stashSnack(now)
+                saveCooldowns()
+            }
+            PowerManager.StatEffect.SHIELD_1H -> repo.activateShield(3600000L)
+            PowerManager.StatEffect.ENERGY_25 -> repo.feedEnergy(25)
+            PowerManager.StatEffect.HAPPINESS_5 -> repo.addHappiness(5)
+            PowerManager.StatEffect.STREAK_RESTORE -> {
+                if (repo.restoreMissedStreakDay()) {
+                    Toast.makeText(this, R.string.power_streak_restored, Toast.LENGTH_SHORT).show()
+                }
+            }
+            PowerManager.StatEffect.NONE -> Unit
+        }
+        // v3 Phase 4: premium sparkle on any variant (look only). Keyed off
+        // premium status, NOT aura choice — a premium user who picks aura
+        // NONE still gets the gold sparkles.
+        petView.powerFx(def.fx, premium = PremiumManager.isPremium(repo.prefsForPremium()))
+        SfxEngine.play("power_chime")
+
+        // Dog Fetch Gift: a cosmetic toast gift (no coin economy exists).
+        if (variant.family == VariantRoster.Family.DOG) {
+            val gifts = listOf("a shiny pebble", "a pinecone", "a feather", "a tiny stick")
+            val gift = gifts[(now / 1000L % gifts.size).toInt()]
+            Toast.makeText(this, getString(R.string.power_fetch_gift, gift), Toast.LENGTH_SHORT).show()
+        }
+
+        // Owl Night Watch: tomorrow first goal as a reminder.
+        if (def.specialUi == PowerManager.SpecialUi.NIGHT_WATCH) {
+            val goals = repo.getGoals()
+            val first = goals.firstOrNull { !it.completed }
+            val msg = if (first != null) {
+                getString(R.string.power_night_watch_msg, first.name)
+            } else {
+                getString(R.string.power_night_watch_empty)
+            }
+            AlertDialog.Builder(this)
+                .setTitle(R.string.power_night_watch_title)
+                .setMessage(msg)
+                .setPositiveButton(android.R.string.ok, null)
+                .show()
+        }
+        refresh()
+    }
+}
