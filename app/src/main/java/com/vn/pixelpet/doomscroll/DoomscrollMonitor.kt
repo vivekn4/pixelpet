@@ -14,7 +14,7 @@ import java.util.Calendar
 /**
  * Optional doomscroll auto-detect (v2 behavior, PLAN.md §3).
  *
- * Uses Android\u2019s on-device UsageStats API to notice heavy short-video app
+ * Uses Android's on-device UsageStats API to notice heavy short-video app
  * use (TikTok / Instagram / YouTube) and auto-logs once per day. Off by
  * default; the user enables it from the app, which routes here through
  * [hasPermission] / [requestPermission]. Nothing ever leaves the phone —
