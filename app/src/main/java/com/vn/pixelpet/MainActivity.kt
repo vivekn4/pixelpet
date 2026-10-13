@@ -91,6 +91,10 @@ class MainActivity : Activity() {
             SfxEngine.play("ui_click")
             startActivity(Intent(this, SpeciesActivity::class.java))
         }
+        findViewById<Button>(R.id.btn_personality).setOnClickListener {
+            SfxEngine.play("ui_click")
+            startActivity(Intent(this, PersonalityActivity::class.java))
+        }
         findViewById<Button>(R.id.btn_premium).setOnClickListener {
             SfxEngine.play("ui_click")
             startActivity(Intent(this, PremiumActivity::class.java))
