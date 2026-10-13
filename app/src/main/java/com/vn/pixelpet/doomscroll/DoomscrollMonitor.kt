@@ -1,1 +1,108 @@
-cGFja2FnZSBjb20udm4ucGl4ZWxwZXQuZG9vbXNjcm9sbAoKaW1wb3J0IGFuZHJvaWQuYXBwLkFjdGl2aXR5CmltcG9ydCBhbmRyb2lkLmFwcC5BcHBPcHNNYW5hZ2VyCmltcG9ydCBhbmRyb2lkLmFwcC51c2FnZS5Vc2FnZVN0YXRzTWFuYWdlcgppbXBvcnQgYW5kcm9pZC5jb250ZW50LkNvbnRleHQKaW1wb3J0IGFuZHJvaWQuY29udGVudC5JbnRlbnQKaW1wb3J0IGFuZHJvaWQub3MuUHJvY2VzcwppbXBvcnQgYW5kcm9pZC5wcm92aWRlci5TZXR0aW5ncwppbXBvcnQgY29tLnZuLnBpeGVscGV0LkdvYWwKaW1wb3J0IGNvbS52bi5waXhlbHBldC5QZXRSZXBvc2l0b3J5CmltcG9ydCBqYXZhLnV0aWwuQ2FsZW5kYXIKCi8qKgogKiBPcHRpb25hbCBkb29tc2Nyb2xsIGF1dG8tZGV0ZWN0ICh2MiBiZWhhdmlvciwgUExBTi5tZCDCpzMpLgogKgogKiBVc2VzIEFuZHJvaWQncyBvbi1kZXZpY2UgVXNhZ2VTdGF0cyBBUEkgdG8gbm90aWNlIGhlYXZ5IHNob3J0LXZpZGVvIGFwcAogKiB1c2UgKFRpa1RvayAvIEluc3RhZ3JhbSAvIFlvdVR1YmUpIGFuZCBhdXRvLWxvZ3Mgb25jZSBwZXIgZGF5LiBPZmYgYnkKICogZGVmYXVsdDsgdGhlIHVzZXIgZW5hYmxlcyBpdCBmcm9tIHRoZSBhcHAsIHdoaWNoIHJvdXRlcyBoZXJlIHRocm91Z2gKICogW2hhc1Blcm1pc3Npb25dIC8gW3JlcXVlc3RQZXJtaXNzaW9uXS4gTm90aGluZyBldmVyIGxlYXZlcyB0aGUgcGhvbmUg4oCUCiAqIHRoZXJlIGlzIG5vIG5ldHdvcmsgY2FsbCBhbnl3aGVyZSBpbiB0aGlzIGZpbGUuCiAqCiAqIERPQ1VNRU5URUQgQVBQUk9YSU1BVElPTjogWW91VHViZSBpcyBjb3VudGVkIHdob2xlc2FsZSDigJQgVXNhZ2VTdGF0cwogKiBjYW5ub3QgZGlzdGluZ3Vpc2ggU2hvcnRzIGZyb20gbG9uZy1mb3JtIHdhdGNoaW5nLCBzbyBsb25nLWZvcm0gWW91VHViZQogKiB0aW1lIGFsc28gY291bnRzIHRvd2FyZCB0aGUgdGhyZXNob2xkLiBUaWtUb2sgYW5kIEluc3RhZ3JhbSBhcmUKICogc2hvcnQtdmlkZW8gYnkgbmF0dXJlLCBzbyB0aGUgYXBwcm94aW1hdGlvbiBvbmx5IGJpdGVzIG9uIFlvdVR1YmUuIFRoZQogKiBwYWNrYWdlIGxpc3QgaXMgZGVsaWJlcmF0ZWx5IHVuY2hhbmdlZDogZHJvcHBpbmcgWW91VHViZSB3b3VsZCBiZSBhCiAqIHByb2R1Y3QtYmVoYXZpb3IgY2hhbmdlLCBub3QgYSBidWcgZml4LgogKgogKiBbbWF5YmVBdXRvTG9nXSByZXR1cm5zIHRoZSBtaW51dGVzIG9mIHNob3J0LXZpZGVvIHVzZSBsb2dnZWQsIG9yIG51bGwgd2hlbgogKiBub3RoaW5nIHdhcyBsb2dnZWQgKGRpc2FibGVkLCBhbHJlYWR5IGxvZ2dlZCB0b2RheSwgYmVsb3cgdGhyZXNob2xkLCBvcgogKiBwZXJtaXNzaW9uIG1pc3NpbmcvcmV2b2tlZCkuCiAqLwpvYmplY3QgRG9vbXNjcm9sbE1vbml0b3IgewoKICAgIC8qKgogICAgICogU2hvcnQtdmlkZW8gcGFja2FnZXMgY291bnRlZCB0b3dhcmQgdGhlIGRhaWx5IHRocmVzaG9sZC4KICAgICAqIE5PVEU6IFlvdVR1YmUgaXMgY291bnRlZCB3aG9sZXNhbGUgKHNlZSBLRG9jIGFib3ZlKSDigJQgVXNhZ2VTdGF0cwogICAgICogY2Fubm90IHNwbGl0IFNob3J0cyBmcm9tIGxvbmctZm9ybSwgc28gbG9uZy1mb3JtIFlvdVR1YmUgYWxzbyBjb3VudHMuCiAgICAgKi8KICAgIHByaXZhdGUgdmFsIFNIT1JUX1ZJREVPX1BLR1MgPSBzZXRPZigKICAgICAgICAiY29tLnpoaWxpYW9hcHAubXVzaWNhbGx5IiwgLy8gVGlrVG9rIChnbG9iYWwpCiAgICAgICAgImNvbS5zcy5hbmRyb2lkLnVnYy50cmVuZGluZyIsIC8vIFRpa1RvayAoYWx0KQogICAgICAgICJjb20uaW5zdGFncmFtLmFuZHJvaWQiLAogICAgICAgICJjb20uZ29vZ2xlLmFuZHJvaWQueW91dHViZSIKICAgICkKCiAgICAvKiogTWludXRlcyBvZiBzaG9ydC12aWRlbyB1c2UgaW4gYSBkYXkgYmVmb3JlIG9uZSBhdXRvLWxvZyBmaXJlcy4gKi8KICAgIHByaXZhdGUgY29uc3QgdmFsIFRIUkVTSE9MRF9NSU5VVEVTID0gNjAKCiAgICBmdW4gaGFzUGVybWlzc2lvbihjb250ZXh0OiBDb250ZXh0KTogQm9vbGVhbiB7CiAgICAgICAgcmV0dXJuIHRyeSB7CiAgICAgICAgICAgIHZhbCBhcHBPcHMgPSBjb250ZXh0LmdldFN5c3RlbVNlcnZpY2UoQXBwT3BzTWFuYWdlcjo6Y2xhc3MuamF2YSkgPzogcmV0dXJuIGZhbHNlCiAgICAgICAgICAgIGFwcE9wcy5jaGVja09wTm9UaHJvdygKICAgICAgICAgICAgICAgIEFwcE9wc01hbmFnZXIuT1BTVFJfR0VUX1VTQUdFX1NUQVRTLAogICAgICAgICAgICAgICAgUHJvY2Vzcy5teVVpZCgpLAogICAgICAgICAgICAgICAgY29udGV4dC5wYWNrYWdlTmFtZQogICAgICAgICAgICApID09IEFwcE9wc01hbmFnZXIuTU9ERV9BTExPV0VECiAgICAgICAgfSBjYXRjaCAodDogVGhyb3dhYmxlKSB7CiAgICAgICAgICAgIGZhbHNlCiAgICAgICAgfQogICAgfQoKICAgIGZ1biByZXF1ZXN0UGVybWlzc2lvbihhY3Rpdml0eTogQWN0aXZpdHkpIHsKICAgICAgICB0cnkgewogICAgICAgICAgICBhY3Rpdml0eS5zdGFydEFjdGl2aXR5KEludGVudChTZXR0aW5ncy5BQ1RJT05fVVNBR0VfQUNDRVNTX1NFVFRJTkdTKSkKICAgICAgICB9IGNhdGNoICh0OiBUaHJvd2FibGUpIHsKICAgICAgICAgICAgLy8gTm8gdXNhZ2UtYWNjZXNzIHNldHRpbmdzIHNjcmVlbiBvbiB0aGlzIGRldmljZSDigJQgc3RheSBzaWxlbnQuCiAgICAgICAgfQogICAgfQoKICAgIGZ1biBtYXliZUF1dG9Mb2coY29udGV4dDogQ29udGV4dCwgcmVwbzogUGV0UmVwb3NpdG9yeSk6IEludD8gewogICAgICAgIGlmICghcmVwby5hdXRvRGV0ZWN0RW5hYmxlZCkgcmV0dXJuIG51bGwKICAgICAgICBpZiAoIWhhc1Blcm1pc3Npb24oY29udGV4dCkpIHJldHVybiBudWxsCiAgICAgICAgdmFsIHRvZGF5ID0gR29hbC50b2RheVN0cmluZygpCiAgICAgICAgaWYgKHJlcG8ubGFzdEF1dG9Mb2dEYXRlID09IHRvZGF5KSByZXR1cm4gbnVsbCAvLyBvbmNlIHBlciBkYXkKICAgICAgICB2YWwgbWludXRlcyA9IHNob3J0VmlkZW9NaW51dGVzVG9kYXkoY29udGV4dCkgPzogcmV0dXJuIG51bGwKICAgICAgICBpZiAobWludXRlcyA8IFRIUkVTSE9MRF9NSU5VVEVTKSByZXR1cm4gbnVsbAogICAgICAgIHJlcG8ubG9nRG9vbXNjcm9sbCgpCiAgICAgICAgcmVwby5sYXN0QXV0b0xvZ0RhdGUgPSB0b2RheQogICAgICAgIHJldHVybiBtaW51dGVzCiAgICB9CgogICAgLyoqIFRvdGFsIGZvcmVncm91bmQgbWludXRlcyBvbiBzaG9ydC12aWRlbyBhcHBzIHNpbmNlIG1pZG5pZ2h0LCBvciBudWxsIG9uIGVycm9yLiAqLwogICAgcHJpdmF0ZSBmdW4gc2hvcnRWaWRlb01pbnV0ZXNUb2RheShjb250ZXh0OiBDb250ZXh0KTogSW50PyB7CiAgICAgICAgcmV0dXJuIHRyeSB7CiAgICAgICAgICAgIHZhbCB1c2FnZSA9IGNvbnRleHQuZ2V0U3lzdGVtU2VydmljZShVc2FnZVN0YXRzTWFuYWdlcjo6Y2xhc3MuamF2YSkgPzogcmV0dXJuIG51bGwKICAgICAgICAgICAgdmFsIGNhbCA9IENhbGVuZGFyLmdldEluc3RhbmNlKCkuYXBwbHkgewogICAgICAgICAgICAgICAgc2V0KENhbGVuZGFyLkhPVVJfT0ZfREFZLCAwKQogICAgICAgICAgICAgICAgc2V0KENhbGVuZGFyLk1JTlVURSwgMCkKICAgICAgICAgICAgICAgIHNldChDYWxlbmRhci5TRUNPTkQsIDApCiAgICAgICAgICAgICAgICBzZXQoQ2FsZW5kYXIuTUlMTElTRUNPTkQsIDApCiAgICAgICAgICAgIH0KICAgICAgICAgICAgdmFsIHN0YXRzID0gdXNhZ2UucXVlcnlVc2FnZVN0YXRzKAogICAgICAgICAgICAgICAgVXNhZ2VTdGF0c01hbmFnZXIuSU5URVJWQUxfREFJTFksCiAgICAgICAgICAgICAgICBjYWwudGltZUluTWlsbGlzLAogICAgICAgICAgICAgICAgU3lzdGVtLmN1cnJlbnRUaW1lTWlsbGlzKCkKICAgICAgICAgICAgKSA/OiByZXR1cm4gbnVsbAogICAgICAgICAgICB2YXIgdG90YWxNcyA9IDBMCiAgICAgICAgICAgIGZvciAocyBpbiBzdGF0cykgewogICAgICAgICAgICAgICAgaWYgKHMucGFja2FnZU5hbWUgaW4gU0hPUlRfVklERU9fUEtHUykgdG90YWxNcyArPSBzLnRvdGFsVGltZUluRm9yZWdyb3VuZAogICAgICAgICAgICB9CiAgICAgICAgICAgICh0b3RhbE1zIC8gNjAwMDBMKS50b0ludCgpCiAgICAgICAgfSBjYXRjaCAodDogVGhyb3dhYmxlKSB7CiAgICAgICAgICAgIG51bGwgLy8gcGVybWlzc2lvbiByZXZva2VkIG9yIFVzYWdlU3RhdHMgdW5hdmFpbGFibGUg4oCUIG5ldmVyIGNyYXNoCiAgICAgICAgfQogICAgfQp9Cg==
+package com.vn.pixelpet.doomscroll
+
+import android.app.Activity
+import android.app.AppOpsManager
+import android.app.usage.UsageStatsManager
+import android.content.Context
+import android.content.Intent
+import android.os.Process
+import android.provider.Settings
+import com.vn.pixelpet.Goal
+import com.vn.pixelpet.PetRepository
+import java.util.Calendar
+
+/**
+ * Optional doomscroll auto-detect (v2 behavior, PLAN.md §3).
+ *
+ * Uses Android's on-device UsageStats API to notice heavy short-video app
+ * use (TikTok / Instagram / YouTube) and auto-logs once per day. Off by
+ * default; the user enables it from the app, which routes here through
+ * [hasPermission] / [requestPermission]. Nothing ever leaves the phone —
+ * there is no network call anywhere in this file.
+ *
+ * DOCUMENTED APPROXIMATION: YouTube is counted wholesale — UsageStats
+ * cannot distinguish Shorts from long-form watching, so long-form YouTube
+ * time also counts toward the threshold. TikTok and Instagram are
+ * short-video by nature, so the approximation only bites on YouTube. The
+ * package list is deliberately unchanged: dropping YouTube would be a
+ * product-behavior change, not a bug fix.
+ *
+ * [maybeAutoLog] returns the minutes of short-video use logged, or null when
+ * nothing was logged (disabled, already logged today, below threshold, or
+ * permission missing/revoked).
+ */
+object DoomscrollMonitor {
+
+    /**
+     * Short-video packages counted toward the daily threshold.
+     * NOTE: YouTube is counted wholesale (see KDoc above) — UsageStats
+     * cannot split Shorts from long-form, so long-form YouTube also counts.
+     */
+    private val SHORT_VIDEO_PKGS = setOf(
+        "com.zhiliaoapp.musically", // TikTok (global)
+        "com.ss.android.ugc.trending", // TikTok (alt)
+        "com.instagram.android",
+        "com.google.android.youtube"
+    )
+
+    /** Minutes of short-video use in a day before one auto-log fires. */
+    private const val THRESHOLD_MINUTES = 60
+
+    fun hasPermission(context: Context): Boolean {
+        return try {
+            val appOps = context.getSystemService(AppOpsManager::class.java) ?: return false
+            appOps.checkOpNoThrow(
+                AppOpsManager.OPSTR_GET_USAGE_STATS,
+                Process.myUid(),
+                context.packageName
+            ) == AppOpsManager.MODE_ALLOWED
+        } catch (t: Throwable) {
+            false
+        }
+    }
+
+    fun requestPermission(activity: Activity) {
+        try {
+            activity.startActivity(Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS))
+        } catch (t: Throwable) {
+            // No usage-access settings screen on this device — stay silent.
+        }
+    }
+
+    fun maybeAutoLog(context: Context, repo: PetRepository): Int? {
+        if (!repo.autoDetectEnabled) return null
+        if (!hasPermission(context)) return null
+        val today = Goal.todayString()
+        if (repo.lastAutoLogDate == today) return null // once per day
+        val minutes = shortVideoMinutesToday(context) ?: return null
+        if (minutes < THRESHOLD_MINUTES) return null
+        repo.logDoomscroll()
+        repo.lastAutoLogDate = today
+        return minutes
+    }
+
+    /** Total foreground minutes on short-video apps since midnight, or null on error. */
+    private fun shortVideoMinutesToday(context: Context): Int? {
+        return try {
+            val usage = context.getSystemService(UsageStatsManager::class.java) ?: return null
+            val cal = Calendar.getInstance().apply {
+                set(Calendar.HOUR_OF_DAY, 0)
+                set(Calendar.MINUTE, 0)
+                set(Calendar.SECOND, 0)
+                set(Calendar.MILLISECOND, 0)
+            }
+            val stats = usage.queryUsageStats(
+                UsageStatsManager.INTERVAL_DAILY,
+                cal.timeInMillis,
+                System.currentTimeMillis()
+            ) ?: return null
+            var totalMs = 0L
+            for (s in stats) {
+                if (s.packageName in SHORT_VIDEO_PKGS) totalMs += s.totalTimeInForeground
+            }
+            (totalMs / 60000L).toInt()
+        } catch (t: Throwable) {
+            null // permission revoked or UsageStats unavailable — never crash
+        }
+    }
+}
