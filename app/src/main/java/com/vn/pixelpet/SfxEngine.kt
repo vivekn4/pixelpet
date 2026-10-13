@@ -168,6 +168,13 @@ object SfxEngine {
         "attention_ping" to listOf(
             Note(1568.0, 1568.0, 120, Wave.SINE, 0.5),
             Note(1568.0, 1568.0, 140, Wave.SINE, 0.5)
+        ),
+        // ---- v3 Phase 3: one shared power chime (per-family chimes are
+        // future polish; one chime keeps synth time + APK size sane) ----
+        "power_chime" to listOf(
+            Note(1046.5, 1046.5, 100, Wave.SINE, 0.5),
+            Note(1318.5, 1318.5, 100, Wave.SINE, 0.5),
+            Note(1568.0, 2093.0, 180, Wave.TRIANGLE, 0.5)
         )
     )
 
