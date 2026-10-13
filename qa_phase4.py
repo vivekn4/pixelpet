@@ -1,1 +1,193 @@
-IyEvdXNyL2Jpbi9lbnYgcHl0aG9uMwoiIiJQaGFzZSA0IHN0YXRpYyBRQSBmb3IgUGl4ZWxQZXQ6IHdhbGxwYXBlciByb2FtLCB3aWRnZXQgd2FsayBmcmFtZSwKcHJlbWl1bSBhdXJhIHNraW5zLCBSRUFETUUgaG9uZXN0eSwgbWFuaWZlc3Q8LT5jbGFzcyBtYXBwaW5nIGZvciB0aGUgbmV3CmNsYXNzZXMuIFN0YXRpYyBjaGVja3Mgb25seSDigJQgbm8gS290bGluIGNvbXBpbGVyIC8gQW5kcm9pZCBTREsgaGVyZS4KUnVuIGZyb20gdGhlIHJlcG8gcm9vdDogcHl0aG9uMyBxYV9waGFzZTQucHkKCkNoZWNrcyBhcmUgY2FsbC1wYXR0ZXJuIGJhc2VkIChpbnN0YW50aWF0aW9uIC8gY2FsbCBzaXRlcyAvIGZ1bmN0aW9uLWJvZHkKc2NvcGluZyksIE5PVCBiYXJlIHN1YnN0cmluZyBwcmVzZW5jZTogYSBjb21tZW50IG1lbnRpb25pbmcgIldhbGtFbmdpbmUiCm11c3Qgbm90IHNhdGlzZnkgYSAidXNlcyBXYWxrRW5naW5lIiBjaGVjay4gQSBtdXRhdGlvbiB0ZXN0IChzdHJpcHBpbmcgdGhlCnJlYWwgV2Fsa0VuZ2luZSB1c2FnZSkgbXVzdCBmYWlsIHRoaXMgc2NyaXB0LiIiIgppbXBvcnQgb3MsIHJlLCBzeXMKClJPT1QgPSBvcy5wYXRoLmRpcm5hbWUob3MucGF0aC5hYnNwYXRoKF9fZmlsZV9fKSkKQVBQID0gUk9PVCArICIvYXBwL3NyYy9tYWluIgpKQVZBID0gQVBQICsgIi9qYXZhL2NvbS92bi9waXhlbHBldCIKZXJyb3JzLCB3YXJuaW5ncyA9IFtdLCBbXQoKZGVmIGVycihtKTogZXJyb3JzLmFwcGVuZChtKQpkZWYgd2FybihtKTogd2FybmluZ3MuYXBwZW5kKG0pCgpkZWYgcmVhZChwKToKICAgIHdpdGggb3BlbihwKSBhcyBmOiByZXR1cm4gZi5yZWFkKCkKCiMgLS0tLS0tLS0tLSAxLiBuZXcgUGhhc2UgNCBjbGFzc2VzIGV4aXN0IC0tLS0tLS0tLS0KZm9yIHAgaW4gWwogICAgIndhbGxwYXBlci9QaXhlbFdhbGxwYXBlclNlcnZpY2Uua3QiLAogICAgIndpZGdldC9QaXhlbFBldFdpZGdldFByb3ZpZGVyLmt0IiwKICAgICJ3aWRnZXQvV2lkZ2V0VXBkYXRlSm9iLmt0IiwKICAgICJkb29tc2Nyb2xsL0Rvb21zY3JvbGxNb25pdG9yLmt0IiwKICAgICJBdXJhU2tpbi5rdCIsCl06CiAgICBpZiBub3Qgb3MucGF0aC5pc2ZpbGUoZiJ7SkFWQX0ve3B9Iik6IGVycihmIm1pc3NpbmcgUGhhc2UgNCBjbGFzczoge3B9IikKcHJpbnQoIlBoYXNlIDQgY2xhc3NlcyBwcmVzZW50IikKCndwID0gcmVhZChmIntKQVZBfS93YWxscGFwZXIvUGl4ZWxXYWxscGFwZXJTZXJ2aWNlLmt0IikKd2cgPSByZWFkKGYie0pBVkF9L3dpZGdldC9QaXhlbFBldFdpZGdldFByb3ZpZGVyLmt0IikKd2ogPSByZWFkKGYie0pBVkF9L3dpZGdldC9XaWRnZXRVcGRhdGVKb2Iua3QiKQpkcyA9IHJlYWQoZiJ7SkFWQX0vZG9vbXNjcm9sbC9Eb29tc2Nyb2xsTW9uaXRvci5rdCIpCmF1ID0gcmVhZChmIntKQVZBfS9BdXJhU2tpbi5rdCIpCnByID0gcmVhZChmIntKQVZBfS9QZXRSZW5kZXJlci5rdCIpCm1hID0gcmVhZChmIntKQVZBfS9NYWluQWN0aXZpdHkua3QiKQoKIyAtLS0tLS0tLS0tIDIuIHdhbGxwYXBlciByb2FtIGdhdGVzIC0tLS0tLS0tLS0KIyBDYWxsLXBhdHRlcm4gY2hlY2tzOiBpbnN0YW50aWF0aW9uICsgcmVhbCBtZXRob2QgY2FsbHMsIG5vdCBiYXJlIG1lbnRpb25zLgojIEEgY29tbWVudCBzYXlpbmcgIldhbGtFbmdpbmUiIG11c3Qgbm90IHBhc3MgdGhlc2UuCmZvciBuZWVkbGUsIHdoYXQgaW4gWwogICAgKCJXYWxrRW5naW5lIiwgIndhbGxwYXBlciB1c2VzIFdhbGtFbmdpbmUiKSwKICAgICgib25WaXNpYmlsaXR5Q2hhbmdlZCIsICJ3YWxscGFwZXIgdmlzaWJpbGl0eSBnYXRlIiksCiAgICAoIkFDVElPTl9TQ1JFRU5fT0ZGIiwgIndhbGxwYXBlciBzY3JlZW4tb2ZmIGdhdGUiKSwKICAgICgiSURMRV9QQVVTRV9NUyIsICJ3YWxscGFwZXIgMzBzIGlkbGUgcm9hbSBwYXVzZSIpLAogICAgKCJGUkFNRV9NUyA9IDMzIiwgIndhbGxwYXBlciB+MzBmcHMiKSwKICAgICgib25TaW5nbGVUYXBDb25maXJtZWQiLCAid2FsbHBhcGVyIHRhcCA9IHBldCIpLAogICAgKCJvbkRvdWJsZVRhcCIsICJ3YWxscGFwZXIgZG91YmxlLXRhcCA9IHBsYXkiKSwKICAgICgiU2NyZWVuUmVjZWl2ZXIiLCAid2FsbHBhcGVyIHNsZWVwL3dha2UgdmlhIFNjcmVlblJlY2VpdmVyIiksCl06CiAgICBpZiBuZWVkbGUgbm90IGluIHdwOiBlcnIoZiJ3YWxscGFwZXI6IG1pc3Npbmcge3doYXR9ICh7bmVlZGxlfSkiKQojIE5vIGRyYXcgbG9vcCB3aGVuIGludmlzaWJsZTogc3RhcnRMb29wIG11c3QgY2hlY2sgdmlzaWJpbGl0eSArIHNjcmVlbk9uLgppZiAiaWYgKCF2aXNpYmxlIHx8ICFTY3JlZW5SZWNlaXZlci5zY3JlZW5PbikgcmV0dXJuIiBub3QgaW4gd3A6CiAgICBlcnIoIndhbGxwYXBlcjogc3RhcnRMb29wIG11c3QgZ2F0ZSBvbiB2aXNpYmxlICsgc2NyZWVuT24iKQojIFJlYWwgV2Fsa0VuZ2luZSB3aXJpbmc6IGluc3RhbnRpYXRpb24gKyB1cGRhdGUgY2FsbCArIGJvdW5kcyBzZXR1cC4KaWYgIldhbGtFbmdpbmUoKSIgbm90IGluIHdwOgogICAgZXJyKCJ3YWxscGFwZXI6IG11c3QgaW5zdGFudGlhdGUgV2Fsa0VuZ2luZSgpIChiYXJlIG1lbnRpb24gaXMgbm90IHdpcmluZykiKQppZiAid2Fsay51cGRhdGUoIiBub3QgaW4gd3A6CiAgICBlcnIoIndhbGxwYXBlcjogbXVzdCBjYWxsIHdhbGsudXBkYXRlKGR0KSBwZXIgZnJhbWUiKQppZiAid2Fsay5zZXRCb3VuZHMoIiBub3QgaW4gd3A6CiAgICBlcnIoIndhbGxwYXBlcjogbXVzdCBjYWxsIHdhbGsuc2V0Qm91bmRzKC4uLikgb24gc3VyZmFjZSBjaGFuZ2UiKQojIENhY2hlZC1zdGF0ZSBmaXggKHJldmlldyBmaW5kaW5nIDEpOiBkcmF3T25jZSBtdXN0IE5PVCBzbmFwc2hvdCgpIHBlciBmcmFtZS4KIyBTY29wZSB0aGUgY2hlY2sgdG8gdGhlIGRyYXdPbmNlIGZ1bmN0aW9uIGJvZHksIG5vdCB0aGUgd2hvbGUgZmlsZS4KIyBkcmF3T25jZSBpcyBhbiBpbm5lci1jbGFzcyBtZXRob2Q6IGl0cyBjbG9zaW5nIGJyYWNlIHNpdHMgYXQgOC1zcGFjZQojIGluZGVudC4gU3RyaXAgLy8tY29tbWVudHMgYmVmb3JlIGNoZWNraW5nIHNvIGEgY29tbWVudCBsaWtlICJuZXZlcgojIHNuYXBzaG90KCkgcGVyIGZyYW1lIiBjYW5ub3QgZmFsc2UtcG9zaXRpdmUgKG9yIGZhbHNlLW5lZ2F0aXZlKSB0aGUgY2hlY2suCm0gPSByZS5zZWFyY2gociJwcml2YXRlIGZ1biBkcmF3T25jZS4qP1xuICAgICAgICBcfSIsIHdwLCByZS5TKQppZiBub3QgbToKICAgIGVycigid2FsbHBhcGVyOiBjb3VsZCBub3QgbG9jYXRlIGRyYXdPbmNlKCkgYm9keSIpCmVsc2U6CiAgICBib2R5ID0gcmUuc3ViKHIiLy8uKiIsICIiLCBtLmdyb3VwKDApKQogICAgaWYgInNuYXBzaG90KCIgaW4gYm9keToKICAgICAgICBlcnIoIndhbGxwYXBlcjogZHJhd09uY2UoKSBtdXN0IG5vdCBjYWxsIHNuYXBzaG90KCkgcGVyIGZyYW1lICh1c2UgY2FjaGVkU3RhdGUpIikKICAgIGlmICJjYWNoZWRTdGF0ZSIgbm90IGluIGJvZHk6CiAgICAgICAgZXJyKCJ3YWxscGFwZXI6IGRyYXdPbmNlKCkgbXVzdCByZWFkIHRoZSBjYWNoZWQgc3RhdGUgKGNhY2hlZFN0YXRlKSIpCmlmICJjYWNoZWRTdGF0ZSA9IHN0YXRlIiBub3QgaW4gd3A6CiAgICBlcnIoIndhbGxwYXBlcjogZHJhd0ZyYW1lKCkgNTAwbXMgYmxvY2sgbXVzdCBjYWNoZSBzdGF0ZSAoY2FjaGVkU3RhdGUgPSBzdGF0ZSkiKQpwcmludCgid2FsbHBhcGVyIHJvYW0gZ2F0ZXMgb2siKQoKIyAtLS0tLS0tLS0tIDMuIHdpZGdldCB3YWxrIGZyYW1lIC0tLS0tLS0tLS0KIyBDYWxsLXBhdHRlcm4gY2hlY2tzOiByZWFsIGNhbGwgc2l0ZXMsIG5vdCBiYXJlIG1lbnRpb25zLgpmb3IgbmVlZGxlLCB3aGF0IGluIFsKICAgICgicmVuZGVyVmFyaWFudCIsICJ3aWRnZXQgcmVuZGVycyB2aWEgcmVuZGVyVmFyaWFudCIpLAogICAgKCJ3YWxrUGhhc2UiLCAid2lkZ2V0IHVzZXMgYSB3YWxrIGZyYW1lIiksCiAgICAoInJlZnJlc2hBbGwiLCAid2lkZ2V0IHJlZnJlc2hBbGwgZXhpc3RzIiksCiAgICAoIkFDVElPTl9RVUlDS19GRUVEIiwgIndpZGdldCBxdWljay1mZWVkIGFjdGlvbiIpLAogICAgKCJTTkFQU0hPVCIsICJ3aWRnZXQgZG9jdW1lbnRzIHNuYXBzaG90IChub3QgbGl2ZSkiKSwKXToKICAgIGlmIG5lZWRsZSBub3QgaW4gd2c6IGVycihmIndpZGdldDogbWlzc2luZyB7d2hhdH0gKHtuZWVkbGV9KSIpCmlmICJyZW5kZXJWYXJpYW50KCIgbm90IGluIHdnOgogICAgZXJyKCJ3aWRnZXQ6IG11c3QgQ0FMTCByZW5kZXJWYXJpYW50KC4uLikgKGJhcmUgbWVudGlvbiBpcyBub3QgYSBjYWxsKSIpCmlmICJSZW1vdGVWaWV3cyIgbm90IGluIHdnOiBlcnIoIndpZGdldDogbXVzdCB1c2UgUmVtb3RlVmlld3MiKQppZiAibGl2ZSB2aWV3IiBub3QgaW4gd2cubG93ZXIoKTogd2Fybigid2lkZ2V0OiBzbmFwc2hvdCBob25lc3R5IG5vdGUgd29yZGluZyBjaGFuZ2VkIikKIyBXaWRnZXRVcGRhdGVKb2I6IHNjaGVkdWxlICsgcmVmcmVzaAppZiAiZnVuIHNjaGVkdWxlIiBub3QgaW4gd2ogb3IgInJlZnJlc2hBbGwiIG5vdCBpbiB3ajoKICAgIGVycigid2lkZ2V0IGpvYjogbXVzdCBzY2hlZHVsZSArIHJlZnJlc2hBbGwiKQppZiAiSm9iU2VydmljZSIgbm90IGluIHdqOiBlcnIoIndpZGdldCBqb2I6IG11c3QgZXh0ZW5kIEpvYlNlcnZpY2UiKQojIFdpZGdldFVwZGF0ZUpvYi5zY2hlZHVsZSgpIG11c3QgYmUgY2FsbGVkIGZyb20gQk9USCBCb290UmVjZWl2ZXIgYW5kCiMgTWFpbkFjdGl2aXR5Lm9uQ3JlYXRlIChyZXZpZXcgZmluZGluZyA1KSDigJQgbm90IGp1c3QgZGVmaW5lZC4KaWYgIldpZGdldFVwZGF0ZUpvYi5zY2hlZHVsZSgiIG5vdCBpbiBtYToKICAgIGVycigiTWFpbkFjdGl2aXR5OiBtdXN0IGNhbGwgV2lkZ2V0VXBkYXRlSm9iLnNjaGVkdWxlKCkgaW4gb25DcmVhdGUiKQpiciA9IHJlYWQoZiJ7SkFWQX0vdXRpbC9Cb290UmVjZWl2ZXIua3QiKQppZiAiV2lkZ2V0VXBkYXRlSm9iLnNjaGVkdWxlKCIgbm90IGluIGJyOgogICAgZXJyKCJCb290UmVjZWl2ZXI6IG11c3QgY2FsbCBXaWRnZXRVcGRhdGVKb2Iuc2NoZWR1bGUoKSBvbiBib290IikKcHJpbnQoIndpZGdldCB3YWxrIGZyYW1lIG9rIikKCiMgLS0tLS0tLS0tLSA0LiBhdXJhIHNraW5zIC0tLS0tLS0tLS0KZm9yIHNraW4gaW4gWyJHT0xEX09SQklUIiwgIlJBSU5CT1ciLCAiRU1CRVIiLCAiU1RBUkxJR0hUIiwgIk5PTkUiXToKICAgIGlmIHNraW4gbm90IGluIGF1OiBlcnIoZiJhdXJhOiBtaXNzaW5nIHNraW4ge3NraW59IikKaWYgImZ1biBlZmZlY3RpdmUiIG5vdCBpbiBhdTogZXJyKCJhdXJhOiBtaXNzaW5nIGVmZmVjdGl2ZSgpIGdhdGUiKQppZiAiaXNQcmVtaXVtIiBub3QgaW4gYXU6IGVycigiYXVyYTogZWZmZWN0aXZlKCkgbXVzdCBnYXRlIG9uIHByZW1pdW0iKQppZiAiYXVyYVN0eWxlIiBub3QgaW4gcHI6IGVycigicmVuZGVyZXI6IG1pc3NpbmcgYXVyYVN0eWxlIHBhcmFtIikKaWYgIkF1cmFTa2luLkdPTERfT1JCSVQiIG5vdCBpbiBwcjogZXJyKCJyZW5kZXJlcjogZGVmYXVsdCBhdXJhU3R5bGUgbXVzdCBiZSBHT0xEX09SQklUIikKIyBQcmVtaXVtTWFuYWdlciBrZXkgdmFsaWRhdGlvbiB1bnRvdWNoZWQ6IG5vIGtleSBsb2dpYyBpbiBBdXJhU2tpbi4KaWYgIkhNQUMiIGluIGF1IG9yICJNZXNzYWdlRGlnZXN0IiBpbiBhdSBvciAiYWN0aXZhdGUiIGluIGF1OgogICAgZXJyKCJhdXJhOiBtdXN0IG5vdCB0b3VjaCBrZXkgdmFsaWRhdGlvbiIpCiMgTWFpbkFjdGl2aXR5OiBhdXJhIG9uIGFsbCB2YXJpYW50cyBmb3IgcHJlbWl1bSAobm8gTXlzdGljYWwtb25seSBnYXRlKS4KaWYgInN0YXRlLnNwZWNpZXMuY2F0ZWdvcnkgPT0gU3BlY2llcy5DYXRlZ29yeS5NWVNUSUNBTCIgaW4gbWE6CiAgICBlcnIoIk1haW5BY3Rpdml0eTogdjIgTXlzdGljYWwtb25seSBhdXJhIGdhdGUgbXVzdCBiZSBnb25lIikKaWYgIkF1cmFTa2luLmVmZmVjdGl2ZSIgbm90IGluIG1hOiBlcnIoIk1haW5BY3Rpdml0eTogbXVzdCB1c2UgQXVyYVNraW4uZWZmZWN0aXZlIikKIyBwb3dlckZ4IHByZW1pdW0gZmxhZyBtdXN0IGtleSBvZmYgcHJlbWl1bSBzdGF0dXMsIG5vdCBhdXJhIHByZXNlbmNlCiMgKHJldmlldyBmaW5kaW5nIDQpOiBhIHByZW1pdW0gdXNlciB3aXRoIGF1cmEgTk9ORSBrZWVwcyB0aGUgc3BhcmtsZXMuCmlmICJQcmVtaXVtTWFuYWdlci5pc1ByZW1pdW0ocmVwby5wcmVmc0ZvclByZW1pdW0oKSkiIG5vdCBpbiBtYToKICAgIGVycigiTWFpbkFjdGl2aXR5OiBwb3dlckZ4IHByZW1pdW0gZmxhZyBtdXN0IGJlIFByZW1pdW1NYW5hZ2VyLmlzUHJlbWl1bSguLi4pIikKcHJpbnQoImF1cmEgc2tpbnMgb2siKQoKIyAtLS0tLS0tLS0tIDUuIGRvb21zY3JvbGwgbW9uaXRvciAoY29tcGlsZSBkZXBlbmRlbmN5KSAtLS0tLS0tLS0tCmZvciBuZWVkbGUsIHdoYXQgaW4gWwogICAgKCJoYXNQZXJtaXNzaW9uIiwgIkRvb21zY3JvbGxNb25pdG9yLmhhc1Blcm1pc3Npb24iKSwKICAgICgicmVxdWVzdFBlcm1pc3Npb24iLCAiRG9vbXNjcm9sbE1vbml0b3IucmVxdWVzdFBlcm1pc3Npb24iKSwKICAgICgibWF5YmVBdXRvTG9nIiwgIkRvb21zY3JvbGxNb25pdG9yLm1heWJlQXV0b0xvZyIpLAogICAgKCJVc2FnZVN0YXRzTWFuYWdlciIsICJvbi1kZXZpY2UgVXNhZ2VTdGF0cyIpLApdOgogICAgaWYgbmVlZGxlIG5vdCBpbiBkczogZXJyKGYiZG9vbXNjcm9sbDogbWlzc2luZyB7d2hhdH0iKQppZiAiaHR0cCIgaW4gZHMubG93ZXIoKSBvciAiVVJMKCIgaW4gZHM6CiAgICBlcnIoImRvb21zY3JvbGw6IG11c3QgbmV2ZXIgdXNlIHRoZSBuZXR3b3JrIikKIyBSZXZpZXcgZmluZGluZyA3OiB0aGUgWW91VHViZSB3aG9sZXNhbGUtY291bnRpbmcgYXBwcm94aW1hdGlvbiBtdXN0IGJlCiMgRE9DVU1FTlRFRCBpbiB0aGUgbW9uaXRvciBLRG9jLCBub3Qgc2lsZW50LgppZiAiY2Fubm90IGRpc3Rpbmd1aXNoIFNob3J0cyIgbm90IGluIGRzOgogICAgZXJyKCJkb29tc2Nyb2xsOiBLRG9jIG11c3QgZG9jdW1lbnQgdGhlIFlvdVR1YmUgYXBwcm94aW1hdGlvbiIpCnBsYW4gPSByZWFkKGYie1JPT1R9L1BMQU4ubWQiKQppZiAiY2Fubm90IGRpc3Rpbmd1aXNoIiBub3QgaW4gcGxhbjoKICAgIGVycigiUExBTi5tZDogbXVzdCBkb2N1bWVudCB0aGUgWW91VHViZS9TaG9ydHMgYXBwcm94aW1hdGlvbiIpCnByaW50KCJkb29tc2Nyb2xsIG1vbml0b3Igb2siKQoKIyAtLS0tLS0tLS0tIDYuIEdvYWwuY29tcGxldGVkIChQaGFzZSAzIGNvbXBpbGUtYnJlYWsgZml4KSAtLS0tLS0tLS0tCmlmICJ2YWwgY29tcGxldGVkIiBub3QgaW4gcmVhZChmIntKQVZBfS9Hb2FsLmt0Iik6CiAgICBlcnIoIkdvYWw6IG1pc3NpbmcgY29tcGxldGVkIHByb3BlcnR5IikKcHJpbnQoIkdvYWwuY29tcGxldGVkIG9rIikKCiMgLS0tLS0tLS0tLSA3LiBSRUFETUUgaG9uZXN0eSAtLS0tLS0tLS0tCnJtID0gcmVhZChmIntST09UfS9SRUFETUUubWQiKQpmb3IgbmVlZGxlLCB3aGF0IGluIFsKICAgICgiMTA4IHZhcmlhbnRzIiwgIlJFQURNRTogMTA4IHZhcmlhbnRzIiksCiAgICAoInJvYW0iLCAiUkVBRE1FOiB3YWxscGFwZXIgcm9hbSIpLAogICAgKCJQZXJzb25hbGl0eSIsICJSRUFETUU6IHBlcnNvbmFsaXR5IiksCiAgICAoIk5hdGl2ZSBCcmFpbiIsICJSRUFETUU6IE5hdGl2ZSBCcmFpbiIpLAogICAgKCJub3QgYSBsYW5ndWFnZSIsICJSRUFETUU6IGhvbmVzdCBub3QtYS1sYW5ndWFnZS1tb2RlbCBsaW5lIiksCiAgICAoIjIzIGZhbWlseSBwb3dlcnMiLCAiUkVBRE1FOiAyMyBwb3dlcnMiKSwKICAgICgic25hcHNob3QgYml0bWFwIiwgIlJFQURNRTogd2lkZ2V0IGlzIGEgc25hcHNob3QiKSwKICAgICgiYXVyYSBza2lucyIsICJSRUFETUU6IHByZW1pdW0gYXVyYSBza2lucyIpLAogICAgKCJsb29rIG9ubHkiLCAiUkVBRE1FOiBwcmVtaXVtIGxvb2stb25seSBydWxlIiksCl06CiAgICBpZiBuZWVkbGUgbm90IGluIHJtOiBlcnIoZiJSRUFETUU6IG1pc3Npbmcge3doYXR9ICh7bmVlZGxlfSkiKQpmb3IgYmFkIGluIFsibGl2ZSB3aWRnZXQiLCAicGhvdG9yZWFsaXN0aWMiLCAicmVhbGlzdGljIGdyYXBoaWNzIiwgIkxMTSIsICJsYW5ndWFnZSBtb2RlbCB0aGF0IiwKICAgICAgICAgICAicm9hbXMgdGhlIGluLWFwcCBzdGFnZSIsICJpbi1hcHAgc3RhZ2UgYW5kIHRoZSBsb2NrLXNjcmVlbiJdOgogICAgaWYgYmFkIGluIHJtOiBlcnIoZiJSRUFETUU6IGRpc2hvbmVzdCBjbGFpbSBwcmVzZW50OiB7YmFkIXJ9IikKIyBSZXZpZXcgZmluZGluZ3MgMi0zOiBSRUFETUUgbXVzdCBzdGF0ZSB0aGUgaW4tYXBwIHN0YWdlIGRvZXMgTk9UIHJvYW0sCiMgYW5kIG11c3Qgbm90IGNsYWltIHRoZSBzdGVhZHkgZHJhdyBwYXRoICJhbGxvY2F0ZXMgbm90aGluZyIuCmlmICJkb2VzIG5vdCByb2FtIiBub3QgaW4gcm06CiAgICBlcnIoIlJFQURNRTogbXVzdCBzdGF0ZSB0aGUgaW4tYXBwIHN0YWdlIGRvZXMgbm90IHJvYW0iKQppZiAiYWxsb2NhdGVzIG5vdGhpbmciIGluIHJtOgogICAgZXJyKCJSRUFETUU6IG11c3Qgbm90IGNsYWltIHRoZSBzdGVhZHkgZHJhdyBwYXRoIGFsbG9jYXRlcyBub3RoaW5nIikKaWYgIkV2ZXJ5IHB1c2ggYnVpbGRzIiBpbiBybSBhbmQgIndvcmtmbG93IGZpbGUgaXMgYmVpbmcgYWRkZWQiIG5vdCBpbiBybToKICAgIGVycigiUkVBRE1FOiBtdXN0IG5vdCBjbGFpbSBDSSBidWlsZHMgdW50aWwgdGhlIHdvcmtmbG93IGxhbmRzIikKcHJpbnQoIlJFQURNRSBob25lc3R5IG9rIikKCiMgLS0tLS0tLS0tLSA4LiBtYW5pZmVzdCBtYXBzIHRvIHRoZSBuZXcgY2xhc3NlcyAtLS0tLS0tLS0tCm1hbiA9IHJlYWQoZiJ7QVBQfS9BbmRyb2lkTWFuaWZlc3QueG1sIikKZm9yIGNvbXAgaW4gWyIud2FsbHBhcGVyLlBpeGVsV2FsbHBhcGVyU2VydmljZSIsICIud2lkZ2V0LlBpeGVsUGV0V2lkZ2V0UHJvdmlkZXIiLCAiLndpZGdldC5XaWRnZXRVcGRhdGVKb2IiXToKICAgIGlmIGNvbXAgbm90IGluIG1hbjogZXJyKGYibWFuaWZlc3Q6IG1pc3Npbmcge2NvbXB9IikKcHJpbnQoIm1hbmlmZXN0IG1hcHBpbmcgb2siKQoKcHJpbnQoZiJcbkVSUk9SUzoge2xlbihlcnJvcnMpfSIpCmZvciBlIGluIGVycm9yczogcHJpbnQoIiAgRToiLCBlKQpwcmludChmIldBUk5JTkdTOiB7bGVuKHdhcm5pbmdzKX0iKQpmb3IgdyBpbiB3YXJuaW5nczogcHJpbnQoIiAgVzoiLCB3KQpzeXMuZXhpdCgxIGlmIGVycm9ycyBlbHNlIDApCg==
+#!/usr/bin/env python3
+"""Phase 4 static QA for PixelPet: wallpaper roam, widget walk frame,
+premium aura skins, README honesty, manifest<->class mapping for the new
+classes. Static checks only — no Kotlin compiler / Android SDK here.
+Run from the repo root: python3 qa_phase4.py
+
+Checks are call-pattern based (instantiation / call sites / function-body
+scoping), NOT bare substring presence: a comment mentioning "WalkEngine"
+must not satisfy a "uses WalkEngine" check. A mutation test (stripping the
+real WalkEngine usage) must fail this script."""
+import os, re, sys
+
+ROOT = os.path.dirname(os.path.abspath(__file__))
+APP = ROOT + "/app/src/main"
+JAVA = APP + "/java/com/vn/pixelpet"
+errors, warnings = [], []
+
+def err(m): errors.append(m)
+def warn(m): warnings.append(m)
+
+def read(p):
+    with open(p) as f: return f.read()
+
+# ---------- 1. new Phase 4 classes exist ----------
+for p in [
+    "wallpaper/PixelWallpaperService.kt",
+    "widget/PixelPetWidgetProvider.kt",
+    "widget/WidgetUpdateJob.kt",
+    "doomscroll/DoomscrollMonitor.kt",
+    "AuraSkin.kt",
+]:
+    if not os.path.isfile(f"{JAVA}/{p}"): err(f"missing Phase 4 class: {p}")
+print("Phase 4 classes present")
+
+wp = read(f"{JAVA}/wallpaper/PixelWallpaperService.kt")
+wg = read(f"{JAVA}/widget/PixelPetWidgetProvider.kt")
+wj = read(f"{JAVA}/widget/WidgetUpdateJob.kt")
+ds = read(f"{JAVA}/doomscroll/DoomscrollMonitor.kt")
+au = read(f"{JAVA}/AuraSkin.kt")
+pr = read(f"{JAVA}/PetRenderer.kt")
+ma = read(f"{JAVA}/MainActivity.kt")
+
+# ---------- 2. wallpaper roam gates ----------
+# Call-pattern checks: instantiation + real method calls, not bare mentions.
+# A comment saying "WalkEngine" must not pass these.
+for needle, what in [
+    ("WalkEngine", "wallpaper uses WalkEngine"),
+    ("onVisibilityChanged", "wallpaper visibility gate"),
+    ("ACTION_SCREEN_OFF", "wallpaper screen-off gate"),
+    ("IDLE_PAUSE_MS", "wallpaper 30s idle roam pause"),
+    ("FRAME_MS = 33", "wallpaper ~30fps"),
+    ("onSingleTapConfirmed", "wallpaper tap = pet"),
+    ("onDoubleTap", "wallpaper double-tap = play"),
+    ("ScreenReceiver", "wallpaper sleep/wake via ScreenReceiver"),
+]:
+    if needle not in wp: err(f"wallpaper: missing {what} ({needle})")
+# No draw loop when invisible: startLoop must check visibility + screenOn.
+if "if (!visible || !ScreenReceiver.screenOn) return" not in wp:
+    err("wallpaper: startLoop must gate on visible + screenOn")
+# Real WalkEngine wiring: instantiation + update call + bounds setup.
+if "WalkEngine()" not in wp:
+    err("wallpaper: must instantiate WalkEngine() (bare mention is not wiring)")
+if "walk.update(" not in wp:
+    err("wallpaper: must call walk.update(dt) per frame")
+if "walk.setBounds(" not in wp:
+    err("wallpaper: must call walk.setBounds(...) on surface change")
+# Cached-state fix (review finding 1): drawOnce must NOT snapshot() per frame.
+# Scope the check to the drawOnce function body, not the whole file.
+# drawOnce is an inner-class method: its closing brace sits at 8-space
+# indent. Strip //-comments before checking so a comment like "never
+# snapshot() per frame" cannot false-positive (or false-negative) the check.
+m = re.search(r"private fun drawOnce.*?\n        \}", wp, re.S)
+if not m:
+    err("wallpaper: could not locate drawOnce() body")
+else:
+    body = re.sub(r"//.*", "", m.group(0))
+    if "snapshot(" in body:
+        err("wallpaper: drawOnce() must not call snapshot() per frame (use cachedState)")
+    if "cachedState" not in body:
+        err("wallpaper: drawOnce() must read the cached state (cachedState)")
+if "cachedState = state" not in wp:
+    err("wallpaper: drawFrame() 500ms block must cache state (cachedState = state)")
+print("wallpaper roam gates ok")
+
+# ---------- 3. widget walk frame ----------
+# Call-pattern checks: real call sites, not bare mentions.
+for needle, what in [
+    ("renderVariant", "widget renders via renderVariant"),
+    ("walkPhase", "widget uses a walk frame"),
+    ("refreshAll", "widget refreshAll exists"),
+    ("ACTION_QUICK_FEED", "widget quick-feed action"),
+    ("SNAPSHOT", "widget documents snapshot (not live)"),
+]:
+    if needle not in wg: err(f"widget: missing {what} ({needle})")
+if "renderVariant(" not in wg:
+    err("widget: must CALL renderVariant(...) (bare mention is not a call)")
+if "RemoteViews" not in wg: err("widget: must use RemoteViews")
+if "live view" not in wg.lower(): warn("widget: snapshot honesty note wording changed")
+# WidgetUpdateJob: schedule + refresh
+if "fun schedule" not in wj or "refreshAll" not in wj:
+    err("widget job: must schedule + refreshAll")
+if "JobService" not in wj: err("widget job: must extend JobService")
+# WidgetUpdateJob.schedule() must be called from BOTH BootReceiver and
+# MainActivity.onCreate (review finding 5) — not just defined.
+if "WidgetUpdateJob.schedule(" not in ma:
+    err("MainActivity: must call WidgetUpdateJob.schedule() in onCreate")
+br = read(f"{JAVA}/util/BootReceiver.kt")
+if "WidgetUpdateJob.schedule(" not in br:
+    err("BootReceiver: must call WidgetUpdateJob.schedule() on boot")
+print("widget walk frame ok")
+
+# ---------- 4. aura skins ----------
+for skin in ["GOLD_ORBIT", "RAINBOW", "EMBER", "STARLIGHT", "NONE"]:
+    if skin not in au: err(f"aura: missing skin {skin}")
+if "fun effective" not in au: err("aura: missing effective() gate")
+if "isPremium" not in au: err("aura: effective() must gate on premium")
+if "auraStyle" not in pr: err("renderer: missing auraStyle param")
+if "AuraSkin.GOLD_ORBIT" not in pr: err("renderer: default auraStyle must be GOLD_ORBIT")
+# PremiumManager key validation untouched: no key logic in AuraSkin.
+if "HMAC" in au or "MessageDigest" in au or "activate" in au:
+    err("aura: must not touch key validation")
+# MainActivity: aura on all variants for premium (no Mystical-only gate).
+if "state.species.category == Species.Category.MYSTICAL" in ma:
+    err("MainActivity: v2 Mystical-only aura gate must be gone")
+if "AuraSkin.effective" not in ma: err("MainActivity: must use AuraSkin.effective")
+# powerFx premium flag must key off premium status, not aura presence
+# (review finding 4): a premium user with aura NONE keeps the sparkles.
+if "PremiumManager.isPremium(repo.prefsForPremium())" not in ma:
+    err("MainActivity: powerFx premium flag must be PremiumManager.isPremium(...)")
+print("aura skins ok")
+
+# ---------- 5. doomscroll monitor (compile dependency) ----------
+for needle, what in [
+    ("hasPermission", "DoomscrollMonitor.hasPermission"),
+    ("requestPermission", "DoomscrollMonitor.requestPermission"),
+    ("maybeAutoLog", "DoomscrollMonitor.maybeAutoLog"),
+    ("UsageStatsManager", "on-device UsageStats"),
+]:
+    if needle not in ds: err(f"doomscroll: missing {what}")
+if "http" in ds.lower() or "URL(" in ds:
+    err("doomscroll: must never use the network")
+# Review finding 7: the YouTube wholesale-counting approximation must be
+# DOCUMENTED in the monitor KDoc, not silent.
+if "cannot distinguish Shorts" not in ds:
+    err("doomscroll: KDoc must document the YouTube approximation")
+plan = read(f"{ROOT}/PLAN.md")
+if "cannot distinguish" not in plan:
+    err("PLAN.md: must document the YouTube/Shorts approximation")
+print("doomscroll monitor ok")
+
+# ---------- 6. Goal.completed (Phase 3 compile-break fix) ----------
+if "val completed" not in read(f"{JAVA}/Goal.kt"):
+    err("Goal: missing completed property")
+print("Goal.completed ok")
+
+# ---------- 7. README honesty ----------
+rm = read(f"{ROOT}/README.md")
+for needle, what in [
+    ("108 variants", "README: 108 variants"),
+    ("roam", "README: wallpaper roam"),
+    ("Personality", "README: personality"),
+    ("Native Brain", "README: Native Brain"),
+    ("not a language", "README: honest not-a-language-model line"),
+    ("23 family powers", "README: 23 powers"),
+    ("snapshot bitmap", "README: widget is a snapshot"),
+    ("aura skins", "README: premium aura skins"),
+    ("look only", "README: premium look-only rule"),
+]:
+    if needle not in rm: err(f"README: missing {what} ({needle})")
+for bad in ["live widget", "photorealistic", "realistic graphics", "LLM", "language model that",
+           "roams the in-app stage", "in-app stage and the lock-screen"]:
+    if bad in rm: err(f"README: dishonest claim present: {bad!r}")
+# Review findings 2-3: README must state the in-app stage does NOT roam,
+# and must not claim the steady draw path "allocates nothing".
+if "does not roam" not in rm:
+    err("README: must state the in-app stage does not roam")
+if "allocates nothing" in rm:
+    err("README: must not claim the steady draw path allocates nothing")
+if "Every push builds" in rm and "workflow file is being added" not in rm:
+    err("README: must not claim CI builds until the workflow lands")
+print("README honesty ok")
+
+# ---------- 8. manifest maps to the new classes ----------
+man = read(f"{APP}/AndroidManifest.xml")
+for comp in [".wallpaper.PixelWallpaperService", ".widget.PixelPetWidgetProvider", ".widget.WidgetUpdateJob"]:
+    if comp not in man: err(f"manifest: missing {comp}")
+print("manifest mapping ok")
+
+print(f"\nERRORS: {len(errors)}")
+for e in errors: print("  E:", e)
+print(f"WARNINGS: {len(warnings)}")
+for w in warnings: print("  W:", w)
+sys.exit(1 if errors else 0)
