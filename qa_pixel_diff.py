@@ -1,1 +1,107 @@
-IyEvdXNyL2Jpbi9lbnYgcHl0aG9uMwoiIiJQaXhlbC1kaWZmIGdvbGRlbi1iaXRtYXAgZ2F0ZSBmb3IgUGl4ZWxQZXQgKFBMQU5fVjMubWQgUGhhc2UgNSkuCgpIT05FU1QgU0NPUEUg4oCUIHJlYWQgdGhpcyBiZWZvcmUgdHJ1c3RpbmcgYSAicGFzcyIgZnJvbSB0aGlzIGZpbGU6ClRoaXMgZW52aXJvbm1lbnQgaGFzIG5vIEtvdGxpbiBjb21waWxlciBhbmQgbm8gQW5kcm9pZCBTREssIHNvIHRoaXMgc2NyaXB0CkNBTk5PVCByZW5kZXIgYSBzaW5nbGUgcGl4ZWwgYW5kIENBTk5PVCBjb21wYXJlIGJpdG1hcHMuIEl0IHZlcmlmaWVzIHRoZQp0d28gcHJlY29uZGl0aW9ucyB0aGF0IG1ha2UgYSBmdXR1cmUgcGl4ZWwtZGlmZiBydW4gbWVhbmluZ2Z1bDoKCiAgMS4gREVURVJNSU5JU006IFBldFJlbmRlcmVyJ3MgcmVuZGVyIHBhdGggbXVzdCBiZSBhIHB1cmUgZnVuY3Rpb24gb2YgaXRzCiAgICAgZXhwbGljaXQgaW5wdXRzICh2YXJpYW50LCBtb29kLCBibGluaywgYXVyYSwgd2F2ZVBoYXNlLCB3YWxrUGhhc2UsCiAgICAgbGVncykuIE5vIFJhbmRvbSwgbm8gY2xvY2ssIG5vIHdhbGwgdGltZSwgbm8gaGFzaC1tYXAgaXRlcmF0aW9uIG9yZGVyCiAgICAgaW5zaWRlIHRoZSByZW5kZXJlci4gSWYgdGhlIHJlbmRlcmVyIGlzIGRldGVybWluaXN0aWMsIGEgZ29sZGVuIGJpdG1hcAogICAgIGNhcHR1cmVkIG9uY2Ugc3RheXMgdmFsaWQgdW50aWwgdGhlIHJlbmRlcmVyIGNoYW5nZXMuCiAgMi4gS0VZIENPVkVSQUdFOiBldmVyeSBpbnB1dCB0aGF0IGNoYW5nZXMgdGhlIG91dHB1dCBtdXN0IGJlIHBhcnQgb2YgdGhlCiAgICAgcmVuZGVyIGtleSB0aGUgd2FsbHBhcGVyL3dpZGdldCB1c2UgZm9yIGNhY2hlIGludmFsaWRhdGlvbiDigJQgb3RoZXJ3aXNlCiAgICAgdHdvIGRpZmZlcmVudCBwaWN0dXJlcyBjb3VsZCBzaGFyZSBvbmUgY2FjaGVkIGJpdG1hcC4KClRydWUgcGl4ZWwgY29tcGFyaXNvbiAocmVuZGVyIGFsbCAxMDggdmFyaWFudHMsIGRpZmYgYWdhaW5zdCBnb2xkZW4gUE5HcykKcmVxdWlyZXMgYW4gQW5kcm9pZCBydW50aW1lIGFuZCBpcyBDSS9kZXZpY2Utb25seS4gTk8gZ29sZGVuIGJpdG1hcHMgZXhpc3QKaW4gdGhpcyByZXBvIHlldCwgYW5kIHRoaXMgc2NyaXB0IGRvZXMgbm90IHByZXRlbmQgb3RoZXJ3aXNlOiBpdHMgdmVyZGljdApmb3IgdGhlIHBpeGVsLWRpZmYgaXRzZWxmIGlzIGFsd2F5cyBOT1RfUlVOIHVudGlsIGEgZ29sZGVuIGNhcHR1cmUgZXhpc3RzLgoKR29sZGVuLWNhcHR1cmUgcHJvdG9jb2wgKGZvciB0aGUgZnV0dXJlIGNhcHR1cmUgcnVuLCBvbiBhbiBlbXVsYXRvciBvcgpkZXZpY2Ug4oCUIE5PVCBydW5uYWJsZSBoZXJlKToKICAxLiBPbiBhIFBpeGVsIDkgQVBJIDM2IGVtdWxhdG9yIChvciB0aGUgUzI2IFVsdHJhKSwgcnVuIGEgZGVidWcgYnVpbGQKICAgICB3aXRoIGEgb25lLW9mZiBjYXB0dXJlIGhhcm5lc3MgdGhhdCBjYWxscwogICAgIFBldFJlbmRlcmVyLnJlbmRlclZhcmlhbnQodmFyaWFudCwgQ09OVEVOVCwgY2VsbFB4PTE2LCBibGluaz1mYWxzZSwKICAgICBhdXJhPWZhbHNlLCB3YXZlUGhhc2U9MCwgd2Fsa1BoYXNlPTAsIGxlZ3M9ZmFsc2UpIGZvciBhbGwgMTA4CiAgICAgdmFyaWFudHMgYW5kIHdyaXRlcyBvbmUgUE5HIHBlciB2YXJpYW50IGlkIHRvIHRlc3RzL2dvbGRlbi8uCiAgMi4gQ29tbWl0IHRlc3RzL2dvbGRlbi8qLnBuZy4gQ0kgcmVuZGVycyB0aGUgc2FtZSAxMDggaW5wdXRzIG9uIHRoZQogICAgIHNhbWUgZW11bGF0b3IgaW1hZ2UgYW5kIGRpZmZzIHBpeGVsLWJ5LXBpeGVsOyB0aHJlc2hvbGQ6IDAgZGlmZmVyaW5nCiAgICAgcGl4ZWxzIChkZXRlcm1pbmlzdGljIHJlbmRlcmVyID0+IGV4YWN0IG1hdGNoIGV4cGVjdGVkKS4KICAzLiBBbnkgcmVuZGVyZXIgY2hhbmdlIHJlcXVpcmVzIHJlLWNhcHR1cmluZyBnb2xkZW5zIGluIHRoZSBzYW1lIHJ1bgogICAgIChyZXZpZXcgdGhlIHZpc3VhbCBkaWZmIGJlZm9yZSBjb21taXR0aW5nIG5ldyBnb2xkZW5zKS4KClJ1bjogIHB5dGhvbjMgcWFfcGl4ZWxfZGlmZi5weSBbLS1yb290IDxyZXBvLXJvb3Q+XQpFeGl0IDAgPSBkZXRlcm1pbmlzbSArIGtleS1jb3ZlcmFnZSBwcmVjb25kaXRpb25zIGhvbGQgKHBpeGVsIGRpZmYgaXRzZWxmCnN0aWxsIE5PVF9SVU4pLiBFeGl0IDEgPSBhIHByZWNvbmRpdGlvbiBmYWlscy4KIiIiCmltcG9ydCBvcywgcmUsIHN5cwoKUk9PVCA9IHN5cy5hcmd2W3N5cy5hcmd2LmluZGV4KCItLXJvb3QiKSArIDFdIGlmICItLXJvb3QiIGluIHN5cy5hcmd2IFwKICAgIGVsc2Ugb3MucGF0aC5kaXJuYW1lKG9zLnBhdGguYWJzcGF0aChfX2ZpbGVfXykpCkpBVkEgPSBvcy5wYXRoLmpvaW4oUk9PVCwgImFwcC9zcmMvbWFpbi9qYXZhL2NvbS92bi9waXhlbHBldCIpCgplcnJvcnMgPSBbXQpkZWYgZXJyKG0pOiBlcnJvcnMuYXBwZW5kKG0pCmRlZiByZWFkKHApOgogICAgd2l0aCBvcGVuKHApIGFzIGY6IHJldHVybiBmLnJlYWQoKQoKcmVuZGVyZXIgPSByZWFkKGYie0pBVkF9L1BldFJlbmRlcmVyLmt0IikKd2FsbHBhcGVyID0gcmVhZChmIntKQVZBfS93YWxscGFwZXIvUGl4ZWxXYWxscGFwZXJTZXJ2aWNlLmt0IikKCiMgLS0tLS0tLS0tLSAxLiBkZXRlcm1pbmlzbTogbm8gZW50cm9weSAvIHRpbWUgaW5zaWRlIHRoZSByZW5kZXJlciAtLS0tLS0tLS0tCnByaW50KCJyZW5kZXJlciBkZXRlcm1pbmlzbSIpCmZvciBuZWVkbGUsIHdoYXQgaW4gWwogICAgKCJSYW5kb20iLCAiUmFuZG9tIG51bWJlciBnZW5lcmF0b3IiKSwKICAgICgiU3lzdGVtQ2xvY2siLCAiZWxhcHNlZC1yZWFsdGltZSBjbG9jayIpLAogICAgKCJjdXJyZW50VGltZU1pbGxpcyIsICJ3YWxsIGNsb2NrIiksCiAgICAoIm5hbm9UaW1lIiwgIm5hbm8gY2xvY2siKSwKICAgICgiSGFzaE1hcCIsICJ1bm9yZGVyZWQgbWFwIChpdGVyYXRpb24gb3JkZXIpIiksCiAgICAoIkhhc2hTZXQiLCAidW5vcmRlcmVkIHNldCAoaXRlcmF0aW9uIG9yZGVyKSIpLApdOgogICAgaWYgbmVlZGxlIGluIHJlbmRlcmVyOgogICAgICAgIGVycihmIlBldFJlbmRlcmVyIHVzZXMge3doYXR9ICh7bmVlZGxlfSkg4oCUIHJlbmRlciBvdXRwdXQgaXMgbm90IGEgcHVyZSBmdW5jdGlvbiBvZiBpbnB1dHMiKQoKIyByZW5kZXIgZW50cnkgcG9pbnRzIG11c3QgdGFrZSBldmVyeSB2YXJ5aW5nIGlucHV0IGFzIGFuIGV4cGxpY2l0IHBhcmFtZXRlcgpmb3IgZm4gaW4gWyJmdW4gcmVuZGVyVmFyaWFudCIsICJmdW4gcmVuZGVyKCJdOgogICAgaWYgZm4gbm90IGluIHJlbmRlcmVyOgogICAgICAgIGVycihmIlBldFJlbmRlcmVyOiBtaXNzaW5nIGVudHJ5IHBvaW50IHtmbn0iKQpmb3IgcGFyYW0gaW4gWyJibGluayIsICJhdXJhU3R5bGUiLCAid2F2ZVBoYXNlIiwgIndhbGtQaGFzZSIsICJsZWdzIl06CiAgICBpZiBwYXJhbSBub3QgaW4gcmVuZGVyZXI6CiAgICAgICAgZXJyKGYiUGV0UmVuZGVyZXI6IHJlbmRlciBpbnB1dHMgbXVzdCBpbmNsdWRlIGV4cGxpY2l0ICd7cGFyYW19JyBwYXJhbWV0ZXIiKQoKIyAtLS0tLS0tLS0tIDIuIGNhY2hlLWtleSBjb3ZlcmFnZToga2V5IG11c3QgaW5jbHVkZSBldmVyeSB2YXJ5aW5nIGlucHV0IC0tLS0tLS0tLS0KcHJpbnQoImNhY2hlLWtleSBjb3ZlcmFnZSIpCiMgd2FsbHBhcGVyIHJlbmRlciBrZXk6IGZpbmQgdGhlIGBrZXkgPSAuLi5gIGNvbnN0cnVjdGlvbiBpbiBkcmF3T25jZQptID0gcmUuc2VhcmNoKHIndmFsIGtleSA9IChbXlxuXSspJywgd2FsbHBhcGVyKQprZXlfZXhwciA9IG0uZ3JvdXAoMSkgaWYgbSBlbHNlICIiCmZvciB0b2tlbiwgd2hhdCBpbiBbCiAgICAoInZhcmlhbnQuaWQiLCAidmFyaWFudCIpLAogICAgKCJtb29kIiwgIm1vb2QiKSwKICAgICgid2Fsay53YWxrUGhhc2UiLCAid2FsayBwaGFzZSIpLAogICAgKCJibGlua2luZyIsICJibGluayIpLAogICAgKCJhdXJhU2tpbiIsICJhdXJhIHNraW4iKSwKICAgICgic3F1YXNoU3RyZXRjaCIsICJzcXVhc2ggYnVja2V0IiksCl06CiAgICBpZiB0b2tlbiBub3QgaW4ga2V5X2V4cHI6CiAgICAgICAgZXJyKGYid2FsbHBhcGVyIHJlbmRlciBrZXkgbWlzc2luZyB7d2hhdH0gKHt0b2tlbn0pIOKAlCBzdGFsZSBiaXRtYXAgcmlzayIpCgojIC0tLS0tLS0tLS0gMy4gZ29sZGVuIGJpdG1hcHM6IGFzc2VydCBhYnNlbmNlIChuZXZlciBjbGFpbSB0aGV5IGV4aXN0KSAtLS0tLS0tLS0tCnByaW50KCJnb2xkZW4tYml0bWFwIHN0YXRlIikKZ29sZGVuX2RpciA9IG9zLnBhdGguam9pbihST09ULCAidGVzdHMvZ29sZGVuIikKZ29sZGVucyA9IFtdCmlmIG9zLnBhdGguaXNkaXIoZ29sZGVuX2Rpcik6CiAgICBnb2xkZW5zID0gW2YgZm9yIGYgaW4gb3MubGlzdGRpcihnb2xkZW5fZGlyKSBpZiBmLmVuZHN3aXRoKCIucG5nIildCmlmIGdvbGRlbnM6CiAgICBlcnIoZiJ0ZXN0cy9nb2xkZW4gaG9sZHMge2xlbihnb2xkZW5zKX0gUE5HcyBidXQgdGhpcyBzY3JpcHQgY2Fubm90IHZlcmlmeSAiCiAgICAgICAgInRoZXkgbWF0Y2ggdGhlIGN1cnJlbnQgcmVuZGVyZXIg4oCUIHJlLWNhcHR1cmUgYWZ0ZXIgYW55IHJlbmRlcmVyIGNoYW5nZSIpCmVsc2U6CiAgICBwcmludCgiICBubyBnb2xkZW4gYml0bWFwcyBpbiByZXBvIOKAlCBwaXhlbCBkaWZmIE5PVF9SVU4gKGV4cGVjdGVkKSIpCgojIC0tLS0tLS0tLS0gdmVyZGljdCAtLS0tLS0tLS0tCnByaW50KGYiXG5QaXhlbC1kaWZmIGdhdGU6IHtsZW4oZXJyb3JzKX0gZXJyb3IocykiKQpmb3IgZSBpbiBlcnJvcnM6IHByaW50KCIgIEVSUk9SOiIsIGUpCnByaW50KCJQaXhlbC1kaWZmIGNvbXBhcmlzb24gaXRzZWxmOiBOT1RfUlVOIChuZWVkcyBBbmRyb2lkIHJ1bnRpbWU7IHNlZSBwcm90b2NvbCBhYm92ZSkiKQpzeXMuZXhpdCgxIGlmIGVycm9ycyBlbHNlIDApCg==
+#!/usr/bin/env python3
+"""Pixel-diff golden-bitmap gate for PixelPet (PLAN_V3.md Phase 5).
+
+HONEST SCOPE — read this before trusting a "pass" from this file:
+This environment has no Kotlin compiler and no Android SDK, so this script
+CANNOT render a single pixel and CANNOT compare bitmaps. It verifies the
+two preconditions that make a future pixel-diff run meaningful:
+
+  1. DETERMINISM: PetRenderer's render path must be a pure function of its
+     explicit inputs (variant, mood, blink, aura, wavePhase, walkPhase,
+     legs). No Random, no clock, no wall time, no hash-map iteration order
+     inside the renderer. If the renderer is deterministic, a golden bitmap
+     captured once stays valid until the renderer changes.
+  2. KEY COVERAGE: every input that changes the output must be part of the
+     render key the wallpaper/widget use for cache invalidation — otherwise
+     two different pictures could share one cached bitmap.
+
+True pixel comparison (render all 108 variants, diff against golden PNGs)
+requires an Android runtime and is CI/device-only. NO golden bitmaps exist
+in this repo yet, and this script does not pretend otherwise: its verdict
+for the pixel-diff itself is always NOT_RUN until a golden capture exists.
+
+Golden-capture protocol (for the future capture run, on an emulator or
+device — NOT runnable here):
+  1. On a Pixel 9 API 36 emulator (or the S26 Ultra), run a debug build
+     with a one-off capture harness that calls
+     PetRenderer.renderVariant(variant, CONTENT, cellPx=16, blink=false,
+     aura=false, wavePhase=0, walkPhase=0, legs=false) for all 108
+     variants and writes one PNG per variant id to tests/golden/.
+  2. Commit tests/golden/*.png. CI renders the same 108 inputs on the
+     same emulator image and diffs pixel-by-pixel; threshold: 0 differing
+     pixels (deterministic renderer => exact match expected).
+  3. Any renderer change requires re-capturing goldens in the same run
+     (review the visual diff before committing new goldens).
+
+Run:  python3 qa_pixel_diff.py [--root <repo-root>]
+Exit 0 = determinism + key-coverage preconditions hold (pixel diff itself
+still NOT_RUN). Exit 1 = a precondition fails.
+"""
+import os, re, sys
+
+ROOT = sys.argv[sys.argv.index("--root") + 1] if "--root" in sys.argv \
+    else os.path.dirname(os.path.abspath(__file__))
+JAVA = os.path.join(ROOT, "app/src/main/java/com/vn/pixelpet")
+
+errors = []
+def err(m): errors.append(m)
+def read(p):
+    with open(p) as f: return f.read()
+
+renderer = read(f"{JAVA}/PetRenderer.kt")
+wallpaper = read(f"{JAVA}/wallpaper/PixelWallpaperService.kt")
+
+# ---------- 1. determinism: no entropy / time inside the renderer ----------
+print("renderer determinism")
+for needle, what in [
+    ("Random", "Random number generator"),
+    ("SystemClock", "elapsed-realtime clock"),
+    ("currentTimeMillis", "wall clock"),
+    ("nanoTime", "nano clock"),
+    ("HashMap", "unordered map (iteration order)"),
+    ("HashSet", "unordered set (iteration order)"),
+]:
+    if needle in renderer:
+        err(f"PetRenderer uses {what} ({needle}) — render output is not a pure function of inputs")
+
+# render entry points must take every varying input as an explicit parameter
+for fn in ["fun renderVariant", "fun render("]:
+    if fn not in renderer:
+        err(f"PetRenderer: missing entry point {fn}")
+for param in ["blink", "auraStyle", "wavePhase", "walkPhase", "legs"]:
+    if param not in renderer:
+        err(f"PetRenderer: render inputs must include explicit '{param}' parameter")
+
+# ---------- 2. cache-key coverage: key must include every varying input ----------
+print("cache-key coverage")
+# wallpaper render key: find the `key = ...` construction in drawOnce
+m = re.search(r'val key = ([^\n]+)', wallpaper)
+key_expr = m.group(1) if m else ""
+for token, what in [
+    ("variant.id", "variant"),
+    ("mood", "mood"),
+    ("walk.walkPhase", "walk phase"),
+    ("blinking", "blink"),
+    ("auraSkin", "aura skin"),
+    ("squashStretch", "squash bucket"),
+]:
+    if token not in key_expr:
+        err(f"wallpaper render key missing {what} ({token}) — stale bitmap risk")
+
+# ---------- 3. golden bitmaps: assert absence (never claim they exist) ----------
+print("golden-bitmap state")
+golden_dir = os.path.join(ROOT, "tests/golden")
+goldens = []
+if os.path.isdir(golden_dir):
+    goldens = [f for f in os.listdir(golden_dir) if f.endswith(".png")]
+if goldens:
+    err(f"tests/golden holds {len(goldens)} PNGs but this script cannot verify "
+        "they match the current renderer — re-capture after any renderer change")
+else:
+    print("  no golden bitmaps in repo — pixel diff NOT_RUN (expected)")
+
+# ---------- verdict ----------
+print(f"\nPixel-diff gate: {len(errors)} error(s)")
+for e in errors: print("  ERROR:", e)
+print("Pixel-diff comparison itself: NOT_RUN (needs Android runtime; see protocol above)")
+sys.exit(1 if errors else 0)
