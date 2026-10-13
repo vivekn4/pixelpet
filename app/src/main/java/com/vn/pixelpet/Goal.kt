@@ -19,6 +19,15 @@ data class Goal(
     /** yyyy-MM-dd of last completion, "" if never. */
     val lastDoneDate: String
 ) {
+    /**
+     * Done for the current cycle. Daily goals reset each day; one-shot goals
+     * are done once completed. Mirrors the alreadyDone logic in
+     * PetRepository.completeGoal. (v3 Phase 4: added — MainActivity Night
+     * Watch lookup referenced this property but it did not exist.)
+     */
+    val completed: Boolean
+        get() = if (daily) lastDoneDate == todayString() else lastDoneDate.isNotEmpty()
+
     fun toJson(): JSONObject = JSONObject()
         .put("id", id)
         .put("name", name)
