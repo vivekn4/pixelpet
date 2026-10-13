@@ -403,6 +403,16 @@ object VariantRoster {
             TraitBias(playful = 5, bold = 10), "90-day streak or 👑")
     )
 
+    /**
+     * Resolve a v2 species id ("cat") to its default v3 variant ("cat-tabby").
+     * Used by Phase 3 (MainActivity power wiring). Additive — no roster change.
+     */
+    fun variantForSpeciesId(speciesId: String): Variant {
+        byId(speciesId)?.let { return it }
+        ALL.firstOrNull { it.id.startsWith("$speciesId-") }?.let { return it }
+        return ALL.first()
+    }
+
     fun byId(id: String): Variant? = ALL.find { it.id == id }
 
     fun ofCategory(category: Species.Category): List<Variant> =
