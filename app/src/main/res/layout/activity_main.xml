@@ -39,6 +39,16 @@
             android:contentDescription="@string/btn_species" />
 
         <Button
+            android:id="@+id/btn_personality"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="6dp"
+            android:background="@drawable/card_bg"
+            android:text="🧠"
+            android:textSize="18sp"
+            android:contentDescription="@string/btn_personality" />
+
+        <Button
             android:id="@+id/btn_premium"
             android:layout_width="48dp"
             android:layout_height="48dp"
