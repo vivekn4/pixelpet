@@ -89,4 +89,16 @@
     <string name="premium_welcome">Welcome to Premium! %1$d new friends unlocked. 👑</string>
     <string name="premium_bad_key">That key didn\'t check out. Try again.</string>
     <string name="premium_locked_out">Too many tries — try again after %1$s.</string>
+    <!-- v3 phase 2: personality -->
+    <string name="personality_title">Pip\'s Personality</string>
+    <string name="personality_learned_title">Pip learned</string>
+    <string name="personality_learned_empty">Pip is still getting to know you. After a few days together, this is where Pip will show what it has noticed — like the times you usually play, or your favorite ways to care.</string>
+    <string name="personality_says">Pip says</string>
+    <string name="personality_got_it">Got it</string>
+    <string name="btn_personality">🧠</string>
+    <string name="personality_trait_playful">Playful ↔ Calm</string>
+    <string name="personality_trait_bold">Bold ↔ Shy</string>
+    <string name="personality_trait_greedy">Greedy ↔ Picky</string>
+    <string name="personality_trait_social">Social ↔ Independent</string>
+    <string name="personality_trait_neat">Neat ↔ Messy</string>
 </resources>
