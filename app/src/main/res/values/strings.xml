@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PixelPet</string>
+
+    <string name="pet_name">Pip</string>
+    <string name="tagline">Complete goals. Feed Pip. Don\'t doomscroll.</string>
+
+    <string name="stat_hunger">Hunger</string>
+    <string name="stat_happiness">Happiness</string>
+    <string name="stat_energy">Energy</string>
+
+    <string name="btn_goals">Complete a goal →</string>
+    <string name="btn_doomscroll">I doomscrolled…</string>
+    <string name="btn_add_goal">＋ Add goal</string>
+    <string name="btn_done">Done ✓</string>
+    <string name="btn_about">About</string>
+    <string name="btn_mute">🔊</string>
+    <string name="btn_unmute">🔇</string>
+
+    <string name="goals_title">Goals — feed %1$s</string>
+    <string name="goals_empty">No goals yet. Add one — %1$s is counting on you.</string>
+    <string name="goal_hint">e.g. Gym, Study 1 hr, Ship a video…</string>
+    <string name="goal_daily">Repeats daily</string>
+    <string name="streak_fmt">🔥 %1$d day streak</string>
+
+    <string name="doom_title">Log doomscrolling?</string>
+    <string name="doom_msg">%1$s will sulk for 30 minutes. Happiness −15.</string>
+    <string name="doom_confirm">Log it</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="toast_goal_done">Goal complete! %1$s is stuffed and happy. 🎉</string>
+    <string name="toast_doom">%1$s is sulking… put the phone down. 🌧</string>
+    <string name="toast_need_goals">Add a goal first — then complete it to feed %1$s.</string>
+
+    <string name="mood_happy">THRIVING!</string>
+    <string name="mood_content">doing okay</string>
+    <string name="mood_hungry">HUNGRY!</string>
+    <string name="mood_sad">sad…</string>
+    <string name="mood_sulking">sulking 🌧</string>
+    <string name="mood_sleeping">sleeping…</string>
+
+    <string name="about_title">About PixelPet</string>
+    <string name="about_howto_title">How to play</string>
+    <string name="about_howto">• Pick your Pip (cat, dog, bunny, hamster) — unlock wolves, foxes, dragons and more with care streaks and achievements.\n• Add real-life goals (gym, study, ship a video). Checking one off feeds Pip.\n• Stats decay in real time: hunger, happiness, energy — plus ATTENTION, which drains when Pip is ignored. Pet often!\n• Tap Pip to pet, double-tap to play. Screen off = Pip sleeps (decay ×0.1); screen on = wake recap.\n• Set the live wallpaper as your LOCK-SCREEN wallpaper (Samsung: separate lock-screen wallpaper) so Pip greets you on every wake.\n• Log doomscrolling (or enable auto-detect) and Pip sulks for 30 minutes.\n• 👑 Premium unlocks Wild + Mystical pets instantly via license key.</string>
+    <string name="about_sfx">All sound effects are synthesized in code at first launch — this app ships zero audio files.</string>
+    <string name="about_privacy">PixelPet works fully offline. The optional doomscroll auto-detector uses Android\'s UsageStats API on-device only; nothing ever leaves your phone.</string>
+    <string name="about_version">Version %1$s</string>
+    <string name="vn_tag">✦ VN ✦</string>
+    <string name="made_by">Made by Vivek Nair</string>
+
+    <string name="widget_desc">PixelPet widget — Pip and stats at a glance</string>
+    <string name="notif_auto_doom">Auto-detected %1$d min of short-video apps today — logged for %2$s.</string>
+    <string name="auto_detect_title">Doomscroll auto-detect (optional)</string>
+    <string name="auto_detect_desc">Uses on-device UsageStats to notice heavy short-video app use. Off by default.</string>
+    <string name="auto_detect_enable">Enable</string>
+    <string name="auto_detect_grant">Grant usage access</string>
+
+    <!-- v2 -->
+    <string name="stat_attention">Attention</string>
+    <string name="btn_snack">🍪 Snack</string>
+    <string name="btn_play">▶ Play</string>
+    <string name="btn_pet">✋ Pet</string>
+    <string name="btn_species">🐾</string>
+    <string name="btn_premium">👑</string>
+    <string name="mood_sick">sick… 🤒</string>
+    <string name="snack_cooldown">Snack break! Pip is still munching. 🍪</string>
+    <string name="play_tired">Pip is too tired to play right now. 😴</string>
+    <string name="wake_title">Good morning!</string>
+    <string name="unlocked_toast">🎉 New friend unlocked: %1$s (%2$s)</string>
+    <string name="widget_feed">🍪 Feed</string>
+    <string name="widget_feed_cooldown">…munching…</string>
+    <string name="wallpaper_label">PixelPet Live Wallpaper</string>
+    <string name="wallpaper_desc">Your pixel pet, live on the lock screen. Tap to pet, double-tap to play.</string>
+
+    <string name="species_title">Choose your Pip</string>
+    <string name="species_active">ACTIVE ✓</string>
+    <string name="species_selected">%1$s is now your buddy! 🎉</string>
+    <string name="all_unlocked">Every species unlocked. Legendary keeper. 🏆</string>
+    <string name="btn_go_premium">👑 Go Premium</string>
+
+    <string name="premium_title">👑 PixelPet Premium</string>
+    <string name="premium_pitch">Unlock the Wild and Mystical pets instantly, plus exclusive skins, aura animations, and extra pet slots.\n\nFree forever: all Normal pets and the full care loop.</string>
+    <string name="premium_enter_key">Enter your license key:</string>
+    <string name="premium_key_hint">VNPP-XXXXXXX-XXXXXXX-XXXXXX-XXXXXX</string>
+    <string name="premium_activate">Activate</string>
+    <string name="premium_price_todo">Price: TODO — one-time purchase, no subscription. Keys delivered manually after purchase.</string>
+    <string name="premium_active_title">👑 Premium active</string>
+    <string name="premium_key_id">Key ID: %1$s</string>
+    <string name="premium_welcome">Welcome to Premium! %1$d new friends unlocked. 👑</string>
+    <string name="premium_bad_key">That key didn\'t check out. Try again.</string>
+    <string name="premium_locked_out">Too many tries — try again after %1$s.</string>
+</resources>
