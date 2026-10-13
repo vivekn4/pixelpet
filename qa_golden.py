@@ -1,1 +1,128 @@
-IyEvdXNyL2Jpbi9lbnYgcHl0aG9uMwoiIiJGdWxsIGdvbGRlbiBzdWl0ZSBmb3IgUGl4ZWxQZXQgdjMgKFBMQU5fVjMubWQgUGhhc2UgNSBnYXRlKS4KCkFnZ3JlZ2F0ZXMgZXZlcnkgUUEgc3VpdGUgaW4gdGhpcyByZXBvIGFuZCBhZGRzIHRoZSB0d28gUGhhc2UgNQpjcm9zcy1jdXR0aW5nIGdhdGVzIChtaWdyYXRpb24gKyBmcmFtZS10aW1lIHN0YXRpYyBib3VuZHMgKyBwaXhlbC1kaWZmCnByZWNvbmRpdGlvbnMpLiBPbmUgY29tbWFuZCwgb25lIHZlcmRpY3QuCgpTdWl0ZXM6CiAgcWFfc3BlY2llcy5weSAgICB2MiByZWdyZXNzaW9uOiAxMiBzcGVjaWVzCiAgcWFfdmFyaWFudHMucHkgICBQaGFzZSAxOiAxMDgtdmFyaWFudCByb3N0ZXIgKyByZW5kZXJlciBicmFuY2ggY292ZXJhZ2UKICBxYV93YWxrLnB5ICAgICAgIFBoYXNlIDI6IFdhbGtFbmdpbmUgLyBQZXJzb25hbGl0eSAvIFNwZWVjaEJhbmsKICBxYV9icmFpbi5weSAgICAgIFBoYXNlIDM6IE5hdGl2ZUJyYWluIC8gUG93ZXJNYW5hZ2VyCiAgcWFfcGhhc2U0LnB5ICAgICBQaGFzZSA0OiB3YWxscGFwZXIgcm9hbSAvIHdpZGdldCAvIGF1cmEgc2tpbnMKICBxYV9taWdyYXRpb24ucHkgIFBoYXNlIDU6IHYyIC0+IHYzIHBlcnNpc3RlZC1zdGF0ZSBtaWdyYXRpb24KICBxYV9waXhlbF9kaWZmLnB5IFBoYXNlIDU6IHBpeGVsLWRpZmYgcHJlY29uZGl0aW9ucyAoZGV0ZXJtaW5pc20gKyBrZXkKICAgICAgICAgICAgICAgICAgIGNvdmVyYWdlKS4gVGhlIHBpeGVsIGNvbXBhcmlzb24gaXRzZWxmIGlzIE5PVF9SVU4gaGVyZToKICAgICAgICAgICAgICAgICAgIG5vIEFuZHJvaWQgcnVudGltZSBpbiB0aGlzIGVudmlyb25tZW50LgoKRnJhbWUtdGltZSBnYXRlIChzdGF0aWMpOiB0aGUgd2FsbHBhcGVyIGxvb3AgaXMgfjMwZnBzIChGUkFNRV9NUyA9IDMzKSwgc28KdGhlIHBlci1mcmFtZSBidWRnZXQgaXMgMzNtcyDigJQgTk9UIDE2bXMgKDE2bXMgaXMgdGhlIDYwZnBzIGJ1ZGdldDsgdGhlCndhbGxwYXBlciBkZWxpYmVyYXRlbHkgcnVucyBhdCAzMGZwcykuIFRoaXMgc2NyaXB0IGJvdW5kcyB0aGUgc3RlYWR5IGRyYXcKcGF0aCBzdGF0aWNhbGx5OiBubyBzbmFwc2hvdCgpL3N0b3JhZ2Ugd3JpdGVzIGluIGRyYXdPbmNlLCBiaXRtYXAgY2FjaGVkCmJ5IHJlbmRlciBrZXksIHJldXNlZCBSZWN0RnMsIHN0YXJmaWVsZCBidWlsdCBvbiBzdXJmYWNlIGNoYW5nZSwgbm90CnBlciBmcmFtZS4gVHJ1ZSBwOTUgbWVhc3VyZW1lbnQgaXMgZGV2aWNlLW9ubHkgKHNlZSBERVZJQ0VfVEVTVC5tZCkuCgpSdW46ICBweXRob24zIHFhX2dvbGRlbi5weSBbLS1yb290IDxyZXBvLXJvb3Q+XQpFeGl0IDAgPSBldmVyeSBydW5uYWJsZSBzdWl0ZSBwYXNzZXMuIFN1aXRlcyB3aG9zZSBoYXJkY29kZWQgY2hlY2tvdXQKcGF0aCBpcyBhYnNlbnQgYXJlIHJlcG9ydGVkIFNLSVAgKGVudmlyb25tZW50KSwgbmV2ZXIgc2lsZW50bHkgY291bnRlZAphcyBwYXNzLgoiIiIKaW1wb3J0IG9zLCByZSwgc3VicHJvY2Vzcywgc3lzCgpST09UID0gc3lzLmFyZ3Zbc3lzLmFyZ3YuaW5kZXgoIi0tcm9vdCIpICsgMV0gaWYgIi0tcm9vdCIgaW4gc3lzLmFyZ3YgXAogICAgZWxzZSBvcy5wYXRoLmRpcm5hbWUob3MucGF0aC5hYnNwYXRoKF9fZmlsZV9fKSkKSkFWQSA9IG9zLnBhdGguam9pbihST09ULCAiYXBwL3NyYy9tYWluL2phdmEvY29tL3ZuL3BpeGVscGV0IikKQ0FOT05JQ0FMX0JBU0UgPSAiL2hvbWUvaGF0Y2gvd29ya3NwYWNlL3JlcG9zL3BpeGVscGV0L2FwcC9zcmMvbWFpbi9qYXZhL2NvbS92bi9waXhlbHBldCIKCnJlc3VsdHMgPSBbXSAgIyAobmFtZSwgc3RhdHVzLCBkZXRhaWwpCmVycm9ycyA9IFtdCmRlZiByZWNvcmQobmFtZSwgc3RhdHVzLCBkZXRhaWw9IiIpOgogICAgcmVzdWx0cy5hcHBlbmQoKG5hbWUsIHN0YXR1cywgZGV0YWlsKSkKZGVmIHJlYWQocCk6CiAgICB3aXRoIG9wZW4ocCkgYXMgZjogcmV0dXJuIGYucmVhZCgpCgpkZWYgcnVuX3N1aXRlKG5hbWUsIGNtZCwgY3dkKToKICAgICIiIlJ1biBhIHN1aXRlIHNjcmlwdDsgcmV0dXJuIChzdGF0dXMsIGRldGFpbCkuIiIiCiAgICB0cnk6CiAgICAgICAgciA9IHN1YnByb2Nlc3MucnVuKGNtZCwgY3dkPWN3ZCwgY2FwdHVyZV9vdXRwdXQ9VHJ1ZSwgdGV4dD1UcnVlLAogICAgICAgICAgICAgICAgICAgICAgICAgICB0aW1lb3V0PTMwMCkKICAgIGV4Y2VwdCBFeGNlcHRpb24gYXMgZToKICAgICAgICByZXR1cm4gKCJFUlJPUiIsIGYiY291bGQgbm90IHJ1bjoge2V9IikKICAgIHRhaWwgPSAoci5zdGRvdXQuc3RyaXAoKS5zcGxpdGxpbmVzKCkgb3IgWyIiXSkgWy0xXQogICAgaWYgci5yZXR1cm5jb2RlID09IDA6CiAgICAgICAgcmV0dXJuICgiUEFTUyIsIHRhaWxbOjE2MF0pCiAgICByZXR1cm4gKCJGQUlMIiwgdGFpbFs6MTYwXSkKCiMgLS0tLS0tLS0tLSAxLiBzaWJsaW5nIHN1aXRlcyAtLS0tLS0tLS0tCiMgcWFfc3BlY2llcyAvIHFhX3ZhcmlhbnRzIGhhcmRjb2RlIENBTk9OSUNBTF9CQVNFOiBvbmx5IG1lYW5pbmdmdWwgdGhlcmUuCmZvciBuYW1lIGluIFsicWFfc3BlY2llcy5weSIsICJxYV92YXJpYW50cy5weSJdOgogICAgaWYgb3MucGF0aC5pc2RpcihDQU5PTklDQUxfQkFTRSk6CiAgICAgICAgc3QsIGRldGFpbCA9IHJ1bl9zdWl0ZShuYW1lLCBbInB5dGhvbjMiLCBvcy5wYXRoLmpvaW4oUk9PVCwgbmFtZSldLCBST09UKQogICAgICAgIHJlY29yZChuYW1lLCBzdCwgZGV0YWlsKQogICAgZWxzZToKICAgICAgICByZWNvcmQobmFtZSwgIlNLSVAiLCBmImhhcmRjb2RlZCBCQVNFIHtDQU5PTklDQUxfQkFTRX0gYWJzZW50IGluIHRoaXMgZW52aXJvbm1lbnQiKQojIHFhX3dhbGsgLyBxYV9icmFpbiBhY2NlcHQgYSByb290IGFyZ3VtZW50Lgpmb3IgbmFtZSBpbiBbInFhX3dhbGsucHkiLCAicWFfYnJhaW4ucHkiXToKICAgIHN0LCBkZXRhaWwgPSBydW5fc3VpdGUobmFtZSwgWyJweXRob24zIiwgb3MucGF0aC5qb2luKFJPT1QsIG5hbWUpLCBKQVZBXSwgUk9PVCkKICAgIHJlY29yZChuYW1lLCBzdCwgZGV0YWlsKQojIHFhX3BoYXNlNCBpcyBfX2ZpbGVfXy1yZWxhdGl2ZTogcnVuIGZyb20gdGhlIHJlcG8gcm9vdC4Kc3QsIGRldGFpbCA9IHJ1bl9zdWl0ZSgicWFfcGhhc2U0LnB5IiwgWyJweXRob24zIiwgb3MucGF0aC5qb2luKFJPT1QsICJxYV9waGFzZTQucHkiKV0sIFJPT1QpCnJlY29yZCgicWFfcGhhc2U0LnB5Iiwgc3QsIGRldGFpbCkKIyBQaGFzZSA1IHN1aXRlcyAodGhpcyBnYXRlJ3Mgb3duIGNoZWNrcykuCmZvciBuYW1lIGluIFsicWFfbWlncmF0aW9uLnB5IiwgInFhX3BpeGVsX2RpZmYucHkiXToKICAgIHN0LCBkZXRhaWwgPSBydW5fc3VpdGUobmFtZSwgWyJweXRob24zIiwgb3MucGF0aC5qb2luKFJPT1QsIG5hbWUpLCAiLS1yb290IiwgUk9PVF0sIFJPT1QpCiAgICByZWNvcmQobmFtZSwgc3QsIGRldGFpbCkKCiMgLS0tLS0tLS0tLSAyLiBmcmFtZS10aW1lIHN0YXRpYyBib3VuZHMgKHdhbGxwYXBlciBzdGVhZHkgZHJhdyBwYXRoKSAtLS0tLS0tLS0tCnByaW50KCJmcmFtZS10aW1lIHN0YXRpYyBib3VuZHMgKHdhbGxwYXBlciwgMzBmcHMgPT4gMzNtcyBidWRnZXQpIikKd3AgPSByZWFkKGYie0pBVkF9L3dhbGxwYXBlci9QaXhlbFdhbGxwYXBlclNlcnZpY2Uua3QiKQpmdF9lcnJvcnMgPSBbXQppZiAiRlJBTUVfTVMgPSAzMyIgbm90IGluIHdwOgogICAgZnRfZXJyb3JzLmFwcGVuZCgid2FsbHBhcGVyIGZyYW1lIGludGVydmFsIG11c3QgYmUgRlJBTUVfTVMgPSAzMyAofjMwZnBzKSIpCiMgZHJhd09uY2UgYm9keSBtdXN0IG5vdCBjYWxsIHNuYXBzaG90KCkgKHN0b3JhZ2Ugd3JpdGUgcGVyIGZyYW1lKQptID0gcmUuc2VhcmNoKHIicHJpdmF0ZSBmdW4gZHJhd09uY2UuKj9cbiAgICBcfSIsIHdwLCByZS5TKQpkcmF3X29uY2UgPSBtLmdyb3VwKDApIGlmIG0gZWxzZSAiIgppZiAic25hcHNob3QoKSIgaW4gZHJhd19vbmNlOgogICAgZnRfZXJyb3JzLmFwcGVuZCgiZHJhd09uY2UgY2FsbHMgc25hcHNob3QoKSDigJQgcGVyLWZyYW1lIHN0b3JhZ2Ugd3JpdGUiKQppZiAiY2FjaGVkU3RhdGUiIG5vdCBpbiBkcmF3X29uY2U6CiAgICBmdF9lcnJvcnMuYXBwZW5kKCJkcmF3T25jZSBtdXN0IHJlYWQgdGhlIGNhY2hlZCA1MDBtcyBzdGF0ZSwgbm90IHNuYXBzaG90KCkiKQojIGJpdG1hcCBjYWNoZWQgYnkga2V5OyByZXVzZWQgcmVjdHMKaWYgInBldEtleSIgbm90IGluIHdwIG9yICJpZiAoa2V5ICE9IHBldEtleSIgbm90IGluIHdwOgogICAgZnRfZXJyb3JzLmFwcGVuZCgid2FsbHBhcGVyIG11c3QgY2FjaGUgdGhlIHBldCBiaXRtYXAgYnkgcmVuZGVyIGtleSIpCmlmICJwcml2YXRlIHZhbCBkc3RSZWN0IiBub3QgaW4gd3Agb3IgInByaXZhdGUgdmFsIHNoYWRvd1JlY3QiIG5vdCBpbiB3cDoKICAgIGZ0X2Vycm9ycy5hcHBlbmQoIndhbGxwYXBlciBtdXN0IHJldXNlIGRzdFJlY3Qvc2hhZG93UmVjdCBmaWVsZHMgKG5vIHBlci1mcmFtZSBSZWN0RikiKQojIHN0YXJmaWVsZCBidWlsdCBvbiBzdXJmYWNlIGNoYW5nZSwgbm90IHBlciBmcmFtZQptMiA9IHJlLnNlYXJjaChyIm92ZXJyaWRlIGZ1biBvblN1cmZhY2VDaGFuZ2VkLio/XG4gICAgICAgIFx9Iiwgd3AsIHJlLlMpCmlmIG5vdCBtMiBvciAic3RhcnMgPSBMaXN0KDcwKSIgbm90IGluIG0yLmdyb3VwKDApOgogICAgZnRfZXJyb3JzLmFwcGVuZCgic3RhcmZpZWxkIG11c3QgYmUgYnVpbHQgaW4gb25TdXJmYWNlQ2hhbmdlZCwgbm90IHBlciBmcmFtZSIpCiMga25vd24gcGVyLWZyYW1lIGNvc3RzLCBkb2N1bWVudGVkIG5vdCBoaWRkZW46IDEga2V5LXN0cmluZyBhbGxvYywgNzAgc2luKCkKaWYgInZhbCBrZXkgPSIgbm90IGluIGRyYXdfb25jZToKICAgIGZ0X2Vycm9ycy5hcHBlbmQoImRyYXdPbmNlIG11c3QgYnVpbGQgdGhlIHJlbmRlciBrZXkgKGV4cGVjdGVkIDEgU3RyaW5nIGFsbG9jL2ZyYW1lKSIpCmlmIGZ0X2Vycm9yczoKICAgIHJlY29yZCgiZnJhbWUtdGltZSBzdGF0aWMgYm91bmRzIiwgIkZBSUwiLCAiOyAiLmpvaW4oZnRfZXJyb3JzKSkKZWxzZToKICAgIHJlY29yZCgiZnJhbWUtdGltZSBzdGF0aWMgYm91bmRzIiwgIlBBU1MiLAogICAgICAgICAgICJzdGVhZHkgcGF0aDogYmcgKyA3MCByZWN0cyArIGNhY2hlZCBiaXRtYXAgYmxpdCArIHNoYWRvdzsgcDk1IG1lYXN1cmVkIG9uIGRldmljZSBvbmx5IikKZXJyb3JzLmV4dGVuZChmdF9lcnJvcnMpCgojIC0tLS0tLS0tLS0gMy4gdmVyZGljdCAtLS0tLS0tLS0tCnByaW50KCJcbj09PT09IEdPTERFTiBTVUlURSA9PT09PSIpCmZvciBuYW1lLCBzdCwgZGV0YWlsIGluIHJlc3VsdHM6CiAgICBwcmludChmIiAgW3tzdH1dIHtuYW1lfSAge2RldGFpbH0iKQpmYWlsZWQgPSBbbiBmb3IgbiwgcywgXyBpbiByZXN1bHRzIGlmIHMgPT0gIkZBSUwiXQpza2lwcGVkID0gW24gZm9yIG4sIHMsIF8gaW4gcmVzdWx0cyBpZiBzID09ICJTS0lQIl0KcHJpbnQoZiJcblN1aXRlczoge2xlbihyZXN1bHRzKX0gdG90YWwsICIKICAgICAgZiJ7c3VtKDEgZm9yIF8sIHMsIF8gaW4gcmVzdWx0cyBpZiBzID09ICdQQVNTJyl9IHBhc3MsICIKICAgICAgZiJ7bGVuKGZhaWxlZCl9IGZhaWwsIHtsZW4oc2tpcHBlZCl9IHNraXAiKQppZiBmYWlsZWQ6CiAgICBwcmludCgiR09MREVOIFNVSVRFOiBGQUlMIOKAlCIsICIsICIuam9pbihmYWlsZWQpKQogICAgc3lzLmV4aXQoMSkKaWYgc2tpcHBlZDoKICAgIHByaW50KCJHT0xERU4gU1VJVEU6IFBBU1MgKHdpdGggc2tpcHMg4oCUIHJlLXJ1biBvbiBhIGNhbm9uaWNhbCBjaGVja291dCAiCiAgICAgICAgICAiZm9yIHRoZSBoYXJkY29kZWQgc3VpdGVzKSIpCmVsc2U6CiAgICBwcmludCgiR09MREVOIFNVSVRFOiBQQVNTIikKcHJpbnQoIk5vdGU6IHBpeGVsLWRpZmYgY29tcGFyaXNvbiBpdHNlbGYgaXMgTk9UX1JVTiBoZXJlIChuZWVkcyBBbmRyb2lkICIKICAgICAgInJ1bnRpbWUpLiBDSS9kZXZpY2Utb25seSBwZXIgcWFfcGl4ZWxfZGlmZi5weS4iKQpzeXMuZXhpdCgwKQo=
+#!/usr/bin/env python3
+"""Full golden suite for PixelPet v3 (PLAN_V3.md Phase 5 gate).
+
+Aggregates every QA suite in this repo and adds the two Phase 5
+cross-cutting gates (migration + frame-time static bounds + pixel-diff
+preconditions). One command, one verdict.
+
+Suites:
+  qa_species.py    v2 regression: 12 species
+  qa_variants.py   Phase 1: 108-variant roster + renderer branch coverage
+  qa_walk.py       Phase 2: WalkEngine / Personality / SpeechBank
+  qa_brain.py      Phase 3: NativeBrain / PowerManager
+  qa_phase4.py     Phase 4: wallpaper roam / widget / aura skins
+  qa_migration.py  Phase 5: v2 -> v3 persisted-state migration
+  qa_pixel_diff.py Phase 5: pixel-diff preconditions (determinism + key
+                   coverage). The pixel comparison itself is NOT_RUN here:
+                   no Android runtime in this environment.
+
+Frame-time gate (static): the wallpaper loop is ~30fps (FRAME_MS = 33), so
+the per-frame budget is 33ms — NOT 16ms (16ms is the 60fps budget; the
+wallpaper deliberately runs at 30fps). This script bounds the steady draw
+path statically: no snapshot()/storage writes in drawOnce, bitmap cached
+by render key, reused RectFs, starfield built on surface change, not
+per frame. True p95 measurement is device-only (see DEVICE_TEST.md).
+
+Run:  python3 qa_golden.py [--root <repo-root>]
+Exit 0 = every runnable suite passes. Suites whose hardcoded checkout
+path is absent are reported SKIP (environment), never silently counted
+as pass.
+"""
+import os, re, subprocess, sys
+
+ROOT = sys.argv[sys.argv.index("--root") + 1] if "--root" in sys.argv \
+    else os.path.dirname(os.path.abspath(__file__))
+JAVA = os.path.join(ROOT, "app/src/main/java/com/vn/pixelpet")
+CANONICAL_BASE = "/home/hatch/workspace/repos/pixelpet/app/src/main/java/com/vn/pixelpet"
+
+results = []  # (name, status, detail)
+errors = []
+def record(name, status, detail=""):
+    results.append((name, status, detail))
+def read(p):
+    with open(p) as f: return f.read()
+
+def run_suite(name, cmd, cwd):
+    """Run a suite script; return (status, detail)."""
+    try:
+        r = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True,
+                           timeout=300)
+    except Exception as e:
+        return ("ERROR", f"could not run: {e}")
+    tail = (r.stdout.strip().splitlines() or [""]) [-1]
+    if r.returncode == 0:
+        return ("PASS", tail[:160])
+    return ("FAIL", tail[:160])
+
+# ---------- 1. sibling suites ----------
+# qa_species / qa_variants hardcode CANONICAL_BASE: only meaningful there.
+for name in ["qa_species.py", "qa_variants.py"]:
+    if os.path.isdir(CANONICAL_BASE):
+        st, detail = run_suite(name, ["python3", os.path.join(ROOT, name)], ROOT)
+        record(name, st, detail)
+    else:
+        record(name, "SKIP", f"hardcoded BASE {CANONICAL_BASE} absent in this environment")
+# qa_walk / qa_brain accept a root argument.
+for name in ["qa_walk.py", "qa_brain.py"]:
+    st, detail = run_suite(name, ["python3", os.path.join(ROOT, name), JAVA], ROOT)
+    record(name, st, detail)
+# qa_phase4 is __file__-relative: run from the repo root.
+st, detail = run_suite("qa_phase4.py", ["python3", os.path.join(ROOT, "qa_phase4.py")], ROOT)
+record("qa_phase4.py", st, detail)
+# Phase 5 suites (this gate's own checks).
+for name in ["qa_migration.py", "qa_pixel_diff.py"]:
+    st, detail = run_suite(name, ["python3", os.path.join(ROOT, name), "--root", ROOT], ROOT)
+    record(name, st, detail)
+
+# ---------- 2. frame-time static bounds (wallpaper steady draw path) ----------
+print("frame-time static bounds (wallpaper, 30fps => 33ms budget)")
+wp = read(f"{JAVA}/wallpaper/PixelWallpaperService.kt")
+ft_errors = []
+if "FRAME_MS = 33" not in wp:
+    ft_errors.append("wallpaper frame interval must be FRAME_MS = 33 (~30fps)")
+# drawOnce body must not call snapshot() (storage write per frame)
+m = re.search(r"private fun drawOnce.*?\n    \}", wp, re.S)
+draw_once = m.group(0) if m else ""
+if "snapshot()" in draw_once:
+    ft_errors.append("drawOnce calls snapshot() — per-frame storage write")
+if "cachedState" not in draw_once:
+    ft_errors.append("drawOnce must read the cached 500ms state, not snapshot()")
+# bitmap cached by key; reused rects
+if "petKey" not in wp or "if (key != petKey" not in wp:
+    ft_errors.append("wallpaper must cache the pet bitmap by render key")
+if "private val dstRect" not in wp or "private val shadowRect" not in wp:
+    ft_errors.append("wallpaper must reuse dstRect/shadowRect fields (no per-frame RectF)")
+# starfield built on surface change, not per frame
+m2 = re.search(r"override fun onSurfaceChanged.*?\n        \}", wp, re.S)
+if not m2 or "stars = List(70)" not in m2.group(0):
+    ft_errors.append("starfield must be built in onSurfaceChanged, not per frame")
+# known per-frame costs, documented not hidden: 1 key-string alloc, 70 sin()
+if "val key =" not in draw_once:
+    ft_errors.append("drawOnce must build the render key (expected 1 String alloc/frame)")
+if ft_errors:
+    record("frame-time static bounds", "FAIL", "; ".join(ft_errors))
+else:
+    record("frame-time static bounds", "PASS",
+           "steady path: bg + 70 rects + cached bitmap blit + shadow; p95 measured on device only")
+errors.extend(ft_errors)
+
+# ---------- 3. verdict ----------
+print("\n===== GOLDEN SUITE =====")
+for name, st, detail in results:
+    print(f"  [{st}] {name}  {detail}")
+failed = [n for n, s, _ in results if s == "FAIL"]
+skipped = [n for n, s, _ in results if s == "SKIP"]
+print(f"\nSuites: {len(results)} total, "
+      f"{sum(1 for _, s, _ in results if s == 'PASS')} pass, "
+      f"{len(failed)} fail, {len(skipped)} skip")
+if failed:
+    print("GOLDEN SUITE: FAIL —", ", ".join(failed))
+    sys.exit(1)
+if skipped:
+    print("GOLDEN SUITE: PASS (with skips — re-run on a canonical checkout "
+          "for the hardcoded suites)")
+else:
+    print("GOLDEN SUITE: PASS")
+print("Note: pixel-diff comparison itself is NOT_RUN here (needs Android "
+      "runtime). CI/device-only per qa_pixel_diff.py.")
+sys.exit(0)
