@@ -109,5 +109,97 @@
                 android:layout_marginTop="4dp" />
         </LinearLayout>
 
+        <!-- v3 Phase 4: aura skins (premium only; look only). Visible to all
+             so free users can see what Premium adds; tapping without Premium
+             shows a toast instead of applying. -->
+        <LinearLayout
+            android:id="@+id/aura_skins"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="@dimen/pad"
+            android:layout_marginTop="@dimen/pad">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/aura_title"
+                android:textColor="@color/gold"
+                android:textSize="@dimen/text_body"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/aura_desc"
+                android:textColor="@color/text_dim"
+                android:textSize="@dimen/text_small"
+                android:layout_marginTop="4dp" />
+
+            <TextView
+                android:id="@+id/aura_current"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text"
+                android:textSize="@dimen/text_body"
+                android:layout_marginTop="@dimen/pad_small" />
+
+            <Button
+                android:id="@+id/btn_aura_gold"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_height"
+                android:layout_marginTop="@dimen/pad_small"
+                android:background="@drawable/btn_gold"
+                android:text="@string/aura_gold"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/btn_aura_rainbow"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_height"
+                android:layout_marginTop="@dimen/pad_small"
+                android:background="@drawable/btn_gold"
+                android:text="@string/aura_rainbow"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/btn_aura_ember"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_height"
+                android:layout_marginTop="@dimen/pad_small"
+                android:background="@drawable/btn_gold"
+                android:text="@string/aura_ember"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/btn_aura_starlight"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_height"
+                android:layout_marginTop="@dimen/pad_small"
+                android:background="@drawable/btn_gold"
+                android:text="@string/aura_starlight"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/btn_aura_none"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_height"
+                android:layout_marginTop="@dimen/pad_small"
+                android:background="@drawable/btn_gold"
+                android:text="@string/aura_none"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="15sp" />
+        </LinearLayout>
+
     </LinearLayout>
 </ScrollView>
