@@ -1,1 +1,141 @@
-IyBQaXhlbCBQZXRzIHYzIOKAlCBSZWFsLURldmljZSBUZXN0IChTMjYgVWx0cmEpCgpTdGF0dXM6ICoqUEVORElORyBVU0VSKiog4oCUIG5vdGhpbmcgYmVsb3cgaGFzIGJlZW4gcnVuIG9yIHZlcmlmaWVkIHlldC4KRG8gbm90IGNsYWltIGFueSByZXN1bHQgaW4gdGhpcyBmaWxlIHVudGlsIGl0IGhhcyBhY3R1YWxseSBiZWVuIG9ic2VydmVkCm9uIHRoZSBkZXZpY2UuIEZpbGwgaW4gdGhlIFJlc3VsdCBjb2x1bW4gYXMgeW91IGdvLgoKIyMgUHJlcmVxdWlzaXRlcwoKLSBbIF0gQ0kgZ3JlZW4gb24gYG1haW5gIChBbmRyb2lkIENJIHdvcmtmbG93KS4gKipDdXJyZW50IGJsb2NrZXIgKDIwMjYtMTAtMTMpOioqCiAgICAgIENJIGZhaWxzIGF0IHRoZSAiU2V0IHVwIEFuZHJvaWQgU0RLIiBzdGVwIGJlY2F1c2UKICAgICAgYGFuZHJvaWQtYWN0aW9ucy9zZXR1cC1hbmRyb2lkQHYzYCBpbnN0YWxscyB0aGUgbGVnYWN5IGB0b29sc2AKICAgICAgcGFja2FnZSwgd2hpY2ggR29vZ2xlIHJlbW92ZWQgZnJvbSB0aGUgU0RLIHJlcG9zaXRvcnkuIEZpeDogY2hhbmdlCiAgICAgIHRoZSB3b3JrZmxvdyAodmlhIHRoZSBHaXRIdWIgd2ViIFVJIOKAlCB0aGUgQVBJIGNhbm5vdCBlZGl0IHdvcmtmbG93CiAgICAgIGZpbGVzKSB0byBgYW5kcm9pZC1hY3Rpb25zL3NldHVwLWFuZHJvaWRAdjRgLCB0aGVuIHJlLXJ1bi4KICAgICAgVW50aWwgQ0kgaXMgZ3JlZW4sIGJ1aWxkIGxvY2FsbHkgd2l0aCBgLi9ncmFkbGV3IGFzc2VtYmxlRGVidWdgLgotIFsgXSBEZWJ1ZyBBUEs6IGZyb20gdGhlIENJIGBwaXhlbHBldC1kZWJ1Zy1hcGtgIGFydGlmYWN0LCBvciBhIGxvY2FsIGJ1aWxkLgotIFsgXSBTMjYgVWx0cmEgd2l0aCBVU0IgZGVidWdnaW5nIChvciB3aXJlbGVzcyBkZWJ1Z2dpbmcpIGVuYWJsZWQuCi0gWyBdIGBhZGJgIG9uIHRoZSB3b3Jrc3RhdGlvbiAoYGFkYiBkZXZpY2VzYCBzaG93cyB0aGUgcGhvbmUpLgoKIyMgMS4gSW5zdGFsbAoKLSBbIF0gYGFkYiBpbnN0YWxsIC1yIGFwcC1kZWJ1Zy5hcGtgIHN1Y2NlZWRzLgotIFsgXSBBbmRyb2lkIDEzKyBnYXRlOiBpZiBwcm9tcHRlZCwgZ3JhbnQKICAgICAgKipTZXR0aW5ncyDihpIgQXBwcyDihpIgUGl4ZWxQZXQg4oaSIOKLriDihpIgQWxsb3cgcmVzdHJpY3RlZCBzZXR0aW5ncyoqLgotIFsgXSBBcHAgbGF1bmNoZXMsIG5vIGNyYXNoIG9uIGZpcnN0IGxhdW5jaCwgUGlwIChkZWZhdWx0IGNhdCkgdmlzaWJsZS4KLSBbIF0gRmlyc3QtbGF1bmNoIHdpZGdldCBwaW4gcHJvbXB0IGFwcGVhcnMgb25jZS4KClJlc3VsdDogX3BlbmRpbmdfCgojIyAyLiBXYWxscGFwZXIgcm9hbSAobG9jayBzY3JlZW4pCgotIFsgXSBTZXQgUGl4ZWxQZXQgYXMgdGhlIGxvY2stc2NyZWVuIHdhbGxwYXBlciAoU2Ftc3VuZzogc2VwYXJhdGUKICAgICAgbG9jay1zY3JlZW4gd2FsbHBhcGVyIHNldHRpbmcpLgotIFsgXSBQaXAgcm9hbXMgdGhlIGxvY2sgc2NyZWVuOyBtb3Rpb24gaXMgc21vb3RoLCBubyBzdHV0dGVyIG9yIGZyZWV6ZS4KLSBbIF0gUm9hbSBwYXVzZXMgYWZ0ZXIgfjMwIHMgd2l0aCBubyBpbnRlcmFjdGlvbjsgcmVzdW1lcyBvbiB0b3VjaC4KLSBbIF0gVGFwID0gcGV0IChoZWFydHMpLCBkb3VibGUtdGFwID0gcGxheSAoZ2lnZ2xlKS4KLSBbIF0gU2NyZWVuIG9mZiDihpIgUGlwIHNsZWVwczsgd2FrZSBzaG93cyBhICJXaGlsZSB5b3Ugd2VyZSBhd2F54oCmIiByZWNhcC4KLSBbIF0gTm8gdmlzaWJsZSBiYXR0ZXJ5IGRyYWluIGFub21hbHkgYWZ0ZXIgMSBob3VyIChjaGVjayBTZXR0aW5ncyDihpIgQmF0dGVyeSkuCgpSZXN1bHQ6IF9wZW5kaW5nXwoKIyMgMy4gV2lkZ2V0IHdhbGsgZnJhbWUgKGhvbWUgc2NyZWVuKQoKLSBbIF0gQWRkIHRoZSBQaXhlbFBldCB3aWRnZXQ7IGZhY2UgYml0bWFwIHJlbmRlcnMgUGlwICsgNCBzdGF0IGJhcnMgKyBuYW1lLgotIFsgXSBGYWNlIGNoYW5nZXMgd2FsayBmcmFtZSBhZnRlciBhIHN0YXQgdGljayAvIHRhcCAoc25hcHNob3QgYml0bWFwIOKAlAogICAgICBpdCBkb2VzIE5PVCBhbmltYXRlIGNvbnRpbnVvdXNseTsgdGhhdCBpcyBieSBkZXNpZ24sIFJlbW90ZVZpZXdzCiAgICAgIGNhbm5vdCBob3N0IGEgbGl2ZSB2aWV3KS4KLSBbIF0gUXVpY2stZmVlZCBidXR0b24gd29ya3M7IHNuYWNrIGNvb2xkb3duIHRvYXN0IGFwcGVhcnMgd2hlbiBjb29saW5nLgotIFsgXSBGYWNlIHRhcCBvcGVucyB0aGUgYXBwLgotIFsgXSBXaWRnZXQgcmVmcmVzaGVzIHdpdGhpbiB+MzAgbWluIHdpdGhvdXQgYSByZWJvb3QgKGpvYiBzY2hlZHVsZWQKICAgICAgZnJvbSBhcHAgbGF1bmNoIGFzIHdlbGwgYXMgYm9vdCkuCgpSZXN1bHQ6IF9wZW5kaW5nXwoKIyMgNC4gQXVyYSBza2lucyAocHJlbWl1bSkKCi0gWyBdIFdpdGggYSB2YWxpZCBwcmVtaXVtIGtleSBhY3RpdmF0ZWQsIFByZW1pdW0gc2NyZWVuIHNob3dzIHRoZSBhdXJhCiAgICAgIHBpY2tlciAoR29sZCBPcmJpdCAvIFJhaW5ib3cgLyBFbWJlciAvIFN0YXJsaWdodCAvIE5vIEF1cmEpLgotIFsgXSBTZWxlY3RpbmcgYW4gYXVyYSBjaGFuZ2VzIHRoZSBnbG93IGFyb3VuZCBQaXAgaW4tYXBwLCBpbiB0aGUgd2lkZ2V0LAogICAgICBhbmQgaW4gdGhlIHdhbGxwYXBlci4KLSBbIF0gIk5vIEF1cmEiIHJlbW92ZXMgdGhlIGdsb3c7IG5vbi1wcmVtaXVtIHVzZXJzIHNlZSBubyBhdXJhIGF0IGFsbC4KLSBbIF0gQXVyYSBjaGFuZ2VzIExPT0sgb25seTogc3RhdHMsIGNvb2xkb3ducywgdW5sb2NrcyB1bmNoYW5nZWQuCgpSZXN1bHQ6IF9wZW5kaW5nXwoKIyMgNS4gUG93ZXJzIChzcG90LWNoZWNrLCBvbmUgcGVyIGZhbWlseSBncm91cCkKCi0gWyBdIFBvd2VyIGJ1dHRvbiB2aXNpYmxlOyBkaXNhYmxlZCBzdGF0ZSArIGNvdW50ZG93biB0ZXh0IHdoaWxlIGNvb2xpbmcuCi0gWyBdIFRyaWdnZXIgYSBwb3dlciAoZS5nLiBDYXQgUHVyciBIZWFsKTogZWZmZWN0IHBsYXlzIChwYXJ0aWNsZXMgLwogICAgICBvdmVybGF5KSwgY29vbGRvd24gc3RhcnRzICgxL2RheSBkZWZhdWx0KS4KLSBbIF0gSGFtc3RlciBDaGVlayBTdGFzaCAvIFBhbmRhIEJhbWJvbyBTbmFjazogNiBoIGNvb2xkb3duLgotIFsgXSBQaG9lbml4IFJlYmlydGg6IHJlc3RvcmVzIGV4YWN0bHkgT05FIG1pc3NlZCBzdHJlYWsgZGF5OyBkb2VzIE5PVAogICAgICBjb25zdW1lIHRoZSB3ZWVrbHkgY29vbGRvd24gd2hlbiB0aGVyZSBpcyBubyBtaXNzZWQgZGF5LgotIFsgXSBUdXJ0bGUgU2hlbGwgU2hpZWxkOiBzdGF0cyBmcm96ZW4gd2hpbGUgc2hpZWxkZWQsIHRoZW4gZGVjYXkgcmVzdW1lcy4KLSBbIF0gT3dsIE5pZ2h0IFdhdGNoOiBzaG93cyB0b21vcnJvdydzIGZpcnN0IGdvYWwgYXMgYSByZW1pbmRlci4KLSBbIF0gRG9nIEZldGNoIEdpZnQ6IHRvYXN0ICsgY29uZmV0dGkgKG5vIGNvaW5zIOKAlCB0aGUgYXBwIGhhcyBubyBlY29ub215KS4KClJlc3VsdDogX3BlbmRpbmdfCgojIyA2LiBQZXJzb25hbGl0eSBjYXJkCgotIFsgXSBPcGVuIHRoZSBQZXJzb25hbGl0eSBjYXJkICjwn6egIGJ1dHRvbik6IDUgdHJhaXQgYmFycyArIHN1bW1hcnkgbGluZQogICAgICByZW5kZXI7IHZhbHVlcyBpbiAxMOKAkzkwLgotIFsgXSAiUGlwIGxlYXJuZWQiIHNlY3Rpb24gc2hvd3MgaG9uZXN0ICJzdGlsbCBnZXR0aW5nIHRvIGtub3cgeW91IgogICAgICBjb3B5IHVudGlsIH4zIGRheXMgb2YgaW50ZXJhY3Rpb24gZGF0YSBleGlzdC4KLSBbIF0gUGV0L3BsYXkvZmVlZCBhIGZldyB0aW1lczsgdHJhaXQgYmFycyBudWRnZSBpbiB0aGUgZXhwZWN0ZWQKICAgICAgZGlyZWN0aW9uIChwbGF5IOKGkiBQbGF5ZnVsIHVwLCBkb29tc2Nyb2xsIOKGkiBCb2xkL1NvY2lhbCBkb3duKS4KClJlc3VsdDogX3BlbmRpbmdfCgojIyA3LiBCcmFpbiBsZWFybmluZyAobXVsdGktZGF5IOKAlCBjYW5ub3QgZnVsbHkgdmVyaWZ5IGluIG9uZSBzZXNzaW9uKQoKLSBbIF0gVXNlIHRoZSBhcHAgYXQgY29uc2lzdGVudCB0aW1lcyBmb3IgMysgZGF5czsgQnJhaW4gcmVjb3JkcwogICAgICBzY2hlZHVsZSBidWNrZXRzIGFuZCBmYXZvcml0ZXMuCi0gWyBdIEFmdGVyIH4zIGRheXMsIHRoZSBQZXJzb25hbGl0eSBjYXJkJ3MgbGVhcm5lZCBzZWN0aW9uIHNob3dzIHJlYWwKICAgICAgbGVhcm5lZCBsaW5lcyAoZmF2b3JpdGUgYWN0aW9uIC8gdXN1YWwgaG91ciksIG5vdCBwbGFjZWhvbGRlcnMuCi0gWyBdIEFmdGVyIGEgbG9uZyBnYXAsIGdyZWV0aW5nIGlzIHNoeSwgdGhlbiB3YXJtcyB3aXRoIGNhcmUuCgpSZXN1bHQ6IF9wZW5kaW5nIChtdWx0aS1kYXkpXwoKIyMgOC4gRnJhbWUtdGltZSBtZWFzdXJlbWVudCAod2FsbHBhcGVyIGRyYXcgcGF0aCkKClRoZSB3YWxscGFwZXIgbG9vcCBpcyB+MzAgZnBzLCBzbyB0aGUgcGVyLWZyYW1lIGJ1ZGdldCBpcyAqKjMzIG1zKioKKDE2IG1zIGlzIHRoZSA2MCBmcHMgYnVkZ2V0OyBpdCBkb2VzIG5vdCBhcHBseSBoZXJlKS4gU3RhdGljIGFuYWx5c2lzCnNheXMgdGhlIHN0ZWFkeSBwYXRoIGlzIGJnIGZpbGwgKyA3MCBzdGFyIHJlY3RzICsgY2FjaGVkLWJpdG1hcCBibGl0ICsKc2hhZG93IOKAlCB3ZWxsIGluc2lkZSBidWRnZXQg4oCUIGJ1dCB0aGF0IGlzIE5PVCBhIG1lYXN1cmVtZW50LgoKTWVhc3VyZSBvbiBkZXZpY2U6CmBgYGJhc2gKYWRiIHNoZWxsIGR1bXBzeXMgZ2Z4aW5mbyBjb20udm4ucGl4ZWxwZXQgZnJhbWVzdGF0cwojIG9yIHJlY29yZCBhIHN5c3RyYWNlIC8gUGVyZmV0dG8gdHJhY2Ugd2hpbGUgdGhlIHdhbGxwYXBlciBpcyB2aXNpYmxlCmBgYAotIFsgXSBwOTUgZnJhbWUgdGltZSA8IDMzIG1zIG92ZXIgYSA2MCBzIHZpc2libGUtcm9hbSB3aW5kb3cuCi0gWyBdIE5vIGRyb3BwZWQtZnJhbWUgc3Bpa2VzIHdoZW4gdGhlIGJpdG1hcCByZS1yZW5kZXJzIChyZW5kZXIta2V5IGNoYW5nZSkuCgpSZXN1bHQ6IF9wZW5kaW5nIChwOTU6IF9fXyBtcylfCgojIyA5LiBNaWdyYXRpb24gKHYyIOKGkiB2MykKClN0YXRpYyBtaWdyYXRpb24gY2hlY2tzIHBhc3MgKGBweXRob24zIHFhX21pZ3JhdGlvbi5weWApLiBPbi1kZXZpY2UKbWlncmF0aW9uIG92ZXIgYSByZWFsIHYyIGluc3RhbGwgaXMgKipub3QqKiBjb3ZlcmVkIGJ5IHRoaXMgY2hlY2tsaXN0CihubyB2MiBidWlsZCBpcyBvbiB0aGUgdGVzdCBkZXZpY2UpLiBJZiBhIHYyIGluc3RhbGwgZXhpc3RzOgotIFsgXSBJbnN0YWxsIHYzIG92ZXIgdjIgKGRvIE5PVCBjbGVhciBkYXRhKTogc3RhdHMsIHN0cmVhaywgZ29hbHMsCiAgICAgIHVubG9ja3MsIGFuZCBwcmVtaXVtIHN1cnZpdmU7IG5ldyBrZXlzIGRlZmF1bHQgc2Vuc2libHkuCgpSZXN1bHQ6IF9wZW5kaW5nIC8gTi9BXwoKIyMgMTAuIFJlYWwgc2NyZWVuc2hvdCAocmVwbGFjZXMgdGhlIG1vY2t1cCkKCi0gWyBdIENhcHR1cmUgYSByZWFsIGRldmljZSBzY3JlZW5zaG90IG9mIHRoZSBhcHAgc3RhZ2UgKG5vdCB0aGUgbW9ja3VwKS4KLSBbIF0gUmVwbGFjZSBgYXNzZXRzL3NjcmVlbnNob3QucG5nYCB3aXRoIHRoZSBjYXB0dXJlIGFuZCB1cGRhdGUgdGhlCiAgICAgIFJFQURNRSBjYXB0aW9uIChyZW1vdmUgdGhlICJyZXByZXNlbnRhdGl2ZSBtb2NrdXAiIG5vdGUpLgoKUmVzdWx0OiBfcGVuZGluZ18KCiMjIFNpZ24tb2ZmCgotIFsgXSBBbGwgc2VjdGlvbnMgYWJvdmUgZmlsbGVkIGluIHdpdGggb2JzZXJ2ZWQgcmVzdWx0cy4KLSBbIF0gTm8gc2VjdGlvbiBsZWZ0IGFzICJwZW5kaW5nIiBhdCByZWxlYXNlLgoKVGVzdGVyOiBfX19fX19fX19fICBEYXRlOiBfX19fX19fX19fCg==
+# Pixel Pets v3 — Real-Device Test (S26 Ultra)
+
+Status: **PENDING USER** — nothing below has been run or verified yet.
+Do not claim any result in this file until it has actually been observed
+on the device. Fill in the Result column as you go.
+
+## Prerequisites
+
+- [ ] CI green on `main` (Android CI workflow). **Current blocker (2026-10-13):**
+      CI fails at the "Set up Android SDK" step because
+      `android-actions/setup-android@v3` installs the legacy `tools`
+      package, which Google removed from the SDK repository. Fix: change
+      the workflow (via the GitHub web UI — the API cannot edit workflow
+      files) to `android-actions/setup-android@v4`, then re-run.
+      Until CI is green, build locally with `./gradlew assembleDebug`.
+- [ ] Debug APK: from the CI `pixelpet-debug-apk` artifact, or a local build.
+- [ ] S26 Ultra with USB debugging (or wireless debugging) enabled.
+- [ ] `adb` on the workstation (`adb devices` shows the phone).
+
+## 1. Install
+
+- [ ] `adb install -r app-debug.apk` succeeds.
+- [ ] Android 13+ gate: if prompted, grant
+      **Settings → Apps → PixelPet → ⋮ → Allow restricted settings**.
+- [ ] App launches, no crash on first launch, Pip (default cat) visible.
+- [ ] First-launch widget pin prompt appears once.
+
+Result: _pending_
+
+## 2. Wallpaper roam (lock screen)
+
+- [ ] Set PixelPet as the lock-screen wallpaper (Samsung: separate
+      lock-screen wallpaper setting).
+- [ ] Pip roams the lock screen; motion is smooth, no stutter or freeze.
+- [ ] Roam pauses after ~30 s with no interaction; resumes on touch.
+- [ ] Tap = pet (hearts), double-tap = play (giggle).
+- [ ] Screen off → Pip sleeps; wake shows a "While you were away…" recap.
+- [ ] No visible battery drain anomaly after 1 hour (check Settings → Battery).
+
+Result: _pending_
+
+## 3. Widget walk frame (home screen)
+
+- [ ] Add the PixelPet widget; face bitmap renders Pip + 4 stat bars + name.
+- [ ] Face changes walk frame after a stat tick / tap (snapshot bitmap —
+      it does NOT animate continuously; that is by design, RemoteViews
+      cannot host a live view).
+- [ ] Quick-feed button works; snack cooldown toast appears when cooling.
+- [ ] Face tap opens the app.
+- [ ] Widget refreshes within ~30 min without a reboot (job scheduled
+      from app launch as well as boot).
+
+Result: _pending_
+
+## 4. Aura skins (premium)
+
+- [ ] With a valid premium key activated, Premium screen shows the aura
+      picker (Gold Orbit / Rainbow / Ember / Starlight / No Aura).
+- [ ] Selecting an aura changes the glow around Pip in-app, in the widget,
+      and in the wallpaper.
+- [ ] "No Aura" removes the glow; non-premium users see no aura at all.
+- [ ] Aura changes LOOK only: stats, cooldowns, unlocks unchanged.
+
+Result: _pending_
+
+## 5. Powers (spot-check, one per family group)
+
+- [ ] Power button visible; disabled state + countdown text while cooling.
+- [ ] Trigger a power (e.g. Cat Purr Heal): effect plays (particles /
+      overlay), cooldown starts (1/day default).
+- [ ] Hamster Cheek Stash / Panda Bamboo Snack: 6 h cooldown.
+- [ ] Phoenix Rebirth: restores exactly ONE missed streak day; does NOT
+      consume the weekly cooldown when there is no missed day.
+- [ ] Turtle Shell Shield: stats frozen while shielded, then decay resumes.
+- [ ] Owl Night Watch: shows tomorrow's first goal as a reminder.
+- [ ] Dog Fetch Gift: toast + confetti (no coins — the app has no economy).
+
+Result: _pending_
+
+## 6. Personality card
+
+- [ ] Open the Personality card (🧠 button): 5 trait bars + summary line
+      render; values in 10–90.
+- [ ] "Pip learned" section shows honest "still getting to know you"
+      copy until ~3 days of interaction data exist.
+- [ ] Pet/play/feed a few times; trait bars nudge in the expected
+      direction (play → Playful up, doomscroll → Bold/Social down).
+
+Result: _pending_
+
+## 7. Brain learning (multi-day — cannot fully verify in one session)
+
+- [ ] Use the app at consistent times for 3+ days; Brain records
+      schedule buckets and favorites.
+- [ ] After ~3 days, the Personality card's learned section shows real
+      learned lines (favorite action / usual hour), not placeholders.
+- [ ] After a long gap, greeting is shy, then warms with care.
+
+Result: _pending (multi-day)_
+
+## 8. Frame-time measurement (wallpaper draw path)
+
+The wallpaper loop is ~30 fps, so the per-frame budget is **33 ms**
+(16 ms is the 60 fps budget; it does not apply here). Static analysis
+says the steady path is bg fill + 70 star rects + cached-bitmap blit +
+shadow — well inside budget — but that is NOT a measurement.
+
+Measure on device:
+```bash
+adb shell dumpsys gfxinfo com.vn.pixelpet framestats
+# or record a systrace / Perfetto trace while the wallpaper is visible
+```
+- [ ] p95 frame time < 33 ms over a 60 s visible-roam window.
+- [ ] No dropped-frame spikes when the bitmap re-renders (render-key change).
+
+Result: _pending (p95: ___ ms)_
+
+## 9. Migration (v2 → v3)
+
+Static migration checks pass (`python3 qa_migration.py`). On-device
+migration over a real v2 install is **not** covered by this checklist
+(no v2 build is on the test device). If a v2 install exists:
+- [ ] Install v3 over v2 (do NOT clear data): stats, streak, goals,
+      unlocks, and premium survive; new keys default sensibly.
+
+Result: _pending / N/A_
+
+## 10. Real screenshot (replaces the mockup)
+
+- [ ] Capture a real device screenshot of the app stage (not the mockup).
+- [ ] Replace `assets/screenshot.png` with the capture and update the
+      README caption (remove the "representative mockup" note).
+
+Result: _pending_
+
+## Sign-off
+
+- [ ] All sections above filled in with observed results.
+- [ ] No section left as "pending" at release.
+
+Tester: __________  Date: __________
