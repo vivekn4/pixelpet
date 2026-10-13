@@ -23,7 +23,12 @@ import sys
 
 BASE = sys.argv[1] if len(sys.argv) > 1 else \
     "/home/hatch/workspace/repos/pixelpet/app/src/main/java/com/vn/pixelpet"
-RES = os.path.join(os.path.dirname(BASE), "res") if "java" in BASE else BASE
+# BASE = .../app/src/main/java/com/vn/pixelpet -> MAIN_DIR = .../app/src/main
+_MAIN_DIR = BASE
+for _ in range(4):
+    _MAIN_DIR = os.path.dirname(_MAIN_DIR)
+RES = os.path.join(_MAIN_DIR, "res")
+MAIN_DIR = _MAIN_DIR
 errors = []
 
 
@@ -227,13 +232,11 @@ for key in ["personality_title", "personality_learned_title",
     check(f'name="{key}"' in strings, f"strings.xml has {key}")
 check("still getting to know you" in strings, "honest cold-start copy in strings")
 
-manifest = read_res("AndroidManifest.xml") if os.path.exists(
-    os.path.join(RES, "AndroidManifest.xml")) else ""
-if not manifest:
-    manifest = open(os.path.join(os.path.dirname(BASE), "..",
-                                 "AndroidManifest.xml")).read() \
-        if os.path.exists(os.path.join(os.path.dirname(BASE), "..",
-                                       "AndroidManifest.xml")) else ""
+manifest = ""
+_manifest_path = os.path.join(MAIN_DIR, "AndroidManifest.xml")
+if os.path.exists(_manifest_path):
+    with open(_manifest_path) as f:
+        manifest = f.read()
 check("PersonalityActivity" in manifest, "manifest registers PersonalityActivity")
 
 main = read("MainActivity.kt")
