@@ -13,7 +13,10 @@ import java.util.Date
 
 /**
  * Premium activation via license-key entry (Gumroad manual-delivery pattern).
- * Price: TODO — user's call (see README).
+ * Price: TODO — user call (see README).
+ *
+ * v3 Phase 4: also hosts the aura skin picker. Skins change the LOOK only,
+ * never powers or progression.
  */
 class PremiumActivity : Activity() {
 
@@ -69,6 +72,40 @@ class PremiumActivity : Activity() {
                     Haptics.error(this)
                     Toast.makeText(this, getString(R.string.premium_bad_key), Toast.LENGTH_SHORT).show()
                 }
+            }
+        }
+        refreshAuraPicker()
+    }
+
+    /**
+     * v3 Phase 4: aura skin picker. Visible to everyone (so free users can
+     * see what Premium adds); tapping a skin without Premium shows a toast
+     * instead of applying it. Selection applies to the app, wallpaper, and
+     * widget on the next render.
+     */
+    private fun refreshAuraPicker() {
+        val skins = listOf(
+            AuraSkin.GOLD_ORBIT to R.id.btn_aura_gold,
+            AuraSkin.RAINBOW to R.id.btn_aura_rainbow,
+            AuraSkin.EMBER to R.id.btn_aura_ember,
+            AuraSkin.STARLIGHT to R.id.btn_aura_starlight,
+            AuraSkin.NONE to R.id.btn_aura_none
+        )
+        val current = AuraSkin.selected(repo.prefsForPremium())
+        findViewById<TextView>(R.id.aura_current).text =
+            getString(R.string.aura_current, current.label)
+        for ((skin, id) in skins) {
+            val btn = findViewById<Button>(id)
+            btn.alpha = if (skin == current) 1f else 0.55f
+            btn.setOnClickListener {
+                if (!PremiumManager.isPremium(repo.prefsForPremium())) {
+                    Toast.makeText(this, R.string.aura_premium_only, Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+                AuraSkin.set(repo.prefsForPremium(), skin)
+                SfxEngine.play("ui_click")
+                PixelPetWidgetProvider.refreshAll(this)
+                refreshAuraPicker()
             }
         }
     }
