@@ -21,7 +21,9 @@ data class PetState(
     val sleepStartElapsed: Long = 0L,
     val sickSinceWall: Long = 0L,   // wall-clock when hunger hit 0; 0 = not sick
     val lastSnackElapsed: Long = 0L, // 15-min snack cooldown
-    val lastPlayElapsed: Long = 0L   // 5-min play cooldown
+    val lastPlayElapsed: Long = 0L,   // 5-min play cooldown
+    // v3 Phase 3: Turtle Shell Shield — decay pauses while now < this (elapsedRealtime). 0 = no shield.
+    val shieldUntilElapsed: Long = 0L
 ) {
     fun isSulking(nowElapsed: Long): Boolean = nowElapsed < sulkUntilElapsed
     fun isSick(nowWall: Long): Boolean =
