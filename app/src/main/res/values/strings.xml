@@ -101,4 +101,14 @@
     <string name="personality_trait_greedy">Greedy ↔ Picky</string>
     <string name="personality_trait_social">Social ↔ Independent</string>
     <string name="personality_trait_neat">Neat ↔ Messy</string>
+    <!-- v3 phase 3: powers + brain -->
+    <string name="btn_power">✨ Power</string>
+    <string name="power_cooldown">Pip needs a rest — %1$s left.</string>
+    <string name="power_stash_munched">Cheek stash munched! +5 hunger. 🐹</string>
+    <string name="power_streak_restored">Rebirth! One missed streak day restored. 🔥</string>
+    <string name="power_streak_nothing">No missed day to restore — your streak is safe.</string>
+    <string name="power_night_watch_title">Night Watch</string>
+    <string name="power_night_watch_msg">Tomorrow\'s first goal: %1$s</string>
+    <string name="power_night_watch_empty">No goals yet — add one and Pip will keep watch over it.</string>
+    <string name="power_fetch_gift">Pip fetched a gift: %1$s! 🎁</string>
 </resources>
