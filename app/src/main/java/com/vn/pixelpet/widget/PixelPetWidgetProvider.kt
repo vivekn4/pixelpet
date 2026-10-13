@@ -25,7 +25,7 @@ import kotlin.math.sin
  * Home-screen widget (v3 Phase 4, PLAN_V3.md §10, bug #31).
  *
  * RemoteViews still cannot host a live view, so the widget stays a SNAPSHOT
- * bitmap — but the snapshot now renders the pet\u2019s CURRENT walk frame
+ * bitmap — but the snapshot now renders the pet's CURRENT walk frame
  * (walk phase + stride bob derived from elapsedRealtime, sleeping pets
  * stand still) instead of a static pose. It re-renders on every stat tick
  * (via [refreshAll], called from the app after any care action) and on tap
