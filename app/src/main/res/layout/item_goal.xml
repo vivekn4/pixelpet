@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:background="@drawable/card_bg"
+    android:padding="@dimen/pad_small">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/goal_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text"
+            android:textSize="@dimen/text_body"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/goal_streak"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_dim"
+            android:textSize="@dimen/text_small"
+            android:fontFamily="monospace" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/goal_done_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        android:background="@drawable/btn_gold"
+        android:text="@string/btn_done"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="13sp" />
+
+    <Button
+        android:id="@+id/goal_delete_btn"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="@dimen/pad_small"
+        android:background="@drawable/card_bg"
+        android:text="✕"
+        android:textColor="@color/red"
+        android:textSize="16sp" />
+
+</LinearLayout>

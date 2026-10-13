@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg"
+    android:padding="@dimen/pad">
+
+    <TextView
+        android:id="@+id/goals_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_goals"
+        android:textColor="@color/text"
+        android:textSize="@dimen/text_title"
+        android:textStyle="bold"
+        android:fontFamily="monospace"
+        android:layout_marginBottom="@dimen/pad_small" />
+
+    <TextView
+        android:id="@+id/goals_empty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_dim"
+        android:textSize="@dimen/text_body"
+        android:visibility="gone"
+        android:layout_marginBottom="@dimen/pad_small" />
+
+    <ListView
+        android:id="@+id/goals_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@color/card_edge"
+        android:dividerHeight="8dp"
+        android:clipToPadding="false" />
+
+    <Button
+        android:id="@+id/btn_add_goal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/btn_height"
+        android:layout_marginTop="@dimen/pad_small"
+        android:background="@drawable/btn_gold"
+        android:text="@string/btn_add_goal"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="16sp" />
+
+</LinearLayout>

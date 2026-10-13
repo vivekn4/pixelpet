@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg"
+    android:padding="@dimen/pad">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/species_title"
+        android:textColor="@color/text"
+        android:textSize="@dimen/text_title"
+        android:textStyle="bold"
+        android:fontFamily="monospace"
+        android:layout_marginBottom="4dp" />
+
+    <TextView
+        android:id="@+id/next_unlock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/gold"
+        android:textSize="@dimen/text_small"
+        android:fontFamily="monospace"
+        android:layout_marginBottom="@dimen/pad_small" />
+
+    <GridView
+        android:id="@+id/species_grid"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:numColumns="2"
+        android:verticalSpacing="8dp"
+        android:horizontalSpacing="8dp"
+        android:clipToPadding="false" />
+
+    <Button
+        android:id="@+id/btn_premium"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/btn_height"
+        android:layout_marginTop="@dimen/pad_small"
+        android:background="@drawable/btn_gold"
+        android:text="@string/btn_go_premium"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="16sp" />
+
+</LinearLayout>

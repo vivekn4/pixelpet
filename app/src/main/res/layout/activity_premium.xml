@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/pad">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/premium_title"
+            android:textColor="@color/gold"
+            android:textSize="@dimen/text_title"
+            android:textStyle="bold"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:layout_marginBottom="@dimen/pad_small" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/premium_pitch"
+            android:textColor="@color/text"
+            android:textSize="@dimen/text_body"
+            android:lineSpacingExtra="4dp"
+            android:layout_marginBottom="@dimen/pad" />
+
+        <!-- Locked state: key entry -->
+        <LinearLayout
+            android:id="@+id/premium_locked"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="@dimen/pad">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/premium_enter_key"
+                android:textColor="@color/text"
+                android:textSize="@dimen/text_body"
+                android:textStyle="bold"
+                android:layout_marginBottom="@dimen/pad_small" />
+
+            <EditText
+                android:id="@+id/input_key"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/premium_key_hint"
+                android:textColor="@color/text"
+                android:textColorHint="@color/text_dim"
+                android:inputType="textCapCharacters"
+                android:maxLength="32"
+                android:fontFamily="monospace"
+                android:backgroundTint="@color/gold" />
+
+            <Button
+                android:id="@+id/btn_activate"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_height"
+                android:layout_marginTop="@dimen/pad_small"
+                android:background="@drawable/btn_gold"
+                android:text="@string/premium_activate"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/premium_price_todo"
+                android:textColor="@color/text_dim"
+                android:textSize="@dimen/text_small"
+                android:layout_marginTop="@dimen/pad_small" />
+        </LinearLayout>
+
+        <!-- Active state -->
+        <LinearLayout
+            android:id="@+id/premium_active"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="@dimen/pad"
+            android:visibility="gone"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/premium_active_title"
+                android:textColor="@color/gold"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/premium_key_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_dim"
+                android:textSize="@dimen/text_small"
+                android:fontFamily="monospace"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

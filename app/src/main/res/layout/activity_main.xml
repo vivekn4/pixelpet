@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:fillViewport="true">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/pad">
+
+    <!-- Toolbar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="@dimen/pad_small">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/app_name"
+            android:textColor="@color/text"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:fontFamily="monospace" />
+
+        <Button
+            android:id="@+id/btn_species"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/card_bg"
+            android:text="🐾"
+            android:textSize="18sp"
+            android:contentDescription="@string/btn_species" />
+
+        <Button
+            android:id="@+id/btn_premium"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="6dp"
+            android:background="@drawable/card_bg"
+            android:text="👑"
+            android:textSize="18sp"
+            android:contentDescription="@string/btn_premium" />
+
+        <Button
+            android:id="@+id/btn_mute"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="6dp"
+            android:background="@drawable/card_bg"
+            android:text="@string/btn_mute"
+            android:textSize="18sp"
+            android:contentDescription="@string/btn_mute" />
+
+        <Button
+            android:id="@+id/btn_about"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginStart="6dp"
+            android:background="@drawable/card_bg"
+            android:text="@string/btn_about"
+            android:textColor="@color/text_dim"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+    <!-- Pet stage -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="@drawable/card_bg"
+        android:layout_marginBottom="@dimen/pad_small">
+
+        <com.vn.pixelpet.PetView
+            android:id="@+id/pet_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/pet_name" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginTop="@dimen/pad_small"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/pet_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pet_name"
+                android:textColor="@color/text"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:fontFamily="monospace" />
+
+            <TextView
+                android:id="@+id/mood_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mood_content"
+                android:textColor="@color/gold"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:fontFamily="monospace" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <!-- Stats -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/card_bg"
+        android:padding="@dimen/pad_small"
+        android:layout_marginBottom="@dimen/pad_small">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <TextView
+                android:layout_width="92dp"
+                android:layout_height="wrap_content"
+                android:text="@string/stat_hunger"
+                android:textColor="@color/text_dim"
+                android:textSize="@dimen/text_small"
+                android:fontFamily="monospace" />
+            <ProgressBar
+                android:id="@+id/bar_hunger"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/stat_bar_height"
+                android:layout_weight="1"
+                android:progressDrawable="@drawable/stat_bar"
+                android:max="100" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="6dp">
+            <TextView
+                android:layout_width="92dp"
+                android:layout_height="wrap_content"
+                android:text="@string/stat_happiness"
+                android:textColor="@color/text_dim"
+                android:textSize="@dimen/text_small"
+                android:fontFamily="monospace" />
+            <ProgressBar
+                android:id="@+id/bar_happiness"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/stat_bar_height"
+                android:layout_weight="1"
+                android:progressDrawable="@drawable/stat_bar"
+                android:max="100" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="6dp">
+            <TextView
+                android:layout_width="92dp"
+                android:layout_height="wrap_content"
+                android:text="@string/stat_energy"
+                android:textColor="@color/text_dim"
+                android:textSize="@dimen/text_small"
+                android:fontFamily="monospace" />
+            <ProgressBar
+                android:id="@+id/bar_energy"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/stat_bar_height"
+                android:layout_weight="1"
+                android:progressDrawable="@drawable/stat_bar"
+                android:max="100" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="6dp">
+            <TextView
+                android:layout_width="92dp"
+                android:layout_height="wrap_content"
+                android:text="@string/stat_attention"
+                android:textColor="@color/text_dim"
+                android:textSize="@dimen/text_small"
+                android:fontFamily="monospace" />
+            <ProgressBar
+                android:id="@+id/bar_attention"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/stat_bar_height"
+                android:layout_weight="1"
+                android:progressDrawable="@drawable/stat_bar"
+                android:max="100" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Actions row 1 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="@dimen/pad_small">
+
+        <Button
+            android:id="@+id/btn_goals"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/btn_height"
+            android:layout_weight="1"
+            android:background="@drawable/btn_gold"
+            android:text="@string/btn_goals"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btn_snack"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/btn_height"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/pad_small"
+            android:background="@drawable/btn_gold"
+            android:text="@string/btn_snack"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <!-- Actions row 2 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="@dimen/pad_small">
+
+        <Button
+            android:id="@+id/btn_play"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:background="@drawable/card_bg"
+            android:text="@string/btn_play"
+            android:textColor="@color/green"
+            android:textStyle="bold"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/btn_pet"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/pad_small"
+            android:background="@drawable/card_bg"
+            android:text="@string/btn_pet"
+            android:textColor="@color/pet_cheek"
+            android:textStyle="bold"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_doomscroll"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/doom_btn_bg"
+        android:text="@string/btn_doomscroll"
+        android:textColor="@color/red"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:layout_marginBottom="@dimen/pad_small" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@drawable/card_bg"
+        android:padding="@dimen/pad_small">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/auto_detect_title"
+                android:textColor="@color/text"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/auto_detect_desc"
+                android:textColor="@color/text_dim"
+                android:textSize="@dimen/text_small" />
+        </LinearLayout>
+
+        <Switch
+            android:id="@+id/switch_autodetect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</LinearLayout>
+</ScrollView>
