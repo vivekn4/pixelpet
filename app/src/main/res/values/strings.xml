@@ -111,4 +111,14 @@
     <string name="power_night_watch_msg">Tomorrow\'s first goal: %1$s</string>
     <string name="power_night_watch_empty">No goals yet — add one and Pip will keep watch over it.</string>
     <string name="power_fetch_gift">Pip fetched a gift: %1$s! 🎁</string>
+    <!-- v3 phase 4: aura skins -->
+    <string name="aura_title">✨ Aura skins</string>
+    <string name="aura_desc">Premium-only glow styles for Pip. Look only — never powers or progression.</string>
+    <string name="aura_current">Current aura: %1$s</string>
+    <string name="aura_premium_only">Aura skins need Premium 👑</string>
+    <string name="aura_gold">Gold Orbit</string>
+    <string name="aura_rainbow">Rainbow Trail</string>
+    <string name="aura_ember">Ember Glow</string>
+    <string name="aura_starlight">Starlight</string>
+    <string name="aura_none">No Aura</string>
 </resources>
