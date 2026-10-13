@@ -50,7 +50,9 @@ enum class Species(
         POINT_EARS, FLOPPY_EARS, LONG_EARS, ROUND_EARS, EAR_TUFTS,
         WHISKERS, CHEEK_POUCHES, TONGUE, MUZZLE_PATCH, STRIPES,
         BIG_EYES, BEAK, HORNS, HORN, WINGS, BACK_SPIKES, CREST, MANE,
-        TENTACLES, EXTRA_EYES
+        TENTACLES, EXTRA_EYES,
+        // v3 phase 1: features for the 108-variant roster
+        SNOUT, SHELL, FLIPPERS, BILL, TAIL, SPOTS, SCALES, GILLS
     }
 
     companion object {
