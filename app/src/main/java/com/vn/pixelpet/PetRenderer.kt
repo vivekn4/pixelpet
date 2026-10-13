@@ -38,7 +38,8 @@ object PetRenderer {
      * [aura] draws the mystical glow orbit (premium). [walkPhase] (0 = standing,
      * 1/2 = walk frames) and [legs] only take effect when [legs] is true, and
      * [accessory] defaults to NONE, so a default call renders pixel-identically
-     * to the v2 renderer.
+     * to the v2 renderer. [auraStyle] (v3 Phase 4) restyles the glow; the
+     * default [AuraSkin.GOLD_ORBIT] is pixel-identical to the v2 aura.
      */
     fun render(
         species: Species,
@@ -46,6 +47,7 @@ object PetRenderer {
         cellPx: Int,
         blink: Boolean = false,
         aura: Boolean = false,
+        auraStyle: AuraSkin = AuraSkin.GOLD_ORBIT,
         wavePhase: Float = 0f,
         walkPhase: Int = 0,
         legs: Boolean = false,
@@ -59,6 +61,7 @@ object PetRenderer {
         cellPx = cellPx,
         blink = blink,
         aura = aura,
+        auraStyle = auraStyle,
         wavePhase = wavePhase,
         walkPhase = walkPhase,
         legs = legs
@@ -75,6 +78,7 @@ object PetRenderer {
         cellPx: Int,
         blink: Boolean = false,
         aura: Boolean = false,
+        auraStyle: AuraSkin = AuraSkin.GOLD_ORBIT,
         wavePhase: Float = 0f,
         walkPhase: Int = 0,
         legs: Boolean = true
@@ -87,6 +91,7 @@ object PetRenderer {
         cellPx = cellPx,
         blink = blink,
         aura = aura,
+        auraStyle = auraStyle,
         wavePhase = wavePhase,
         walkPhase = walkPhase,
         legs = legs
@@ -106,6 +111,7 @@ object PetRenderer {
         cellPx: Int,
         blink: Boolean = false,
         aura: Boolean = false,
+        auraStyle: AuraSkin = AuraSkin.GOLD_ORBIT,
         wavePhase: Float = 0f,
         walkPhase: Int = 0,
         legs: Boolean = false
@@ -138,12 +144,36 @@ object PetRenderer {
 
         // ---- aura (behind everything) ----
         if (aura) {
-            val glow = Paint().apply { isAntiAlias = false; color = Color.parseColor("#FFD54A"); alpha = 90 }
+            // v3 Phase 4: aura skins restyle the glow (look only). GOLD_ORBIT
+            // is the v2 aura exactly: same 8 gold dots, same alpha, same size.
+            val palette: IntArray = when (auraStyle) {
+                AuraSkin.GOLD_ORBIT -> intArrayOf(Color.parseColor("#FFD54A"))
+                AuraSkin.RAINBOW -> intArrayOf(
+                    Color.parseColor("#FF5A5A"), Color.parseColor("#FFB84A"),
+                    Color.parseColor("#FFD54A"), Color.parseColor("#5AFF8A"),
+                    Color.parseColor("#6AC8FF"), Color.parseColor("#B9A7FF")
+                )
+                AuraSkin.EMBER -> intArrayOf(
+                    Color.parseColor("#FF7A3F"), Color.parseColor("#E85A3A"),
+                    Color.parseColor("#FFB84A")
+                )
+                AuraSkin.STARLIGHT -> intArrayOf(
+                    Color.parseColor("#FFFFFF"), Color.parseColor("#B8E8FF")
+                )
+                AuraSkin.NONE -> intArrayOf()
+            }
             for (i in 0 until 8) {
+                if (palette.isEmpty()) break
                 val a = wavePhase + i * (Math.PI.toFloat() / 4f)
                 val ox = (12 + 9 * kotlin.math.cos(a)).toInt()
                 val oy = (12 + 8 * sin(a)).toInt()
-                r(ox, oy, 1, 1, glow)
+                val size = if (auraStyle == AuraSkin.EMBER) 2 else 1
+                val glow = Paint().apply {
+                    isAntiAlias = false
+                    color = palette[i % palette.size]
+                    alpha = 90
+                }
+                r(ox, oy, size, size, glow)
             }
         }
 
