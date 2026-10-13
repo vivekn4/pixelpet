@@ -85,8 +85,11 @@ class Personality private constructor(
 
     /**
      * Decay traits toward baseline: each full day moves each trait 1/7 of its
-     * gap toward baseline (at least 1 step if any gap remains). Call with the
-     * current wall clock whenever the pet is loaded. Returns true if changed.
+     * REMAINING gap toward baseline (at least 1 step if any gap remains) —
+     * geometric decay, so ~55% of a gap closes in 7 days and ~100% in 21.
+     * Geometric (not linear) decay keeps traits stable and never overshoots.
+     * Call with the current wall clock whenever the pet is loaded.
+     * Returns true if changed.
      */
     fun decay(nowWallMs: Long): Boolean {
         val days = (nowWallMs - lastDecayWallMs) / DAY_MS
