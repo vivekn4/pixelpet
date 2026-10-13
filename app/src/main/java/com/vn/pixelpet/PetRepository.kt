@@ -60,6 +60,7 @@ class PetRepository private constructor(appContext: Context) {
         .put("sulk", s.sulkUntilElapsed).put("m", s.muted).put("sp", s.speciesId)
         .put("sl", s.sleeping).put("sse", s.sleepStartElapsed)
         .put("sick", s.sickSinceWall).put("snk", s.lastSnackElapsed).put("ply", s.lastPlayElapsed)
+        .put("shld", s.shieldUntilElapsed)
 
     private fun petFromJson(o: JSONObject, e: Long, w: Long): PetState = PetState(
         hunger = o.optInt("h", 80), happiness = o.optInt("ha", 80),
@@ -68,6 +69,7 @@ class PetRepository private constructor(appContext: Context) {
         sulkUntilElapsed = o.optLong("sulk", 0L), muted = o.optBoolean("m", false),
         speciesId = o.optString("sp", "cat"),
         sleeping = o.optBoolean("sl", false), sleepStartElapsed = o.optLong("sse", 0L),
+        shieldUntilElapsed = o.optLong("shld", 0L),
         sickSinceWall = o.optLong("sick", 0L),
         lastSnackElapsed = o.optLong("snk", 0L), lastPlayElapsed = o.optLong("ply", 0L)
     )
@@ -85,6 +87,9 @@ class PetRepository private constructor(appContext: Context) {
             dtH = ((w - raw.lastTickWall) / 3600000f).coerceIn(0f, maxDecayHours)
         }
         if (dtH <= 0f) return raw.copy(lastTickElapsed = e, lastTickWall = w)
+        // v3 Phase 3 — Turtle Shell Shield: while shielded, stats do not move at
+        // all (decay paused). Timestamps still advance so the shield can expire.
+        if (e < raw.shieldUntilElapsed) return raw.copy(lastTickElapsed = e, lastTickWall = w)
         val mult = if (raw.sleeping) sleepMultiplier else 1f
         val energyDelta = if (isNight()) nightRegenPerHr * dtH else -energyPerHr * dtH * mult
         val happyRate = happyPerHr * mult * (if (raw.attention == 0) 2f else 1f)
@@ -175,6 +180,86 @@ class PetRepository private constructor(appContext: Context) {
         )
         persist(next)
         return next
+    }
+
+    // ============ v3 Phase 3: power stat effects (additive) ============
+
+    /** Cat Purr Heal: clear the sick flag + a happiness lift. */
+    fun cureSickness(): PetState {
+        val s = tick(readRaw())
+        val next = s.copy(
+            sickSinceWall = 0L,
+            happiness = (s.happiness + 10).coerceIn(0, 100)
+        )
+        persist(next)
+        return next
+    }
+
+    /** Panda Bamboo Snack / Hamster stash: +hunger with no snack-cooldown interaction. */
+    fun feedPowerBonus(amount: Int): PetState {
+        val s = tick(readRaw())
+        val next = s.copy(
+            hunger = (s.hunger + amount).coerceIn(0, 100),
+            sickSinceWall = 0L
+        )
+        persist(next)
+        return next
+    }
+
+    /** Snake Coil Nap: fast energy restore. */
+    fun feedEnergy(amount: Int): PetState {
+        val s = tick(readRaw())
+        val next = s.copy(energy = (s.energy + amount).coerceIn(0, 100))
+        persist(next)
+        return next
+    }
+
+    /** Bunny Lucky Hop / Pig Mud Bath: small mood lift. */
+    fun addHappiness(amount: Int): PetState {
+        val s = tick(readRaw())
+        val next = s.copy(happiness = (s.happiness + amount).coerceIn(0, 100))
+        persist(next)
+        return next
+    }
+
+    /** Turtle Shell Shield: pause stat decay for [durationMs] (elapsedRealtime). */
+    fun activateShield(durationMs: Long): PetState {
+        val s = tick(readRaw())
+        val next = s.copy(shieldUntilElapsed = nowElapsed() + durationMs)
+        persist(next)
+        return next
+    }
+
+    /**
+     * Phoenix Rebirth support: true only when EXACTLY one day was missed —
+     * last care was the day before yesterday. More than one missed day, or no
+     * missed day, cannot be restored (the power restores ONE day).
+     */
+    fun canRestoreStreakDay(): Boolean {
+        val last = prefs.getString(K_LAST_CARE, "") ?: ""
+        if (last.isEmpty()) return false
+        val cal = java.util.Calendar.getInstance()
+        cal.add(java.util.Calendar.DAY_OF_YEAR, -2)
+        val fmt = java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.US)
+        val twoDaysAgo = fmt.format(cal.time)
+        return last == twoDaysAgo
+    }
+
+    /**
+     * Phoenix Rebirth: restore exactly one missed streak day. Sets last-care
+     * to yesterday and bumps the streak by one, so the next care day continues
+     * the streak instead of resetting it to 1. Returns false (no change) when
+     * there is no single missed day to restore.
+     */
+    fun restoreMissedStreakDay(): Boolean {
+        if (!canRestoreStreakDay()) return false
+        val cal = java.util.Calendar.getInstance()
+        cal.add(java.util.Calendar.DAY_OF_YEAR, -1)
+        val fmt = java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.US)
+        val yesterday = fmt.format(cal.time)
+        val streak = prefs.getInt(K_STREAK, 0) + 1
+        prefs.edit().putString(K_LAST_CARE, yesterday).putInt(K_STREAK, streak).apply()
+        return true
     }
 
     // ============ sleep / wake ============
