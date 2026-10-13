@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Widget: glanceable pet face + quick-feed button.
+     The face is a single bitmap rendered by PixelPetWidgetProvider. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg">
+
+    <ImageView
+        android:id="@+id/widget_face"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scaleType="fitCenter"
+        android:contentDescription="@string/widget_desc" />
+
+    <Button
+        android:id="@+id/widget_feed"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/btn_gold"
+        android:text="@string/widget_feed"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="13sp" />
+
+</LinearLayout>

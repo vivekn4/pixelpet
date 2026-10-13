@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/pad">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/about_title"
+            android:textColor="@color/text"
+            android:textSize="@dimen/text_title"
+            android:textStyle="bold"
+            android:fontFamily="monospace"
+            android:layout_marginBottom="@dimen/pad_small" />
+
+        <TextView
+            android:id="@+id/about_version"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_dim"
+            android:textSize="@dimen/text_small"
+            android:fontFamily="monospace"
+            android:layout_marginBottom="@dimen/pad" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/about_howto_title"
+            android:textColor="@color/gold"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="@dimen/pad_small" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/about_howto"
+            android:textColor="@color/text"
+            android:textSize="@dimen/text_body"
+            android:lineSpacingExtra="4dp"
+            android:layout_marginBottom="@dimen/pad" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/about_sfx"
+            android:textColor="@color/text_dim"
+            android:textSize="@dimen/text_small"
+            android:layout_marginBottom="@dimen/pad_small" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/about_privacy"
+            android:textColor="@color/text_dim"
+            android:textSize="@dimen/text_small"
+            android:layout_marginBottom="@dimen/pad" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/vn_tag"
+            android:textColor="@color/gold"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:fontFamily="monospace"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/made_by"
+            android:textColor="@color/text_dim"
+            android:textSize="@dimen/text_small"
+            android:gravity="center"
+            android:fontFamily="monospace" />
+
+    </LinearLayout>
+</ScrollView>
