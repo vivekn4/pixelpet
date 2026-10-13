@@ -1,0 +1,15 @@
+# Android / Gradle
+.gradle/
+build/
+app/build/
+local.properties
+*.iml
+.idea/
+.DS_Store
+
+# Signing
+*.jks
+*.keystore
+
+# SDK location (never commit local paths)
+/workspace/android-sdk/
