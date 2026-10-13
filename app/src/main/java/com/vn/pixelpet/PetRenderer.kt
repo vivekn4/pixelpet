@@ -8,7 +8,8 @@ import android.graphics.RectF
 import kotlin.math.sin
 
 /**
- * Draws Pip the pixel-art pet, parametric across 12 species × 8 moods.
+ * Draws Pip the pixel-art pet, parametric across species × moods
+ * (12 v2 species + 108 v3 variants).
  * Everything is rects on a coarse grid with anti-aliasing OFF — crisp pixels
  * at any upscale. Shared by the app, the widget, and the live wallpaper.
  */
@@ -33,8 +34,11 @@ object PetRenderer {
     }
 
     /**
-     * Render [species] in [mood]. [wavePhase] animates tentacles/aura;
-     * [aura] draws the mystical glow orbit (premium).
+     * Render a v2 [species] in [mood]. [wavePhase] animates tentacles/aura;
+     * [aura] draws the mystical glow orbit (premium). [walkPhase] (0 = standing,
+     * 1/2 = walk frames) and [legs] only take effect when [legs] is true, and
+     * [accessory] defaults to NONE, so a default call renders pixel-identically
+     * to the v2 renderer.
      */
     fun render(
         species: Species,
@@ -42,22 +46,84 @@ object PetRenderer {
         cellPx: Int,
         blink: Boolean = false,
         aura: Boolean = false,
-        wavePhase: Float = 0f
+        wavePhase: Float = 0f,
+        walkPhase: Int = 0,
+        legs: Boolean = false,
+        accessory: VariantRoster.Accessory = VariantRoster.Accessory.NONE
+    ): Bitmap = renderInternal(
+        bodyHexParam = species.bodyHex,
+        darkHexParam = species.darkHex,
+        features = species.features,
+        accessory = accessory,
+        mood = mood,
+        cellPx = cellPx,
+        blink = blink,
+        aura = aura,
+        wavePhase = wavePhase,
+        walkPhase = walkPhase,
+        legs = legs
+    )
+
+    /**
+     * Render a v3 [VariantRoster.Variant] in [mood]. Same grid, same moods, same
+     * face code as [render] — only the palette, feature set, and accessory differ.
+     * [legs] defaults to true here: variants are drawn with walk-capable legs.
+     */
+    fun renderVariant(
+        variant: VariantRoster.Variant,
+        mood: Mood,
+        cellPx: Int,
+        blink: Boolean = false,
+        aura: Boolean = false,
+        wavePhase: Float = 0f,
+        walkPhase: Int = 0,
+        legs: Boolean = true
+    ): Bitmap = renderInternal(
+        bodyHexParam = variant.bodyHex,
+        darkHexParam = variant.darkHex,
+        features = variant.features,
+        accessory = variant.accessory,
+        mood = mood,
+        cellPx = cellPx,
+        blink = blink,
+        aura = aura,
+        wavePhase = wavePhase,
+        walkPhase = walkPhase,
+        legs = legs
+    )
+
+    /**
+     * Shared implementation for [render] and [renderVariant]. With v2 defaults
+     * (no v3 features in the set, legs = false, accessory = NONE) the output is
+     * pixel-identical to the v2 renderer.
+     */
+    private fun renderInternal(
+        bodyHexParam: String,
+        darkHexParam: String,
+        features: Set<Species.Feature>,
+        accessory: VariantRoster.Accessory,
+        mood: Mood,
+        cellPx: Int,
+        blink: Boolean = false,
+        aura: Boolean = false,
+        wavePhase: Float = 0f,
+        walkPhase: Int = 0,
+        legs: Boolean = false
     ): Bitmap {
         val bmp = Bitmap.createBitmap(GW * cellPx, GH * cellPx, Bitmap.Config.ARGB_8888)
         val c = Canvas(bmp)
         val u = cellPx.toFloat()
-        val F = species.features
+        val F = features
 
-        var bodyHex = species.bodyHex
-        var darkHex = species.darkHex
+        var bodyHex = bodyHexParam
+        var darkHex = darkHexParam
         if (mood == Mood.SICK) { // pale tint
             bodyHex = mix(bodyHex, "#FFFFFF", 0.45f)
             darkHex = mix(darkHex, "#FFFFFF", 0.3f)
         }
         val body = paint(bodyHex)
         val dark = paint(darkHex)
-        val light = paint(mix(species.bodyHex, "#FFFFFF", 0.55f))
+        val light = paint(mix(bodyHexParam, "#FFFFFF", 0.55f))
         val black = paint("#14141F")
         val white = paint("#FFFFFF")
         val cheek = paint("#FF9DC6")
@@ -96,6 +162,14 @@ object PetRenderer {
                 r(tx + sway, 19, 2, 3, body)
             }
         }
+        if (Feature.TAIL in F) {
+            r(20, 16, 3, 2, dark); r(20, 16, 3, 2, body)
+        }
+        if (Feature.SHELL in F) {
+            // Dome cap peeking above the body + side rims; the face stays clear.
+            r(5, 4, 14, 4, dark); r(6, 5, 12, 3, body)
+            r(4, 9, 2, 6, dark); r(18, 9, 2, 6, dark)
+        }
 
         // ---- body blob ----
         val rows = listOf(
@@ -108,8 +182,22 @@ object PetRenderer {
             r(xs.first, y, xs.last - xs.first + 1, 1, body)
         }
         r(8, 6, 9, 1, dark)
-        r(7, 19, 3, 1, dark); r(14, 19, 3, 1, dark)
-        r(7, 19, 3, 1, body); r(14, 19, 3, 1, body)
+        if (!legs) {
+            r(7, 19, 3, 1, dark); r(14, 19, 3, 1, dark)
+            r(7, 19, 3, 1, body); r(14, 19, 3, 1, body)
+        } else {
+            // Procedural walk legs: phase 0 = standing, 1/2 = alternating strides.
+            val leftLift = if (walkPhase == 1) 1 else 0
+            val rightLift = if (walkPhase == 2) 1 else 0
+            r(7, 19 - leftLift, 3, 2, dark); r(7, 19 - leftLift, 3, 2, body)
+            r(14, 19 - rightLift, 3, 2, dark); r(14, 19 - rightLift, 3, 2, body)
+        }
+        if (Feature.SPOTS in F) {
+            r(6, 9, 2, 2, dark); r(16, 12, 2, 2, dark); r(9, 16, 2, 1, dark)
+        }
+        if (Feature.SCALES in F) {
+            r(8, 16, 8, 1, dark); r(9, 18, 6, 1, dark)
+        }
 
         // ---- head features ----
         if (Feature.POINT_EARS in F) {
@@ -156,6 +244,18 @@ object PetRenderer {
         if (Feature.MUZZLE_PATCH in F) {
             r(9, 13, 6, 2, light)
         }
+        if (Feature.SNOUT in F) {
+            r(9, 14, 6, 3, light)
+            r(10, 15, 1, 1, dark); r(13, 15, 1, 1, dark)
+        }
+        if (Feature.GILLS in F) {
+            r(2, 9, 2, 2, cheek); r(2, 12, 2, 2, cheek); r(2, 15, 2, 2, cheek)
+            r(20, 9, 2, 2, cheek); r(20, 12, 2, 2, cheek); r(20, 15, 2, 2, cheek)
+        }
+        if (Feature.FLIPPERS in F) {
+            r(2, 12, 2, 5, dark); r(2, 12, 2, 5, body)
+            r(20, 12, 2, 5, dark); r(20, 12, 2, 5, body)
+        }
 
         val ex = if (mood == Mood.SULKING) 1 else 0
         val bigEyes = Feature.BIG_EYES in F
@@ -193,8 +293,10 @@ object PetRenderer {
             }
         }
 
-        // ---- mouth / beak ----
-        if (Feature.BEAK in F) {
+        // ---- mouth / beak / bill ----
+        if (Feature.BILL in F) {
+            r(9, 13, 6, 2, gold); r(9, 14, 6, 1, dark)
+        } else if (Feature.BEAK in F) {
             r(11, 13, 2, 2, gold)
         } else when (mood) {
             Mood.HAPPY -> {
@@ -224,6 +326,46 @@ object PetRenderer {
             }
             Mood.SICK -> { r(3, 8, 2, 1, tear); r(20, 9, 2, 1, tear) } // sickly puffs
             else -> {}
+        }
+
+        // ---- accessory (topmost layer) ----
+        when (accessory) {
+            VariantRoster.Accessory.NONE -> {}
+            VariantRoster.Accessory.BOW -> {
+                r(17, 4, 2, 2, cheek); r(19, 4, 2, 2, cheek); r(18, 5, 1, 1, dark)
+            }
+            VariantRoster.Accessory.SCARF -> {
+                r(7, 17, 10, 2, gold); r(15, 18, 2, 2, gold)
+            }
+            VariantRoster.Accessory.HAT -> {
+                r(9, 1, 6, 2, dark); r(8, 3, 8, 1, dark)
+            }
+            VariantRoster.Accessory.GLASSES -> {
+                r(6, 10, 4, 3, dark); r(7, 11, 2, 1, white)
+                r(14, 10, 4, 3, dark); r(15, 11, 2, 1, white)
+                r(10, 11, 4, 1, dark)
+            }
+            VariantRoster.Accessory.FLOWER -> {
+                r(16, 3, 2, 2, cheek); r(17, 4, 1, 1, gold)
+            }
+            VariantRoster.Accessory.COLLAR -> {
+                r(8, 18, 8, 1, gold); r(11, 18, 1, 1, dark)
+            }
+            VariantRoster.Accessory.BANDANA -> {
+                r(6, 6, 12, 2, cheek)
+            }
+            VariantRoster.Accessory.CROWN -> {
+                r(9, 1, 6, 2, gold); r(9, 0, 1, 1, gold); r(12, 0, 1, 1, gold); r(14, 0, 1, 1, gold)
+            }
+            VariantRoster.Accessory.BELL -> {
+                r(11, 17, 2, 2, gold); r(11, 19, 2, 1, dark)
+            }
+            VariantRoster.Accessory.FEATHER -> {
+                r(16, 2, 1, 4, cheek)
+            }
+            VariantRoster.Accessory.STAR_PIN -> {
+                r(17, 8, 2, 2, gold); r(17, 9, 4, 1, gold)
+            }
         }
         return bmp
     }
