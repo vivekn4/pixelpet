@@ -97,6 +97,9 @@ class GoalsActivity : Activity() {
             doneBtn.alpha = if (doneToday) 0.35f else 1f
             doneBtn.setOnClickListener {
                 if (repo.completeGoal(g.id)) {
+                    // v3 Phase 3: the Brain learns this completion — feeds the
+                    // schedule, the favorite goal, and the care-day history.
+                    recordGoalCompleted(g.name)
                     SfxEngine.play("goal_complete")
                     v.postDelayed({ SfxEngine.play("feed_munch") }, 350)
                     Toast.makeText(
@@ -114,6 +117,31 @@ class GoalsActivity : Activity() {
                 v.postDelayed({ reload() }, 250)
             }
             return v
+        }
+    }
+
+    /**
+     * v3 Phase 3: record a completed goal into the Native Brain (same prefs
+     * MainActivity uses). Silent failure is fine — the Brain is delight, not
+     * progression.
+     */
+    private fun recordGoalCompleted(goalName: String) {
+        try {
+            val variantId = VariantRoster.variantForSpeciesId(repo.snapshot().speciesId).id
+            val prefsB = getSharedPreferences(NativeBrain.PREFS_NAME, MODE_PRIVATE)
+            val saved = prefsB.getString(NativeBrain.KEY_JSON, null)
+            val brain = saved?.let { NativeBrain.fromJson(it, variantId) }
+                ?: NativeBrain.fresh(variantId, System.currentTimeMillis())
+            brain.record(
+                NativeBrain.Action.FEED_GOAL,
+                System.currentTimeMillis(),
+                android.os.SystemClock.elapsedRealtime()
+            )
+            brain.recordCareDay(Goal.todayString())
+            brain.recordFavoriteGoal(goalName)
+            prefsB.edit().putString(NativeBrain.KEY_JSON, brain.toJson()).apply()
+        } catch (t: Throwable) {
+            // Brain is best-effort; a failed learn must never break goal flow.
         }
     }
 }
