@@ -1,8 +1,24 @@
-# Pixel Pets v3 — Real-Device Test (S26 Ultra)
+# Pixel Pets v3 — Real-Device Tests (Device Matrix)
 
 Status: **PENDING USER** — nothing below has been run or verified yet.
 Do not claim any result in this file until it has actually been observed
 on the device. Fill in the Result column as you go.
+
+The app must run on EVERY Android device, not just the flagship: the
+matrix below covers a low-end API 26 device, a mid-range device, the
+S26 Ultra, and a tablet. Run sections 1–10 on each matrix device where
+feasible; the low-end device gets extra attention on jank (§12) and
+battery (§11); the tablet gets extra attention on layouts (species grid
+columns, toolbar, widget sizing).
+
+## Device matrix
+
+| Device | Why it matters | Priority checks |
+|---|---|---|
+| Low-end, API 26 (Android 8.0), ~2 GB RAM class | minSdk floor: oldest OS + tightest memory | Install, §8 jank, §11 battery, no OOM on 108-variant roster |
+| Mid-range, API 30–33 (Android 11–13) | The bulk of the installed base; POST_NOTIFICATIONS (33) + receiver rules | Install, nudges permission, widget, powers |
+| S26 Ultra (flagship, 120 Hz) | Reference device: 120 Hz frame budget, wallpaper roam, aura | All sections, §8 at 120 Hz, real screenshot (§10) |
+| Tablet (any API 26+) | Large screens, foldables: grid columns, toolbar, widget sizing | Layouts (§1 + species grid), wallpaper canvas sizing |
 
 ## Prerequisites
 
@@ -133,9 +149,45 @@ Result: _pending / N/A_
 
 Result: _pending_
 
+## 11. Battery (overnight — low drain by design)
+
+The app holds NO wake locks, schedules NO alarms, runs NO foreground
+service, and performs NO network calls. The only scheduled work is the
+30-min JobScheduler widget refresh (batched/deferrable by the system);
+the wallpaper loop runs only while visible + screen-on and pauses after
+30 s idle. Overnight drain should be indistinguishable from baseline.
+
+- [ ] Baseline: record Settings → Battery % at bedtime with the app
+      installed but wallpaper NOT set and no widget placed.
+- [ ] Test night: set the wallpaper + place the widget, same conditions.
+- [ ] Collect: `adb shell dumpsys batterystats --reset` at bedtime,
+      then `adb shell dumpsys batterystats > stats.txt` in the morning
+      (or open the dump in Battery Historian).
+- [ ] Target: PixelPet's overnight drain within noise of baseline
+      (no wake-lock / alarm / job attribution beyond the 30-min refresh).
+- [ ] No "app is using battery" system warnings.
+
+Result: _pending_
+
+## 12. Jank (smooth operation)
+
+- [ ] In-app stage: `adb shell dumpsys gfxinfo com.vn.pixelpet framestats`
+      while interacting (pet/play/feed/powers) for 60 s.
+      Targets: p95 < 16 ms on 60 Hz screens, p95 < 8 ms on 120 Hz
+      (PetView caches the pet bitmap across frames; re-renders only when
+      the render key changes).
+- [ ] Wallpaper: same command while the lock-screen wallpaper is visible
+      and roaming for 60 s. Target: p95 < 33 ms (the loop is ~30 fps).
+- [ ] No dropped-frame spikes when the bitmap re-renders (render-key
+      change) or when a power effect fires.
+- [ ] Low-end device: no visible stutter on first launch (SFX synthesis
+      runs on a background thread) or on species-grid scroll.
+
+Result: _pending (in-app p95: ___ ms, wallpaper p95: ___ ms)_
+
 ## Sign-off
 
-- [ ] All sections above filled in with observed results.
+- [ ] All sections above filled in with observed results, per matrix device.
 - [ ] No section left as "pending" at release.
 
 Tester: __________  Date: __________
