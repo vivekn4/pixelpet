@@ -441,7 +441,7 @@ object PetRenderer {
             val r = (Color.red(c1) + (Color.red(c2) - Color.red(c1)) * t).toInt()
             val g = (Color.green(c1) + (Color.green(c2) - Color.green(c1)) * t).toInt()
             val b = (Color.blue(c1) + (Color.blue(c2) - Color.blue(c1)) * t).toInt()
-            String.format("#%02X%02X", r, g, b)
+            String.format("#%02X%02X%02X", r, g, b)
         }
 }
 
