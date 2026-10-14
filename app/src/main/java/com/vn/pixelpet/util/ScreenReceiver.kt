@@ -3,6 +3,8 @@ package com.vn.pixelpet.util
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
+import android.os.Build
 import com.vn.pixelpet.PetRepository
 
 /**
@@ -33,5 +35,25 @@ class ScreenReceiver : BroadcastReceiver() {
     companion object {
         /** Polled by the wallpaper engine's draw loop. */
         @Volatile var screenOn: Boolean = true
+
+        /**
+         * Hardening (API 33+): dynamic receivers must declare exportedness.
+         * SCREEN_ON/OFF are protected system broadcasts, deliverable to a
+         * non-exported receiver — RECEIVER_NOT_EXPORTED is the correct,
+         * least-privilege choice. Below API 33 the 2-arg overload is used
+         * (the flags overload does not exist there).
+         */
+        fun register(context: Context, receiver: BroadcastReceiver) {
+            val filter = IntentFilter().apply {
+                addAction(Intent.ACTION_SCREEN_OFF)
+                addAction(Intent.ACTION_SCREEN_ON)
+            }
+            if (Build.VERSION.SDK_INT >= 33) {
+                context.registerReceiver(receiver, filter, Context.RECEIVER_NOT_EXPORTED)
+            } else {
+                @Suppress("DEPRECATION")
+                context.registerReceiver(receiver, filter)
+            }
+        }
     }
 }
