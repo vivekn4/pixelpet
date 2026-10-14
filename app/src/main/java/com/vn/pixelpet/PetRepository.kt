@@ -23,6 +23,15 @@ class PetRepository private constructor(appContext: Context) {
         appContext.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
     private val exec: ExecutorService = Executors.newSingleThreadExecutor()
 
+    // ---- hardening: avoid redundant JSON parse + disk writes ----
+    // snapshot() is called on hot paths (wallpaper 2x/sec, widget refresh,
+    // every haptic check). The pet blob only changes via persist(), so cache
+    // the last parsed state keyed by its blob: same blob -> same state, no
+    // re-parse. persist() keeps the cache in sync. PetState is immutable, so
+    // sharing the cached instance is safe (tick() always copies).
+    @Volatile private var cachedBlob: String? = null
+    private var cachedState: PetState? = null
+
     // ---- tuning ----
     private val hungerPerHr = 4f
     private val happyPerHr = 3f
@@ -43,15 +52,26 @@ class PetRepository private constructor(appContext: Context) {
         val e = nowElapsed(); val w = nowWall()
         val blob = prefs.getString(K_PET + id, null)
         if (blob != null) {
+            synchronized(this) {
+                if (blob == cachedBlob && cachedState != null && cachedState?.speciesId == id) {
+                    return cachedState!!
+                }
+            }
             try {
-                return petFromJson(JSONObject(blob), e, w)
+                val parsed = petFromJson(JSONObject(blob), e, w)
+                synchronized(this) { cachedBlob = blob; cachedState = parsed }
+                return parsed
             } catch (t: Throwable) { /* fall through to fresh */ }
         }
         return PetState.fresh(id, e, w)
     }
 
     private fun persist(s: PetState) {
-        prefs.edit().putString(K_PET + s.speciesId, petToJson(s).toString()).apply()
+        val json = petToJson(s).toString()
+        prefs.edit().putString(K_PET + s.speciesId, json).apply()
+        // Keep the parse cache in sync (apply() commits to in-memory prefs
+        // first, so a concurrent readRaw sees the new blob and matches).
+        synchronized(this) { cachedBlob = json; cachedState = s }
     }
 
     private fun petToJson(s: PetState): JSONObject = JSONObject()
@@ -104,6 +124,14 @@ class PetRepository private constructor(appContext: Context) {
         val sick = if (next.hunger == 0 && wasHungry) w
         else if (next.hunger > 0) 0L else next.sickSinceWall
         val final = next.copy(sickSinceWall = sick)
+        // Hardening: skip the disk write when only the tick timestamps moved
+        // (stats identical). The next tick recomputes decay from the stored
+        // baseline, so skipping is decay-neutral — it just avoids a storage
+        // write on every snapshot() when nothing actually changed. Callers
+        // that mutate state (pet/snack/play/...) persist explicitly.
+        if (final.copy(lastTickElapsed = raw.lastTickElapsed, lastTickWall = raw.lastTickWall) == raw) {
+            return final
+        }
         persist(final)
         return final
     }
