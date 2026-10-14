@@ -111,9 +111,13 @@ Requires JDK 17. No API keys, no paid services, no accounts.
 
 CI: a GitHub Actions workflow (`.github/workflows/android.yml`) builds the
 debug APK on every push and uploads it as the `pixelpet-debug-apk` artifact.
-The workflow file is being added (it needs a repo workflow permission the
-current automation token does not have); until it lands, build locally with
-`./gradlew assembleDebug`.
+Current status (2026-10-13): CI is RED — it fails at the "Set up Android SDK"
+step because `android-actions/setup-android@v3` installs the legacy `tools`
+package, which Google removed from the SDK repository. Fix: change the
+workflow (via the GitHub web UI — the API cannot edit workflow files) to
+`android-actions/setup-android@v4`, then re-run. Until CI is green, build
+locally with `./gradlew assembleDebug`.
+Real-device install test: see DEVICE_TEST.md (pending).
 
 **Sideloading on Android 13+:** after installing the APK, grant
 *Settings → Apps → PixelPet → ⋮ → Allow restricted settings* if the system
