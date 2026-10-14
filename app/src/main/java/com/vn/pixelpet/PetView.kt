@@ -58,6 +58,14 @@ class PetView @JvmOverloads constructor(
     /** Premium aura skin (v3 Phase 4); only drawn when [aura] is true. */
     var auraStyle: AuraSkin = AuraSkin.GOLD_ORBIT
     private var wavePhase: Float = 0f
+    // ---- hardening: cache the rendered pet bitmap across frames ----
+    // onDraw runs ~60fps but the pet image only changes when species, mood,
+    // blink, aura, or (for tentacle/aura pets) the wave-phase bucket changes.
+    // Re-rendering a fresh bitmap every frame was ~60 bitmap allocations/sec
+    // plus GC churn — the main in-app jank source. The cached bitmap is
+    // recycled when the key changes and in onDetachedFromWindow.
+    private var cachedPet: android.graphics.Bitmap? = null
+    private var cachedPetKey: String = ""
 
     private data class Particle(
         var x: Float, var y: Float, var vx: Float, var vy: Float,
@@ -337,6 +345,9 @@ class PetView @JvmOverloads constructor(
     override fun onDetachedFromWindow() {
         stopTicker()
         particles.clear()
+        cachedPet?.recycle()
+        cachedPet = null
+        cachedPetKey = ""
         super.onDetachedFromWindow()
     }
 
@@ -385,11 +396,24 @@ class PetView @JvmOverloads constructor(
             c.drawRect(w - e, 0f, w, h, vignettePaint)
         }
 
-        // pet bitmap
+        // pet bitmap (cached — re-render only when the render key changes)
         val blinking = now < blinkUntil
         wavePhase = t * 2.2f
         val cellPx = 14
-        val pet = PetRenderer.render(species, mood, cellPx, blink = blinking, aura = aura, auraStyle = auraStyle, wavePhase = wavePhase)
+        // wavePhase only moves tentacles + aura orbit, and both already render
+        // to integer cell steps; bucket it so those pets re-render ~8x/sec
+        // instead of 60x/sec. Other pets ignore wavePhase entirely.
+        val waveBucket = if (Species.Feature.TENTACLES in species.features || aura) (wavePhase / 0.25f).toInt() else 0
+        val petKey = "${species.id}|$mood|$blinking|$aura|$auraStyle|$waveBucket"
+        val pet = if (petKey == cachedPetKey && cachedPet != null) {
+            cachedPet!!
+        } else {
+            cachedPet?.recycle()
+            PetRenderer.render(species, mood, cellPx, blink = blinking, aura = aura, auraStyle = auraStyle, wavePhase = wavePhase).also {
+                cachedPet = it
+                cachedPetKey = petKey
+            }
+        }
         val petW = pet.width.toFloat()
         val petH = pet.height.toFloat()
         val scale = ((width.coerceAtMost(height) * 0.62f) / petW).coerceAtMost(3.2f)
@@ -435,7 +459,7 @@ class PetView @JvmOverloads constructor(
         } else {
             PetRenderer.drawScaled(c, pet, dst)
         }
-        pet.recycle()
+        // (pet bitmap is owned by the frame cache now — no recycle here)
 
         // ---- v3 Phase 3: power overlays (all additive) ----
         if (now < trailUntil) { // unicorn rainbow trail behind the pet
