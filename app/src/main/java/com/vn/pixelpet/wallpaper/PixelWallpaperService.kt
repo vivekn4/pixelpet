@@ -3,7 +3,6 @@ package com.vn.pixelpet.wallpaper
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import android.content.IntentFilter
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
@@ -74,9 +73,17 @@ class PixelWallpaperService : WallpaperService() {
         private var petPx: Float = 0f
         private var stars: List<Pair<Float, Float>> = emptyList()
 
-        // Cached pet bitmap + the key it was rendered for.
+        // Cached pet bitmap + the components of the key it was rendered for.
+        // Compared field-by-field: building the key String every frame was
+        // one needless allocation per frame on the draw path.
         private var petBitmap: android.graphics.Bitmap? = null
-        private var petKey: String = ""
+        private var lastVariantId: String = ""
+        private var lastMood: PetRenderer.Mood = PetRenderer.Mood.CONTENT
+        private var lastWalkPhase: Int = -1
+        private var lastBlinking: Boolean = false
+        private var lastAuraSkin: AuraSkin? = null
+        private var lastSquashBucket: Int = Int.MIN_VALUE
+        private var forceRender: Boolean = true
         private var mood: PetRenderer.Mood = PetRenderer.Mood.CONTENT
         private var auraSkin: AuraSkin? = null
         // Pet state refreshed at most twice a second by drawFrame(); drawOnce()
@@ -135,20 +142,8 @@ class PixelWallpaperService : WallpaperService() {
             super.onCreate(surfaceHolder)
             setTouchEventsEnabled(true)
             lastInteractionMs = SystemClock.uptimeMillis()
-            applicationContext.registerReceiver(
-                screenReceiver,
-                IntentFilter().apply {
-                    addAction(Intent.ACTION_SCREEN_OFF)
-                    addAction(Intent.ACTION_SCREEN_ON)
-                }
-            )
-            applicationContext.registerReceiver(
-                screenToggle,
-                IntentFilter().apply {
-                    addAction(Intent.ACTION_SCREEN_OFF)
-                    addAction(Intent.ACTION_SCREEN_ON)
-                }
-            )
+            ScreenReceiver.register(applicationContext, screenReceiver)
+            ScreenReceiver.register(applicationContext, screenToggle)
         }
 
         override fun onDestroy() {
@@ -185,7 +180,7 @@ class PixelWallpaperService : WallpaperService() {
             stars = List(70) { rng.nextFloat() to rng.nextFloat() }
             petBitmap?.recycle()
             petBitmap = null
-            petKey = ""
+            forceRender = true
         }
 
         override fun onSurfaceDestroyed(holder: SurfaceHolder) {
@@ -270,8 +265,12 @@ class PixelWallpaperService : WallpaperService() {
                 val dy = walk.y - liftPx + petPx * (1f - sy) / 2f
                 dstRect.set(dx, dy, dx + petPx, dy + petPx * sy)
                 val dst = dstRect
-                val key = "${variant.id}|$mood|${walk.walkPhase}|$blinking|${auraSkin?.name}|${(walk.squashStretch * 4).toInt()}"
-                if (key != petKey || petBitmap == null) {
+                val squashBucket = (walk.squashStretch * 4).toInt()
+                if (forceRender || petBitmap == null ||
+                    variant.id != lastVariantId || mood != lastMood ||
+                    walk.walkPhase != lastWalkPhase || blinking != lastBlinking ||
+                    auraSkin != lastAuraSkin || squashBucket != lastSquashBucket
+                ) {
                     petBitmap?.recycle()
                     val cellPx = (petPx / 24f).toInt().coerceIn(6, 24)
                     petBitmap = PetRenderer.renderVariant(
@@ -283,7 +282,13 @@ class PixelWallpaperService : WallpaperService() {
                         walkPhase = walk.walkPhase,
                         legs = true
                     )
-                    petKey = key
+                    lastVariantId = variant.id
+                    lastMood = mood
+                    lastWalkPhase = walk.walkPhase
+                    lastBlinking = blinking
+                    lastAuraSkin = auraSkin
+                    lastSquashBucket = squashBucket
+                    forceRender = false
                 }
                 val bmp = petBitmap ?: return
                 // Soft ground shadow under the pet.
