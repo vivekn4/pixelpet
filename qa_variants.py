@@ -12,7 +12,10 @@ Run: python3 qa_variants.py  (exit 0 = all 108 variants renderable)
 import re
 import sys
 
-BASE = "/home/hatch/workspace/repos/pixelpet/app/src/main/java/com/vn/pixelpet"
+# Accept an explicit java-dir argument (qa_golden.py passes the repo's java
+# dir); default keeps the canonical checkout path for backward compat.
+BASE = sys.argv[1] if len(sys.argv) > 1 else \
+    "/home/hatch/workspace/repos/pixelpet/app/src/main/java/com/vn/pixelpet"
 errors = []
 
 variant_src = open(f"{BASE}/Variant.kt").read()
