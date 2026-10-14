@@ -97,17 +97,21 @@ if "snapshot()" in draw_once_code:
 if "cachedState" not in draw_once_code:
     ft_errors.append("drawOnce must read the cached 500ms state, not snapshot()")
 # bitmap cached by key; reused rects
-if "petKey" not in wp or "if (key != petKey" not in wp:
-    ft_errors.append("wallpaper must cache the pet bitmap by render key")
+# Legacy String-key form OR field-compared components (hardening pass:
+# same coverage, 0 String allocs/frame).
+has_legacy_key = "petKey" in wp and "if (key != petKey" in wp
+has_field_key = "forceRender" in wp and "lastVariantId" in wp
+if not (has_legacy_key or has_field_key):
+    ft_errors.append("wallpaper must cache the pet bitmap by render key (String key or field-compared components)")
 if "private val dstRect" not in wp or "private val shadowRect" not in wp:
     ft_errors.append("wallpaper must reuse dstRect/shadowRect fields (no per-frame RectF)")
 # starfield built on surface change, not per frame
 m2 = re.search(r"override fun onSurfaceChanged.*?\n        \}", wp, re.S)
 if not m2 or "stars = List(70)" not in m2.group(0):
     ft_errors.append("starfield must be built in onSurfaceChanged, not per frame")
-# known per-frame costs, documented not hidden: 1 key-string alloc, 70 sin()
-if "val key =" not in draw_once_code:
-    ft_errors.append("drawOnce must build the render key (expected 1 String alloc/frame)")
+# known per-frame costs, documented not hidden: 0 key allocs (field-compare), 70 sin()
+if "val key =" in draw_once_code:
+    ft_errors.append("drawOnce must not build a key String per frame (field-compare instead)")
 if ft_errors:
     record("frame-time static bounds", "FAIL", "; ".join(ft_errors))
 else:
