@@ -6,7 +6,10 @@ every Feature referenced exists in the Feature enum and is drawn in PetRenderer.
 import re
 import sys
 
-BASE = "/home/hatch/workspace/repos/pixelpet/app/src/main/java/com/vn/pixelpet"
+# Accept an explicit java-dir argument (qa_golden.py passes the repo's java
+# dir); default keeps the canonical checkout path for backward compat.
+BASE = sys.argv[1] if len(sys.argv) > 1 else \
+    "/home/hatch/workspace/repos/pixelpet/app/src/main/java/com/vn/pixelpet"
 errors = []
 
 species_src = open(f"{BASE}/Species.kt").read()
