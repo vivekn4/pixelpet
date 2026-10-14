@@ -4,7 +4,6 @@ import android.animation.ValueAnimator
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
-import android.content.IntentFilter
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
@@ -54,10 +53,7 @@ class MainActivity : Activity() {
         WidgetUpdateJob.schedule(this)
 
         // Sleep/wake tracking (dynamic registration — manifest does not work for these).
-        registerReceiver(screenReceiver, IntentFilter().apply {
-            addAction(Intent.ACTION_SCREEN_OFF)
-            addAction(Intent.ACTION_SCREEN_ON)
-        })
+        ScreenReceiver.register(this, screenReceiver)
 
         petView = findViewById(R.id.pet_view)
         moodLabel = findViewById(R.id.mood_label)
@@ -165,18 +161,26 @@ class MainActivity : Activity() {
         refresh()
         maybeAttentionNudge()
 
-        val mins = DoomscrollMonitor.maybeAutoLog(this, repo)
-        if (mins != null) {
-            Toast.makeText(
-                this,
-                getString(R.string.notif_auto_doom, mins, petName()),
-                Toast.LENGTH_LONG
-            ).show()
-            petView.sulkAnim()
-            SfxEngine.play("sulk_slide")
-            Haptics.sulkBuzz(this)
-            refresh()
-        }
+        // Hardening: the UsageStats query is an IPC call that can stall the
+        // UI thread on low-end devices — run it on a background thread and
+        // post the (rare) positive result back to the UI thread.
+        Thread({
+            val mins = DoomscrollMonitor.maybeAutoLog(this, repo)
+            if (mins != null) {
+                runOnUiThread {
+                    if (isFinishing || isDestroyed) return@runOnUiThread
+                    Toast.makeText(
+                        this,
+                        getString(R.string.notif_auto_doom, mins, petName()),
+                        Toast.LENGTH_LONG
+                    ).show()
+                    petView.sulkAnim()
+                    SfxEngine.play("sulk_slide")
+                    Haptics.sulkBuzz(this)
+                    refresh()
+                }
+            }
+        }, "doomscroll-check").start()
     }
 
     private fun petName(): String = repo.snapshot().species.displayName
