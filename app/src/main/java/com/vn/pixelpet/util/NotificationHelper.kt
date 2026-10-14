@@ -3,6 +3,7 @@ package com.vn.pixelpet.util
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
+import android.content.pm.PackageManager
 import android.os.Build
 
 /**
@@ -28,6 +29,13 @@ object NotificationHelper {
     }
 
     fun notifyAttentionNeeded(context: Context, petName: String) {
+        // Hardening (API 33+): POST_NOTIFICATIONS is a runtime permission.
+        // Check it first instead of relying on the exception below — a denied
+        // permission is an expected state, not an error.
+        if (Build.VERSION.SDK_INT >= 33 &&
+            context.checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS)
+                != PackageManager.PERMISSION_GRANTED
+        ) return
         ensureChannel(context)
         val nm = context.getSystemService(NotificationManager::class.java) ?: return
         val notif = android.app.Notification.Builder(context, CHANNEL_ID)
