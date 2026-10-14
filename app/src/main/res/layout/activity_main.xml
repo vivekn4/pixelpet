@@ -27,7 +27,9 @@
             android:textColor="@color/text"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:fontFamily="monospace" />
+            android:fontFamily="monospace"
+            android:maxLines="1"
+            android:ellipsize="end" />
 
         <Button
             android:id="@+id/btn_species"
