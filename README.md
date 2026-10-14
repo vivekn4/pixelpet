@@ -104,6 +104,13 @@ re-rendered on every stat tick and on tap. Quick-feed button included.
 
 Requires JDK 17. No API keys, no paid services, no accounts.
 
+**Compatibility:** Android 8.0 (API 26) or newer — minSdk 26, zero external
+dependencies, no Google Play Services, no network calls. Every Android API
+call in the app is audited against API 26 (calls above 26 are
+version-guarded). Real-device coverage is tracked in
+[DEVICE_TEST.md](DEVICE_TEST.md) — results are pending user testing; no
+device is claimed as verified until it is actually run.
+
 ```bash
 ./gradlew assembleDebug
 # APK: app/build/outputs/apk/debug/app-debug.apk
@@ -184,7 +191,7 @@ V3 plan (108 variants, walking, personality, Native Brain, 23 powers): [PLAN_V3.
 ## Roadmap
 
 Phase 5: full golden suite, migration test, frame-time test, real-device install
-test on S26 Ultra, real screenshot capture. Beyond that: Goal XP levels · pet
+tests across the device matrix (see DEVICE_TEST.md), real screenshot capture. Beyond that: Goal XP levels · pet
 evolution stages · "Pip misses you" reminders · Wear OS tile · per-app pickers
 for auto-detect · cloud backup.
 
