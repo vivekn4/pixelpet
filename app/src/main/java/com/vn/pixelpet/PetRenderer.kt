@@ -20,7 +20,22 @@ object PetRenderer {
     private const val GW = 24
     private const val GH = 24 // extra room for ears/horns/tentacles
 
-    private fun paint(hex: String) = Paint().apply { isAntiAlias = false; color = Color.parseColor(hex) }
+    // ---- hardening: cached Paints / colors (no per-render allocation) ----
+    // All callers (PetView, wallpaper, widget) run on the main thread, so
+    // sharing these Paint instances is safe. Paints from paint() are never
+    // mutated after creation; the glow / bubble Paints below are hoisted and
+    // fully reset (color + alpha) on every use before drawing.
+    private val paintCache = mutableMapOf<String, Paint>()
+    private val mixCache = mutableMapOf<Triple<String, String, Float>, String>()
+    private val glowPaint = Paint().apply { isAntiAlias = false }
+    private val sleepZPaint = Paint().apply { isAntiAlias = false; color = Color.parseColor("#B9B9E8") }
+    private val scalePaint = Paint().apply { isAntiAlias = false; isFilterBitmap = false }
+    private val bubblePaint = Paint().apply { isAntiAlias = false }
+    private val bubbleDarkPaint = Paint().apply { isAntiAlias = false }
+    private val bubbleRect = RectF()
+
+    private fun paint(hex: String): Paint =
+        paintCache.getOrPut(hex) { Paint().apply { isAntiAlias = false; color = Color.parseColor(hex) } }
 
     /** Derive mood purely from stats. Sulk overrides everything except sleep/sick. */
     fun moodFor(state: PetState, nowElapsed: Long, nowWall: Long): Mood {
@@ -168,12 +183,9 @@ object PetRenderer {
                 val ox = (12 + 9 * kotlin.math.cos(a)).toInt()
                 val oy = (12 + 8 * sin(a)).toInt()
                 val size = if (auraStyle == AuraSkin.EMBER) 2 else 1
-                val glow = Paint().apply {
-                    isAntiAlias = false
-                    color = palette[i % palette.size]
-                    alpha = 90
-                }
-                r(ox, oy, size, size, glow)
+                glowPaint.color = palette[i % palette.size]
+                glowPaint.alpha = 90
+                r(ox, oy, size, size, glowPaint)
             }
         }
 
@@ -350,9 +362,8 @@ object PetRenderer {
                 r(9, 4, 1, 1, tear); r(12, 4, 1, 1, tear); r(15, 4, 1, 1, tear)
             }
             Mood.SLEEPING -> {
-                val zp = Paint().apply { isAntiAlias = false; color = Color.parseColor("#B9B9E8") }
-                zp.textSize = 3f * u
-                c.drawText("Z", 18 * u, 5 * u, zp)
+                sleepZPaint.textSize = 3f * u
+                c.drawText("Z", 18 * u, 5 * u, sleepZPaint)
             }
             Mood.SICK -> { r(3, 8, 2, 1, tear); r(20, 9, 2, 1, tear) } // sickly puffs
             else -> {}
@@ -402,18 +413,20 @@ object PetRenderer {
 
     /** Draw [src] scaled with nearest-neighbor (crisp pixels) into [dst]. */
     fun drawScaled(c: Canvas, src: Bitmap, dst: RectF) {
-        val p = Paint().apply { isAntiAlias = false; isFilterBitmap = false }
-        c.drawBitmap(src, null, dst, p)
+        c.drawBitmap(src, null, dst, scalePaint)
     }
 
     /** Draws the "!" attention bubble above the pet; caller positions via [cx]/[top]. */
     fun drawAttentionBubble(c: Canvas, cx: Float, top: Float, cellPx: Float, pulse: Float) {
-        val bubble = Paint().apply { isAntiAlias = false; color = Color.parseColor("#FFD54A") }
-        val dark = Paint().apply { isAntiAlias = false; color = Color.parseColor("#14141F") }
+        bubblePaint.color = Color.parseColor("#FFD54A")
+        bubbleDarkPaint.color = Color.parseColor("#14141F")
+        val bubble = bubblePaint
+        val dark = bubbleDarkPaint
         val s = cellPx * (1 + 0.12f * sin(pulse))
         val w = 5 * s; val h = 6 * s
         val x0 = cx - w / 2
-        c.drawRoundRect(RectF(x0, top, x0 + w, top + h), 4f, 4f, bubble)
+        bubbleRect.set(x0, top, x0 + w, top + h)
+        c.drawRoundRect(bubbleRect, 4f, 4f, bubble)
         // "!"
         val bx = cx - s / 2
         c.drawRect(bx, top + s, bx + s, top + 3.4f * s, dark)
@@ -422,13 +435,14 @@ object PetRenderer {
         c.drawRect(cx - s / 2, top + h - 1, cx + s / 2, top + h + s, bubble)
     }
 
-    private fun mix(hex1: String, hex2: String, t: Float): String {
-        val c1 = Color.parseColor(hex1); val c2 = Color.parseColor(hex2)
-        val r = (Color.red(c1) + (Color.red(c2) - Color.red(c1)) * t).toInt()
-        val g = (Color.green(c1) + (Color.green(c2) - Color.green(c1)) * t).toInt()
-        val b = (Color.blue(c1) + (Color.blue(c2) - Color.blue(c1)) * t).toInt()
-        return String.format("#%02X%02X%02X", r, g, b)
-    }
+    private fun mix(hex1: String, hex2: String, t: Float): String =
+        mixCache.getOrPut(Triple(hex1, hex2, t)) {
+            val c1 = Color.parseColor(hex1); val c2 = Color.parseColor(hex2)
+            val r = (Color.red(c1) + (Color.red(c2) - Color.red(c1)) * t).toInt()
+            val g = (Color.green(c1) + (Color.green(c2) - Color.green(c1)) * t).toInt()
+            val b = (Color.blue(c1) + (Color.blue(c2) - Color.blue(c1)) * t).toInt()
+            String.format("#%02X%02X", r, g, b)
+        }
 }
 
 private typealias Feature = Species.Feature
