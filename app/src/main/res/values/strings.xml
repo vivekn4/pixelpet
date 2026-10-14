@@ -89,36 +89,19 @@
     <string name="premium_welcome">Welcome to Premium! %1$d new friends unlocked. 👑</string>
     <string name="premium_bad_key">That key didn\'t check out. Try again.</string>
     <string name="premium_locked_out">Too many tries — try again after %1$s.</string>
-    <!-- v3 phase 2: personality -->
-    <string name="personality_title">Pip\'s Personality</string>
-    <string name="personality_learned_title">Pip learned</string>
-    <string name="personality_learned_empty">Pip is still getting to know you. After a few days together, this is where Pip will show what it has noticed — like the times you usually play, or your favorite ways to care.</string>
-    <string name="personality_says">Pip says</string>
-    <string name="personality_got_it">Got it</string>
-    <string name="btn_personality">🧠</string>
-    <string name="personality_trait_playful">Playful ↔ Calm</string>
-    <string name="personality_trait_bold">Bold ↔ Shy</string>
-    <string name="personality_trait_greedy">Greedy ↔ Picky</string>
-    <string name="personality_trait_social">Social ↔ Independent</string>
-    <string name="personality_trait_neat">Neat ↔ Messy</string>
-    <!-- v3 phase 3: powers + brain -->
-    <string name="btn_power">✨ Power</string>
-    <string name="power_cooldown">Pip needs a rest — %1$s left.</string>
-    <string name="power_stash_munched">Cheek stash munched! +5 hunger. 🐹</string>
-    <string name="power_streak_restored">Rebirth! One missed streak day restored. 🔥</string>
-    <string name="power_streak_nothing">No missed day to restore — your streak is safe.</string>
-    <string name="power_night_watch_title">Night Watch</string>
-    <string name="power_night_watch_msg">Tomorrow\'s first goal: %1$s</string>
-    <string name="power_night_watch_empty">No goals yet — add one and Pip will keep watch over it.</string>
-    <string name="power_fetch_gift">Pip fetched a gift: %1$s! 🎁</string>
-    <!-- v3 phase 4: aura skins -->
-    <string name="aura_title">✨ Aura skins</string>
-    <string name="aura_desc">Premium-only glow styles for Pip. Look only — never powers or progression.</string>
-    <string name="aura_current">Current aura: %1$s</string>
-    <string name="aura_premium_only">Aura skins need Premium 👑</string>
-    <string name="aura_gold">Gold Orbit</string>
-    <string name="aura_rainbow">Rainbow Trail</string>
-    <string name="aura_ember">Ember Glow</string>
-    <string name="aura_starlight">Starlight</string>
-    <string name="aura_none">No Aura</string>
+
+    <!-- v2.1: progression + tiered nudges -->
+    <string name="pet_name_level">%1$s · Lv %2$d</string>
+    <string name="stage_up_toast">🌱 %1$s grew up! Now a %2$s — keep the care coming!</string>
+    <string name="level_up_toast">⭐ %1$s reached level %2$d! Pip is thriving thanks to you.</string>
+    <string name="nudge_sick_title">🤒 %1$s is sick!</string>
+    <string name="nudge_sick_body">%1$s has been hungry too long. A goal or snack will help them recover.</string>
+    <string name="nudge_hungry_title">🍽 %1$s is hungry!</string>
+    <string name="nudge_hungry_body">%1$s is at %2$d hunger. Complete a goal to feed them.</string>
+    <string name="nudge_lonely_title">💛 %1$s misses you</string>
+    <string name="nudge_lonely_body">%1$s needs attention. Pop in and give them a pat.</string>
+    <string name="nudge_tired_title">😴 %1$s is exhausted</string>
+    <string name="nudge_tired_body">%1$s is running on empty. Let them rest, then play later.</string>
+    <string name="nudge_sad_title">🌧 %1$s is feeling down</string>
+    <string name="nudge_sad_body">%1$s could use some cheering up. A little playtime goes a long way.</string>
 </resources>

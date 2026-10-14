@@ -4,6 +4,7 @@ import android.animation.ValueAnimator
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
+import android.content.IntentFilter
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
@@ -17,9 +18,9 @@ import android.widget.TextView
 import android.widget.Toast
 import com.vn.pixelpet.doomscroll.DoomscrollMonitor
 import com.vn.pixelpet.util.NotificationHelper
+import com.vn.pixelpet.util.NudgeEngine
 import com.vn.pixelpet.util.ScreenReceiver
 import com.vn.pixelpet.widget.PixelPetWidgetProvider
-import com.vn.pixelpet.widget.WidgetUpdateJob
 
 class MainActivity : Activity() {
 
@@ -34,10 +35,6 @@ class MainActivity : Activity() {
     private lateinit var btnMute: Button
     private val screenReceiver = ScreenReceiver()
     private lateinit var gestures: GestureDetector
-    // v3 Phase 3: on-device learning + family powers
-    private var brain: NativeBrain? = null
-    private var cooldowns: PowerManager.Cooldowns = PowerManager.Cooldowns()
-    private var powerButton: Button? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,14 +43,12 @@ class MainActivity : Activity() {
         repo = PetRepository.get(this)
         SfxEngine.init(applicationContext, repo.snapshot().muted)
         NotificationHelper.ensureChannel(this)
-        // v3 Phase 4 fix: schedule the periodic widget refresh here too, not
-        // only from BootReceiver — a fresh install/update gets the 30-min
-        // refresh without waiting for the first reboot. schedule() is
-        // idempotent (same JOB_ID replaces), so double-scheduling is safe.
-        WidgetUpdateJob.schedule(this)
 
-        // Sleep/wake tracking (dynamic registration — manifest does not work for these).
-        ScreenReceiver.register(this, screenReceiver)
+        // Sleep/wake tracking (dynamic registration — manifest doesn't work for these).
+        registerReceiver(screenReceiver, IntentFilter().apply {
+            addAction(Intent.ACTION_SCREEN_OFF)
+            addAction(Intent.ACTION_SCREEN_ON)
+        })
 
         petView = findViewById(R.id.pet_view)
         moodLabel = findViewById(R.id.mood_label)
@@ -97,15 +92,6 @@ class MainActivity : Activity() {
             SfxEngine.play("ui_click")
             startActivity(Intent(this, SpeciesActivity::class.java))
         }
-        findViewById<Button>(R.id.btn_personality).setOnClickListener {
-            SfxEngine.play("ui_click")
-            startActivity(Intent(this, PersonalityActivity::class.java))
-        }
-        // v3 Phase 3: load brain + cooldowns, wire the power button
-        loadBrain()
-        loadCooldowns()
-        powerButton = findViewById(R.id.btn_power)
-        powerButton?.setOnClickListener { doPower() }
         findViewById<Button>(R.id.btn_premium).setOnClickListener {
             SfxEngine.play("ui_click")
             startActivity(Intent(this, PremiumActivity::class.java))
@@ -150,7 +136,6 @@ class MainActivity : Activity() {
         val recap = repo.lastRecap
         if (recap.isNotEmpty()) {
             repo.lastRecap = ""
-            recordBrain(NativeBrain.Action.WAKE)
             SfxEngine.play("wake_chime")
             AlertDialog.Builder(this)
                 .setTitle(getString(R.string.wake_title))
@@ -159,28 +144,23 @@ class MainActivity : Activity() {
                 .show()
         }
         refresh()
-        maybeAttentionNudge()
+        // Opening the app counts as "checked in": it suppresses background
+        // nudges for a while and dismisses any nudge currently showing.
+        NudgeEngine.noteAppOpened(this)
+        NotificationHelper.cancelAttention(this)
 
-        // Hardening: the UsageStats query is an IPC call that can stall the
-        // UI thread on low-end devices — run it on a background thread and
-        // post the (rare) positive result back to the UI thread.
-        Thread({
-            val mins = DoomscrollMonitor.maybeAutoLog(this, repo)
-            if (mins != null) {
-                runOnUiThread {
-                    if (isFinishing || isDestroyed) return@runOnUiThread
-                    Toast.makeText(
-                        this,
-                        getString(R.string.notif_auto_doom, mins, petName()),
-                        Toast.LENGTH_LONG
-                    ).show()
-                    petView.sulkAnim()
-                    SfxEngine.play("sulk_slide")
-                    Haptics.sulkBuzz(this)
-                    refresh()
-                }
-            }
-        }, "doomscroll-check").start()
+        val mins = DoomscrollMonitor.maybeAutoLog(this, repo)
+        if (mins != null) {
+            Toast.makeText(
+                this,
+                getString(R.string.notif_auto_doom, mins, petName()),
+                Toast.LENGTH_LONG
+            ).show()
+            petView.sulkAnim()
+            SfxEngine.play("sulk_slide")
+            Haptics.sulkBuzz(this)
+            refresh()
+        }
     }
 
     private fun petName(): String = repo.snapshot().species.displayName
@@ -190,13 +170,12 @@ class MainActivity : Activity() {
         val now = SystemClock.elapsedRealtime()
         val mood = PetRenderer.moodFor(state, now, System.currentTimeMillis())
         petView.species = state.species
-        // v3 Phase 4: aura for premium users on ALL variants, with the chosen skin.
-        val auraSkin = AuraSkin.effective(repo.prefsForPremium())
-        petView.aura = auraSkin != null
-        petView.auraStyle = auraSkin ?: AuraSkin.GOLD_ORBIT
+        petView.aura = PremiumManager.isPremium(repo.prefsForPremium()) &&
+            state.species.category == Species.Category.MYSTICAL
+        petView.growthScale = state.stage.scale
         petView.setMood(mood)
         petView.showAttentionBubble = state.attention < 25 && !state.sleeping
-        petNameLabel.text = state.species.displayName
+        petNameLabel.text = getString(R.string.pet_name_level, state.species.displayName, state.level)
         moodLabel.text = when (mood) {
             PetRenderer.Mood.HAPPY -> getString(R.string.mood_happy)
             PetRenderer.Mood.CONTENT -> getString(R.string.mood_content)
@@ -228,9 +207,22 @@ class MainActivity : Activity() {
             ).show()
         }
 
-        // v3 Phase 3: power button state + hamster stash
-        refreshPowerButton()
-        checkStash()
+        // Celebrate growth / level-ups earned by recent care (one-shot each:
+        // the repo marks them celebrated, so a threshold crossed while the
+        // app was closed still celebrates exactly once, on next open).
+        val stageUp = repo.checkStageUp()
+        val levelUp = repo.checkLevelUp()
+        if (stageUp != null || levelUp != null) {
+            petView.evolveAnim()
+            SfxEngine.play("evolve_fanfare")
+            Haptics.fanfare(this)
+            val msg = if (stageUp != null) {
+                getString(R.string.stage_up_toast, petName(), stageUp.displayName)
+            } else {
+                getString(R.string.level_up_toast, petName(), levelUp ?: state.level)
+            }
+            Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
+        }
     }
 
     private fun doSnack() {
@@ -239,7 +231,6 @@ class MainActivity : Activity() {
             Toast.makeText(this, getString(R.string.snack_cooldown), Toast.LENGTH_SHORT).show()
             return
         }
-        recordBrain(NativeBrain.Action.FEED_SNACK)
         petView.eatAnim()
         petView.feedAnim()
         SfxEngine.play("feed_munch")
@@ -254,7 +245,6 @@ class MainActivity : Activity() {
             Toast.makeText(this, getString(R.string.play_tired), Toast.LENGTH_SHORT).show()
             return
         }
-        recordBrain(NativeBrain.Action.PLAY)
         petView.playAnim()
         SfxEngine.play("play_giggle")
         Haptics.bounce(this)
@@ -263,21 +253,10 @@ class MainActivity : Activity() {
 
     private fun doPet() {
         repo.pet()
-        recordBrain(NativeBrain.Action.PET)
         petView.feedAnim() // hearts
         SfxEngine.play("pet_purr")
         Haptics.tick(this)
         refresh()
-    }
-
-    private fun maybeAttentionNudge() {
-        val state = repo.snapshot()
-        if (state.attention >= 25 || state.sleeping) return
-        val now = System.currentTimeMillis()
-        if (now - repo.lastAttentionNudge < 4 * 3600 * 1000L) return
-        repo.lastAttentionNudge = now
-        SfxEngine.play("attention_ping")
-        NotificationHelper.notifyAttentionNeeded(this, petName())
     }
 
     private fun requestNotifPermissionIfNeeded() {
@@ -308,7 +287,6 @@ class MainActivity : Activity() {
             .setTitle(getString(R.string.doom_title))
             .setMessage(getString(R.string.doom_msg, petName()))
             .setPositiveButton(getString(R.string.doom_confirm)) { _, _ ->
-                recordBrain(NativeBrain.Action.DOOMSCROLL)
                 repo.logDoomscroll()
                 petView.sulkAnim()
                 SfxEngine.play("sulk_slide")
@@ -318,153 +296,5 @@ class MainActivity : Activity() {
             }
             .setNegativeButton(getString(R.string.cancel), null)
             .show()
-    }
-
-    // ================= v3 Phase 3: brain + powers =================
-
-    /** Load (or start fresh) the Native Brain for the current variant. */
-    private fun loadBrain() {
-        val variantId = VariantRoster.variantForSpeciesId(repo.snapshot().speciesId).id
-        val prefsB = getSharedPreferences(NativeBrain.PREFS_NAME, MODE_PRIVATE)
-        val saved = prefsB.getString(NativeBrain.KEY_JSON, null)
-        brain = saved?.let { NativeBrain.fromJson(it, variantId) }
-            ?: NativeBrain.fresh(variantId, System.currentTimeMillis())
-    }
-
-    private fun saveBrain() {
-        val b = brain ?: return
-        getSharedPreferences(NativeBrain.PREFS_NAME, MODE_PRIVATE)
-            .edit().putString(NativeBrain.KEY_JSON, b.toJson()).apply()
-    }
-
-    /** Record one interaction into the Brain and persist. */
-    private fun recordBrain(action: NativeBrain.Action) {
-        val b = brain ?: return
-        b.record(action, System.currentTimeMillis(), SystemClock.elapsedRealtime())
-        saveBrain()
-    }
-
-    private fun loadCooldowns() {
-        val prefsP = getSharedPreferences(
-            PowerManager.Cooldowns.PREFS_NAME, MODE_PRIVATE
-        )
-        val saved = prefsP.getString(PowerManager.Cooldowns.KEY_JSON, null)
-        cooldowns = saved?.let { PowerManager.Cooldowns.fromJson(it) }
-            ?: PowerManager.Cooldowns()
-    }
-
-    private fun saveCooldowns() {
-        getSharedPreferences(PowerManager.Cooldowns.PREFS_NAME, MODE_PRIVATE)
-            .edit().putString(PowerManager.Cooldowns.KEY_JSON, cooldowns.toJson()).apply()
-    }
-
-    /** Update the power button label / disabled state from the cooldown. */
-    private fun refreshPowerButton() {
-        val btn = powerButton ?: return
-        val variant = VariantRoster.variantForSpeciesId(repo.snapshot().speciesId)
-        val def = PowerManager.powerFor(variant.family)
-        val now = SystemClock.elapsedRealtime()
-        val remaining = cooldowns.remainingMs(variant.family, now)
-        if (remaining > 0L) {
-            // Short label on the button (it is 1/3-width); the full sentence
-            // is used in the toast when the user taps it while cooling down.
-            btn.text = "\u23F3 ${cooldowns.remainingLabel(variant.family, now)}"
-            btn.alpha = 0.45f
-            btn.isEnabled = false
-        } else {
-            btn.text = "\u2728 ${def.name}"
-            btn.alpha = 1f
-            btn.isEnabled = true
-        }
-    }
-
-    /**
-     * Hamster Cheek Stash: once the stash is due and the pet is not full,
-     * auto-feed +5 hunger and clear the stash.
-     */
-    private fun checkStash() {
-        val now = SystemClock.elapsedRealtime()
-        if (!cooldowns.stashDue(now)) return
-        val s = repo.snapshot()
-        if (s.hunger >= 95) return // wait until there is room
-        repo.feedPowerBonus(5)
-        cooldowns.consumeStash()
-        saveCooldowns()
-        Toast.makeText(this, R.string.power_stash_munched, Toast.LENGTH_SHORT).show()
-        refresh()
-    }
-
-    /** Trigger the current pet family power. */
-    private fun doPower() {
-        val variant = VariantRoster.variantForSpeciesId(repo.snapshot().speciesId)
-        val def = PowerManager.powerFor(variant.family)
-        val now = SystemClock.elapsedRealtime()
-
-        // Phoenix Rebirth: only consume the weekly cooldown when there IS a
-        // missed day to restore — otherwise it would burn a week for nothing.
-        if (def.statEffect == PowerManager.StatEffect.STREAK_RESTORE &&
-            !repo.canRestoreStreakDay()
-        ) {
-            Toast.makeText(this, R.string.power_streak_nothing, Toast.LENGTH_SHORT).show()
-            return
-        }
-        if (cooldowns.trigger(variant.family, now) == null) {
-            Toast.makeText(
-                this,
-                getString(R.string.power_cooldown, cooldowns.remainingLabel(variant.family, now)),
-                Toast.LENGTH_SHORT
-            ).show()
-            return
-        }
-        saveCooldowns()
-        recordBrain(NativeBrain.Action.POWER)
-
-        // Stat effect first (repo-side), then the visual hook.
-        when (def.statEffect) {
-            PowerManager.StatEffect.CURE_SICKNESS -> repo.cureSickness()
-            PowerManager.StatEffect.POWER_SNACK_10 -> repo.feedPowerBonus(10)
-            PowerManager.StatEffect.STASH_SNACK -> {
-                cooldowns.stashSnack(now)
-                saveCooldowns()
-            }
-            PowerManager.StatEffect.SHIELD_1H -> repo.activateShield(3600000L)
-            PowerManager.StatEffect.ENERGY_25 -> repo.feedEnergy(25)
-            PowerManager.StatEffect.HAPPINESS_5 -> repo.addHappiness(5)
-            PowerManager.StatEffect.STREAK_RESTORE -> {
-                if (repo.restoreMissedStreakDay()) {
-                    Toast.makeText(this, R.string.power_streak_restored, Toast.LENGTH_SHORT).show()
-                }
-            }
-            PowerManager.StatEffect.NONE -> Unit
-        }
-        // v3 Phase 4: premium sparkle on any variant (look only). Keyed off
-        // premium status, NOT aura choice — a premium user who picks aura
-        // NONE still gets the gold sparkles.
-        petView.powerFx(def.fx, premium = PremiumManager.isPremium(repo.prefsForPremium()))
-        SfxEngine.play("power_chime")
-
-        // Dog Fetch Gift: a cosmetic toast gift (no coin economy exists).
-        if (variant.family == VariantRoster.Family.DOG) {
-            val gifts = listOf("a shiny pebble", "a pinecone", "a feather", "a tiny stick")
-            val gift = gifts[(now / 1000L % gifts.size).toInt()]
-            Toast.makeText(this, getString(R.string.power_fetch_gift, gift), Toast.LENGTH_SHORT).show()
-        }
-
-        // Owl Night Watch: tomorrow first goal as a reminder.
-        if (def.specialUi == PowerManager.SpecialUi.NIGHT_WATCH) {
-            val goals = repo.getGoals()
-            val first = goals.firstOrNull { !it.completed }
-            val msg = if (first != null) {
-                getString(R.string.power_night_watch_msg, first.name)
-            } else {
-                getString(R.string.power_night_watch_empty)
-            }
-            AlertDialog.Builder(this)
-                .setTitle(R.string.power_night_watch_title)
-                .setMessage(msg)
-                .setPositiveButton(android.R.string.ok, null)
-                .show()
-        }
-        refresh()
     }
 }

@@ -23,15 +23,6 @@ class PetRepository private constructor(appContext: Context) {
         appContext.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
     private val exec: ExecutorService = Executors.newSingleThreadExecutor()
 
-    // ---- hardening: avoid redundant JSON parse + disk writes ----
-    // snapshot() is called on hot paths (wallpaper 2x/sec, widget refresh,
-    // every haptic check). The pet blob only changes via persist(), so cache
-    // the last parsed state keyed by its blob: same blob -> same state, no
-    // re-parse. persist() keeps the cache in sync. PetState is immutable, so
-    // sharing the cached instance is safe (tick() always copies).
-    @Volatile private var cachedBlob: String? = null
-    private var cachedState: PetState? = null
-
     // ---- tuning ----
     private val hungerPerHr = 4f
     private val happyPerHr = 3f
@@ -52,26 +43,17 @@ class PetRepository private constructor(appContext: Context) {
         val e = nowElapsed(); val w = nowWall()
         val blob = prefs.getString(K_PET + id, null)
         if (blob != null) {
-            synchronized(this) {
-                if (blob == cachedBlob && cachedState != null && cachedState?.speciesId == id) {
-                    return cachedState!!
-                }
-            }
             try {
-                val parsed = petFromJson(JSONObject(blob), e, w)
-                synchronized(this) { cachedBlob = blob; cachedState = parsed }
-                return parsed
+                // Pre-progression saves have no care-points field: seed it from
+                // lifetime goals so long-time keepers don't restart at Baby.
+                return petFromJson(JSONObject(blob), e, w, careFallback = totalGoals())
             } catch (t: Throwable) { /* fall through to fresh */ }
         }
         return PetState.fresh(id, e, w)
     }
 
     private fun persist(s: PetState) {
-        val json = petToJson(s).toString()
-        prefs.edit().putString(K_PET + s.speciesId, json).apply()
-        // Keep the parse cache in sync (apply() commits to in-memory prefs
-        // first, so a concurrent readRaw sees the new blob and matches).
-        synchronized(this) { cachedBlob = json; cachedState = s }
+        prefs.edit().putString(K_PET + s.speciesId, petToJson(s).toString()).apply()
     }
 
     private fun petToJson(s: PetState): JSONObject = JSONObject()
@@ -80,19 +62,26 @@ class PetRepository private constructor(appContext: Context) {
         .put("sulk", s.sulkUntilElapsed).put("m", s.muted).put("sp", s.speciesId)
         .put("sl", s.sleeping).put("sse", s.sleepStartElapsed)
         .put("sick", s.sickSinceWall).put("snk", s.lastSnackElapsed).put("ply", s.lastPlayElapsed)
-        .put("shld", s.shieldUntilElapsed)
+        .put("xp", s.xp).put("cp", s.carePoints)
+        .put("cstage", s.celebratedStage).put("clvl", s.celebratedLevel)
 
-    private fun petFromJson(o: JSONObject, e: Long, w: Long): PetState = PetState(
-        hunger = o.optInt("h", 80), happiness = o.optInt("ha", 80),
-        energy = o.optInt("e", 90), attention = o.optInt("a", 80),
-        lastTickElapsed = o.optLong("te", e), lastTickWall = o.optLong("tw", w),
-        sulkUntilElapsed = o.optLong("sulk", 0L), muted = o.optBoolean("m", false),
-        speciesId = o.optString("sp", "cat"),
-        sleeping = o.optBoolean("sl", false), sleepStartElapsed = o.optLong("sse", 0L),
-        shieldUntilElapsed = o.optLong("shld", 0L),
-        sickSinceWall = o.optLong("sick", 0L),
-        lastSnackElapsed = o.optLong("snk", 0L), lastPlayElapsed = o.optLong("ply", 0L)
-    )
+    private fun petFromJson(o: JSONObject, e: Long, w: Long, careFallback: Int = 0): PetState {
+        val cp = if (o.has("cp")) o.optInt("cp", 0) else careFallback
+        val xp = o.optInt("xp", 0)
+        return PetState(
+            hunger = o.optInt("h", 80), happiness = o.optInt("ha", 80),
+            energy = o.optInt("e", 90), attention = o.optInt("a", 80),
+            lastTickElapsed = o.optLong("te", e), lastTickWall = o.optLong("tw", w),
+            sulkUntilElapsed = o.optLong("sulk", 0L), muted = o.optBoolean("m", false),
+            speciesId = o.optString("sp", "cat"),
+            sleeping = o.optBoolean("sl", false), sleepStartElapsed = o.optLong("sse", 0L),
+            sickSinceWall = o.optLong("sick", 0L),
+            lastSnackElapsed = o.optLong("snk", 0L), lastPlayElapsed = o.optLong("ply", 0L),
+            xp = xp, carePoints = cp,
+            celebratedStage = o.optInt("cstage", GrowthStage.forCarePoints(cp).ordinal),
+            celebratedLevel = o.optInt("clvl", CareLevels.levelForXp(xp))
+        )
+    }
 
     private fun isNight(): Boolean {
         val h = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
@@ -107,12 +96,15 @@ class PetRepository private constructor(appContext: Context) {
             dtH = ((w - raw.lastTickWall) / 3600000f).coerceIn(0f, maxDecayHours)
         }
         if (dtH <= 0f) return raw.copy(lastTickElapsed = e, lastTickWall = w)
-        // v3 Phase 3 — Turtle Shell Shield: while shielded, stats do not move at
-        // all (decay paused). Timestamps still advance so the shield can expire.
-        if (e < raw.shieldUntilElapsed) return raw.copy(lastTickElapsed = e, lastTickWall = w)
         val mult = if (raw.sleeping) sleepMultiplier else 1f
         val energyDelta = if (isNight()) nightRegenPerHr * dtH else -energyPerHr * dtH * mult
-        val happyRate = happyPerHr * mult * (if (raw.attention == 0) 2f else 1f)
+        // Coupled decay: a starving or exhausted pet's mood slides faster than
+        // the base rate — low primary stats drag happiness down with them.
+        // (Attention at zero still doubles the whole rate, as before.)
+        var happyBonus = 0f
+        if (raw.hunger < 30) happyBonus += 1.5f
+        if (raw.energy < 15) happyBonus += 1.5f
+        val happyRate = (happyPerHr * (if (raw.attention == 0) 2f else 1f) + happyBonus) * mult
         val wasHungry = raw.hunger > 0
         val next = raw.copy(
             hunger = (raw.hunger - hungerPerHr * dtH * mult).toInt().coerceIn(0, 100),
@@ -124,14 +116,6 @@ class PetRepository private constructor(appContext: Context) {
         val sick = if (next.hunger == 0 && wasHungry) w
         else if (next.hunger > 0) 0L else next.sickSinceWall
         val final = next.copy(sickSinceWall = sick)
-        // Hardening: skip the disk write when only the tick timestamps moved
-        // (stats identical). The next tick recomputes decay from the stored
-        // baseline, so skipping is decay-neutral — it just avoids a storage
-        // write on every snapshot() when nothing actually changed. Callers
-        // that mutate state (pet/snack/play/...) persist explicitly.
-        if (final.copy(lastTickElapsed = raw.lastTickElapsed, lastTickWall = raw.lastTickWall) == raw) {
-            return final
-        }
         persist(final)
         return final
     }
@@ -153,7 +137,10 @@ class PetRepository private constructor(appContext: Context) {
             happiness = (s.happiness + 15).coerceIn(0, 100),
             energy = (s.energy + 5).coerceIn(0, 100),
             attention = (s.attention + 5).coerceIn(0, 100),
-            sickSinceWall = 0L
+            sickSinceWall = 0L,
+            // XP only when the meal was actually needed; +1 care point.
+            xp = s.xp + if (s.hunger < 100) 10 else 2,
+            carePoints = s.carePoints + 1
         )
         persist(next)
         recordCareDay()
@@ -167,7 +154,9 @@ class PetRepository private constructor(appContext: Context) {
         if (nowElapsed() - s.lastSnackElapsed < 15 * 60 * 1000L) return null
         val next = s.copy(
             hunger = (s.hunger + 10).coerceIn(0, 100),
-            lastSnackElapsed = nowElapsed(), sickSinceWall = 0L
+            lastSnackElapsed = nowElapsed(), sickSinceWall = 0L,
+            xp = s.xp + if (s.hunger < 100) 4 else 1,
+            carePoints = s.carePoints + 1
         )
         persist(next)
         return next
@@ -182,7 +171,9 @@ class PetRepository private constructor(appContext: Context) {
             energy = (s.energy - 10).coerceIn(0, 100),
             happiness = (s.happiness + 20).coerceIn(0, 100),
             attention = (s.attention + 10).coerceIn(0, 100),
-            lastPlayElapsed = nowElapsed()
+            lastPlayElapsed = nowElapsed(),
+            xp = s.xp + if (s.happiness < 100) 6 else 2,
+            carePoints = s.carePoints + 1
         )
         persist(next)
         return next
@@ -193,7 +184,11 @@ class PetRepository private constructor(appContext: Context) {
         val s = tick(readRaw())
         val next = s.copy(
             attention = (s.attention + 25).coerceIn(0, 100),
-            happiness = (s.happiness + 8).coerceIn(0, 100)
+            happiness = (s.happiness + 8).coerceIn(0, 100),
+            // Petting is free and unlimited, so it earns a token +1 XP only
+            // when attention wasn't already full — and no care point, so the
+            // growth track can't be farmed by tapping.
+            xp = s.xp + if (s.attention < 100) 1 else 0
         )
         persist(next)
         return next
@@ -208,86 +203,6 @@ class PetRepository private constructor(appContext: Context) {
         )
         persist(next)
         return next
-    }
-
-    // ============ v3 Phase 3: power stat effects (additive) ============
-
-    /** Cat Purr Heal: clear the sick flag + a happiness lift. */
-    fun cureSickness(): PetState {
-        val s = tick(readRaw())
-        val next = s.copy(
-            sickSinceWall = 0L,
-            happiness = (s.happiness + 10).coerceIn(0, 100)
-        )
-        persist(next)
-        return next
-    }
-
-    /** Panda Bamboo Snack / Hamster stash: +hunger with no snack-cooldown interaction. */
-    fun feedPowerBonus(amount: Int): PetState {
-        val s = tick(readRaw())
-        val next = s.copy(
-            hunger = (s.hunger + amount).coerceIn(0, 100),
-            sickSinceWall = 0L
-        )
-        persist(next)
-        return next
-    }
-
-    /** Snake Coil Nap: fast energy restore. */
-    fun feedEnergy(amount: Int): PetState {
-        val s = tick(readRaw())
-        val next = s.copy(energy = (s.energy + amount).coerceIn(0, 100))
-        persist(next)
-        return next
-    }
-
-    /** Bunny Lucky Hop / Pig Mud Bath: small mood lift. */
-    fun addHappiness(amount: Int): PetState {
-        val s = tick(readRaw())
-        val next = s.copy(happiness = (s.happiness + amount).coerceIn(0, 100))
-        persist(next)
-        return next
-    }
-
-    /** Turtle Shell Shield: pause stat decay for [durationMs] (elapsedRealtime). */
-    fun activateShield(durationMs: Long): PetState {
-        val s = tick(readRaw())
-        val next = s.copy(shieldUntilElapsed = nowElapsed() + durationMs)
-        persist(next)
-        return next
-    }
-
-    /**
-     * Phoenix Rebirth support: true only when EXACTLY one day was missed —
-     * last care was the day before yesterday. More than one missed day, or no
-     * missed day, cannot be restored (the power restores ONE day).
-     */
-    fun canRestoreStreakDay(): Boolean {
-        val last = prefs.getString(K_LAST_CARE, "") ?: ""
-        if (last.isEmpty()) return false
-        val cal = java.util.Calendar.getInstance()
-        cal.add(java.util.Calendar.DAY_OF_YEAR, -2)
-        val fmt = java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.US)
-        val twoDaysAgo = fmt.format(cal.time)
-        return last == twoDaysAgo
-    }
-
-    /**
-     * Phoenix Rebirth: restore exactly one missed streak day. Sets last-care
-     * to yesterday and bumps the streak by one, so the next care day continues
-     * the streak instead of resetting it to 1. Returns false (no change) when
-     * there is no single missed day to restore.
-     */
-    fun restoreMissedStreakDay(): Boolean {
-        if (!canRestoreStreakDay()) return false
-        val cal = java.util.Calendar.getInstance()
-        cal.add(java.util.Calendar.DAY_OF_YEAR, -1)
-        val fmt = java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.US)
-        val yesterday = fmt.format(cal.time)
-        val streak = prefs.getInt(K_STREAK, 0) + 1
-        prefs.edit().putString(K_LAST_CARE, yesterday).putInt(K_STREAK, streak).apply()
-        return true
     }
 
     // ============ sleep / wake ============
@@ -363,12 +278,37 @@ class PetRepository private constructor(appContext: Context) {
         val e = nowElapsed(); val w = nowWall()
         val existing = prefs.getString(K_PET + id, null)
         val next = if (existing != null) {
-            try { tick(petFromJson(JSONObject(existing), e, w)) }
+            try { tick(petFromJson(JSONObject(existing), e, w, careFallback = totalGoals())) }
             catch (t: Throwable) { PetState.fresh(id, e, w).also { persist(it) } }
         } else {
             PetState.fresh(id, e, w).also { persist(it) }
         }
         return next
+    }
+
+    // ============ progression celebrations ============
+
+    /**
+     * If the active pet has grown into a new [GrowthStage] since the last
+     * celebration, mark it celebrated and return the new stage. Null otherwise.
+     * The UI calls this on refresh so growth gets its evolve celebration
+     * exactly once, even if the app was closed when the threshold was crossed.
+     */
+    fun checkStageUp(): GrowthStage? {
+        val s = tick(readRaw())
+        val stage = s.stage
+        if (stage.ordinal <= s.celebratedStage) return null
+        persist(s.copy(celebratedStage = stage.ordinal))
+        return stage
+    }
+
+    /** Same one-shot pattern for level-ups. Returns the new level, or null. */
+    fun checkLevelUp(): Int? {
+        val s = tick(readRaw())
+        val level = s.level
+        if (level <= s.celebratedLevel) return null
+        persist(s.copy(celebratedLevel = level))
+        return level
     }
 
     // ============ goals (v1, unchanged semantics) ============
@@ -427,10 +367,6 @@ class PetRepository private constructor(appContext: Context) {
         get() = prefs.getString(K_AUTOLOG_DATE, "") ?: ""
         set(v) = prefs.edit().putString(K_AUTOLOG_DATE, v).apply()
 
-    var lastAttentionNudge: Long
-        get() = prefs.getLong(K_NUDGE, 0L)
-        set(v) = prefs.edit().putLong(K_NUDGE, v).apply()
-
     /** Wake recap awaiting display; cleared when shown. */
     var lastRecap: String
         get() = prefs.getString(K_RECAP, "") ?: ""
@@ -451,7 +387,6 @@ class PetRepository private constructor(appContext: Context) {
         private const val K_GOALS_CORRUPT = "goals_corrupt_"
         private const val K_AUTODETECT = "autodetect"
         private const val K_AUTOLOG_DATE = "autolog_date"
-        private const val K_NUDGE = "last_nudge"
         private const val K_RECAP = "last_recap"
 
         @Volatile
