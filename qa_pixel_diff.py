@@ -74,19 +74,27 @@ for param in ["blink", "auraStyle", "wavePhase", "walkPhase", "legs"]:
 
 # ---------- 2. cache-key coverage: key must include every varying input ----------
 print("cache-key coverage")
-# wallpaper render key: find the `key = ...` construction in drawOnce
+# Wallpaper render key: either the legacy `val key = ...` String-key
+# construction, or the field-based guard (hardening pass: the re-render
+# `if` compares every component directly — 0 String allocs/frame).
+# Either way, all six varying inputs must gate the re-render, or the
+# bitmap can go stale.
 m = re.search(r'val key = ([^\n]+)', wallpaper)
 key_expr = m.group(1) if m else ""
-for token, what in [
-    ("variant.id", "variant"),
-    ("mood", "mood"),
-    ("walk.walkPhase", "walk phase"),
-    ("blinking", "blink"),
-    ("auraSkin", "aura skin"),
-    ("squashStretch", "squash bucket"),
+guard_m = re.search(r'if \(forceRender[^;]*?\) \{', wallpaper, re.S)
+guard_expr = guard_m.group(0) if guard_m else ""
+if not key_expr and not guard_expr:
+    err("wallpaper has no render-key guard (String key or field comparison) — stale bitmap risk")
+for legacy_token, field_token, what in [
+    ("variant.id", "variant.id", "variant"),
+    ("mood", "mood", "mood"),
+    ("walk.walkPhase", "walk.walkPhase", "walk phase"),
+    ("blinking", "blinking", "blink"),
+    ("auraSkin", "auraSkin", "aura skin"),
+    ("squashStretch", "squashBucket", "squash bucket"),
 ]:
-    if token not in key_expr:
-        err(f"wallpaper render key missing {what} ({token}) — stale bitmap risk")
+    if legacy_token not in key_expr and field_token not in guard_expr:
+        err(f"wallpaper render key missing {what} ({legacy_token}) — stale bitmap risk")
 
 # ---------- 3. golden bitmaps: assert absence (never claim they exist) ----------
 print("golden-bitmap state")
