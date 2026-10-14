@@ -64,7 +64,32 @@ class PixelPetWidgetProvider : AppWidgetProvider() {
         const val ACTION_REFRESH_WIDGET = "com.vn.pixelpet.ACTION_REFRESH_WIDGET"
         private const val PREFS_WIDGET = "pixelpet_widget"
         private const val KEY_PIN_OFFERED = "pin_offered"
-        private const val FACE_PX = 288
+
+        // ---- hardening: hoisted paints / colors (no per-refresh allocation) ----
+        // Widget updates run on the main thread, so sharing these is safe.
+        private val barPaint = Paint().apply { isAntiAlias = false }
+        private val barBgPaint = Paint().apply { isAntiAlias = false; color = Color.parseColor("#2A2A55") }
+        private val textPaint = Paint().apply {
+            isAntiAlias = false
+            color = Color.parseColor("#EDEDF7")
+            textAlign = Paint.Align.CENTER
+        }
+        private val faceBgColor = Color.parseColor("#0B0B18")
+        private val statColors = intArrayOf(
+            Color.parseColor("#FFD54A"),
+            Color.parseColor("#FF9DC6"),
+            Color.parseColor("#6AC8FF"),
+            Color.parseColor("#5AFF8A")
+        )
+
+        /**
+         * Face bitmap size, scaled by screen density so the widget stays crisp
+         * on high-dpi screens (the old fixed 288px blurred on xxhdpi+).
+         * Capped at 864px: an 864x864 ARGB bitmap is ~3MB transient, fine
+         * for a 30-min job / stat tick, and big enough for any widget size.
+         */
+        private fun facePx(context: Context): Int =
+            (288f * context.resources.displayMetrics.density).toInt().coerceIn(288, 864)
 
         /** Re-render every widget instance (called after any stat change). */
         fun refreshAll(context: Context) {
@@ -166,47 +191,42 @@ class PixelPetWidgetProvider : AppWidgetProvider() {
             walkPhase = walkPhase,
             legs = true
         )
-        val face = Bitmap.createBitmap(FACE_PX, FACE_PX, Bitmap.Config.ARGB_8888)
+        val facePx = facePx(context)
+        val k = facePx / 288f // scale bars / text with the face so proportions hold
+        val face = Bitmap.createBitmap(facePx, facePx, Bitmap.Config.ARGB_8888)
         val c = Canvas(face)
-        c.drawColor(Color.parseColor("#0B0B18"))
-        val petSize = FACE_PX * 0.62f
-        val px = (FACE_PX - petSize) / 2f + bob
-        val py = FACE_PX * 0.06f
+        c.drawColor(faceBgColor)
+        val petSize = facePx * 0.62f
+        val px = (facePx - petSize) / 2f + bob
+        val py = facePx * 0.06f
         PetRenderer.drawScaled(
             c, pet,
             android.graphics.RectF(px, py, px + petSize, py + petSize)
         )
         pet.recycle()
         // 4 mini stat bars: hunger / happiness / energy / attention.
-        val barPaint = Paint().apply { isAntiAlias = false }
-        val bgPaint = Paint().apply { isAntiAlias = false; color = Color.parseColor("#2A2A55") }
         val stats = listOf(
-            state.hunger to "#FFD54A",
-            state.happiness to "#FF9DC6",
-            state.energy to "#6AC8FF",
-            state.attention to "#5AFF8A"
+            state.hunger,
+            state.happiness,
+            state.energy,
+            state.attention
         )
-        val barW = FACE_PX * 0.72f
-        val barH = 8f
-        var by = FACE_PX * 0.74f
-        for ((value, hex) in stats) {
-            c.drawRect((FACE_PX - barW) / 2f, by, (FACE_PX + barW) / 2f, by + barH, bgPaint)
-            barPaint.color = Color.parseColor(hex)
+        val barW = facePx * 0.72f
+        val barH = 8f * k
+        var by = facePx * 0.74f
+        for ((index, value) in stats.withIndex()) {
+            c.drawRect((facePx - barW) / 2f, by, (facePx + barW) / 2f, by + barH, barBgPaint)
+            barPaint.color = statColors[index]
             c.drawRect(
-                (FACE_PX - barW) / 2f, by,
-                (FACE_PX - barW) / 2f + barW * (value.coerceIn(0, 100) / 100f), by + barH,
+                (facePx - barW) / 2f, by,
+                (facePx - barW) / 2f + barW * (value.coerceIn(0, 100) / 100f), by + barH,
                 barPaint
             )
-            by += barH + 5f
+            by += barH + 5f * k
         }
         // Name label.
-        val textPaint = Paint().apply {
-            isAntiAlias = false
-            color = Color.parseColor("#EDEDF7")
-            textSize = 22f
-            textAlign = Paint.Align.CENTER
-        }
-        c.drawText(variant.displayName, FACE_PX / 2f, FACE_PX - 10f, textPaint)
+        textPaint.textSize = 22f * k
+        c.drawText(variant.displayName, facePx / 2f, facePx - 10f * k, textPaint)
         return face
     }
 }
