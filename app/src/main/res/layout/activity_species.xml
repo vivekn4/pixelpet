@@ -30,7 +30,9 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:numColumns="2"
+        android:numColumns="auto_fit"
+        android:columnWidth="132dp"
+        android:stretchMode="columnWidth"
         android:verticalSpacing="8dp"
         android:horizontalSpacing="8dp"
         android:clipToPadding="false" />
