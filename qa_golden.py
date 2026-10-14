@@ -24,16 +24,12 @@ by render key, reused RectFs, starfield built on surface change, not
 per frame. True p95 measurement is device-only (see DEVICE_TEST.md).
 
 Run:  python3 qa_golden.py [--root <repo-root>]
-Exit 0 = every runnable suite passes. Suites whose hardcoded checkout
-path is absent are reported SKIP (environment), never silently counted
-as pass.
-"""
+Exit 0 = every runnable suite passes. """
 import os, re, subprocess, sys
 
 ROOT = sys.argv[sys.argv.index("--root") + 1] if "--root" in sys.argv \
     else os.path.dirname(os.path.abspath(__file__))
 JAVA = os.path.join(ROOT, "app/src/main/java/com/vn/pixelpet")
-CANONICAL_BASE = "/home/hatch/workspace/repos/pixelpet/app/src/main/java/com/vn/pixelpet"
 
 results = []  # (name, status, detail)
 errors = []
@@ -55,15 +51,9 @@ def run_suite(name, cmd, cwd):
     return ("FAIL", tail[:160])
 
 # ---------- 1. sibling suites ----------
-# qa_species / qa_variants hardcode CANONICAL_BASE: only meaningful there.
-for name in ["qa_species.py", "qa_variants.py"]:
-    if os.path.isdir(CANONICAL_BASE):
-        st, detail = run_suite(name, ["python3", os.path.join(ROOT, name)], ROOT)
-        record(name, st, detail)
-    else:
-        record(name, "SKIP", f"hardcoded BASE {CANONICAL_BASE} absent in this environment")
-# qa_walk / qa_brain accept a root argument.
-for name in ["qa_walk.py", "qa_brain.py"]:
+# All sibling suites accept the java dir as argv[1] (qa_species /
+# qa_variants gained this in Phase 5; qa_walk / qa_brain already had it).
+for name in ["qa_species.py", "qa_variants.py", "qa_walk.py", "qa_brain.py"]:
     st, detail = run_suite(name, ["python3", os.path.join(ROOT, name), JAVA], ROOT)
     record(name, st, detail)
 # qa_phase4 is __file__-relative: run from the repo root.
@@ -80,12 +70,31 @@ wp = read(f"{JAVA}/wallpaper/PixelWallpaperService.kt")
 ft_errors = []
 if "FRAME_MS = 33" not in wp:
     ft_errors.append("wallpaper frame interval must be FRAME_MS = 33 (~30fps)")
-# drawOnce body must not call snapshot() (storage write per frame)
-m = re.search(r"private fun drawOnce.*?\n    \}", wp, re.S)
-draw_once = m.group(0) if m else ""
-if "snapshot()" in draw_once:
+# drawOnce body must not call snapshot() (storage write per frame).
+# Extract by brace counting from the function signature: a regex stop
+# pattern would swallow following functions (drawOnce closes at 8-space
+# indent, deeper than the naive 4-space match).
+def _fn_body(src, sig):
+    i = src.find(sig)
+    if i < 0: return ""
+    j = src.find("{", i)
+    depth = 0
+    for k in range(j, len(src)):
+        if src[k] == "{": depth += 1
+        elif src[k] == "}":
+            depth -= 1
+            if depth == 0: return src[i:k + 1]
+    return ""
+draw_once = _fn_body(wp, "private fun drawOnce")
+# Strip comments before the snapshot() check: the body contains the
+# comment "never snapshot() per frame" — a bare substring match would
+# flag its own documentation (the exact vacuity the Phase 4 review
+# called out). Code only, no comments.
+draw_once_code = re.sub(r"//.*", "", draw_once)
+draw_once_code = re.sub(r"/\*.*?\*/", "", draw_once_code, flags=re.S)
+if "snapshot()" in draw_once_code:
     ft_errors.append("drawOnce calls snapshot() — per-frame storage write")
-if "cachedState" not in draw_once:
+if "cachedState" not in draw_once_code:
     ft_errors.append("drawOnce must read the cached 500ms state, not snapshot()")
 # bitmap cached by key; reused rects
 if "petKey" not in wp or "if (key != petKey" not in wp:
@@ -97,7 +106,7 @@ m2 = re.search(r"override fun onSurfaceChanged.*?\n        \}", wp, re.S)
 if not m2 or "stars = List(70)" not in m2.group(0):
     ft_errors.append("starfield must be built in onSurfaceChanged, not per frame")
 # known per-frame costs, documented not hidden: 1 key-string alloc, 70 sin()
-if "val key =" not in draw_once:
+if "val key =" not in draw_once_code:
     ft_errors.append("drawOnce must build the render key (expected 1 String alloc/frame)")
 if ft_errors:
     record("frame-time static bounds", "FAIL", "; ".join(ft_errors))
@@ -118,11 +127,7 @@ print(f"\nSuites: {len(results)} total, "
 if failed:
     print("GOLDEN SUITE: FAIL —", ", ".join(failed))
     sys.exit(1)
-if skipped:
-    print("GOLDEN SUITE: PASS (with skips — re-run on a canonical checkout "
-          "for the hardcoded suites)")
-else:
-    print("GOLDEN SUITE: PASS")
+print("GOLDEN SUITE: PASS")
 print("Note: pixel-diff comparison itself is NOT_RUN here (needs Android "
       "runtime). CI/device-only per qa_pixel_diff.py.")
 sys.exit(0)
